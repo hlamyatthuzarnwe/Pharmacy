@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SaleDetailActivity"></activity>
+        <activity android:name=".SaleReportDetailActivity"></activity>
+        <activity android:name=".SaleReportAddActivity" />
+        <activity android:name=".SaleDetailActivity" />
         <activity android:name=".SaleAddActivity" />
         <activity android:name=".SupplierDetailActivity" />
         <activity android:name=".SupplierAddActivity" />

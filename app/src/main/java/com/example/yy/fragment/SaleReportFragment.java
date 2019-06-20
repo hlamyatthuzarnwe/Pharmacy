@@ -3,6 +3,7 @@ package com.example.yy.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,9 @@ import com.example.yy.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SaleReportFragment extends Fragment {
+public class SaleReportFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+
+    private static final String TAG = "SaleReportFragment";
 
 
     public SaleReportFragment() {
@@ -27,4 +30,8 @@ public class SaleReportFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_sale_report, container, false);
     }
 
+    @Override
+    public void onRefresh() {
+
+    }
 }

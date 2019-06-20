@@ -37,43 +37,46 @@ public class SaleAddActivity extends AppCompatActivity {
     int saleId;
 
     @BindView(R.id.edtSaleInvoiceId_add)
-    TextView edtSaleInvoiceId_add;
+    EditText edtSaleInvoiceId_add;
 
     @BindView(R.id.edtSaleInvoiceDate)
-    TextView edtSaleInvoiceDate;
+    EditText edtSaleInvoiceDate;
 
     @BindView(R.id.edtSaleCustomerName_add)
-    TextView edtSaleCustomerName_add;
+    EditText edtSaleCustomerName_add;
+
+    @BindView(R.id.edtSaleCustomerLevel_add)
+    EditText edtSaleCustomerLevel_add;
 
     @BindView(R.id.edtSaleCustomerAddress_add)
-    TextView edtSaleCustomerAddress_add;
+    EditText edtSaleCustomerAddress_add;
 
     @BindView(R.id.edtSaleCustomerPhNo_add)
-    TextView edtSaleCustomerPhNo_add;
+    EditText edtSaleCustomerPhNo_add;
 
     @BindView(R.id.edtSaleMedicineName_add)
-    TextView edtSaleMedicineName_add;
+    EditText edtSaleMedicineName_add;
 
     @BindView(R.id.edtSaleMedicineCode_add)
-    TextView edtSaleMedicineCode_add;
+    EditText edtSaleMedicineCode_add;
 
     @BindView(R.id.edtSaleMedicineCategory_add)
-    TextView edtSaleMedicineCategory_add;
+    EditText edtSaleMedicineCategory_add;
 
     @BindView(R.id.edtMedicineCostPrice)
-    TextView edtMedicineCostPrice;
+    EditText edtMedicineCostPrice;
 
     @BindView(R.id.edtSaleDiscount_add)
-    TextView edtSaleDiscount_add;
+    EditText edtSaleDiscount_add;
 
     @BindView(R.id.edtSaleQty_add)
-    TextView edtSaleQty_add;
+    EditText edtSaleQty_add;
 
     @BindView(R.id.edtSaleSubTotalAmt_add)
-    TextView edtSaleSubTotalAmt_add;
+    EditText edtSaleSubTotalAmt_add;
 
     @BindView(R.id.edtSaleTotalAmt_add)
-    TextView edtSaleTotalAmt_add;
+    EditText edtSaleTotalAmt_add;
 
     @BindView(R.id.edtSaleDueDate)
     EditText edtSaleDueDate;
@@ -98,6 +101,7 @@ public class SaleAddActivity extends AppCompatActivity {
             edtSaleInvoiceId_add.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             edtSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             edtSaleCustomerName_add.setText(saleModel.getSaleCustomerName());
+            edtSaleCustomerLevel_add.setText(saleModel.getSaleCustomerLevel());
             edtSaleCustomerAddress_add.setText(saleModel.getSaleCustomerAddress());
             edtSaleCustomerPhNo_add.setText(saleModel.getSaleCustomerPhNo());
             edtSaleMedicineName_add.setText(saleModel.getSaleMedicineName());
@@ -202,6 +206,7 @@ public class SaleAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_add){
             String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
             String saleCustomerName = edtSaleCustomerName_add.getText().toString();
+            String saleCustomerlevel = edtSaleCustomerLevel_add.getText().toString();
             String saleCustomerAddress = edtSaleCustomerAddress_add.getText().toString();
             String saleCustomerPhNo = edtSaleCustomerPhNo_add.getText().toString();
             String saleMedicineName = edtSaleMedicineName_add.getText().toString();
@@ -219,6 +224,7 @@ public class SaleAddActivity extends AppCompatActivity {
             saleModel.setSaleInvoiceNo(Integer.parseInt(edtSaleInvoiceId_add.getText().toString()));
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
             saleModel.setSaleCustomerName(saleCustomerName);
+            saleModel.setSaleCustomerLevel(saleCustomerlevel);
             saleModel.setSaleCustomerAddress(saleCustomerAddress);
             saleModel.setSaleCustomerPhNo(saleCustomerPhNo);
             saleModel.setSaleMedicineName(saleMedicineName);
@@ -241,6 +247,7 @@ public class SaleAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_update){
             String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
             String saleCustomerName = edtSaleCustomerName_add.getText().toString();
+            String saleCustomerlevel = edtSaleCustomerLevel_add.getText().toString();
             String saleCustomerAddress = edtSaleCustomerAddress_add.getText().toString();
             String saleCustomerPhNo = edtSaleCustomerPhNo_add.getText().toString();
             String saleMedicineName = edtSaleMedicineName_add.getText().toString();
@@ -258,6 +265,7 @@ public class SaleAddActivity extends AppCompatActivity {
             saleModel.setSaleInvoiceNo(Integer.parseInt(edtSaleInvoiceId_add.getText().toString()));
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
             saleModel.setSaleCustomerName(saleCustomerName);
+            saleModel.setSaleCustomerLevel(saleCustomerlevel);
             saleModel.setSaleCustomerAddress(saleCustomerAddress);
             saleModel.setSaleCustomerPhNo(saleCustomerPhNo);
             saleModel.setSaleMedicineName(saleMedicineName);
@@ -297,6 +305,7 @@ public class SaleAddActivity extends AppCompatActivity {
             edtSaleInvoiceId_add.setText("");
             edtSaleInvoiceDate.setText("");
             edtSaleCustomerName_add.setText("");
+            edtSaleCustomerLevel_add.setText("");
             edtSaleCustomerAddress_add.setText("");
             edtSaleCustomerPhNo_add.setText("");
             edtSaleMedicineName_add.setText("");

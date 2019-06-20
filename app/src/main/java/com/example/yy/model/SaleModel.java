@@ -13,6 +13,7 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     private String saleInvoiceDate;
     private String saleCustomerName;
+    private String saleCustomerLevel;
     private String saleCustomerAddress;
     private String saleCustomerPhNo;
     private String saleMedicineName;
@@ -27,10 +28,11 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     public SaleModel(){}
 
-    public SaleModel(int saleInvoiceNo, String saleInvoiceDate, String saleCustomerName, String saleCustomerAddress, String saleCustomerPhNo, String saleMedicineName, String saleMedicineCode, String saleCategory, String salePrice, String saleDiscount, String saleQty, String saleSubTotalAmt, String saleTotalAmt, String saleDuedate) {
+    public SaleModel(int saleInvoiceNo, String saleInvoiceDate, String saleCustomerName, String saleCustomerLevel, String saleCustomerAddress, String saleCustomerPhNo, String saleMedicineName, String saleMedicineCode, String saleCategory, String salePrice, String saleDiscount, String saleQty, String saleSubTotalAmt, String saleTotalAmt, String saleDuedate) {
         this.saleInvoiceNo = saleInvoiceNo;
         this.saleInvoiceDate = saleInvoiceDate;
         this.saleCustomerName = saleCustomerName;
+        this.saleCustomerLevel = saleCustomerLevel;
         this.saleCustomerAddress = saleCustomerAddress;
         this.saleCustomerPhNo = saleCustomerPhNo;
         this.saleMedicineName = saleMedicineName;
@@ -42,6 +44,23 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleSubTotalAmt = saleSubTotalAmt;
         this.saleTotalAmt = saleTotalAmt;
         this.saleDuedate = saleDuedate;
+    }
+
+    protected SaleModel(Parcel in) {
+        saleInvoiceNo =  in.readInt();
+        saleInvoiceDate = in.readString();
+        saleCustomerName = in.readString();
+        saleCustomerLevel = in.readString();
+        saleCustomerAddress = in.readString();
+        saleCustomerPhNo = in.readString();
+        saleMedicineName = in.readString();
+        saleMedicineCode = in.readString();
+        saleCategory = in.readString();
+        salePrice = in.readString();
+        saleDiscount = in.readString();
+        saleSubTotalAmt = in.readString();
+        saleTotalAmt = in.readString();
+        saleDuedate = in.readString();
     }
 
     public int getSaleInvoiceNo() {
@@ -66,6 +85,14 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     public void setSaleCustomerName(String saleCustomerName) {
         this.saleCustomerName = saleCustomerName;
+    }
+
+    public String getSaleCustomerLevel() {
+        return saleCustomerLevel;
+    }
+
+    public void setSaleCustomerLevel(String saleCustomerLevel) {
+        this.saleCustomerLevel = saleCustomerLevel;
     }
 
     public String getSaleCustomerAddress() {
@@ -160,22 +187,6 @@ public class SaleModel extends RealmObject implements Parcelable {
         return CREATOR;
     }
 
-    protected SaleModel(Parcel in) {
-        saleInvoiceNo =  in.readInt();
-        saleInvoiceDate = in.readString();
-        saleCustomerName = in.readString();
-        saleCustomerAddress = in.readString();
-        saleCustomerPhNo = in.readString();
-        saleMedicineName = in.readString();
-        saleMedicineCode = in.readString();
-        saleCategory = in.readString();
-        salePrice = in.readString();
-        saleDiscount = in.readString();
-        saleSubTotalAmt = in.readString();
-        saleTotalAmt = in.readString();
-        saleDuedate = in.readString();
-    }
-
     public static final Creator<SaleModel> CREATOR = new Creator<SaleModel>() {
         @Override
         public SaleModel createFromParcel(Parcel in) {
@@ -198,6 +209,7 @@ public class SaleModel extends RealmObject implements Parcelable {
         dest.writeInt(saleInvoiceNo);
         dest.writeString(saleInvoiceDate);
         dest.writeString(saleCustomerName);
+        dest.writeString(saleCustomerLevel);
         dest.writeString(saleCustomerAddress);
         dest.writeString(saleCustomerPhNo);
         dest.writeString(saleMedicineName);
