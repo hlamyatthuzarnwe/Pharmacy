@@ -13,6 +13,7 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     private String saleInvoiceDate;
     private String saleCustomerName;
+    private String saleCustomerLevel;
     private String saleCustomerAddress;
     private String saleCustomerPhNo;
     private String saleMedicineName;
@@ -31,6 +32,7 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleInvoiceNo = saleInvoiceNo;
         this.saleInvoiceDate = saleInvoiceDate;
         this.saleCustomerName = saleCustomerName;
+        this.saleCustomerLevel = saleCustomerLevel;
         this.saleCustomerAddress = saleCustomerAddress;
         this.saleCustomerPhNo = saleCustomerPhNo;
         this.saleMedicineName = saleMedicineName;
@@ -66,6 +68,14 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     public void setSaleCustomerName(String saleCustomerName) {
         this.saleCustomerName = saleCustomerName;
+    }
+
+    public String getSaleCustomerLevel() {
+        return saleCustomerLevel;
+    }
+
+    public void setSaleCustomerLevel(String saleCustomerLevel) {
+        this.saleCustomerLevel = saleCustomerLevel;
     }
 
     public String getSaleCustomerAddress() {
@@ -198,6 +208,7 @@ public class SaleModel extends RealmObject implements Parcelable {
         dest.writeString(saleInvoiceNo);
         dest.writeString(saleInvoiceDate);
         dest.writeString(saleCustomerName);
+        dest.writeString(saleCustomerLevel);
         dest.writeString(saleCustomerAddress);
         dest.writeString(saleCustomerPhNo);
         dest.writeString(saleMedicineName);

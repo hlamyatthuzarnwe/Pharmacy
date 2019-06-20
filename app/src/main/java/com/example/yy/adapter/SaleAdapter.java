@@ -67,6 +67,9 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleCustomerName)
         TextView tvSaleCustomerName;
 
+        @BindView(R.id.tvSaleCustomerLevel_detail)
+        TextView tvSaleCustomerLevel_detail;
+
         @BindView(R.id.tvSaleCustomerAddress)
         TextView tvSaleCustomerAddress;
 
@@ -101,6 +104,9 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             }
             if(saleModel.getSaleCustomerName() != null){
                 tvSaleCustomerName.setText(saleModel.getSaleCustomerName());
+            }
+            if(saleModel.getSaleCustomerLevel() != null){
+                tvSaleCustomerLevel_detail.setText(saleModel.getSaleCustomerLevel());
             }
             if(saleModel.getSaleCustomerAddress() != null){
                 tvSaleCustomerAddress.setText(saleModel.getSaleCustomerAddress());

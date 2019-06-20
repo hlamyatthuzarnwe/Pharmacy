@@ -33,6 +33,9 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleCustomerName_detail)
     TextView tvSaleCustomerName_detail;
 
+    @BindView(R.id.tvSaleCustomerLevel_detail)
+    TextView tvSaleCustomerLevel_detail;
+
     @BindView(R.id.tvSaleCustomerAddress_detail)
     TextView tvSaleCustomerAddress_detail;
 
@@ -84,6 +87,7 @@ public class SaleDetailActivity extends AppCompatActivity {
             tvSaleCustomerPhNo_detail.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             tvSaleCustomerName_detail.setText(saleModel.getSaleCustomerName());
+            tvSaleCustomerLevel_detail.setText(saleModel.getSaleCustomerLevel());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
             tvSaleCustomerPhNo_detail.setText(saleModel.getSaleCustomerPhNo());
             tvSaleMedicineName_detail.setText(saleModel.getSaleMedicineName());
