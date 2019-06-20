@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example.yy.model.CustomerModel;
 import com.example.yy.model.MedicineModel;
 
+import java.util.UUID;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
@@ -121,7 +123,7 @@ public class CustomerAddActivity extends AppCompatActivity {
 
             CustomerModel customerModel = new CustomerModel();
 
-            customerModel.setCustomerId(Integer.parseInt(edtCustomerId_add.getText().toString()));
+            customerModel.setCustomerId(UUID.randomUUID().toString());
             customerModel.setCustomerName(cName);
             customerModel.setCustomerAddress(cAddress);
             customerModel.setCustomerLevel(clevel);
@@ -151,7 +153,7 @@ public class CustomerAddActivity extends AppCompatActivity {
 
             CustomerModel customerModel = new CustomerModel();
 
-            customerModel.setCustomerId(Integer.parseInt(edtCustomerId_add.getText().toString()));
+            customerModel.setCustomerId(customerModel.getCustomerId());
             customerModel.setCustomerName(cName);
             customerModel.setCustomerAddress(cAddress);
             customerModel.setCustomerLevel(cLevel);
@@ -169,7 +171,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_delete){
-            cId = customerModel.getCustomerId();
+            String cId = customerModel.getCustomerId();
 
             final CustomerModel deleteResults = realm.where(CustomerModel.class).equalTo("customerId", cId).findFirst();
             realm.executeTransaction(new Realm.Transaction() {
