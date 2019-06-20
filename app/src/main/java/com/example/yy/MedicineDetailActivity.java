@@ -24,9 +24,6 @@ public class MedicineDetailActivity extends AppCompatActivity {
     private Realm realm;
     private MedicineModel medicineModel;
 
-    @BindView(R.id.tvMedicineId_detail)
-    TextView tvMedicineId_detail;
-
     @BindView(R.id.tvMedicineName_detail)
     TextView tvMedicineName_detail;
 
@@ -94,7 +91,7 @@ public class MedicineDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(medicineModel != null){
-            tvMedicineId_detail.setText(String.valueOf(medicineModel.getMedcineId()));
+
             tvMedicineName_detail.setText(medicineModel.getMedicineName());
             tvMedicineCode_detail.setText(medicineModel.getMedicineCode());
             tvMedicineCategory_detail.setText(medicineModel.getMedicineCategory());

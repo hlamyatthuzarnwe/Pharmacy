@@ -41,9 +41,6 @@ public class MedicineAddActivity extends AppCompatActivity {
     private Context context;
     int mId;
 
-    @BindView(R.id.edtMedicineId)
-    EditText edtMedicineId;
-
     @BindView(R.id.edtMedicineName)
     EditText edtMedicineName;
 
@@ -112,7 +109,7 @@ public class MedicineAddActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(medicineModel != null){
-            edtMedicineId.setText(String.valueOf(medicineModel.getMedcineId()));
+
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicineCode.setText(medicineModel.getMedicineCode());
             edtMedicineCategory.setText(medicineModel.getMedicineCategory());
@@ -215,9 +212,6 @@ public class MedicineAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (TextUtils.isEmpty(edtMedicineId.getText())) {
-            mId = Integer.parseInt(edtMedicineId.getText().toString());
-        }
         if(item.getItemId() == R.id.menu_add){
             String mName = edtMedicineName.getText().toString();
             String mCode = edtMedicineCode.getText().toString();
@@ -282,7 +276,6 @@ public class MedicineAddActivity extends AppCompatActivity {
 
             MedicineModel medicineModel = new MedicineModel();
 
-            medicineModel.setMedcineId(medicineModel.getMedcineId());
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
@@ -324,7 +317,7 @@ public class MedicineAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_cancel){
-           edtMedicineId.setText("");
+
            edtMedicineName.setText("");
            edtMedicineCode.setText("");
            edtMedicineCategory.setText("");
