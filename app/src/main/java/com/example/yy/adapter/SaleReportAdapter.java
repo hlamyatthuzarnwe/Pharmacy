@@ -1,17 +1,24 @@
 package com.example.yy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.yy.MedicineDetailActivity;
 import com.example.yy.R;
+import com.example.yy.SaleReportDetailActivity;
 import com.example.yy.model.SaleReportModel;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SaleReportAdapter extends RecyclerView.Adapter<SaleReportAdapter.SaleReportViewHolder> {
 
@@ -47,11 +54,36 @@ public class SaleReportAdapter extends RecyclerView.Adapter<SaleReportAdapter.Sa
         private View saleReportView;
         private Context context;
 
+        @BindView(R.id.tvSaleReportSaleInvoiceNo)
+        TextView tvSaleReportSaleInvoiceNo;
+
+        @BindView(R.id.tvSaleReportSaleInvoiceDate)
+        TextView tvSaleReportSaleInvoiceDate;
+
+        @BindView(R.id.tvSaleReportCustmerName)
+        TextView tvSaleReportCustmerName;
+
         public SaleReportViewHolder(@NonNull View itemView) {
             super(itemView);
+            ButterKnife.bind(this,itemView);
+            context = itemView.getContext();
+            saleReportView = itemView;
         }
 
         public void bind(SaleReportModel saleReportModel) {
+
+            if(saleReportModel.getSaleReportSaleIInvoiceDate() != null){
+                tvSaleReportSaleInvoiceDate.setText(saleReportModel.getSaleReportSaleIInvoiceDate());
+            }
+            if(saleReportModel.getSaleReportCustomerName() != null){
+                tvSaleReportCustmerName.setText(saleReportModel.getSaleReportCustomerName());
+            }
+
+            saleReportView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, SaleReportDetailActivity.class);
+                intent.putExtra("SaleReportModel",saleReportModel);
+                context.startActivity(intent);
+            });
         }
     }
 }
