@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.yy.model.SupplierModel;
 
+import java.util.UUID;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
@@ -119,7 +121,7 @@ public class SupplierAddActivity extends AppCompatActivity {
 
             SupplierModel supplierModel = new SupplierModel();
 
-            supplierModel.setSuplierId(Integer.parseInt(edtSupplierId_add.getText().toString()));
+            supplierModel.setSuplierId(UUID.randomUUID().toString());
             supplierModel.setSupplierName(sName);
             supplierModel.setCompanyName(sCompanyName);
             supplierModel.setCompanyAddress(sCompanyAddress);
@@ -150,7 +152,7 @@ public class SupplierAddActivity extends AppCompatActivity {
 
             SupplierModel supplierModel = new SupplierModel();
 
-            supplierModel.setSuplierId(Integer.parseInt(edtSupplierId_add.getText().toString()));
+            supplierModel.setSuplierId(supplierModel.getSuplierId());
             supplierModel.setSupplierName(sName);
             supplierModel.setCompanyName(sCompanyName);
             supplierModel.setCompanyAddress(sCompanyAddress);
@@ -170,7 +172,7 @@ public class SupplierAddActivity extends AppCompatActivity {
 
         if(item.getItemId() == R.id.menu_delete){
 
-            sId = supplierModel.getSuplierId();
+           String sId = supplierModel.getSuplierId();
             final  SupplierModel deleteResults = realm.where(SupplierModel.class).equalTo("supplierId",sId).findFirst();
             realm.executeTransaction(new Realm.Transaction() {
                 @Override

@@ -9,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
 public class SupplierModel extends RealmObject implements Parcelable {
 
     @PrimaryKey
-    private int suplierId;
+    private String suplierId;
 
     private String supplierName;
     private String companyName;
@@ -26,7 +26,7 @@ public class SupplierModel extends RealmObject implements Parcelable {
     }
 
     protected SupplierModel(Parcel in) {
-        suplierId = in.readInt();
+        suplierId = in.readString();
         supplierName = in.readString();
         companyName = in.readString();
         companyAddress = in.readString();
@@ -50,11 +50,11 @@ public class SupplierModel extends RealmObject implements Parcelable {
         }
     };
 
-    public int getSuplierId() {
+    public String getSuplierId() {
         return suplierId;
     }
 
-    public void setSuplierId(int suplierId) {
+    public void setSuplierId(String suplierId) {
         this.suplierId = suplierId;
     }
 
@@ -137,7 +137,7 @@ public class SupplierModel extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(suplierId);
+        dest.writeString(suplierId);
         dest.writeString(supplierName);
         dest.writeString(companyName);
         dest.writeString(companyAddress);

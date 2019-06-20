@@ -9,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
 public class SaleModel extends RealmObject implements Parcelable {
 
     @PrimaryKey
-    private int saleInvoiceNo;
+    private String saleInvoiceNo;
 
     private String saleInvoiceDate;
     private String saleCustomerName;
@@ -27,7 +27,7 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     public SaleModel(){}
 
-    public SaleModel(int saleInvoiceNo, String saleInvoiceDate, String saleCustomerName, String saleCustomerAddress, String saleCustomerPhNo, String saleMedicineName, String saleMedicineCode, String saleCategory, String salePrice, String saleDiscount, String saleQty, String saleSubTotalAmt, String saleTotalAmt, String saleDuedate) {
+    public SaleModel(String saleInvoiceNo, String saleInvoiceDate, String saleCustomerName, String saleCustomerAddress, String saleCustomerPhNo, String saleMedicineName, String saleMedicineCode, String saleCategory, String salePrice, String saleDiscount, String saleQty, String saleSubTotalAmt, String saleTotalAmt, String saleDuedate) {
         this.saleInvoiceNo = saleInvoiceNo;
         this.saleInvoiceDate = saleInvoiceDate;
         this.saleCustomerName = saleCustomerName;
@@ -44,11 +44,11 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleDuedate = saleDuedate;
     }
 
-    public int getSaleInvoiceNo() {
+    public String getSaleInvoiceNo() {
         return saleInvoiceNo;
     }
 
-    public void setSaleInvoiceNo(int saleInvoiceNo) {
+    public void setSaleInvoiceNo(String saleInvoiceNo) {
         this.saleInvoiceNo = saleInvoiceNo;
     }
 
@@ -161,7 +161,7 @@ public class SaleModel extends RealmObject implements Parcelable {
     }
 
     protected SaleModel(Parcel in) {
-        saleInvoiceNo =  in.readInt();
+        saleInvoiceNo =  in.readString();
         saleInvoiceDate = in.readString();
         saleCustomerName = in.readString();
         saleCustomerAddress = in.readString();
@@ -195,7 +195,7 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(saleInvoiceNo);
+        dest.writeString(saleInvoiceNo);
         dest.writeString(saleInvoiceDate);
         dest.writeString(saleCustomerName);
         dest.writeString(saleCustomerAddress);

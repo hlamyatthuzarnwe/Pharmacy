@@ -9,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
 public class CustomerModel extends RealmObject implements Parcelable {
 
     @PrimaryKey
-    private int customerId;
+    private String customerId;
 
     private String customerName;
     private String customerLevel;
@@ -23,7 +23,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
 
     public CustomerModel(){}
 
-    public CustomerModel(int customerId, String customerName, String customerLevel, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerNote) {
+    public CustomerModel(String customerId, String customerName, String customerLevel, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerNote) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerLevel = customerLevel;
@@ -36,11 +36,11 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerNote = customerNote;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -121,7 +121,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
     }
 
     protected CustomerModel(Parcel in) {
-        customerId = in.readInt();
+        customerId = in.readString();
         customerName = in.readString();
         customerLevel = in.readString();
         customerAddress = in.readString();
@@ -152,7 +152,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(customerId);
+        dest.writeString(customerId);
         dest.writeString(customerName);
         dest.writeString(customerLevel);
         dest.writeString(customerAddress);

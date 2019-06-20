@@ -9,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
 public class MedicineModel extends RealmObject implements Parcelable {
 
     @PrimaryKey
-    private int medcineId;
+    private String medcineId;
 
     private String medicineName;
     private String medicineCode;
@@ -35,11 +35,11 @@ public class MedicineModel extends RealmObject implements Parcelable {
 
     public MedicineModel(){}
 
-    public int getMedcineId() {
+    public String getMedcineId() {
         return medcineId;
     }
 
-    public void setMedcineId(int medcineId) {
+    public void setMedcineId(String medcineId) {
         this.medcineId = medcineId;
     }
 
@@ -51,7 +51,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
         this.medicineName = medicineName;
     }
 
-    public MedicineModel(int medcineId, String medicineName, String medicineCode, String medicineCategory, String medicineDescription, String medicinePrice1, String medicinePrice2, String medicinePrice3, String medicinePrice4, String medicinePrice5, String medicineSellingPrice, String receivedDate, String expDate, String medicineCost, String medicineQty, String medicineQtyLeft, String medicineTotalAmt, String supplierName) {
+    public MedicineModel(String medcineId, String medicineName, String medicineCode, String medicineCategory, String medicineDescription, String medicinePrice1, String medicinePrice2, String medicinePrice3, String medicinePrice4, String medicinePrice5, String medicineSellingPrice, String receivedDate, String expDate, String medicineCost, String medicineQty, String medicineQtyLeft, String medicineTotalAmt, String supplierName) {
         this.medcineId = medcineId;
         this.medicineName = medicineName;
         this.medicineCode = medicineCode;
@@ -201,7 +201,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
     }
 
     protected MedicineModel(Parcel in) {
-        medcineId = in.readInt();
+        medcineId = in.readString();
         medicineName = in.readString();
         medicineCode = in.readString();
         medicineCategory = in.readString();
@@ -240,7 +240,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(medcineId);
+        dest.writeString(medcineId);
         dest.writeString(medicineName);
         dest.writeString(medicineCode);
         dest.writeString(medicineCategory);

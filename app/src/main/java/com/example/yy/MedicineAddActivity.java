@@ -23,6 +23,7 @@ import com.example.yy.model.MedicineModel;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -237,7 +238,7 @@ public class MedicineAddActivity extends AppCompatActivity {
 
             MedicineModel medicineModel = new MedicineModel();
 
-            medicineModel.setMedcineId(Integer.parseInt(edtMedicineId.getText().toString()));
+            medicineModel.setMedcineId(UUID.randomUUID().toString());
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
@@ -281,7 +282,7 @@ public class MedicineAddActivity extends AppCompatActivity {
 
             MedicineModel medicineModel = new MedicineModel();
 
-            medicineModel.setMedcineId(Integer.parseInt(edtMedicineId.getText().toString()));
+            medicineModel.setMedcineId(medicineModel.getMedcineId());
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
@@ -307,7 +308,7 @@ public class MedicineAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_delete){
-            mId = medicineModel.getMedcineId();
+            String mId = medicineModel.getMedcineId();
 
             final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("medicineId", mId).findFirst();
             realm.executeTransaction(new Realm.Transaction() {

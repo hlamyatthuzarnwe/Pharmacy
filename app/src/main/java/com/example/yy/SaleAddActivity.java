@@ -20,6 +20,7 @@ import com.example.yy.model.SaleModel;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -216,7 +217,7 @@ public class SaleAddActivity extends AppCompatActivity {
 
             SaleModel saleModel = new SaleModel();
 
-            saleModel.setSaleInvoiceNo(Integer.parseInt(edtSaleInvoiceId_add.getText().toString()));
+            saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
             saleModel.setSaleCustomerName(saleCustomerName);
             saleModel.setSaleCustomerAddress(saleCustomerAddress);
@@ -255,7 +256,7 @@ public class SaleAddActivity extends AppCompatActivity {
 
             SaleModel saleModel = new SaleModel();
 
-            saleModel.setSaleInvoiceNo(Integer.parseInt(edtSaleInvoiceId_add.getText().toString()));
+            saleModel.setSaleInvoiceNo(saleModel.getSaleInvoiceNo());
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
             saleModel.setSaleCustomerName(saleCustomerName);
             saleModel.setSaleCustomerAddress(saleCustomerAddress);
@@ -278,7 +279,7 @@ public class SaleAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_delete){
-            saleId = saleModel.getSaleInvoiceNo();
+            String saleId = saleModel.getSaleInvoiceNo();
 
             final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("saleInvoiceNo", saleId).findFirst();
             realm.executeTransaction(new Realm.Transaction() {
