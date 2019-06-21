@@ -1,4 +1,4 @@
-package com.example.yy.helper;
+package com.example.pharmacy.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
