@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/swipeSupplier"
     android:background="@android:color/white"
-    tools:context=".fragment.SupplierFragment">
+    tools:context="com.example.pharmacy.fragment.SupplierFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView

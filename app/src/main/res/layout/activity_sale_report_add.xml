@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SaleReportAddActivity">
+    tools:context="com.example.pharmacy.SaleReportAddActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                     android:layout_weight="1"
                     android:text="Sale Invoice No"/>
                 <EditText
-                    android:id="@+id/edtSaleReportSaleInvoiceNo_add"
+                    android:id="@+id/edtSaleInvoiceId_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -52,7 +52,7 @@
                     android:text="Sale Invoice Date"/>
                 <EditText
                     android:layout_weight="1"
-                    android:id="@+id/edtSaleReportSaleInvoiceDate_add"
+                    android:id="@+id/edtSaleInvoiceDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:text="Customer Name"/>
                 <EditText
-                    android:id="@+id/edtSaleReportCustomerName_add"
+                    android:id="@+id/edtCustomerName_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -89,7 +89,7 @@
                     android:layout_weight="1"
                     android:text="Amount"/>
                 <EditText
-                    android:id="@+id/edtSaleReportAmt_add"
+                    android:id="@+id/edtSaleTotalAmt_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -104,7 +104,7 @@
                     android:layout_weight="1"
                     android:text="Profit"/>
                 <EditText
-                    android:id="@+id/edtSaleReportProfit_add"
+                    android:id="@+id/edtSaleProfit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>

@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.yy">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:name=".app.PharmacyApp"
+        android:name="com.example.pharmacy.app.PharmacyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,23 +14,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SaleReportDetailActivity"></activity>
-        <activity android:name=".SaleReportAddActivity" />
-        <activity android:name=".SaleDetailActivity" />
-        <activity android:name=".SaleAddActivity" />
-        <activity android:name=".SupplierDetailActivity" />
-        <activity android:name=".SupplierAddActivity" />
-        <activity android:name=".CustomerDetailActivity" />
-        <activity android:name=".CustomerAddActivity" />
-        <activity android:name=".MedicineDetailActivity" />
-        <activity android:name=".MedicineAddActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.pharmacy.InventoryAddActivity"></activity>
+        <activity android:name="com.example.pharmacy.SaleReportDetailActivity" />
+        <activity android:name="com.example.pharmacy.SaleReportAddActivity" />
+        <activity android:name="com.example.pharmacy.SaleDetailActivity" />
+        <activity android:name="com.example.pharmacy.SaleAddActivity" />
+        <activity android:name="com.example.pharmacy.SupplierDetailActivity" />
+        <activity android:name="com.example.pharmacy.SupplierAddActivity" />
+        <activity android:name="com.example.pharmacy.CustomerDetailActivity" />
+        <activity android:name="com.example.pharmacy.CustomerAddActivity" />
+        <activity android:name="com.example.pharmacy.MedicineDetailActivity" />
+        <activity android:name="com.example.pharmacy.MedicineAddActivity" />
+        <activity android:name="com.example.pharmacy.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <meta-data android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID" />
+        <meta-data android:name="com.facebook.accountkit.ClientToken"
+            android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
+
+        <activity
+            android:name="com.facebook.accountkit.ui.AccountKitActivity" />
+
+        <meta-data android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
+            android:value="false"/>
+
+
     </application>
 
 </manifest>

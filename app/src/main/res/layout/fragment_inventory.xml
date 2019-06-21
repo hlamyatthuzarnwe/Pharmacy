@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/swipeMedicine"
     android:background="@android:color/white"
-    tools:context=".fragment.InventoryFragment">
+    tools:context="com.example.pharmacy.fragment.InventoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.RecyclerView
