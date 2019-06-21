@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.pharmacy.helper.DateTimeHelper;
+import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
@@ -33,6 +34,8 @@ public class SaleAddActivity extends AppCompatActivity {
 
     private Realm realm;
     private SaleModel saleModel;
+    private CustomerModel customerModel;
+    private MedicineModel medicineModel;
     private Toolbar toolbar;
     private Context context;
     int saleId;
@@ -43,26 +46,26 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
 
-    @BindView(R.id.edtSaleCustomerName_add)
-    EditText edtSaleCustomerName_add;
+    @BindView(R.id.edtCustomerName_add)
+    EditText edtCustomerName_add;
 
-    @BindView(R.id.edtSaleCustomerLevel_add)
-    EditText edtSaleCustomerLevel_add;
+    @BindView(R.id.edtCustomerLevel_add)
+    EditText edtCustomerLevel_add;
 
-    @BindView(R.id.edtSaleCustomerAddress_add)
-    EditText edtSaleCustomerAddress_add;
+    @BindView(R.id.edtCustomerAddress_add)
+    EditText edtCustomerAddress_add;
 
-    @BindView(R.id.edtSaleCustomerPhNo_add)
-    EditText edtSaleCustomerPhNo_add;
+    @BindView(R.id.edtCustomerPhNo1)
+    EditText edtCustomerPhNo1;
 
-    @BindView(R.id.edtSaleMedicineName_add)
-    EditText edtSaleMedicineName_add;
+    @BindView(R.id.edtMedicineName)
+    EditText edtMedicineName;
 
-    @BindView(R.id.edtSaleMedicineCode_add)
-    EditText edtSaleMedicineCode_add;
+    @BindView(R.id.edtMedicineCode)
+    EditText edtMedicineCode;
 
-    @BindView(R.id.edtSaleMedicineCategory_add)
-    EditText edtSaleMedicineCategory_add;
+    @BindView(R.id.edtMedicineCategory)
+    EditText edtMedicineCategory;
 
     @BindView(R.id.edtMedicineCostPrice)
     EditText edtMedicineCostPrice;
@@ -81,6 +84,8 @@ public class SaleAddActivity extends AppCompatActivity {
 
     @BindView(R.id.edtSaleDueDate)
     EditText edtSaleDueDate;
+    private String medcineId;
+    private String customerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,13 +106,13 @@ public class SaleAddActivity extends AppCompatActivity {
         if(saleModel != null){
             edtSaleInvoiceId_add.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             edtSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
-            edtSaleCustomerName_add.setText(saleModel.getSaleCustomerName());
-            edtSaleCustomerLevel_add.setText(saleModel.getSaleCustomerLevel());
-            edtSaleCustomerAddress_add.setText(saleModel.getSaleCustomerAddress());
-            edtSaleCustomerPhNo_add.setText(saleModel.getSaleCustomerPhNo());
-            edtSaleMedicineName_add.setText(saleModel.getSaleMedicineName());
-            edtSaleMedicineCode_add.setText(saleModel.getSaleMedicineCode());
-            edtSaleMedicineCategory_add.setText(saleModel.getSaleCategory());
+            edtCustomerName_add.setText(customerModel.getCustomerName());
+            edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
+            edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
+            edtCustomerPhNo1.setText(customerModel.getCustomerPhNo1());
+            edtMedicineName.setText(medicineModel.getMedicineName());
+            edtMedicineCode.setText(medicineModel.getMedicineCode());
+            edtMedicineCategory.setText(medicineModel.getMedicineCategory());
             edtMedicineCostPrice.setText(saleModel.getSalePrice());
             edtSaleDiscount_add.setText(saleModel.getSaleDiscount());
             edtSaleQty_add.setText(saleModel.getSaleQty());
@@ -206,13 +211,13 @@ public class SaleAddActivity extends AppCompatActivity {
         }
         if(item.getItemId() == R.id.menu_add){
             String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
-            String saleCustomerName = edtSaleCustomerName_add.getText().toString();
-            String saleCustomerlevel = edtSaleCustomerLevel_add.getText().toString();
-            String saleCustomerAddress = edtSaleCustomerAddress_add.getText().toString();
-            String saleCustomerPhNo = edtSaleCustomerPhNo_add.getText().toString();
-            String saleMedicineName = edtSaleMedicineName_add.getText().toString();
-            String saleMedicineCode = edtSaleMedicineCode_add.getText().toString();
-            String saleMedicineCategory = edtSaleMedicineCategory_add.getText().toString();
+            String saleCustomerName = edtCustomerName_add.getText().toString();
+            String saleCustomerlevel = edtCustomerLevel_add.getText().toString();
+            String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
+            String saleCustomerPhNo = edtCustomerPhNo1.getText().toString();
+            String saleMedicineName = edtMedicineName.getText().toString();
+            String saleMedicineCode = edtMedicineCode.getText().toString();
+            String saleMedicineCategory = edtMedicineCategory.getText().toString();
             String salePrice = edtMedicineCostPrice.getText().toString();
             String saleDiscount = edtSaleDiscount_add.getText().toString();
             String saleQty = edtSaleQty_add.getText().toString();
@@ -221,17 +226,19 @@ public class SaleAddActivity extends AppCompatActivity {
             String saleDueDate = edtSaleDueDate.getText().toString();
 
             SaleModel saleModel = new SaleModel();
+            MedicineModel medicineModel = new MedicineModel();
+            CustomerModel customerModel = new CustomerModel();
 
             saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
-            saleModel.setSaleCustomerName(saleCustomerName);
-            saleModel.setSaleCustomerLevel(saleCustomerlevel);
-            saleModel.setSaleCustomerAddress(saleCustomerAddress);
-            saleModel.setSaleCustomerPhNo(saleCustomerPhNo);
-            saleModel.setSaleMedicineName(saleMedicineName);
-            saleModel.setSaleMedicineCode(saleMedicineCode);
-            saleModel.setSaleCategory(saleMedicineCategory);
-            saleModel.setSalePrice(salePrice);
+            customerModel.setCustomerName(saleCustomerName);
+            customerModel.setCustomerLevel(saleCustomerlevel);
+            customerModel.setCustomerAddress(saleCustomerAddress);
+            customerModel.setCustomerPhNo1(saleCustomerPhNo);
+            medicineModel.setMedicineName(saleMedicineName);
+            medicineModel.setMedicineCode(saleMedicineCode);
+            medicineModel.setMedicineCategory(saleMedicineCategory);
+            medicineModel.setMedicineSellingPrice(salePrice);
             saleModel.setSaleDiscount(saleDiscount);
             saleModel.setSaleQty(saleQty);
             saleModel.setSaleSubTotalAmt(saleSubTotalAmt);
@@ -240,6 +247,8 @@ public class SaleAddActivity extends AppCompatActivity {
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(saleModel);
+                realm.copyToRealmOrUpdate(medicineModel);
+                realm.copyToRealmOrUpdate(customerModel);
                 Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
             });
 
@@ -247,13 +256,13 @@ public class SaleAddActivity extends AppCompatActivity {
 
         if(item.getItemId() == R.id.menu_update){
             String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
-            String saleCustomerName = edtSaleCustomerName_add.getText().toString();
-            String saleCustomerlevel = edtSaleCustomerLevel_add.getText().toString();
-            String saleCustomerAddress = edtSaleCustomerAddress_add.getText().toString();
-            String saleCustomerPhNo = edtSaleCustomerPhNo_add.getText().toString();
-            String saleMedicineName = edtSaleMedicineName_add.getText().toString();
-            String saleMedicineCode = edtSaleMedicineCode_add.getText().toString();
-            String saleMedicineCategory = edtSaleMedicineCategory_add.getText().toString();
+            String saleCustomerName = edtCustomerName_add.getText().toString();
+            String saleCustomerlevel = edtCustomerLevel_add.getText().toString();
+            String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
+            String saleCustomerPhNo = edtCustomerPhNo1.getText().toString();
+            String saleMedicineName = edtMedicineName.getText().toString();
+            String saleMedicineCode = edtMedicineCode.getText().toString();
+            String saleMedicineCategory = edtMedicineCategory.getText().toString();
             String salePrice = edtMedicineCostPrice.getText().toString();
             String saleDiscount = edtSaleDiscount_add.getText().toString();
             String saleQty = edtSaleQty_add.getText().toString();
@@ -262,17 +271,19 @@ public class SaleAddActivity extends AppCompatActivity {
             String saleDueDate = edtSaleDueDate.getText().toString();
 
             SaleModel saleModel = new SaleModel();
+            MedicineModel medicineModel = new MedicineModel();
+            CustomerModel customerModel = new CustomerModel();
 
-            saleModel.setSaleInvoiceNo(saleModel.getSaleInvoiceNo());
+            saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
-            saleModel.setSaleCustomerName(saleCustomerName);
-            saleModel.setSaleCustomerLevel(saleCustomerlevel);
-            saleModel.setSaleCustomerAddress(saleCustomerAddress);
-            saleModel.setSaleCustomerPhNo(saleCustomerPhNo);
-            saleModel.setSaleMedicineName(saleMedicineName);
-            saleModel.setSaleMedicineCode(saleMedicineCode);
-            saleModel.setSaleCategory(saleMedicineCategory);
-            saleModel.setSalePrice(salePrice);
+            customerModel.setCustomerName(saleCustomerName);
+            customerModel.setCustomerLevel(saleCustomerlevel);
+            customerModel.setCustomerAddress(saleCustomerAddress);
+            customerModel.setCustomerPhNo1(saleCustomerPhNo);
+            medicineModel.setMedicineName(saleMedicineName);
+            medicineModel.setMedicineCode(saleMedicineCode);
+            medicineModel.setMedicineCategory(saleMedicineCategory);
+            medicineModel.setMedicineSellingPrice(salePrice);
             saleModel.setSaleDiscount(saleDiscount);
             saleModel.setSaleQty(saleQty);
             saleModel.setSaleSubTotalAmt(saleSubTotalAmt);
@@ -281,7 +292,9 @@ public class SaleAddActivity extends AppCompatActivity {
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(saleModel);
-                Toast.makeText(SaleAddActivity.this, "Successfully Update Data", Toast.LENGTH_SHORT).show();
+                realm.copyToRealmOrUpdate(medicineModel);
+                realm.copyToRealmOrUpdate(customerModel);
+                Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
             });
 
         }
@@ -289,12 +302,20 @@ public class SaleAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_delete){
             String saleId = saleModel.getSaleInvoiceNo();
 
-            final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("saleInvoiceNo", saleId).findFirst();
+            final MedicineModel deleteResults1 = realm.where(MedicineModel.class).equalTo("medicineName", medcineId).findFirst();
+            final SaleModel deleteResults2 = realm.where(SaleModel.class).equalTo("saleInvoiceNo", saleId).findFirst();
+            final CustomerModel deleteResults3 = realm.where(CustomerModel.class).equalTo("customerName", customerId).findFirst();
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
-                    if (deleteResults != null) {
-                        deleteResults.deleteFromRealm();
+                    if (deleteResults1 != null) {
+                        deleteResults1.deleteFromRealm();
+                    }
+                    if (deleteResults2 != null) {
+                        deleteResults2.deleteFromRealm();
+                    }
+                    if (deleteResults3 != null) {
+                        deleteResults3.deleteFromRealm();
                     }
                     Toast.makeText(SaleAddActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
                     finish();
@@ -305,13 +326,13 @@ public class SaleAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_cancel){
             edtSaleInvoiceId_add.setText("");
             edtSaleInvoiceDate.setText("");
-            edtSaleCustomerName_add.setText("");
-            edtSaleCustomerLevel_add.setText("");
-            edtSaleCustomerAddress_add.setText("");
-            edtSaleCustomerPhNo_add.setText("");
-            edtSaleMedicineName_add.setText("");
-            edtSaleMedicineCode_add.setText("");
-            edtSaleMedicineCategory_add.setText("");
+            edtCustomerName_add.setText("");
+            edtCustomerLevel_add.setText("");
+            edtCustomerAddress_add.setText("");
+            edtCustomerPhNo1.setText("");
+            edtMedicineName.setText("");
+            edtMedicineCode.setText("");
+            edtMedicineCategory.setText("");
             edtMedicineCostPrice.setText("");
             edtSaleDiscount_add.setText("");
             edtSaleQty_add.setText("");

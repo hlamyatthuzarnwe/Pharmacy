@@ -37,7 +37,7 @@
                     android:layout_weight="1"
                     android:text="Medicine Name"/>
                 <EditText
-                    android:id="@+id/edtInventoryCustomerName"
+                    android:id="@+id/edtMedicineName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:text="Medicine Code"/>
                 <EditText
-                    android:id="@+id/edtInventoryMedicineCode"
+                    android:id="@+id/edtMedicineCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -67,7 +67,7 @@
                     android:layout_weight="1"
                     android:text="Medicine Quantity"/>
                 <EditText
-                    android:id="@+id/edtInventoryMedicineQty"
+                    android:id="@+id/edtMedicineQty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -82,7 +82,7 @@
                     android:layout_weight="1"
                     android:text="Expire Date"/>
                 <EditText
-                    android:id="@+id/edtInventoryExpDate"
+                    android:id="@+id/edtExpDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>

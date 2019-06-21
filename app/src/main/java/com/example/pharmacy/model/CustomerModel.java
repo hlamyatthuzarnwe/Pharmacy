@@ -3,6 +3,7 @@ package com.example.pharmacy.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -21,20 +22,11 @@ public class CustomerModel extends RealmObject implements Parcelable {
     private String customerPhNo5;
     private String customerNote;
 
-    public CustomerModel(){}
+    private SaleModel saleModel;
+    private RealmList<MedicineModel> medicineLists;
 
-    public CustomerModel(String customerId, String customerName, String customerLevel, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerNote) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.customerLevel = customerLevel;
-        this.customerAddress = customerAddress;
-        this.customerPhNo1 = customerPhNo1;
-        this.customerPhNo2 = customerPhNo2;
-        this.customerPhNo3 = customerPhNo3;
-        this.customerPhNo4 = customerPhNo4;
-        this.customerPhNo5 = customerPhNo5;
-        this.customerNote = customerNote;
-    }
+
+    public CustomerModel(){}
 
     public String getCustomerId() {
         return customerId;
@@ -116,6 +108,22 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerNote = customerNote;
     }
 
+    public SaleModel getSaleModel() {
+        return saleModel;
+    }
+
+    public void setSaleModel(SaleModel saleModel) {
+        this.saleModel = saleModel;
+    }
+
+    public RealmList<MedicineModel> getMedicineLists() {
+        return medicineLists;
+    }
+
+    public void setMedicineLists(RealmList<MedicineModel> medicineLists) {
+        this.medicineLists = medicineLists;
+    }
+
     public static Creator<CustomerModel> getCREATOR() {
         return CREATOR;
     }
@@ -131,23 +139,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
         customerPhNo4 = in.readString();
         customerPhNo5 = in.readString();
         customerNote = in.readString();
-    }
-
-    public static final Creator<CustomerModel> CREATOR = new Creator<CustomerModel>() {
-        @Override
-        public CustomerModel createFromParcel(Parcel in) {
-            return new CustomerModel(in);
-        }
-
-        @Override
-        public CustomerModel[] newArray(int size) {
-            return new CustomerModel[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+        saleModel = in.readParcelable(SaleModel.class.getClassLoader());
     }
 
     @Override
@@ -162,5 +154,23 @@ public class CustomerModel extends RealmObject implements Parcelable {
         dest.writeString(customerPhNo4);
         dest.writeString(customerPhNo5);
         dest.writeString(customerNote);
+        dest.writeParcelable(saleModel, flags);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<CustomerModel> CREATOR = new Creator<CustomerModel>() {
+        @Override
+        public CustomerModel createFromParcel(Parcel in) {
+            return new CustomerModel(in);
+        }
+
+        @Override
+        public CustomerModel[] newArray(int size) {
+            return new CustomerModel[size];
+        }
+    };
 }

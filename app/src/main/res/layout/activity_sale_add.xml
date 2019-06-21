@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:text="Customer Name"/>
                 <EditText
-                    android:id="@+id/edtSaleCustomerName_add"
+                    android:id="@+id/edtCustomerName_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -89,7 +89,7 @@
                     android:layout_weight="1"
                     android:text="Customer Level"/>
                 <EditText
-                    android:id="@+id/edtSaleCustomerLevel_add"
+                    android:id="@+id/edtCustomerLevel_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -104,7 +104,7 @@
                     android:layout_weight="1"
                     android:text="Customer Address"/>
                 <EditText
-                    android:id="@+id/edtSaleCustomerAddress_add"
+                    android:id="@+id/edtCustomerAddress_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -119,7 +119,7 @@
                     android:layout_weight="1"
                     android:text="Customer Phone No"/>
                 <EditText
-                    android:id="@+id/edtSaleCustomerPhNo_add"
+                    android:id="@+id/edtCustomerPhNo1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -134,7 +134,7 @@
                     android:layout_weight="1"
                     android:text="Medicine Name"/>
                 <EditText
-                    android:id="@+id/edtSaleMedicineName_add"
+                    android:id="@+id/edtMedicineName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -149,7 +149,7 @@
                     android:layout_weight="1"
                     android:text="Medicine Code"/>
                 <EditText
-                    android:id="@+id/edtSaleMedicineCode_add"
+                    android:id="@+id/edtMedicineCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -164,7 +164,7 @@
                     android:layout_weight="1"
                     android:text="Category"/>
                 <EditText
-                    android:id="@+id/edtSaleMedicineCategory_add"
+                    android:id="@+id/edtMedicineCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -179,7 +179,7 @@
                     android:layout_weight="1"
                     android:text="Price"/>
                 <EditText
-                    android:id="@+id/etSaleMedicinePrice_add"
+                    android:id="@+id/edtMedicineCostPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
