@@ -30,9 +30,6 @@ public class SupplierAddActivity extends AppCompatActivity {
     private Context context;
     private int sId;
 
-    @BindView(R.id.edtSupplierId_add)
-    EditText edtSupplierId_add;
-
     @BindView(R.id.edtSupplierName_add)
     EditText edtSupplierName_add;
 
@@ -75,7 +72,7 @@ public class SupplierAddActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(supplierModel != null){
-            edtSupplierId_add.setText(String.valueOf(supplierModel.getSuplierId()));
+
             edtSupplierName_add.setText(supplierModel.getSupplierName());
             edtCompanyName_add.setText(supplierModel.getCompanyName());
             edtCompanyAddress_add.setText(supplierModel.getCompanyAddress());
@@ -104,10 +101,6 @@ public class SupplierAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        if(TextUtils.isEmpty(edtSupplierId_add.getText())){
-            sId = Integer.parseInt(edtSupplierId_add.getText().toString());
-        }
         if(item.getItemId() == R.id.menu_add){
             String sName = edtSupplierName_add.getText().toString();
             String sCompanyName = edtCompanyName_add.getText().toString();
@@ -187,7 +180,7 @@ public class SupplierAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_cancel){
-            edtSupplierId_add.setText("");
+
             edtSupplierName_add.setText("");
             edtCompanyName_add.setText("");
             edtCompanyAddress_add.setText("");

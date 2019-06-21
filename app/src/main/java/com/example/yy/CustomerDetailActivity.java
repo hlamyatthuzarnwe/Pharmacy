@@ -25,10 +25,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
-
-    @BindView(R.id.tvCustomerId_detail)
-    TextView tvCustomerId_detail;
-
     @BindView(R.id.tvCustomerName_detail)
     TextView tvCustomerName_detail;
 
@@ -71,7 +67,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(customerModel != null){
-            tvCustomerId_detail.setText(String.valueOf(customerModel.getCustomerId()));
+
             tvCustomerName_detail.setText(customerModel.getCustomerName());
             tvCustomerName_detail.setText(customerModel.getCustomerName());
             tvCustomerLevel_detail.setText(customerModel.getCustomerLevel());

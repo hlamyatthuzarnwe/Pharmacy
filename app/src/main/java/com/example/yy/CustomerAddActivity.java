@@ -31,9 +31,6 @@ public class CustomerAddActivity extends AppCompatActivity {
     private Context context;
     int cId;
 
-    @BindView(R.id.edtCustomerId_add)
-    EditText edtCustomerId_add;
-
     @BindView(R.id.edtCustomerName_add)
     EditText edtCustomerName_add;
 
@@ -76,7 +73,6 @@ public class CustomerAddActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(customerModel != null){
-            edtCustomerId_add.setText(String.valueOf(customerModel.getCustomerId()));
             edtCustomerName_add.setText(customerModel.getCustomerName());
             edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
             edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
@@ -105,10 +101,6 @@ public class CustomerAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (TextUtils.isEmpty(edtCustomerId_add.getText())) {
-            cId = Integer.parseInt(edtCustomerId_add.getText().toString());
-        }
 
         if(item.getItemId() == R.id.menu_add){
             String cName = edtCustomerName_add.getText().toString();
@@ -187,7 +179,6 @@ public class CustomerAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_cancel){
-            edtCustomerId_add.setText("");
             edtCustomerName_add.setText("");
             edtCustomerAddress_add.setText("");
             edtCustomerLevel_add.setText("");

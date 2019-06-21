@@ -24,9 +24,6 @@ public class SupplierDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
-    @BindView(R.id.tvSupplierId_detail)
-    TextView tvSupplierId_detail;
-
     @BindView(R.id.tvSupplierName_detail)
     TextView tvSupplierName_detail;
 
@@ -68,7 +65,7 @@ public class SupplierDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(supplierModel != null){
-            tvSupplierId_detail.setText(String.valueOf(supplierModel.getSuplierId()));
+
             tvSupplierName_detail.setText(supplierModel.getSupplierName());
             tvCompanyName_detail.setText(supplierModel.getCompanyName());
             tvCompanyAddress_detail.setText(supplierModel.getCompanyAddress());
