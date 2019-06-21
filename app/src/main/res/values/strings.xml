@@ -11,6 +11,7 @@
 
 
     <string name="FACEBOOK_APP_ID">423270478258602</string>
+    <string name="hash_key">36YqVcFAEbfAqRBaNreatjbn/Xk=</string>
     <string name="ACCOUNT_KIT_CLIENT_TOKEN">[ACCOUNT_KIT_CLIENT_TOKEN]</string>
 
 </resources>

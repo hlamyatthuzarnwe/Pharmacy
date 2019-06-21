@@ -18,17 +18,17 @@
         <activity android:name="com.example.pharmacy.SplashActivity">
 
         </activity>
-        <activity android:name=".SaleReportDetailActivity" />
-        <activity android:name=".SaleReportAddActivity" />
-        <activity android:name=".SaleDetailActivity" />
-        <activity android:name=".SaleAddActivity" />
-        <activity android:name=".SupplierDetailActivity" />
-        <activity android:name=".SupplierAddActivity" />
-        <activity android:name=".CustomerDetailActivity" />
-        <activity android:name=".CustomerAddActivity" />
-        <activity android:name=".MedicineDetailActivity" />
-        <activity android:name=".MedicineAddActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.pharmacy.SaleReportDetailActivity" />
+        <activity android:name="com.example.pharmacy.SaleReportAddActivity" />
+        <activity android:name="com.example.pharmacy.SaleDetailActivity" />
+        <activity android:name="com.example.pharmacy.SaleAddActivity" />
+        <activity android:name="com.example.pharmacy.SupplierDetailActivity" />
+        <activity android:name="com.example.pharmacy.SupplierAddActivity" />
+        <activity android:name="com.example.pharmacy.CustomerDetailActivity" />
+        <activity android:name="com.example.pharmacy.CustomerAddActivity" />
+        <activity android:name="com.example.pharmacy.MedicineDetailActivity" />
+        <activity android:name="com.example.pharmacy.MedicineAddActivity" />
+        <activity android:name="com.example.pharmacy.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
