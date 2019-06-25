@@ -82,6 +82,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         @BindView(R.id.tvCustomerPhNo5_detail)
         TextView tvCustomerPhNo5_detail;
 
+        @BindView(R.id.tvCustomerNote_detail)
+        TextView tvCustomerNote_detail;
+
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
@@ -111,6 +114,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             }
             if (customerModel.getCustomerPhNo5() != null){
                 tvCustomerPhNo5_detail.setText(customerModel.getCustomerPhNo1());
+            }
+            if (customerModel.getCustomerNote() != null){
+                tvCustomerNote_detail.setText(customerModel.getCustomerNote());
             }
 //            if(customerModel.getCustomerLevel() != null){
 //                tvCustomerLevel.setText(customerModel.getCustomerLevel());

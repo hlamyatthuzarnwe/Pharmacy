@@ -440,6 +440,7 @@ public class SaleAddActivity extends AppCompatActivity {
             edtSaleSubTotalAmt_add.setText("");
             edtSaleTotalAmt_add.setText("");
             edtSaleUpFront.setText("");
+
             edtSaleBalance.setText("");
             edtSaleDueDate.setText("");
             edtSaleNote.setText("");
