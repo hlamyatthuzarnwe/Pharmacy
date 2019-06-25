@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.pharmacy.helper.DateTimeHelper;
 import com.example.pharmacy.model.MedicineModel;
+import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
 import java.util.Calendar;
@@ -36,7 +37,6 @@ public class MedicineAddActivity extends AppCompatActivity {
     private MedicineModel medicineModel;
     private Toolbar toolbar;
     private Context context;
-    int mId;
 
     @BindView(R.id.edtMedicineName)
     EditText edtMedicineName;
@@ -47,46 +47,73 @@ public class MedicineAddActivity extends AppCompatActivity {
     @BindView(R.id.edtMedicineCategory)
     EditText edtMedicineCategory;
 
-    @BindView(R.id.edtMedicineDescription)
-    EditText edtMedicineDescription;
+    @BindView(R.id.edtMedicinePcCostPrice)
+    EditText edtMedicinePcCostPrice;
 
-    @BindView(R.id.edtMedicinePrice1)
-    EditText edtMedicinePrice1;
+    @BindView(R.id.edtMedicneDzCostPrice)
+    EditText edtMedicneDzCostPrice;
 
-    @BindView(R.id.edtMedicinePrice2)
-    EditText edtMedicinePrice2;
+    @BindView(R.id.edtMedicinePcQty)
+    EditText edtMedicinePcQty;
 
-    @BindView(R.id.edtMedicinePrice3)
-    EditText edtMedicinePrice3;
+    @BindView(R.id.edtMedicineDzQty)
+    EditText edtMedicineDzQty;
 
-    @BindView(R.id.edtMedicinePrice4)
-    EditText edtMedicinePrice4;
-
-    @BindView(R.id.edtMedicinePrice5)
-    EditText edtMedicinePrice5;
+    @BindView(R.id.edtMedicineCompanyName)
+    EditText edtMedicineCompanyName;
 
     @BindView(R.id.edtSupplierName)
     EditText edtSupplierName;
 
-    @BindView(R.id.edtReceivedDate)
-    EditText edtReceivedDate;
+    @BindView(R.id.edtContactMedicinePh1)
+    EditText edtContactMedicinePh1;
 
-    @BindView(R.id.edtExpDate)
-    EditText edtExpDate;
+    @BindView(R.id.edtContactMedicinePh2)
+    EditText edtContactMedicinePh2;
 
-    @BindView(R.id.edtMedicineCostPrice)
-    EditText edtMedicineCostPrice;
+    @BindView(R.id.edtMedicineContactPh3)
+    EditText edtMedicineContactPh3;
 
-    @BindView(R.id.edtMedicineQty)
-    EditText edtMedicineQty;
+    @BindView(R.id.edtMedicineViberPh)
+    EditText edtMedicineViberPh;
 
-    @BindView(R.id.edtMedicineQtyLeft)
-    EditText edtMedicineQtyLeft;
+    @BindView(R.id.edtMedicinePayment)
+    EditText edtMedicinePayment;
 
-    @BindView(R.id.edtMedicineTotalAmt)
-    EditText edtMedicineTotalAmt;
+    @BindView(R.id.edtSaleMedicinePcPrice1)
+    EditText edtSaleMedicinePcPrice1;
 
-   // private String selectedPrice;
+    @BindView(R.id.edtSaleMedicineDzPrice1)
+    EditText edtSaleMedicineDzPrice1;
+
+    @BindView(R.id.edtSaleMedicinePcPrice2)
+    EditText edtSaleMedicinePcPrice2;
+
+    @BindView(R.id.edtSaleMedicineDzPrice2)
+    EditText edtSaleMedicineDzPrice2;
+
+    @BindView(R.id.edtSaleMedicinePcPrice3)
+    EditText edtSaleMedicinePcPrice3;
+
+    @BindView(R.id.edtSaleMedicineDzPrice3)
+    EditText edtSaleMedicineDzPrice3;
+
+    @BindView(R.id.edtSaleMedicinePcPrice4)
+    EditText edtSaleMedicinePcPrice4;
+
+    @BindView(R.id.edtSaleMedicineDzCostPrice4)
+    EditText edtSaleMedicineDzCostPrice4;
+
+    @BindView(R.id.edtMedicineReceivedDate)
+    EditText edtMedicineReceivedDate;
+
+    @BindView(R.id.edtMedicineExpDate)
+    EditText edtMedicineExpDate;
+
+    @BindView(R.id.edtMedicineNote)
+    EditText edtMedicineNote;
+
+   private SupplierModel supplierModel;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -110,28 +137,37 @@ public class MedicineAddActivity extends AppCompatActivity {
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicineCode.setText(medicineModel.getMedicineCode());
             edtMedicineCategory.setText(medicineModel.getMedicineCategory());
-            edtMedicineDescription.setText(medicineModel.getMedicineDescription());
-            edtMedicinePrice1.setText(medicineModel.getMedicinePrice1());
-            edtMedicinePrice2.setText(medicineModel.getMedicinePrice2());
-            edtMedicinePrice3.setText(medicineModel.getMedicinePrice3());
-            edtMedicinePrice4.setText(medicineModel.getMedicinePrice4());
-            edtMedicinePrice5.setText(medicineModel.getMedicinePrice5());
-            edtSupplierName.setText(medicineModel.getSupplierName());
-            edtReceivedDate.setText(medicineModel.getReceivedDate());
-            edtExpDate.setText(medicineModel.getExpDate());
-            edtMedicineCostPrice.setText(medicineModel.getMedicineCost());
-            edtMedicineQty.setText(medicineModel.getMedicineQty());
-            edtMedicineQtyLeft.setText(medicineModel.getMedicineQtyLeft());
-            edtMedicineTotalAmt.setText(medicineModel.getMedicineTotalAmt());
+            edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
+            edtMedicneDzCostPrice.setText(medicineModel.getMedicineCostPerDz());
+            edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
+            edtMedicineDzQty.setText(medicineModel.getMedicineQtyPerDz());
+            edtMedicineCompanyName.setText(medicineModel.getMedicineCompanyName());
+            edtSupplierName.setText(medicineModel.getMedicineSupplierName());
+            edtContactMedicinePh1.setText(medicineModel.getMedicineContactPh1());
+            edtContactMedicinePh2.setText(medicineModel.getMedicineContactPh2());
+            edtMedicineContactPh3.setText(medicineModel.getMedicineContactPh3());
+            edtMedicineViberPh.setText(medicineModel.getMedicineViberPh());
+            edtMedicinePayment.setText(medicineModel.getMedicinePayment());
+            edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
+            edtSaleMedicineDzPrice1.setText(medicineModel.getMedicineSaleDzPerPrice1());
+            edtSaleMedicinePcPrice2.setText(medicineModel.getMedicineSalePcPerPrice2());
+            edtSaleMedicineDzPrice2.setText(medicineModel.getMedicineSaleDzPerPrice2());
+            edtSaleMedicinePcPrice3.setText(medicineModel.getMedicineSalePcPerPrice3());
+            edtSaleMedicineDzPrice3.setText(medicineModel.getMedicineSaleDzPerPrice3());
+            edtSaleMedicinePcPrice4.setText(medicineModel.getMedicineSalePcPerPrice4());
+            edtSaleMedicineDzCostPrice4.setText(medicineModel.getMedicineSaleDzPerPrice4());
+            edtMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
+            edtMedicineExpDate.setText(medicineModel.getMedicineExpDate());
+            edtMedicineNote.setText(medicineModel.getMedicineNote());
         }
     }
 
     private void setUpExpireDateTime() {
         // Registration Date
-        edtExpDate.setInputType(InputType.TYPE_NULL);
-        edtExpDate.setFocusableInTouchMode(false);
-        edtExpDate.setOnClickListener(v -> {
-            String localDate = edtExpDate.getText().toString();
+        edtMedicineExpDate.setInputType(InputType.TYPE_NULL);
+        edtMedicineExpDate.setFocusableInTouchMode(false);
+        edtMedicineExpDate.setOnClickListener(v -> {
+            String localDate = edtMedicineExpDate.getText().toString();
             String enteredRegDate = DateTimeHelper.convertDateFormat(localDate,
                     DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT,
                     DateTimeHelper.LOCAL_DATE_FORMAT);
@@ -149,7 +185,7 @@ public class MedicineAddActivity extends AppCompatActivity {
 
                         String strDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
 
-                        edtExpDate.setText(DateTimeHelper.convertDateFormat(strDate,
+                        edtMedicineExpDate.setText(DateTimeHelper.convertDateFormat(strDate,
                                 DateTimeHelper.LOCAL_DATE_FORMAT,
                                 DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT));
 
@@ -162,10 +198,10 @@ public class MedicineAddActivity extends AppCompatActivity {
 
     private void setUpReceivedDateTime() {
         // Registration Date
-        edtReceivedDate.setInputType(InputType.TYPE_NULL);
-        edtReceivedDate.setFocusableInTouchMode(false);
-        edtReceivedDate.setOnClickListener(v -> {
-            String localDate = edtReceivedDate.getText().toString();
+        edtMedicineReceivedDate.setInputType(InputType.TYPE_NULL);
+        edtMedicineReceivedDate.setFocusableInTouchMode(false);
+        edtMedicineReceivedDate.setOnClickListener(v -> {
+            String localDate = edtMedicineReceivedDate.getText().toString();
             String enteredRegDate = DateTimeHelper.convertDateFormat(localDate,
                     DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT,
                     DateTimeHelper.LOCAL_DATE_FORMAT);
@@ -183,7 +219,7 @@ public class MedicineAddActivity extends AppCompatActivity {
 
                         String strDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
 
-                        edtReceivedDate.setText(DateTimeHelper.convertDateFormat(strDate,
+                        edtMedicineReceivedDate.setText(DateTimeHelper.convertDateFormat(strDate,
                                 DateTimeHelper.LOCAL_DATE_FORMAT,
                                 DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT));
 
@@ -213,19 +249,28 @@ public class MedicineAddActivity extends AppCompatActivity {
             String mName = edtMedicineName.getText().toString();
             String mCode = edtMedicineCode.getText().toString();
             String mCategory = edtMedicineCategory.getText().toString();
-            String mDescription = edtMedicineDescription.getText().toString();
-            String mPrice1 = edtMedicinePrice1.getText().toString();
-            String mPrice2 = edtMedicinePrice2.getText().toString();
-            String mPrice3 = edtMedicinePrice3.getText().toString();;
-            String mPrice4 = edtMedicinePrice4.getText().toString();
-            String mPrice5 = edtMedicinePrice5.getText().toString();
-            String supplierName = edtSupplierName.getText().toString();
-            String receivedDate = edtReceivedDate.getText().toString();
-            String ExpDate = edtExpDate.getText().toString();
-            String mCost = edtMedicineCostPrice.getText().toString();
-            String mQty = edtMedicineQty.getText().toString();
-            String mQtyLeft = edtMedicineQtyLeft.getText().toString();
-            String mTotalAmt = edtMedicineTotalAmt.getText().toString();
+            String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
+            String mCostPerDz = edtMedicneDzCostPrice.getText().toString();
+            String mQtyPerPc = edtMedicinePcQty.getText().toString();
+            String mQtyPerDz = edtMedicineDzQty.getText().toString();
+            String mCompanyName = edtMedicineCompanyName.getText().toString();
+            String mSupplierName = edtSupplierName.getText().toString();
+            String mContactPh1 = edtContactMedicinePh1.getText().toString();
+            String mContactPh2 = edtContactMedicinePh2.getText().toString();
+            String mContactPh3 = edtMedicineContactPh3.getText().toString();
+            String mViberPh = edtMedicineViberPh.getText().toString();
+            String mPayment = edtMedicinePayment.getText().toString();
+            String mSalePricePc1 = edtSaleMedicinePcPrice1.getText().toString();
+            String mSalePriceDz1 = edtSaleMedicineDzPrice1.getText().toString();
+            String mSalePricePc2 = edtSaleMedicinePcPrice2.getText().toString();
+            String mSalePriceDz2 = edtSaleMedicineDzPrice2.getText().toString();
+            String mSalePricePc3 = edtSaleMedicinePcPrice3.getText().toString();
+            String mSalePriceDz3 = edtSaleMedicineDzPrice3.getText().toString();
+            String mSalePricePc4 = edtSaleMedicinePcPrice4.getText().toString();
+            String mSalePriceDz4 = edtSaleMedicineDzCostPrice4.getText().toString();
+            String mReceiveDate = edtMedicineReceivedDate.getText().toString();
+            String mExpDate = edtMedicineExpDate.getText().toString();
+            String mNote = edtMedicineNote.getText().toString();
 
             MedicineModel medicineModel = new MedicineModel();
 
@@ -233,19 +278,28 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
-            medicineModel.setMedicineDescription(mDescription);
-            medicineModel.setMedicinePrice1(mPrice1);
-            medicineModel.setMedicinePrice2(mPrice2);
-            medicineModel.setMedicinePrice3(mPrice3);
-            medicineModel.setMedicinePrice4(mPrice4);
-            medicineModel.setMedicinePrice5(mPrice5);
-            medicineModel.setSupplierName(supplierName);
-            medicineModel.setReceivedDate(receivedDate);
-            medicineModel.setExpDate(ExpDate);
-            medicineModel.setMedicineCost(mCost);
-            medicineModel.setMedicineQty(mQty);
-            medicineModel.setMedicineQtyLeft(mQtyLeft);
-            medicineModel.setMedicineTotalAmt(mTotalAmt);
+            medicineModel.setMedicineCostPerPc(mCostPerPc);
+            medicineModel.setMedicineCostPerDz(mCostPerDz);
+            medicineModel.setMedicineQtyPerPc(mQtyPerPc);
+            medicineModel.setMedicineQtyPerDz(mQtyPerDz);
+            medicineModel.setMedicineCompanyName(mCompanyName);
+            medicineModel.setMedicineSupplierName(mSupplierName);
+            medicineModel.setMedicineContactPh1(mContactPh1);
+            medicineModel.setMedicineContactPh2(mContactPh2);
+            medicineModel.setMedicineContactPh3(mContactPh3);
+            medicineModel.setMedicineViberPh(mViberPh);
+            medicineModel.setMedicinePayment(mPayment);
+            medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
+            medicineModel.setMedicineSaleDzPerPrice1(mSalePriceDz1);
+            medicineModel.setMedicineSalePcPerPrice2(mSalePricePc2);
+            medicineModel.setMedicineSaleDzPerPrice2(mSalePriceDz2);
+            medicineModel.setMedicineSalePcPerPrice3(mSalePricePc3);
+            medicineModel.setMedicineSaleDzPerPrice3(mSalePriceDz3);
+            medicineModel.setMedicineSalePcPerPrice4(mSalePricePc4);
+            medicineModel.setMedicineSaleDzPerPrice4(mSalePriceDz4);
+            medicineModel.setMedicineReceivedDate(mReceiveDate);
+            medicineModel.setMedicineExpDate(mExpDate);
+            medicineModel.setMedicineNote(mNote);
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(medicineModel);
@@ -257,50 +311,69 @@ public class MedicineAddActivity extends AppCompatActivity {
             String mName = edtMedicineName.getText().toString();
             String mCode = edtMedicineCode.getText().toString();
             String mCategory = edtMedicineCategory.getText().toString();
-            String mDescription = edtMedicineDescription.getText().toString();
-            String mPrice1 = edtMedicinePrice1.getText().toString();
-            String mPrice2 = edtMedicinePrice2.getText().toString();
-            String mPrice3 = edtMedicinePrice3.getText().toString();;
-            String mPrice4 = edtMedicinePrice4.getText().toString();
-            String mPrice5 = edtMedicinePrice5.getText().toString();
-            String supplierName = edtSupplierName.getText().toString();
-            String receivedDate = edtReceivedDate.getText().toString();
-            String ExpDate = edtExpDate.getText().toString();
-            String mCost = edtMedicineCostPrice.getText().toString();
-            String mQty = edtMedicineQty.getText().toString();
-            String mQtyLeft = edtMedicineQtyLeft.getText().toString();
-            String mTotalAmt = edtMedicineTotalAmt.getText().toString();
+            String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
+            String mCostPerDz = edtMedicneDzCostPrice.getText().toString();
+            String mQtyPerPc = edtMedicinePcQty.getText().toString();
+            String mQtyPerDz = edtMedicineDzQty.getText().toString();
+            String mCompanyName = edtMedicineCompanyName.getText().toString();
+            String mSupplierName = edtSupplierName.getText().toString();
+            String mContactPh1 = edtContactMedicinePh1.getText().toString();
+            String mContactPh2 = edtContactMedicinePh2.getText().toString();
+            String mContactPh3 = edtMedicineContactPh3.getText().toString();
+            String mViberPh = edtMedicineViberPh.getText().toString();
+            String mPayment = edtMedicinePayment.getText().toString();
+            String mSalePricePc1 = edtSaleMedicinePcPrice1.getText().toString();
+            String mSalePriceDz1 = edtSaleMedicineDzPrice1.getText().toString();
+            String mSalePricePc2 = edtSaleMedicinePcPrice2.getText().toString();
+            String mSalePriceDz2 = edtSaleMedicineDzPrice2.getText().toString();
+            String mSalePricePc3 = edtSaleMedicinePcPrice3.getText().toString();
+            String mSalePriceDz3 = edtSaleMedicineDzPrice3.getText().toString();
+            String mSalePricePc4 = edtSaleMedicinePcPrice4.getText().toString();
+            String mSalePriceDz4 = edtSaleMedicineDzCostPrice4.getText().toString();
+            String mReceiveDate = edtMedicineReceivedDate.getText().toString();
+            String mExpDate = edtMedicineExpDate.getText().toString();
+            String mNote = edtMedicineNote.getText().toString();
 
             MedicineModel medicineModel = new MedicineModel();
 
+            medicineModel.setMedcineId(UUID.randomUUID().toString());
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
-            medicineModel.setMedicineDescription(mDescription);
-            medicineModel.setMedicinePrice1(mPrice1);
-            medicineModel.setMedicinePrice2(mPrice2);
-            medicineModel.setMedicinePrice3(mPrice3);
-            medicineModel.setMedicinePrice4(mPrice4);
-            medicineModel.setMedicinePrice5(mPrice5);
-            medicineModel.setSupplierName(supplierName);
-            medicineModel.setReceivedDate(receivedDate);
-            medicineModel.setExpDate(ExpDate);
-            medicineModel.setMedicineCost(mCost);
-            medicineModel.setMedicineQty(mQty);
-            medicineModel.setMedicineQtyLeft(mQtyLeft);
-            medicineModel.setMedicineTotalAmt(mTotalAmt);
-
+            medicineModel.setMedicineCostPerPc(mCostPerPc);
+            medicineModel.setMedicineCostPerDz(mCostPerDz);
+            medicineModel.setMedicineQtyPerPc(mQtyPerPc);
+            medicineModel.setMedicineQtyPerDz(mQtyPerDz);
+            medicineModel.setMedicineCompanyName(mCompanyName);
+            medicineModel.setMedicineSupplierName(mSupplierName);
+            medicineModel.setMedicineContactPh1(mContactPh1);
+            medicineModel.setMedicineContactPh2(mContactPh2);
+            medicineModel.setMedicineContactPh3(mContactPh3);
+            medicineModel.setMedicineViberPh(mViberPh);
+            medicineModel.setMedicinePayment(mPayment);
+            medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
+            medicineModel.setMedicineSaleDzPerPrice1(mSalePriceDz1);
+            medicineModel.setMedicineSalePcPerPrice2(mSalePricePc2);
+            medicineModel.setMedicineSaleDzPerPrice2(mSalePriceDz2);
+            medicineModel.setMedicineSalePcPerPrice3(mSalePricePc3);
+            medicineModel.setMedicineSaleDzPerPrice3(mSalePriceDz3);
+            medicineModel.setMedicineSalePcPerPrice4(mSalePricePc4);
+            medicineModel.setMedicineSaleDzPerPrice4(mSalePriceDz4);
+            medicineModel.setMedicineReceivedDate(mReceiveDate);
+            medicineModel.setMedicineExpDate(mExpDate);
+            medicineModel.setMedicineNote(mNote);
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(medicineModel);
-                Toast.makeText(MedicineAddActivity.this, "Successfully Update Data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
             });
+
         }
 
         if(item.getItemId() == R.id.menu_delete){
-            String mId = medicineModel.getMedcineId();
+            String mName = medicineModel.getMedicineName();
 
-            final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("medicineId", mId).findFirst();
+            final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("medicineName", mName).findFirst();
             realm.executeTransaction(new Realm.Transaction() {
                 @Override
                 public void execute(Realm realm) {
@@ -318,19 +391,24 @@ public class MedicineAddActivity extends AppCompatActivity {
            edtMedicineName.setText("");
            edtMedicineCode.setText("");
            edtMedicineCategory.setText("");
-           edtMedicineDescription.setText("");
-           edtMedicinePrice1.setText("");
-           edtMedicinePrice2.setText("");
-           edtMedicinePrice3.setText("");
-           edtMedicinePrice4.setText("");
-           edtMedicinePrice5.setText("");
+           edtMedicineCompanyName.setText("");
            edtSupplierName.setText("");
-           edtReceivedDate.setText("");
-           edtExpDate.setText("");
-           edtMedicineCostPrice.setText("");
-           edtMedicineQty.setText("");
-           edtMedicineQtyLeft.setText("");
-           edtMedicineTotalAmt.setText("");
+           edtContactMedicinePh1.setText("");
+           edtContactMedicinePh2.setText("");
+           edtMedicineContactPh3.setText("");
+           edtMedicineViberPh.setText("");
+           edtMedicinePayment.setText("");
+           edtSaleMedicinePcPrice1.setText("");
+           edtSaleMedicineDzPrice1.setText("");
+           edtSaleMedicinePcPrice2.setText("");
+           edtSaleMedicineDzPrice2.setText("");
+           edtSaleMedicinePcPrice3.setText("");
+           edtSaleMedicineDzPrice3.setText("");
+           edtSaleMedicinePcPrice4.setText("");
+           edtSaleMedicineDzCostPrice4.setText("");
+           edtMedicineReceivedDate.setText("");
+           edtMedicineExpDate.setText("");
+           edtMedicineNote.setText("");
 
         }
 

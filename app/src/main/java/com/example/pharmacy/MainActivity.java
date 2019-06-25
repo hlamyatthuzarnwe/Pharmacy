@@ -126,6 +126,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent3);
                 break;
 
+                case 7:
+                    Intent intent7 = new Intent(MainActivity.this,SaleAddActivity.class);
+                    startActivity(intent7);
+                    break;
+
                 default:
                     Intent intent = new Intent(MainActivity.this,MedicineAddActivity.class);
                 startActivity(intent);

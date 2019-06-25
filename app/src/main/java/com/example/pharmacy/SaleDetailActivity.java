@@ -33,14 +33,29 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleCustomerName_detail)
     TextView tvSaleCustomerName_detail;
 
-    @BindView(R.id.tvSaleCustomerLevel_detail)
-    TextView tvSaleCustomerLevel_detail;
+    @BindView(R.id.tvSaleCustomerLevel1_detail)
+    TextView tvSaleCustomerLevel1_detail;
+
+    @BindView(R.id.tvSaleCustomerLevel2_detail)
+    TextView tvSaleCustomerLevel2_detail;
+
+    @BindView(R.id.tvSaleCustomerLevel3_detail)
+    TextView tvSaleCustomerLevel3_detail;
+
+    @BindView(R.id.tvSaleCustomerLevel4_detail)
+    TextView tvSaleCustomerLevel4_detail;
 
     @BindView(R.id.tvSaleCustomerAddress_detail)
     TextView tvSaleCustomerAddress_detail;
 
-    @BindView(R.id.tvSaleCustomerPhNo_detail)
-    TextView tvSaleCustomerPhNo_detail;
+    @BindView(R.id.tvSaleCustomerPhNo1_detail)
+    TextView tvSaleCustomerPhNo1_detail;
+
+    @BindView(R.id.tvSaleCustomerPhNo2_detail)
+    TextView tvSaleCustomerPhNo2_detail;
+
+    @BindView(R.id.tvSaleCustomerPhNo3_detail)
+    TextView tvSaleCustomerPhNo3_detail;
 
     @BindView(R.id.tvSaleMedicineName_detail)
     TextView tvSaleMedicineName_detail;
@@ -51,14 +66,17 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleCategory_detail)
     TextView tvSaleCategory_detail;
 
-    @BindView(R.id.tvSalePrice_detail)
-    TextView tvSalePrice_detail;
+    @BindView(R.id.tvSalePricePerPc_detail)
+    TextView tvSalePricePerPc_detail;
 
-    @BindView(R.id.tvSaleDiscount_detail)
-    TextView tvSaleDiscount_detail;
+    @BindView(R.id.tvSalePricePerDz_detail)
+    TextView tvSalePricePerDz_detail;
 
-    @BindView(R.id.tvSaleQuantity_detail)
-    TextView tvSaleQuantity_detail;
+    @BindView(R.id.tvMedicineQtyPerPc)
+    TextView tvMedicineQtyPerPc;
+
+    @BindView(R.id.tvMedicineQtyPerDz)
+    TextView tvMedicineQtyPerDz;
 
     @BindView(R.id.tvSaleSubTotalAmt_detail)
     TextView tvSaleSubTotalAmt_detail;
@@ -66,8 +84,17 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleTotalAmt_detail)
     TextView tvSaleTotalAmt_detail;
 
+    @BindView(R.id.tvSaleUpFront_detail)
+    TextView tvSaleUpFront_detail;
+
+    @BindView(R.id.tvSaleBalance_detail)
+    TextView tvSaleBalance_detail;
+
     @BindView(R.id.tvSaleDueDate_detail)
     TextView tvSaleDueDate_detail;
+
+    @BindView(R.id.tvSaleNote_detail)
+    TextView tvSaleNote_detail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,21 +111,30 @@ public class SaleDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(saleModel != null){
-            tvSaleCustomerPhNo_detail.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
+            tvSaleInvoiceNo.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             tvSaleCustomerName_detail.setText(saleModel.getSaleCustomerName());
-            tvSaleCustomerLevel_detail.setText(saleModel.getSaleCustomerLevel());
+            tvSaleCustomerLevel1_detail.setText(saleModel.getSaleCustomerLevel1());
+            tvSaleCustomerLevel2_detail.setText(saleModel.getSaleCustomerLevel2());
+            tvSaleCustomerLevel3_detail.setText(saleModel.getSaleCustomerLevel3());
+            tvSaleCustomerLevel4_detail.setText(saleModel.getSaleCustomerLevel4());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
-            tvSaleCustomerPhNo_detail.setText(saleModel.getSaleCustomerPhNo());
+            tvSaleCustomerPhNo1_detail.setText(saleModel.getSaleCustomerPhNo1());
+            tvSaleCustomerPhNo2_detail.setText(saleModel.getSaleCustomerPhNo2());
+            tvSaleCustomerPhNo3_detail.setText(saleModel.getSaleCustomerPhNo3());
             tvSaleMedicineName_detail.setText(saleModel.getSaleMedicineName());
             tvSaleMedicineCode_detail.setText(saleModel.getSaleMedicineCode());
             tvSaleCategory_detail.setText(saleModel.getSaleCategory());
-            tvSalePrice_detail.setText(saleModel.getSalePrice());
-            tvSaleDiscount_detail.setText(saleModel.getSaleDiscount());
-            tvSaleQuantity_detail.setText(saleModel.getSaleQty());
+            tvSalePricePerPc_detail.setText(saleModel.getSaleCostPerPc());
+            tvSalePricePerDz_detail.setText(saleModel.getSaleCostPerDz());
+            tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
+            tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
             tvSaleSubTotalAmt_detail.setText(saleModel.getSaleSubTotalAmt());
             tvSaleTotalAmt_detail.setText(saleModel.getSaleTotalAmt());
+            tvSaleUpFront_detail.setText(saleModel.getSaleUpFront());
+            tvSaleBalance_detail.setText(saleModel.getSaleBalance());
             tvSaleDueDate_detail.setText(saleModel.getSaleDuedate());
+            tvSaleNote_detail.setText(saleModel.getSaleNote());
         }
     }
 

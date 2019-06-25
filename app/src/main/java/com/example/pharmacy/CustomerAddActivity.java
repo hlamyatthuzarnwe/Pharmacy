@@ -1,18 +1,24 @@
 package com.example.pharmacy;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.pharmacy.helper.DateTimeHelper;
 import com.example.pharmacy.model.CustomerModel;
 import com.example.yy.R;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 import butterknife.BindView;
@@ -33,11 +39,17 @@ public class CustomerAddActivity extends AppCompatActivity {
     @BindView(R.id.edtCustomerName_add)
     EditText edtCustomerName_add;
 
+    @BindView(R.id.edtSaleInvoiceDate)
+    EditText edtSaleInvoiceDate;
+
+    @BindView(R.id.edtSaleDueDate)
+    EditText edtSaleDueDate;
+
     @BindView(R.id.edtCustomerAddress_add)
     EditText edtCustomerAddress_add;
 
-    @BindView(R.id.edtCustomerLevel_add)
-    EditText edtCustomerLevel_add;
+//    @BindView(R.id.edtCustomerLevel_add)
+//    EditText edtCustomerLevel_add;
 
     @BindView(R.id.edtCustomerPhNo1)
     EditText edtCustomerPhNo1;
@@ -64,6 +76,8 @@ public class CustomerAddActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
+        setUpInvoiceDate();
+        setUpDueDate();
 
         customerModel = (CustomerModel) getIntent().getParcelableExtra("Customer");
 
@@ -74,7 +88,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         if(customerModel != null){
             edtCustomerName_add.setText(customerModel.getCustomerName());
             edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
-            edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
+//            edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
             edtCustomerPhNo1.setText(customerModel.getCustomerPhNo1());
             edtCustomerPhNo2.setText(customerModel.getCustomerPhNo2());
             edtCustomerPhNo3.setText(customerModel.getCustomerPhNo3());
@@ -83,6 +97,74 @@ public class CustomerAddActivity extends AppCompatActivity {
             edtCustomerNote.setText(customerModel.getCustomerNote());
         }
 
+    }
+
+    private void setUpDueDate() {
+        // Registration Date
+        edtSaleDueDate.setInputType(InputType.TYPE_NULL);
+        edtSaleDueDate.setFocusableInTouchMode(false);
+        edtSaleDueDate.setOnClickListener(v -> {
+            String localDate = edtSaleDueDate.getText().toString();
+            String enteredRegDate = DateTimeHelper.convertDateFormat(localDate,
+                    DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT,
+                    DateTimeHelper.LOCAL_DATE_FORMAT);
+            Date initDate = new Date();
+            if (!TextUtils.isEmpty(enteredRegDate)) {
+                Date parsedDated = DateTimeHelper.getDateFromString(enteredRegDate, DateTimeHelper.LOCAL_DATE_FORMAT);
+                if (parsedDated != null) {
+                    initDate = parsedDated;
+                }
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(initDate);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, DatePickerDialog.THEME_HOLO_LIGHT,
+                    (view, year, monthOfYear, dayOfMonth) -> {
+
+                        String strDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+
+                        edtSaleDueDate.setText(DateTimeHelper.convertDateFormat(strDate,
+                                DateTimeHelper.LOCAL_DATE_FORMAT,
+                                DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT));
+
+
+                    }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            // datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+            datePickerDialog.show();
+        });
+    }
+
+    private void setUpInvoiceDate() {
+        // Registration Date
+        edtSaleInvoiceDate.setInputType(InputType.TYPE_NULL);
+        edtSaleInvoiceDate.setFocusableInTouchMode(false);
+        edtSaleInvoiceDate.setOnClickListener(v -> {
+            String localDate = edtSaleInvoiceDate.getText().toString();
+            String enteredRegDate = DateTimeHelper.convertDateFormat(localDate,
+                    DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT,
+                    DateTimeHelper.LOCAL_DATE_FORMAT);
+            Date initDate = new Date();
+            if (!TextUtils.isEmpty(enteredRegDate)) {
+                Date parsedDated = DateTimeHelper.getDateFromString(enteredRegDate, DateTimeHelper.LOCAL_DATE_FORMAT);
+                if (parsedDated != null) {
+                    initDate = parsedDated;
+                }
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(initDate);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, DatePickerDialog.THEME_HOLO_LIGHT,
+                    (view, year, monthOfYear, dayOfMonth) -> {
+
+                        String strDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+
+                        edtSaleInvoiceDate.setText(DateTimeHelper.convertDateFormat(strDate,
+                                DateTimeHelper.LOCAL_DATE_FORMAT,
+                                DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT));
+
+
+                    }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            // datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+            datePickerDialog.show();
+        });
     }
 
     @Override
@@ -104,7 +186,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_add){
             String cName = edtCustomerName_add.getText().toString();
             String cAddress = edtCustomerAddress_add.getText().toString();
-            String clevel = edtCustomerLevel_add.getText().toString();
+           // String clevel = edtCustomerLevel_add.getText().toString();
             String cPhNo1 = edtCustomerPhNo1.getText().toString();
             String cPhNo2 = edtCustomerPhNo2.getText().toString();
             String cPhNo3 = edtCustomerPhNo3.getText().toString();
@@ -117,7 +199,7 @@ public class CustomerAddActivity extends AppCompatActivity {
             customerModel.setCustomerId(UUID.randomUUID().toString());
             customerModel.setCustomerName(cName);
             customerModel.setCustomerAddress(cAddress);
-            customerModel.setCustomerLevel(clevel);
+            //customerModel.setCustomerLevel(clevel);
             customerModel.setCustomerPhNo1(cPhNo1);
             customerModel.setCustomerPhNo2(cPhNo2);
             customerModel.setCustomerPhNo3(cPhNo3);
@@ -134,7 +216,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_update){
             String cName = edtCustomerName_add.getText().toString();
             String cAddress = edtCustomerAddress_add.getText().toString();
-            String cLevel = edtCustomerLevel_add.getText().toString();
+           // String cLevel = edtCustomerLevel_add.getText().toString();
             String cPhNo1 = edtCustomerPhNo1.getText().toString();
             String cPhNo2 = edtCustomerPhNo2.getText().toString();
             String cPhNo3 = edtCustomerPhNo3.getText().toString();
@@ -147,7 +229,7 @@ public class CustomerAddActivity extends AppCompatActivity {
             customerModel.setCustomerId(customerModel.getCustomerId());
             customerModel.setCustomerName(cName);
             customerModel.setCustomerAddress(cAddress);
-            customerModel.setCustomerLevel(cLevel);
+         //   customerModel.setCustomerLevel(cLevel);
             customerModel.setCustomerPhNo1(cPhNo1);
             customerModel.setCustomerPhNo2(cPhNo2);
             customerModel.setCustomerPhNo3(cPhNo3);
@@ -180,7 +262,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.menu_cancel){
             edtCustomerName_add.setText("");
             edtCustomerAddress_add.setText("");
-            edtCustomerLevel_add.setText("");
+           // edtCustomerLevel_add.setText("");
             edtCustomerPhNo1.setText("");
             edtCustomerPhNo2.setText("");
             edtCustomerPhNo3.setText("");

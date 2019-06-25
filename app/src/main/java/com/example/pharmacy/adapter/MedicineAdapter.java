@@ -60,27 +60,77 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         @BindView(R.id.tvMedicineName)
         TextView tvMedicineName;
 
-        @BindView(R.id.tvMedicineCategory)
-        TextView tvMedicineCategory;
+        @BindView(R.id.tvMedicineCode_detail)
+        TextView tvMedicineCode_detail;
 
-        @BindView(R.id.tvSuppliername)
-        TextView tvSupplier;
+        @BindView(R.id.tvMedicineCategory_detail)
+        TextView tvMedicineCategory_detail;
 
-        @BindView(R.id.tvCostPrice)
-        TextView tvCostPrice;
+        @BindView(R.id.tvMedicineCostPerPc)
+        TextView tvMedicineCostPerPc;
 
-        @BindView(R.id.tvReceivedDate)
-        TextView tvReceiveddate;
+        @BindView(R.id.tvMedicineCostPerDz)
+        TextView tvMedicineCostPerDz;
 
-        @BindView(R.id.tvExpDate)
-        TextView tvExpDate;
+        @BindView(R.id.tvMedicineQtyPerPc)
+        TextView tvMedicineQtyPerPc;
 
-        @BindView(R.id.tvMedicineQty)
-        TextView tvMedicineQty;
+        @BindView(R.id.tvMedicineQtyPerDz)
+        TextView tvMedicineQtyPerDz;
 
-        @BindView(R.id.tvMedicineQtyLeft)
-        TextView getTvMedicineQtyLeft;
+        @BindView(R.id.tvCompanyName)
+        TextView tvCompanyName;
 
+        @BindView(R.id.tvMedicineSupplierName)
+        TextView tvMedicineSupplierName;
+
+        @BindView(R.id.tvMedicinePh1)
+        TextView tvMedicinePh1;
+
+        @BindView(R.id.tvMedicinePh2)
+        TextView tvMedicinePh2;
+
+        @BindView(R.id.tvMedicinePh3)
+        TextView tvMedicinePh3;
+
+        @BindView(R.id.tvMedicineViberPh)
+        TextView tvMedicineViberPh;
+
+         @BindView(R.id.tvMedicinePayment)
+         TextView tvMedicinePayment;
+
+         @BindView(R.id.tvMedicineSalePerPc1)
+         TextView tvMedicineSalePerPc1;
+
+         @BindView(R.id.tvMedicineSalePerDz1)
+         TextView tvMedicineSalePerDz1;
+
+         @BindView(R.id.tvMedicineSalePerPc2)
+         TextView tvMedicineSalePerPc2;
+
+         @BindView(R.id.tvMedicineSalePerDz2)
+         TextView tvMedicineSalePerDz2;
+
+         @BindView(R.id.tvMedicineSalePerPc3)
+         TextView tvMedicineSalePerPc3;
+
+         @BindView(R.id.tvMedicineSalePerDz3)
+         TextView tvMedicineSalePerDz3;
+
+         @BindView(R.id.tvMedicineSalePerPc4)
+         TextView tvMedicineSalePerPc4;
+
+         @BindView(R.id.tvMedicineSalePerDz4)
+         TextView tvMedicineSalePerDz4;
+
+         @BindView(R.id.tvMedicineReceivedDate)
+         TextView tvMedicineReceivedDate;
+
+         @BindView(R.id.tvMedicineExpDate)
+         TextView tvMedicineExpDate;
+
+         @BindView(R.id.tvMedicineNote)
+         TextView tvMedicineNote;
 
         public MedicineViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,32 +143,81 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if(medicineModel.getMedicineName() != null){
                 tvMedicineName.setText(medicineModel.getMedicineName());
             }
+            if (medicineModel.getMedicineCode() != null){
+                tvMedicineCode_detail.setText(medicineModel.getMedicineCode());
+            }
             if(medicineModel.getMedicineCategory() != null){
-                tvMedicineCategory.setText(medicineModel.getMedicineCategory());
+                tvMedicineCategory_detail .setText(medicineModel.getMedicineCategory());
             }
-            if (medicineModel.getSupplierName() != null){
-                tvSupplier.setText(medicineModel.getSupplierName());
+            if(medicineModel.getMedicineCostPerPc() != null){
+                tvMedicineCostPerPc.setText(medicineModel.getMedicineCostPerPc());
             }
-            if(medicineModel.getMedicineCost() != null){
-                tvCostPrice.setText(medicineModel.getMedicineCost());
+            if (medicineModel.getMedicineCostPerDz() != null){
+                tvMedicineCostPerDz.setText(medicineModel.getMedicineCostPerDz());
             }
-            if(medicineModel.getReceivedDate() != null){
-                tvReceiveddate.setText(medicineModel.getReceivedDate());
+            if (medicineModel.getMedicineQtyPerPc() != null){
+                tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             }
-            if(medicineModel.getExpDate() != null){
-                tvExpDate.setText(medicineModel.getExpDate());
+            if (medicineModel.getMedicineQtyPerDz() != null) {
+                tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
             }
-            if(medicineModel.getMedicineQty() != null){
-                tvMedicineQty.setText(medicineModel.getMedicineQty());
+            if (medicineModel.getMedicineCompanyName() != null){
+                tvCompanyName.setText(medicineModel.getMedicineCompanyName());
             }
-            if(medicineModel.getMedicineQtyLeft() != null){
-                getTvMedicineQtyLeft.setText(medicineModel.getMedicineQtyLeft());
+            if (medicineModel.getMedicineSupplierName() != null){
+                tvMedicineSupplierName.setText(medicineModel.getMedicineSupplierName());
             }
-            mView.setOnClickListener(v -> {
-                Intent intent = new Intent(context, MedicineDetailActivity.class);
-                intent.putExtra("MedicineModel",medicineModel);
-                context.startActivity(intent);
-            });
+            if (medicineModel.getMedicineContactPh1() != null){
+                tvMedicinePh1.setText(medicineModel.getMedicineContactPh1());
+            }
+            if (medicineModel.getMedicineContactPh2() != null){
+                tvMedicinePh2.setText(medicineModel.getMedicineContactPh2());
+            }
+            if (medicineModel.getMedicineContactPh3() != null){
+                tvMedicinePh3.setText(medicineModel.getMedicineContactPh3());
+            }
+            if (medicineModel.getMedicineViberPh() != null){
+                tvMedicineViberPh.setText(medicineModel.getMedicineViberPh());
+            }
+            if (medicineModel.getMedicinePayment() != null){
+                tvMedicinePayment.setText(medicineModel.getMedicinePayment());
+            }
+            if (medicineModel.getMedicineSalePcPerPrice1() != null){
+                tvMedicineSalePerPc1.setText(medicineModel.getMedicineSalePcPerPrice1());
+            }
+            if (medicineModel.getMedicineSaleDzPerPrice1() != null){
+                tvMedicineSalePerDz1.setText(medicineModel.getMedicineSaleDzPerPrice1());
+            }
+
+            if (medicineModel.getMedicineSalePcPerPrice2() != null){
+                tvMedicineSalePerPc2.setText(medicineModel.getMedicineSalePcPerPrice1());
+            }
+            if (medicineModel.getMedicineSaleDzPerPrice2() != null){
+                tvMedicineSalePerDz2.setText(medicineModel.getMedicineSaleDzPerPrice1());
+            }
+
+            if (medicineModel.getMedicineSalePcPerPrice3() != null){
+                tvMedicineSalePerPc3.setText(medicineModel.getMedicineSalePcPerPrice1());
+            }
+            if (medicineModel.getMedicineSaleDzPerPrice3() != null){
+                tvMedicineSalePerDz3.setText(medicineModel.getMedicineSaleDzPerPrice1());
+            }
+
+            if (medicineModel.getMedicineSalePcPerPrice4() != null){
+                tvMedicineSalePerPc4.setText(medicineModel.getMedicineSalePcPerPrice1());
+            }
+            if (medicineModel.getMedicineSaleDzPerPrice4() != null){
+                tvMedicineSalePerDz4.setText(medicineModel.getMedicineSaleDzPerPrice1());
+            }
+            if (medicineModel.getMedicineReceivedDate() != null){
+                tvMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
+            }
+            if (medicineModel.getMedicineExpDate() != null){
+                tvMedicineExpDate.setText(medicineModel.getMedicineExpDate());
+            }
+            if (medicineModel.getMedicineNote() != null){
+                tvMedicineNote.setText(medicineModel.getMedicineNote());
+            }
         }
     }
 }

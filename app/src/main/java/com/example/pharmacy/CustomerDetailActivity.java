@@ -70,7 +70,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
             tvCustomerName_detail.setText(customerModel.getCustomerName());
             tvCustomerName_detail.setText(customerModel.getCustomerName());
-            tvCustomerLevel_detail.setText(customerModel.getCustomerLevel());
+//            tvCustomerLevel_detail.setText(customerModel.getCustomerLevel());
             tvCustomerAddress_detail.setText(customerModel.getCustomerAddress());
             tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
             tvCustomerPhNo2_detail.setText(customerModel.getCustomerPhNo2());

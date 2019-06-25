@@ -34,44 +34,71 @@ public class MedicineDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvMedicineCategory_detail)
     TextView tvMedicineCategory_detail;
 
-    @BindView(R.id.tvMedicineDescription_detail)
-    TextView tvMedicineDescription_detail;
+   @BindView(R.id.tvMedicineCostPerPc)
+   TextView tvMedicineCostPerPc;
 
-    @BindView(R.id.tvSellingPrice1)
-    TextView tvSellingPrice1;
+   @BindView(R.id.tvMedicineCostPerDz)
+   TextView tvMedicineCostPerDz;
 
-    @BindView(R.id.tvSellingPrice2)
-    TextView tvSellingPrice2;
+   @BindView(R.id.tvMedicineQtyPerPc)
+   TextView tvMedicineQtyPerPc;
 
-    @BindView(R.id.tvSellingPrice3)
-    TextView tvSellingPrice3;
+   @BindView(R.id.tvMedicineQtyPerDz)
+   TextView tvMedicineQtyPerDz;
 
-    @BindView(R.id.tvSellingPrice4)
-    TextView tvSellingPrice4;
+   @BindView(R.id.tvCompanyName)
+   TextView tvCompanyName;
 
-    @BindView(R.id.tvSellingPrice5)
-    TextView tvSellingPrice5;
+   @BindView(R.id.tvMedicineCompanyName)
+   TextView tvMedicineCompanyName;
 
-    @BindView(R.id.tvSupplierName_detail)
-    TextView tvSupplierName_detail;
+   @BindView(R.id.tvMedicinePh1)
+   TextView tvMedicinePh1;
 
-    @BindView(R.id.tvReceivedDate_detail)
-    TextView tvReceivedDate_detail;
+    @BindView(R.id.tvMedicinePh2)
+    TextView tvMedicinePh2;
 
-    @BindView(R.id.tvExpDate_detail)
-    TextView tvExpDate_detail;
+    @BindView(R.id.tvMedicinePh3)
+    TextView tvMedicinePh3;
 
-    @BindView(R.id.tvCostPrice_detail)
-    TextView tvCostPrice_detail;
+    @BindView(R.id.tvMedicineViberPh)
+    TextView tvMedicineViberPh;
 
-    @BindView(R.id.tvMedicineQty_detail)
-    TextView tvMedicineQty_detail;
+    @BindView(R.id.tvMedicinePayment)
+    TextView tvMedicinePayment;
 
-    @BindView(R.id.tvMedicineQtyLeft_detail)
-    TextView tvMedicineQtyLeft_detail;
+    @BindView(R.id.tvMedicineSalePerPc1)
+    TextView tvMedicineSalePerPc1;
 
-    @BindView(R.id.tvMedicineTotalAmt_detail)
-    TextView tvMedicineTotalAmt_detail;
+    @BindView(R.id.tvMedicineSalePerDz1)
+    TextView tvMedicineSalePerDz1;
+
+    @BindView(R.id.tvMedicineSalePerPc2)
+    TextView tvMedicineSalePerPc2;
+
+    @BindView(R.id.tvMedicineSalePerDz2)
+    TextView tvMedicineSalePerDz2;
+
+    @BindView(R.id.tvMedicineSalePerPc3)
+    TextView tvMedicineSalePerPc3;
+
+    @BindView(R.id.tvMedicineSalePerDz3)
+    TextView tvMedicineSalePerDz3;
+
+    @BindView(R.id.tvMedicineSalePerPc4)
+    TextView tvMedicineSalePerPc4;
+
+    @BindView(R.id.tvMedicineSalePerDz4)
+    TextView tvMedicineSalePerDz4;
+
+    @BindView(R.id.tvMedicineReceivedDate)
+    TextView tvMedicineReceivedDate;
+
+    @BindView(R.id.tvMedicineExpDate)
+    TextView tvMedicineExpDate;
+
+    @BindView(R.id.tvMedicineNote)
+    TextView tvMedicineNote;
 
     private Toolbar toolbar;
     private Context context;
@@ -96,19 +123,28 @@ public class MedicineDetailActivity extends AppCompatActivity {
             tvMedicineName_detail.setText(medicineModel.getMedicineName());
             tvMedicineCode_detail.setText(medicineModel.getMedicineCode());
             tvMedicineCategory_detail.setText(medicineModel.getMedicineCategory());
-            tvMedicineDescription_detail.setText(medicineModel.getMedicineDescription());
-            tvSellingPrice1.setText(medicineModel.getMedicinePrice1());
-            tvSellingPrice2.setText(medicineModel.getMedicinePrice2());
-            tvSellingPrice3.setText(medicineModel.getMedicinePrice3());
-            tvSellingPrice4.setText(medicineModel.getMedicinePrice4());
-            tvSellingPrice5.setText(medicineModel.getMedicinePrice5());
-            tvSupplierName_detail.setText(medicineModel.getSupplierName());
-            tvReceivedDate_detail.setText(medicineModel.getReceivedDate());
-            tvExpDate_detail.setText(medicineModel.getExpDate());
-            tvCostPrice_detail.setText(medicineModel.getMedicineCost());
-            tvMedicineQty_detail.setText(medicineModel.getMedicineQty());
-            tvMedicineQtyLeft_detail.setText(medicineModel.getMedicineQtyLeft());
-            tvMedicineTotalAmt_detail.setText(medicineModel.getMedicineTotalAmt());
+            tvMedicineCostPerPc.setText(medicineModel.getMedicineCostPerPc());
+            tvMedicineCostPerDz.setText(medicineModel.getMedicineCostPerDz());
+            tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
+            tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
+            tvCompanyName.setText(medicineModel.getMedicineCompanyName());
+            tvMedicineCompanyName.setText(medicineModel.getMedicineSupplierName());
+            tvMedicinePh1.setText(medicineModel.getMedicineContactPh1());
+            tvMedicinePh2.setText(medicineModel.getMedicineContactPh2());
+            tvMedicinePh3.setText(medicineModel.getMedicineContactPh3());
+            tvMedicineViberPh.setText(medicineModel.getMedicineViberPh());
+            tvMedicinePayment.setText(medicineModel.getMedicinePayment());
+            tvMedicineSalePerPc1.setText(medicineModel.getMedicineSalePcPerPrice1());
+            tvMedicineSalePerDz1.setText(medicineModel.getMedicineSaleDzPerPrice1());
+            tvMedicineSalePerPc2.setText(medicineModel.getMedicineSalePcPerPrice2());
+            tvMedicineSalePerDz2.setText(medicineModel.getMedicineSaleDzPerPrice2());
+            tvMedicineSalePerPc3.setText(medicineModel.getMedicineSalePcPerPrice3());
+            tvMedicineSalePerDz3.setText(medicineModel.getMedicineSaleDzPerPrice3());
+            tvMedicineSalePerPc4.setText(medicineModel.getMedicineSalePcPerPrice4());
+            tvMedicineSalePerDz4.setText(medicineModel.getMedicineSaleDzPerPrice4());
+            tvMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
+            tvMedicineExpDate.setText(medicineModel.getMedicineExpDate());
+            tvMedicineNote.setText(medicineModel.getMedicineNote());
         }
     }
 
