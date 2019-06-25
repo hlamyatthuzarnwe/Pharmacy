@@ -14,26 +14,63 @@ public class MedicineModel extends RealmObject implements Parcelable {
     private String medicineName;
     private String medicineCode;
     private String medicineCategory;
-    private String medicineDescription;
-    private String medicinePrice1;
-    private String medicinePrice2;
-    private String medicinePrice3;
-    private String medicinePrice4;
-    private String medicinePrice5;
-    private String medicineSellingPrice;
-    private String receivedDate;
-    private String expDate;
-    private String medicineCost;
-    private String medicineQty;
-    private String medicineQtyLeft;
-    private String medicineTotalAmt;
-    private String supplierName;
+    private String medicineCostPerPc;
+    private String medicineCostPerDz;
+    private String medicineQtyPerPc;
+    private String medicineQtyPerDz;
+    private String medicineCompanyName;
+    private String medicineSupplierName;
+    private String medicineContactPh1;
+    private String medicineContactPh2;
+    private String medicineContactPh3;
+    private String medicineViberPh;
+    private String medicinePayment;
+    private String medicineSalePcPerPrice1;
+    private String medicineSaleDzPerPrice1;
+    private String medicineSalePcPerPrice2;
+    private String medicineSaleDzPerPrice2;
+    private String medicineSalePcPerPrice3;
+    private String medicineSaleDzPerPrice3;
+    private String medicineSalePcPerPrice4;
+    private String medicineSaleDzPerPrice4;
+    private String medicineReceivedDate;
+    private String medicineExpDate;
+    private String medicineNote;
 
     public static Creator<MedicineModel> getCREATOR() {
         return CREATOR;
     }
 
     public MedicineModel(){}
+
+    public MedicineModel(String medcineId, String medicineName, String medicineCode, String medicineCategory, String medicineCostPerPc, String medicineCostPerDz, String medicineQtyPerPc, String medicineQtyPerDz, String medicineCompanyName, String medicineSupplierName, String medicineContactPh1, String medicineContactPh2, String medicineContactPh3, String medicineViberPh, String medicinePayment, String medicineSalePcPerPrice1, String medicineSaleDzPerPrice1, String medicineSalePcPerPrice2, String medicineSaleDzPerPrice2, String medicineSalePcPerPrice3, String medicineSaleDzPerPrice3, String medicineSalePcPerPrice4, String medicineSaleDzPerPrice4, String medicineReceivedDate, String medicineExpDate, String medicineNote) {
+        this.medcineId = medcineId;
+        this.medicineName = medicineName;
+        this.medicineCode = medicineCode;
+        this.medicineCategory = medicineCategory;
+        this.medicineCostPerPc = medicineCostPerPc;
+        this.medicineCostPerDz = medicineCostPerDz;
+        this.medicineQtyPerPc = medicineQtyPerPc;
+        this.medicineQtyPerDz = medicineQtyPerDz;
+        this.medicineCompanyName = medicineCompanyName;
+        this.medicineSupplierName = medicineSupplierName;
+        this.medicineContactPh1 = medicineContactPh1;
+        this.medicineContactPh2 = medicineContactPh2;
+        this.medicineContactPh3 = medicineContactPh3;
+        this.medicineViberPh = medicineViberPh;
+        this.medicinePayment = medicinePayment;
+        this.medicineSalePcPerPrice1 = medicineSalePcPerPrice1;
+        this.medicineSaleDzPerPrice1 = medicineSaleDzPerPrice1;
+        this.medicineSalePcPerPrice2 = medicineSalePcPerPrice2;
+        this.medicineSaleDzPerPrice2 = medicineSaleDzPerPrice2;
+        this.medicineSalePcPerPrice3 = medicineSalePcPerPrice3;
+        this.medicineSaleDzPerPrice3 = medicineSaleDzPerPrice3;
+        this.medicineSalePcPerPrice4 = medicineSalePcPerPrice4;
+        this.medicineSaleDzPerPrice4 = medicineSaleDzPerPrice4;
+        this.medicineReceivedDate = medicineReceivedDate;
+        this.medicineExpDate = medicineExpDate;
+        this.medicineNote = medicineNote;
+    }
 
     public String getMedcineId() {
         return medcineId;
@@ -49,27 +86,6 @@ public class MedicineModel extends RealmObject implements Parcelable {
 
     public void setMedicineName(String medicineName) {
         this.medicineName = medicineName;
-    }
-
-    public MedicineModel(String medcineId, String medicineName, String medicineCode, String medicineCategory, String medicineDescription, String medicinePrice1, String medicinePrice2, String medicinePrice3, String medicinePrice4, String medicinePrice5, String medicineSellingPrice, String receivedDate, String expDate, String medicineCost, String medicineQty, String medicineQtyLeft, String medicineTotalAmt, String supplierName) {
-        this.medcineId = medcineId;
-        this.medicineName = medicineName;
-        this.medicineCode = medicineCode;
-        this.medicineCategory = medicineCategory;
-        this.medicineDescription = medicineDescription;
-        this.medicinePrice1 = medicinePrice1;
-        this.medicinePrice2 = medicinePrice2;
-        this.medicinePrice3 = medicinePrice3;
-        this.medicinePrice4 = medicinePrice4;
-        this.medicinePrice5 = medicinePrice5;
-        this.medicineSellingPrice = medicineSellingPrice;
-        this.receivedDate = receivedDate;
-        this.expDate = expDate;
-        this.medicineCost = medicineCost;
-        this.medicineQty = medicineQty;
-        this.medicineQtyLeft = medicineQtyLeft;
-        this.medicineTotalAmt = medicineTotalAmt;
-        this.supplierName = supplierName;
     }
 
     public String getMedicineCode() {
@@ -88,116 +104,180 @@ public class MedicineModel extends RealmObject implements Parcelable {
         this.medicineCategory = medicineCategory;
     }
 
-    public String getMedicineDescription() {
-        return medicineDescription;
+    public String getMedicineCostPerPc() {
+        return medicineCostPerPc;
     }
 
-    public void setMedicineDescription(String medicineDescription) {
-        this.medicineDescription = medicineDescription;
+    public void setMedicineCostPerPc(String medicineCostPerPc) {
+        this.medicineCostPerPc = medicineCostPerPc;
     }
 
-    public String getMedicinePrice1() {
-        return medicinePrice1;
+    public String getMedicineCostPerDz() {
+        return medicineCostPerDz;
     }
 
-    public void setMedicinePrice1(String medicinePrice1) {
-        this.medicinePrice1 = medicinePrice1;
+    public void setMedicineCostPerDz(String medicineCostPerDz) {
+        this.medicineCostPerDz = medicineCostPerDz;
     }
 
-    public String getMedicinePrice2() {
-        return medicinePrice2;
+    public String getMedicineQtyPerPc() {
+        return medicineQtyPerPc;
     }
 
-    public void setMedicinePrice2(String medicinePrice2) {
-        this.medicinePrice2 = medicinePrice2;
+    public void setMedicineQtyPerPc(String medicineQtyPerPc) {
+        this.medicineQtyPerPc = medicineQtyPerPc;
     }
 
-    public String getMedicinePrice3() {
-        return medicinePrice3;
+    public String getMedicineQtyPerDz() {
+        return medicineQtyPerDz;
     }
 
-    public void setMedicinePrice3(String medicinePrice3) {
-        this.medicinePrice3 = medicinePrice3;
+    public void setMedicineQtyPerDz(String medicineQtyPerDz) {
+        this.medicineQtyPerDz = medicineQtyPerDz;
     }
 
-    public String getMedicinePrice4() {
-        return medicinePrice4;
+    public String getMedicineCompanyName() {
+        return medicineCompanyName;
     }
 
-    public void setMedicinePrice4(String medicinePrice4) {
-        this.medicinePrice4 = medicinePrice4;
+    public void setMedicineCompanyName(String medicineCompanyName) {
+        this.medicineCompanyName = medicineCompanyName;
     }
 
-    public String getMedicinePrice5() {
-        return medicinePrice5;
+    public String getMedicineSupplierName() {
+        return medicineSupplierName;
     }
 
-    public void setMedicinePrice5(String medicinePrice5) {
-        this.medicinePrice5 = medicinePrice5;
+    public void setMedicineSupplierName(String medicineSupplierName) {
+        this.medicineSupplierName = medicineSupplierName;
     }
 
-    public String getMedicineSellingPrice() {
-        return medicineSellingPrice;
+    public String getMedicineContactPh1() {
+        return medicineContactPh1;
     }
 
-    public void setMedicineSellingPrice(String medicineSellingPrice) {
-        this.medicineSellingPrice = medicineSellingPrice;
+    public void setMedicineContactPh1(String medicineContactPh1) {
+        this.medicineContactPh1 = medicineContactPh1;
     }
 
-    public String getReceivedDate() {
-        return receivedDate;
+    public String getMedicineContactPh2() {
+        return medicineContactPh2;
     }
 
-    public void setReceivedDate(String receivedDate) {
-        this.receivedDate = receivedDate;
+    public void setMedicineContactPh2(String medicineContactPh2) {
+        this.medicineContactPh2 = medicineContactPh2;
     }
 
-    public String getExpDate() {
-        return expDate;
+    public String getMedicineContactPh3() {
+        return medicineContactPh3;
     }
 
-    public void setExpDate(String expDate) {
-        this.expDate = expDate;
+    public void setMedicineContactPh3(String medicineContactPh3) {
+        this.medicineContactPh3 = medicineContactPh3;
     }
 
-    public String getMedicineCost() {
-        return medicineCost;
+    public String getMedicineViberPh() {
+        return medicineViberPh;
     }
 
-    public void setMedicineCost(String medicineCost) {
-        this.medicineCost = medicineCost;
+    public void setMedicineViberPh(String medicineViberPh) {
+        this.medicineViberPh = medicineViberPh;
     }
 
-    public String getMedicineQty() {
-        return medicineQty;
+    public String getMedicinePayment() {
+        return medicinePayment;
     }
 
-    public void setMedicineQty(String medicineQty) {
-        this.medicineQty = medicineQty;
+    public void setMedicinePayment(String medicinePayment) {
+        this.medicinePayment = medicinePayment;
     }
 
-    public String getMedicineQtyLeft() {
-        return medicineQtyLeft;
+    public String getMedicineSalePcPerPrice1() {
+        return medicineSalePcPerPrice1;
     }
 
-    public void setMedicineQtyLeft(String medicineQtyLeft) {
-        this.medicineQtyLeft = medicineQtyLeft;
+    public void setMedicineSalePcPerPrice1(String medicineSalePcPerPrice1) {
+        this.medicineSalePcPerPrice1 = medicineSalePcPerPrice1;
     }
 
-    public String getMedicineTotalAmt() {
-        return medicineTotalAmt;
+    public String getMedicineSaleDzPerPrice1() {
+        return medicineSaleDzPerPrice1;
     }
 
-    public void setMedicineTotalAmt(String medicineTotalAmt) {
-        this.medicineTotalAmt = medicineTotalAmt;
+    public void setMedicineSaleDzPerPrice1(String medicineSaleDzPerPrice1) {
+        this.medicineSaleDzPerPrice1 = medicineSaleDzPerPrice1;
     }
 
-    public String getSupplierName() {
-        return supplierName;
+    public String getMedicineSalePcPerPrice2() {
+        return medicineSalePcPerPrice2;
     }
 
-    public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
+    public void setMedicineSalePcPerPrice2(String medicineSalePcPerPrice2) {
+        this.medicineSalePcPerPrice2 = medicineSalePcPerPrice2;
+    }
+
+    public String getMedicineSaleDzPerPrice2() {
+        return medicineSaleDzPerPrice2;
+    }
+
+    public void setMedicineSaleDzPerPrice2(String medicineSaleDzPerPrice2) {
+        this.medicineSaleDzPerPrice2 = medicineSaleDzPerPrice2;
+    }
+
+    public String getMedicineSalePcPerPrice3() {
+        return medicineSalePcPerPrice3;
+    }
+
+    public void setMedicineSalePcPerPrice3(String medicineSalePcPerPrice3) {
+        this.medicineSalePcPerPrice3 = medicineSalePcPerPrice3;
+    }
+
+    public String getMedicineSaleDzPerPrice3() {
+        return medicineSaleDzPerPrice3;
+    }
+
+    public void setMedicineSaleDzPerPrice3(String medicineSaleDzPerPrice3) {
+        this.medicineSaleDzPerPrice3 = medicineSaleDzPerPrice3;
+    }
+
+    public String getMedicineSalePcPerPrice4() {
+        return medicineSalePcPerPrice4;
+    }
+
+    public void setMedicineSalePcPerPrice4(String medicineSalePcPerPrice4) {
+        this.medicineSalePcPerPrice4 = medicineSalePcPerPrice4;
+    }
+
+    public String getMedicineSaleDzPerPrice4() {
+        return medicineSaleDzPerPrice4;
+    }
+
+    public void setMedicineSaleDzPerPrice4(String medicineSaleDzPerPrice4) {
+        this.medicineSaleDzPerPrice4 = medicineSaleDzPerPrice4;
+    }
+
+    public String getMedicineReceivedDate() {
+        return medicineReceivedDate;
+    }
+
+    public void setMedicineReceivedDate(String medicineReceivedDate) {
+        this.medicineReceivedDate = medicineReceivedDate;
+    }
+
+    public String getMedicineExpDate() {
+        return medicineExpDate;
+    }
+
+    public void setMedicineExpDate(String medicineExpDate) {
+        this.medicineExpDate = medicineExpDate;
+    }
+
+    public String getMedicineNote() {
+        return medicineNote;
+    }
+
+    public void setMedicineNote(String medicineNote) {
+        this.medicineNote = medicineNote;
     }
 
     protected MedicineModel(Parcel in) {
@@ -205,20 +285,28 @@ public class MedicineModel extends RealmObject implements Parcelable {
         medicineName = in.readString();
         medicineCode = in.readString();
         medicineCategory = in.readString();
-        medicineDescription = in.readString();
-        medicinePrice1 = in.readString();
-        medicinePrice2 = in.readString();
-        medicinePrice3 = in.readString();
-        medicinePrice4 = in.readString();
-        medicinePrice5 = in.readString();
-        medicineSellingPrice = in.readString();
-        supplierName = in.readString();
-        receivedDate = in.readString();
-        expDate = in.readString();
-        medicineCost = in.readString();
-        medicineQty = in.readString();
-        medicineQtyLeft = in.readString();
-        medicineTotalAmt = in.readString();
+        medicineCostPerPc = in.readString();
+        medicineCostPerDz = in.readString();
+        medicineQtyPerPc = in.readString();
+        medicineQtyPerDz = in.readString();
+        medicineCompanyName = in.readString();
+        medicineSupplierName = in.readString();
+        medicineContactPh1 = in.readString();
+        medicineContactPh2 = in.readString();
+        medicineContactPh3 = in.readString();
+        medicineViberPh = in.readString();
+        medicinePayment = in.readString();
+        medicineSalePcPerPrice1 = in.readString();
+        medicineSaleDzPerPrice1 = in.readString();
+        medicineSalePcPerPrice2 = in.readString();
+        medicineSaleDzPerPrice2 = in.readString();
+        medicineSalePcPerPrice3 = in.readString();
+        medicineSaleDzPerPrice3 = in.readString();
+        medicineSalePcPerPrice4 = in.readString();
+        medicineSaleDzPerPrice4 = in.readString();
+        medicineReceivedDate = in.readString();
+        medicineExpDate = in.readString();
+        medicineNote = in.readString();
     }
 
     public static final Creator<MedicineModel> CREATOR = new Creator<MedicineModel>() {
@@ -244,19 +332,27 @@ public class MedicineModel extends RealmObject implements Parcelable {
         dest.writeString(medicineName);
         dest.writeString(medicineCode);
         dest.writeString(medicineCategory);
-        dest.writeString(medicineDescription);
-        dest.writeString(medicinePrice1);
-        dest.writeString(medicinePrice2);
-        dest.writeString(medicinePrice3);
-        dest.writeString(medicinePrice4);
-        dest.writeString(medicinePrice5);
-        dest.writeString(medicineSellingPrice);
-        dest.writeString(supplierName);
-        dest.writeString(receivedDate);
-        dest.writeString(expDate);
-        dest.writeString(medicineCost);
-        dest.writeString(medicineQty);
-        dest.writeString(medicineQtyLeft);
-        dest.writeString(medicineTotalAmt);
+        dest.writeString(medicineCostPerPc);
+        dest.writeString(medicineCostPerDz);
+        dest.writeString(medicineQtyPerPc);
+        dest.writeString(medicineQtyPerDz);
+        dest.writeString(medicineCompanyName);
+        dest.writeString(medicineSupplierName);
+        dest.writeString(medicineContactPh1);
+        dest.writeString(medicineContactPh2);
+        dest.writeString(medicineContactPh3);
+        dest.writeString(medicineViberPh);
+        dest.writeString(medicinePayment);
+        dest.writeString(medicineSalePcPerPrice1);
+        dest.writeString(medicineSaleDzPerPrice1);
+        dest.writeString(medicineSalePcPerPrice2);
+        dest.writeString(medicineSaleDzPerPrice2);
+        dest.writeString(medicineSalePcPerPrice3);
+        dest.writeString(medicineSaleDzPerPrice3);
+        dest.writeString(medicineSalePcPerPrice4);
+        dest.writeString(medicineSaleDzPerPrice4);
+        dest.writeString(medicineReceivedDate);
+        dest.writeString(medicineExpDate);
+        dest.writeString(medicineNote);
     }
 }

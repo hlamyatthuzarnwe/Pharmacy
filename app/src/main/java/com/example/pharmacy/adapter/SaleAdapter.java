@@ -66,8 +66,18 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleCustomerName)
         TextView tvSaleCustomerName;
 
-        @BindView(R.id.tvSaleCustomerLevel_detail)
-        TextView tvSaleCustomerLevel_detail;
+        @BindView(R.id.tvSaleCustomerLevel1_detail)
+        TextView tvSaleCustomerLevel1_detail;
+
+
+        @BindView(R.id.tvSaleCustomerLevel2_detail)
+        TextView tvSaleCustomerLevel2_detai;
+
+        @BindView(R.id.tvSaleCustomerLevel3_detail)
+        TextView tvSaleCustomerLevel3_detail;
+
+        @BindView(R.id.tvSaleCustomerLevel4_detail)
+        TextView tvSaleCustomerLevel4_detail;
 
         @BindView(R.id.tvSaleCustomerAddress)
         TextView tvSaleCustomerAddress;
@@ -104,8 +114,17 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if(saleModel.getSaleCustomerName() != null){
                 tvSaleCustomerName.setText(saleModel.getSaleCustomerName());
             }
-            if(saleModel.getSaleCustomerLevel() != null){
-                tvSaleCustomerLevel_detail.setText(saleModel.getSaleCustomerLevel());
+            if(saleModel.getSaleCustomerLevel1() != null){
+                tvSaleCustomerLevel1_detail.setText(saleModel.getSaleCustomerLevel1());
+            }
+            if(saleModel.getSaleCustomerLevel2() != null){
+                tvSaleCustomerLevel2_detai.setText(saleModel.getSaleCustomerLevel2());
+            }
+            if(saleModel.getSaleCustomerLevel3() != null){
+                tvSaleCustomerLevel3_detail.setText(saleModel.getSaleCustomerLevel3());
+            }
+            if(saleModel.getSaleCustomerLevel4() != null){
+                tvSaleCustomerLevel4_detail.setText(saleModel.getSaleCustomerLevel4());
             }
             if(saleModel.getSaleCustomerAddress() != null){
                 tvSaleCustomerAddress.setText(saleModel.getSaleCustomerAddress());
@@ -116,8 +135,8 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if(saleModel.getSaleCategory() != null){
                 tvSaleMedicineCategory.setText(saleModel.getSaleCategory());
             }
-            if(saleModel.getSalePrice() != null){
-                tvSaleMedicinePrice.setText(saleModel.getSalePrice());
+            if(saleModel.getSaleCostPerPc() != null){
+                tvSaleMedicinePrice.setText(saleModel.getSaleCostPerPc());
             }
             if (saleModel.getSaleTotalAmt() != null){
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());

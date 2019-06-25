@@ -23,17 +23,17 @@ public class InventoryAddActivity extends AppCompatActivity {
     private Context context;
     int mId;
 
-    @BindView(R.id.edtInventoryCustomerName)
-    EditText edtInventoryCustomerName;
-
-    @BindView(R.id.edtInventoryMedicineCode)
-    EditText edtInventoryMedicineCode;
-
-    @BindView(R.id.edtInventoryMedicineQty)
-    EditText edtInventoryMedicineQty;
-
-    @BindView(R.id.edtInventoryExpDate)
-    EditText edtInventoryExpDate;
+//    @BindView(R.id.edtInventoryCustomerName)
+//    EditText edtInventoryCustomerName;
+//
+//    @BindView(R.id.edtInventoryMedicineCode)
+//    EditText edtInventoryMedicineCode;
+//
+//    @BindView(R.id.edtInventoryMedicineQty)
+//    EditText edtInventoryMedicineQty;
+//
+//    @BindView(R.id.edtInventoryExpDate)
+//    EditText edtInventoryExpDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

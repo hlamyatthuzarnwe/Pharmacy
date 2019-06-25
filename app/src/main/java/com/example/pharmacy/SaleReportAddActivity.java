@@ -72,7 +72,7 @@ public class SaleReportAddActivity extends AppCompatActivity {
             edtSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             edtCustomerName_add.setText(customerModel.getCustomerName());
             edtSaleTotalAmt_add.setText(saleModel.getSaleTotalAmt());
-            edtSaleProfit.setText(saleModel.getSaleProfit());
+//            edtSaleProfit.setText(saleModel.getSaleProfit());
         }
 
     }
@@ -141,7 +141,7 @@ public class SaleReportAddActivity extends AppCompatActivity {
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
             customerModel.setCustomerName(medicineCustomerName);
             saleModel.setSaleTotalAmt(saleAmt);
-            saleModel.setSaleProfit(saleProfit);
+            //saleModel.setSaleProfit(saleProfit);
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(saleModel );
@@ -167,7 +167,7 @@ public class SaleReportAddActivity extends AppCompatActivity {
             saleModel.setSaleInvoiceDate(saleInvoiceDate);
             customerModel.setCustomerName(medicineCustomerName);
             saleModel.setSaleTotalAmt(saleAmt);
-            saleModel.setSaleProfit(saleProfit);
+          //  saleModel.setSaleProfit(saleProfit);
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(saleModel );

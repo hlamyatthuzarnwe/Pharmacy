@@ -24,7 +24,7 @@ public class SupplierDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
-    @BindView(R.id.tvSupplierName_detail)
+    @BindView(R.id.tvMedicineSupplierName)
     TextView tvSupplierName_detail;
 
     @BindView(R.id.tvCompanyName_detail)
