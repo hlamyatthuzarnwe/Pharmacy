@@ -171,7 +171,7 @@ public class SupplierAddActivity extends AppCompatActivity {
                 @Override
                 public void execute(Realm realm) {
                     if(deleteResults != null){
-                        deleteResults.deleteFromRealm();;
+                        deleteResults.deleteFromRealm();
                     }
                     Toast.makeText(SupplierAddActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
                     finish();

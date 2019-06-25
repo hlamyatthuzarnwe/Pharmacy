@@ -290,15 +290,12 @@ public class SaleAddActivity extends AppCompatActivity {
             String saleId = saleModel.getSaleInvoiceNo();
 
             final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("saleInvoiceNo", saleId).findFirst();
-            realm.executeTransaction(new Realm.Transaction() {
-                @Override
-                public void execute(Realm realm) {
-                    if (deleteResults != null) {
-                        deleteResults.deleteFromRealm();
-                    }
-                    Toast.makeText(SaleAddActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
-                    finish();
+            realm.executeTransaction(realm -> {
+                if (deleteResults != null) {
+                    deleteResults.deleteFromRealm();
                 }
+                Toast.makeText(SaleAddActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
+                finish();
             });
         }
 
