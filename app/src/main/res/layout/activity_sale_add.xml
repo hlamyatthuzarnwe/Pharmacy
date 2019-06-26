@@ -319,7 +319,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Up Front(စရန္ေငြ)"/>
+                    android:text="Up Front"/>
                 <EditText
                     android:id="@+id/edtSaleUpFront"
                     android:layout_width="match_parent"

@@ -98,11 +98,11 @@ public class SaleAddActivity extends AppCompatActivity {
     EditText edtMedicineCategory;
 
 
-    @BindView(R.id.edtMedicinePcCostPrice)
-    EditText edtMedicinePcCostPrice;
+    @BindView(R.id.edtPricePerPc)
+    EditText edtPricePerPc;
 
-    @BindView(R.id.edtMedicneDzCostPrice)
-    EditText edtMedicneDzCostPrice;
+    @BindView(R.id.edtPricePerDz)
+    EditText edtPricePerDz;
 
     @BindView(R.id.btnAskPrice)
     Button btnAskPrice;
@@ -110,8 +110,8 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.edtMedicinePcQty)
     EditText edtMedicinePcQty;
 
-    @BindView(R.id.edtMedicineDzQty)
-    EditText edtMedicineDzQty;
+    @BindView(R.id.edtQtyPerDz)
+    EditText edtQtyPerDz;
 
     @BindView(R.id.btnAskQty)
     Button btnAskQty;
@@ -175,7 +175,7 @@ public class SaleAddActivity extends AppCompatActivity {
             edtMedicineCode.setText(medicineModel.getMedicineCode());
             edtMedicineCategory.setText(medicineModel.getMedicineCategory());
             edtMedicinePcQty.setText(saleModel.getSaleQtyPerPc());
-            edtMedicineDzQty.setText(saleModel.getSaleQtyPerDz());
+            edtQtyPerDz.setText(saleModel.getSaleQtyPerDz());
             edtSaleSubTotalAmt_add.setText(saleModel.getSaleSubTotalAmt());
             edtSaleTotalAmt_add.setText(saleModel.getSaleTotalAmt());
             edtSaleUpFront.setText(saleModel.getSaleUpFront());
@@ -287,9 +287,9 @@ public class SaleAddActivity extends AppCompatActivity {
             String saleMedicineCode = edtMedicineCode.getText().toString();
             String saleMedicineCategory = edtMedicineCategory.getText().toString();
             String saleMedicineQtyPerPc = edtMedicinePcQty.getText().toString();
-            String saleMedicineQtyPerDz = edtMedicineDzQty.getText().toString();
-            String saleMedicineCostPerPc = edtMedicinePcCostPrice.getText().toString();
-            String saleMedicineCostPerDz = edtMedicneDzCostPrice.getText().toString();
+            String saleMedicineQtyPerDz = edtQtyPerDz.getText().toString();
+            String saleMedicineCostPerPc = edtPricePerPc.getText().toString();
+            String saleMedicineCostPerDz = edtPricePerDz.getText().toString();
             String saleSubTotalAmt = edtSaleSubTotalAmt_add.getText().toString();
             String saleTotalAmt = edtSaleTotalAmt_add.getText().toString();
             String saleUpFront = edtSaleUpFront.getText().toString();
@@ -350,9 +350,9 @@ public class SaleAddActivity extends AppCompatActivity {
             String saleMedicineCode = edtMedicineCode.getText().toString();
             String saleMedicineCategory = edtMedicineCategory.getText().toString();
             String saleMedicineQtyPerPc = edtMedicinePcQty.getText().toString();
-            String saleMedicineQtyPerDz = edtMedicineDzQty.getText().toString();
-            String saleMedicineCostPerPc = edtMedicinePcCostPrice.getText().toString();
-            String saleMedicineCostPerDz = edtMedicneDzCostPrice.getText().toString();
+            String saleMedicineQtyPerDz = edtQtyPerDz.getText().toString();
+            String saleMedicineCostPerPc = edtPricePerPc.getText().toString();
+            String saleMedicineCostPerDz = edtPricePerDz.getText().toString();
             String saleSubTotalAmt = edtSaleSubTotalAmt_add.getText().toString();
             String saleTotalAmt = edtSaleTotalAmt_add.getText().toString();
             String saleUpFront = edtSaleUpFront.getText().toString();
@@ -434,9 +434,9 @@ public class SaleAddActivity extends AppCompatActivity {
             edtMedicineCode.setText("");
             edtMedicineCategory.setText("");
             edtMedicinePcQty.setText("");
-            edtMedicineDzQty.setText("");
-            edtMedicinePcCostPrice.setText("");
-            edtMedicneDzCostPrice.setText("");
+            edtQtyPerDz.setText("");
+            edtPricePerPc.setText("");
+            edtPricePerDz.setText("");
             edtSaleSubTotalAmt_add.setText("");
             edtSaleTotalAmt_add.setText("");
             edtSaleUpFront.setText("");
