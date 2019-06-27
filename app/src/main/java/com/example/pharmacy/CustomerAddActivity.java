@@ -69,6 +69,8 @@ public class CustomerAddActivity extends AppCompatActivity {
     @BindView(R.id.edtCustomerNote)
     EditText edtCustomerNote;
 
+    private String idEdit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +88,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(customerModel != null){
+            idEdit = customerModel.getCustomerId();
             edtCustomerName_add.setText(customerModel.getCustomerName());
             edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
 //            edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
@@ -214,6 +217,7 @@ public class CustomerAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_update){
+            customerModel.setCustomerId(idEdit);
             String cName = edtCustomerName_add.getText().toString();
             String cAddress = edtCustomerAddress_add.getText().toString();
            // String cLevel = edtCustomerLevel_add.getText().toString();

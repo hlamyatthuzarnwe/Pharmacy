@@ -114,6 +114,7 @@ public class MedicineAddActivity extends AppCompatActivity {
     EditText edtMedicineNote;
 
    private SupplierModel supplierModel;
+   private String idEdit;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -133,7 +134,7 @@ public class MedicineAddActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(medicineModel != null){
-
+            idEdit = medicineModel.getMedcineId();
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicineCode.setText(medicineModel.getMedicineCode());
             edtMedicineCategory.setText(medicineModel.getMedicineCategory());
@@ -336,7 +337,7 @@ public class MedicineAddActivity extends AppCompatActivity {
 
             MedicineModel medicineModel = new MedicineModel();
 
-            medicineModel.setMedcineId(UUID.randomUUID().toString());
+            medicineModel.setMedcineId(idEdit);
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
@@ -365,7 +366,7 @@ public class MedicineAddActivity extends AppCompatActivity {
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(medicineModel);
-                Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MedicineAddActivity.this, "Successfully Update Data", Toast.LENGTH_SHORT).show();
             });
 
         }

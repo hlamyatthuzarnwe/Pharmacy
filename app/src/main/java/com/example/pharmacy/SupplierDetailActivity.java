@@ -24,8 +24,8 @@ public class SupplierDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
-    @BindView(R.id.tvMedicineSupplierName)
-    TextView tvSupplierName_detail;
+    @BindView(R.id.tvSupplier_supplierName_detail)
+    TextView tvSupplier_supplierName_detail;
 
     @BindView(R.id.tvCompanyName_detail)
     TextView tvCompanyName_detail;
@@ -33,20 +33,20 @@ public class SupplierDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvCompanyAddress_detail)
     TextView tvCompanyAddress_detail;
 
-    @BindView(R.id.tvCustomerPhNo1_detail)
-    TextView tvCustomerPhNo1_detail;
+    @BindView(R.id.tvSupplierPhoneNo1_detail)
+    TextView tvSupplierPhoneNo1_detail;
 
-    @BindView(R.id.tvCustomerPhNo2_detail)
-    TextView tvCustomerPhNo2_detail;
+    @BindView(R.id.tvSupplierPhoneNo2_detail)
+    TextView tvSupplierPhoneNo2_detail;
 
-    @BindView(R.id.tvCustomerPhNo3_detail)
-    TextView tvCustomerPhNo3_detail;
+    @BindView(R.id.tvSupplierPhoneNo3_detail)
+    TextView tvSupplierPhoneNo3_detail;
 
-    @BindView(R.id.tvCustomerPhNo4_detail)
-    TextView tvCustomerPhNo4_detail;
+    @BindView(R.id.tvSupplierPhoneNo4_detail)
+    TextView tvSupplierPhoneNo4_detail;
 
-    @BindView(R.id.tvCustomerPhNo5_detail)
-    TextView tvCustomerPhNo5_detail;
+    @BindView(R.id.tvSupplierPhoneNo5_detail)
+    TextView tvSupplierPhoneNo5_detail;
 
     @BindView(R.id.tvSupplierNote_detail)
     TextView tvSupplierNote_detail;
@@ -66,14 +66,14 @@ public class SupplierDetailActivity extends AppCompatActivity {
 
         if(supplierModel != null){
 
-            tvSupplierName_detail.setText(supplierModel.getSupplierName());
+            tvSupplier_supplierName_detail.setText(supplierModel.getSupplierName());
             tvCompanyName_detail.setText(supplierModel.getCompanyName());
             tvCompanyAddress_detail.setText(supplierModel.getCompanyAddress());
-            tvCustomerPhNo1_detail.setText(supplierModel.getSuplier_phno1());
-            tvCustomerPhNo2_detail.setText(supplierModel.getSupplier_phno2());
-            tvCustomerPhNo3_detail.setText(supplierModel.getSupplier_phno3());
-            tvCustomerPhNo4_detail.setText(supplierModel.getSupplier_phno4());
-            tvCustomerPhNo5_detail.setText(supplierModel.getSupplier_phno5());
+            tvSupplierPhoneNo1_detail.setText(supplierModel.getSuplier_phno1());
+            tvSupplierPhoneNo2_detail.setText(supplierModel.getSupplier_phno2());
+            tvSupplierPhoneNo3_detail.setText(supplierModel.getSupplier_phno3());
+            tvSupplierPhoneNo4_detail.setText(supplierModel.getSupplier_phno4());
+            tvSupplierPhoneNo5_detail.setText(supplierModel.getSupplier_phno5());
             tvSupplierNote_detail.setText(supplierModel.getSupplierNote());
         }
 

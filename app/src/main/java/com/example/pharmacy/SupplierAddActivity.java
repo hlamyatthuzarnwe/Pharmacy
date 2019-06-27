@@ -28,7 +28,7 @@ public class SupplierAddActivity extends AppCompatActivity {
     private Realm realm;
     private Toolbar toolbar;
     private Context context;
-    private int sId;
+    private  String idEdit;
 
     @BindView(R.id.edtSupplierName_add)
     EditText edtSupplierName_add;
@@ -72,7 +72,7 @@ public class SupplierAddActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if(supplierModel != null){
-
+            idEdit = supplierModel.getSuplierId();
             edtSupplierName_add.setText(supplierModel.getSupplierName());
             edtCompanyName_add.setText(supplierModel.getCompanyName());
             edtCompanyAddress_add.setText(supplierModel.getCompanyAddress());
@@ -133,6 +133,7 @@ public class SupplierAddActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id.menu_update){
+            supplierModel.setSuplierId(idEdit);
             String sName = edtSupplierName_add.getText().toString();
             String sCompanyName = edtCompanyName_add.getText().toString();
             String sCompanyAddress = edtCompanyAddress_add.getText().toString();
