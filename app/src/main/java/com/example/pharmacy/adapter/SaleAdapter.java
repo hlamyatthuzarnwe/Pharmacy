@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.pharmacy.CustomerDetailActivity;
 import com.example.pharmacy.SaleDetailActivity;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
@@ -66,20 +67,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleCustomerName)
         TextView tvSaleCustomerName;
 
-        @BindView(R.id.tvSaleCustomerLevel1_detail)
-        TextView tvSaleCustomerLevel1_detail;
-
-
-        @BindView(R.id.tvSaleCustomerLevel2_detail)
-        TextView tvSaleCustomerLevel2_detail;
-
-        @BindView(R.id.tvSaleCustomerLevel3_detail)
-        TextView tvSaleCustomerLevel3_detail;
-
-        @BindView(R.id.tvSaleCustomerLevel4_detail)
-        TextView tvSaleCustomerLevel4_detail;
-
-        @BindView(R.id.tvSaleCustomerAddress)
+       @BindView(R.id.tvSaleCustomerAddress)
         TextView tvSaleCustomerAddress;
 
         @BindView(R.id.tvSaleMedicineName)
@@ -88,32 +76,17 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleMedicineCategory)
         TextView tvSaleMedicineCategory;
 
-        @BindView(R.id.tvSalePricePerPc_detail)
-        TextView tvSalePricePerPc_detail;
+        @BindView(R.id.tvSalePricePerPc)
+        TextView tvSalePricePerPc;
 
-        @BindView(R.id.tvSalePricePerDz_detail)
-        TextView tvSalePricePerDz_detail;
-
-        @BindView(R.id.tvMedicineQtyPerPc)
-        TextView tvMedicineQtyPerPc;
-
-        @BindView(R.id.tvMedicineQtyPerDz)
-        TextView tvMedicineQtyPerDz;
+        @BindView(R.id.tvSalePricePerDz)
+        TextView tvSalePricePerDz;
 
         @BindView(R.id.tvSaleTotalAmt)
         TextView tvSaleTotalAmt;
 
-        @BindView(R.id.tvSaleUpFront_detail)
-        TextView tvSaleUpFront_detail;
-
-        @BindView(R.id.tvSaleBalance_detail)
-        TextView tvSaleBalance_detail;
-
         @BindView(R.id.tvSaleDueDate)
         TextView tvSaleDueDate;
-
-        @BindView(R.id.tvSaleNote_detail)
-        TextView tvSaleNote_detail;
 
         public SaleViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -132,18 +105,6 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if(saleModel.getSaleCustomerName() != null){
                 tvSaleCustomerName.setText(saleModel.getSaleCustomerName());
             }
-            if(saleModel.getSaleCustomerLevel1() != null){
-                tvSaleCustomerLevel1_detail.setText(saleModel.getSaleCustomerLevel1());
-            }
-            if(saleModel.getSaleCustomerLevel2() != null){
-                tvSaleCustomerLevel2_detail.setText(saleModel.getSaleCustomerLevel2());
-            }
-            if(saleModel.getSaleCustomerLevel3() != null){
-                tvSaleCustomerLevel3_detail.setText(saleModel.getSaleCustomerLevel3());
-            }
-            if(saleModel.getSaleCustomerLevel4() != null){
-                tvSaleCustomerLevel4_detail.setText(saleModel.getSaleCustomerLevel4());
-            }
             if(saleModel.getSaleCustomerAddress() != null){
                 tvSaleCustomerAddress.setText(saleModel.getSaleCustomerAddress());
             }
@@ -153,33 +114,18 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if(saleModel.getSaleCategory() != null){
                 tvSaleMedicineCategory.setText(saleModel.getSaleCategory());
             }
-            if(saleModel.getSaleCostPerPc() != null){
-                tvSalePricePerPc_detail.setText(saleModel.getSaleCostPerPc());
-            }
-            if (saleModel.getSaleCostPerDz() != null){
-                tvSalePricePerDz_detail.setText(saleModel.getSaleCostPerDz());
-            }
-            if(saleModel.getSaleQtyPerPc() != null){
-                tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
-            }
-            if (saleModel.getSaleQtyPerDz() != null){
-                tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
-            }
-            if (saleModel.getSaleTotalAmt() != null){
+           if (saleModel.getSaleTotalAmt() != null){
+                tvSalePricePerPc.setText(saleModel.getSaleCostPerPc());
+                tvSalePricePerDz.setText(saleModel.getSaleCostPerDz());
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());
-            }
-            if (saleModel.getSaleUpFront() != null){
-                tvSaleUpFront_detail.setText(saleModel.getSaleUpFront());
-            }
-            if (saleModel.getSaleBalance() != null){
-                tvSaleBalance_detail.setText(saleModel.getSaleBalance());
-            }
-            if (saleModel.getSaleDuedate() != null){
+            }if (saleModel.getSaleDuedate() != null){
                 tvSaleDueDate.setText(saleModel.getSaleDuedate());
             }
-            if (saleModel.getSaleNote() != null){
-                tvSaleNote_detail.setText(saleModel.getSaleNote());
-            }
+            saleView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, SaleDetailActivity.class);
+                intent.putExtra("SaleModel",saleModel);
+                context.startActivity(intent);
+            });
 
         }
     }

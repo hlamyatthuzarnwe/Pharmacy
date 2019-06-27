@@ -46,11 +46,11 @@ public class MedicineDetailActivity extends AppCompatActivity {
    @BindView(R.id.tvMedicineQtyPerDz)
    TextView tvMedicineQtyPerDz;
 
-   @BindView(R.id.tvCompanyName)
-   TextView tvCompanyName;
-
    @BindView(R.id.tvMedicineCompanyName)
    TextView tvMedicineCompanyName;
+
+   @BindView(R.id.tvMedicineSupplierName)
+   TextView tvMedicineSupplierName;
 
    @BindView(R.id.tvMedicinePh1)
    TextView tvMedicinePh1;
@@ -127,8 +127,8 @@ public class MedicineDetailActivity extends AppCompatActivity {
             tvMedicineCostPerDz.setText(medicineModel.getMedicineCostPerDz());
             tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
-            tvCompanyName.setText(medicineModel.getMedicineCompanyName());
-            tvMedicineCompanyName.setText(medicineModel.getMedicineSupplierName());
+            tvMedicineCompanyName.setText(medicineModel.getMedicineCompanyName());
+            tvMedicineSupplierName.setText(medicineModel.getMedicineSupplierName());
             tvMedicinePh1.setText(medicineModel.getMedicineContactPh1());
             tvMedicinePh2.setText(medicineModel.getMedicineContactPh2());
             tvMedicinePh3.setText(medicineModel.getMedicineContactPh3());

@@ -319,7 +319,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Up Front(စရန္ေငြ)"/>
+                    android:text="Up Front"/>
                 <EditText
                     android:id="@+id/edtSaleUpFront"
                     android:layout_width="match_parent"
@@ -375,9 +375,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Note"
-                    android:layout_weight="1"/>
+                    android:layout_gravity="start"/>
                 <EditText
-                    android:layout_weight="1"
                     android:id="@+id/edtSaleNote"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"

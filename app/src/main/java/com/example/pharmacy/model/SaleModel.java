@@ -44,8 +44,9 @@ public class SaleModel extends RealmObject implements Parcelable {
     private String saleNote;
     private String salePayment;
 
-    public SaleModel(String saleInvoiceNo, String saleInvoiceDate, String saleCustomerName, String saleCustomerLevel1, String saleCustomerLevel2, String saleCustomerLevel3, String saleCustomerLevel4, String saleCustomerAddress, String saleCustomerPhNo1, String saleCustomerPhNo2, String saleCustomerPhNo3, String saleMedicineName, String saleMedicineCode, String saleCategory, String saleCostPerPc, String saleCostPerDz, String saleQtyPerPc, String saleQtyPerDz, String sellingPricePerPc1, String sellingPricePerDz1, String sellingPricePerPc2, String sellingPricePerDz2, String sellingPricePerPc3, String sellingPricePerDz3, String sellingPricePerPc4, String sellingPricePerDz4, String saleSubTotalAmt, String saleTotalAmt, String saleBalance, String saleDuedate, String saleUpFront, String saleNote, String salePayment) {
+    public SaleModel(String saleInvoiceNo,  String saleInvoiceDate, String saleCustomerName, String saleCustomerLevel1, String saleCustomerLevel2, String saleCustomerLevel3, String saleCustomerLevel4, String saleCustomerAddress, String saleCustomerPhNo1, String saleCustomerPhNo2, String saleCustomerPhNo3, String saleMedicineName, String saleMedicineCode, String saleCategory, String saleCostPerPc, String saleCostPerDz, String saleQtyPerPc, String saleQtyPerDz, String sellingPricePerPc1, String sellingPricePerDz1, String sellingPricePerPc2, String sellingPricePerDz2, String sellingPricePerPc3, String sellingPricePerDz3, String sellingPricePerPc4, String sellingPricePerDz4, String saleSubTotalAmt, String saleTotalAmt, String saleBalance, String saleDuedate, String saleUpFront, String saleNote, String salePayment) {
         this.saleInvoiceNo = saleInvoiceNo;
+
         this.saleInvoiceDate = saleInvoiceDate;
         this.saleCustomerName = saleCustomerName;
         this.saleCustomerLevel1 = saleCustomerLevel1;
@@ -88,6 +89,7 @@ public class SaleModel extends RealmObject implements Parcelable {
     }
 
     protected SaleModel(Parcel in) {
+
         saleInvoiceNo =  in.readString();
         saleInvoiceDate = in.readString();
         saleCustomerName = in.readString();
@@ -405,6 +407,7 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+
         dest.writeString(saleInvoiceNo);
         dest.writeString(saleInvoiceDate);
         dest.writeString(saleCustomerName);
