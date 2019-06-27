@@ -9,7 +9,7 @@
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/print_data"
+        android:id="@+id/delete_data"
         android:title="DELETE"
         app:showAsAction="always"/>
 

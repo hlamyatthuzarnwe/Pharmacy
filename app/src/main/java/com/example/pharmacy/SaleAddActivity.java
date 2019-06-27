@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.pharmacy.helper.DateTimeHelper;
@@ -140,6 +141,10 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.edtSaleNote)
     EditText edtSaleNote;
 
+    @BindView(R.id.relativeSave_saleAdd)
+    RelativeLayout relativeSave;
+
+
     private String medcineId;
     private String customerId;
 
@@ -185,7 +190,72 @@ public class SaleAddActivity extends AppCompatActivity {
             edtSaleBalance.setText(saleModel.getSaleBalance());
             edtSaleDueDate.setText(saleModel.getSaleDuedate());
             edtSaleNote.setText(saleModel.getSaleNote());
+
         }
+
+        relativeSave.setOnClickListener(v -> {
+        String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
+        String saleCustomerName = edtCustomerName_add.getText().toString();
+//            String saleCustomerlevel1 = edtCustomerLevel1_add.getText().toString();
+//            String saleCustomerlevel2 = edtCustomerLevel2_add.getText().toString();
+//            String saleCustomerlevel3 = edtCustomerLevel3_add.getText().toString();
+//            String saleCustomerLevel4 = edtCustomerLevel4_add.getText().toString();
+        String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
+        String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
+        String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
+        String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
+        String saleMedicineName = edtMedicineName.getText().toString();
+        String saleMedicineCode = edtMedicineCode.getText().toString();
+        String saleMedicineCategory = edtMedicineCategory.getText().toString();
+        String saleMedicineQtyPerPc = edtMedicinePcQty.getText().toString();
+        String saleMedicineQtyPerDz = edtQtyPerDz.getText().toString();
+        String saleMedicineCostPerPc = edtPricePerPc.getText().toString();
+        String saleMedicineCostPerDz = edtPricePerDz.getText().toString();
+        String saleSubTotalAmt = edtSaleSubTotalAmt_add.getText().toString();
+        String saleTotalAmt = edtSaleTotalAmt_add.getText().toString();
+        String saleUpFront = edtSaleUpFront.getText().toString();
+        String saleBalance = edtSaleBalance.getText().toString();
+        String saleDueDate = edtSaleDueDate.getText().toString();
+        String saleNote = edtSaleNote.getText().toString();
+
+        SaleModel saleModel = new SaleModel();
+        MedicineModel medicineModel = new MedicineModel();
+        CustomerModel customerModel = new CustomerModel();
+
+        saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
+        saleModel.setSaleInvoiceDate(saleInvoiceDate);
+        customerModel.setCustomerName(saleCustomerName);
+//            customerModel.setCustomerLevel1(saleCustomerlevel1);
+//            customerModel.setCustomerLevel2(saleCustomerlevel2);
+//            customerModel.setCustomerLevel3(saleCustomerlevel3);
+//            customerModel.setCustomerLevel4(saleCustomerLevel4);
+        customerModel.setCustomerAddress(saleCustomerAddress);
+        customerModel.setCustomerPhNo1(saleCustomerPhNo1);
+        customerModel.setCustomerPhNo2(saleCustomerPhNo2);
+        customerModel.setCustomerPhNo3(saleCustomerPhNo3);
+        medicineModel.setMedicineName(saleMedicineName);
+        medicineModel.setMedicineCode(saleMedicineCode);
+        medicineModel.setMedicineCategory(saleMedicineCategory);
+        medicineModel.setMedicineQtyPerPc(saleMedicineQtyPerPc);
+        medicineModel.setMedicineQtyPerDz(saleMedicineQtyPerDz);
+        medicineModel.setMedicineCostPerPc(saleMedicineCostPerPc);
+        medicineModel.setMedicineCostPerDz(saleMedicineCostPerDz);
+        saleModel.setSaleSubTotalAmt(saleSubTotalAmt);
+        saleModel.setSaleTotalAmt(saleTotalAmt);
+        saleModel.setSaleUpFront(saleUpFront);
+        saleModel.setSaleBalance(saleBalance);
+        saleModel.setSaleDuedate(saleDueDate);
+        saleModel.setSaleNote(saleNote);
+
+        realm.executeTransaction(realm -> {
+            realm.copyToRealmOrUpdate(saleModel);
+            realm.copyToRealmOrUpdate(medicineModel);
+            realm.copyToRealmOrUpdate(customerModel);
+            Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+        });
+
+        });
+
     }
 
     private void setUpSaleInvoiceDate() {

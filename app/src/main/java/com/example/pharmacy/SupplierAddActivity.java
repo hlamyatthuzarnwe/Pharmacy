@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.pharmacy.model.SupplierModel;
@@ -57,6 +58,9 @@ public class SupplierAddActivity extends AppCompatActivity {
     @BindView(R.id.edtSupplierNote_add)
     EditText edtSupplierNote_add;
 
+    @BindView(R.id.relativeSave_supplierAdd)
+    RelativeLayout relativeSave;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +87,36 @@ public class SupplierAddActivity extends AppCompatActivity {
             edtSupplierPhNo5.setText(supplierModel.getSupplier_phno5());
             edtSupplierNote_add.setText(supplierModel.getSupplierNote());
         }
+        relativeSave.setOnClickListener(v -> {
+            String sName = edtSupplierName_add.getText().toString();
+            String sCompanyName = edtCompanyName_add.getText().toString();
+            String sCompanyAddress = edtCompanyAddress_add.getText().toString();
+            String sPhNo1 = edtSupplierPhNo1.getText().toString();
+            String sPhNo2 = edtSupplierPhNo2.getText().toString();
+            String sPhNo3 = edtSupplierPhNo3.getText().toString();
+            String sPhNo4 = edtSupplierPhNo4.getText().toString();
+            String sPhNo5 = edtSupplierPhNo5.getText().toString();
+            String sNote = edtSupplierNote_add.getText().toString();
 
+            SupplierModel supplierModel = new SupplierModel();
+
+            supplierModel.setSuplierId(UUID.randomUUID().toString());
+            supplierModel.setSupplierName(sName);
+            supplierModel.setCompanyName(sCompanyName);
+            supplierModel.setCompanyAddress(sCompanyAddress);
+            supplierModel.setSuplier_phno1(sPhNo1);
+            supplierModel.setSupplier_phno2(sPhNo2);
+            supplierModel.setSupplier_phno3(sPhNo3);
+            supplierModel.setSupplier_phno4(sPhNo4);
+            supplierModel.setSupplier_phno5(sPhNo5);
+            supplierModel.setSupplierNote(sNote);
+
+            realm.executeTransaction(realm -> {
+                realm.copyToRealmOrUpdate(supplierModel);
+                Toast.makeText(SupplierAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+            });
+
+        });
     }
 
     @Override

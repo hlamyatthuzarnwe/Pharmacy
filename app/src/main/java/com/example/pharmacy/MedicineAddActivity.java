@@ -260,10 +260,8 @@ public class MedicineAddActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(medicineModel);
                 Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
             });
-
-
-
         });
+
     }
 
     private void setUpExpireDateTime() {

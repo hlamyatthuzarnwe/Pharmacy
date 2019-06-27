@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.pharmacy.model.MedicineModel;
 import com.example.yy.R;
@@ -165,6 +166,17 @@ public class MedicineDetailActivity extends AppCompatActivity {
             intent.putExtra("Medicine",medicineModel);
             startActivity(intent);
             finish();
+        }if (item.getItemId() == R.id.delete_data){
+            String mId = medicineModel.getMedcineId();
+
+            final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("medcineId", mId).findFirst();
+            realm.executeTransaction(realm -> {
+                if (deleteResults != null) {
+                    deleteResults.deleteFromRealm();
+                }
+                Toast.makeText(MedicineDetailActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
+                finish();
+            });
         }
 
         return super.onOptionsItemSelected(item);

@@ -9,13 +9,22 @@
     android:layout_marginTop="5dp">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="match_parent"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/tvMedicineName"/>
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvMedicineQtyPerDz"/>
+    </LinearLayout>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

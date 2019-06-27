@@ -368,7 +368,8 @@
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
@@ -379,13 +380,38 @@
                 <EditText
                     android:id="@+id/edtSaleNote"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     android:gravity="start"
                     tools:text="testing purpose" />
             </LinearLayout>
 
 
+            <RelativeLayout
+                android:id="@+id/relativeSave_saleAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/custom_btn_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Save"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/txt_size_ex_large" />
+
+            </RelativeLayout>
 
 
 

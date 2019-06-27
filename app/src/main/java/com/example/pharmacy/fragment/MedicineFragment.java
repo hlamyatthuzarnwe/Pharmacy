@@ -84,8 +84,8 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
 
         if(medicineModelList != null && !medicineModelList.isEmpty()){
             medicineAdapter.getMedicineModelList().addAll(medicineModelList);
-            medicineAdapter.notifyDataSetChanged();
         }
+        medicineAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -93,6 +93,7 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         swipeRefreshLayout.setRefreshing(false);
         medicineAdapter.clear();
         getAllMedicine();
+
 
     }
 }
