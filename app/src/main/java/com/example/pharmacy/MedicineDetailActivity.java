@@ -127,11 +127,11 @@ public class MedicineDetailActivity extends AppCompatActivity {
             tvMedicineCostPerDz.setText(medicineModel.getMedicineCostPerDz());
             tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
-            tvMedicineCompanyName.setText(medicineModel.getMedicineCompanyName());
-            tvMedicineSupplierName.setText(medicineModel.getMedicineSupplierName());
-            tvMedicinePh1.setText(medicineModel.getMedicineContactPh1());
-            tvMedicinePh2.setText(medicineModel.getMedicineContactPh2());
-            tvMedicinePh3.setText(medicineModel.getMedicineContactPh3());
+            tvMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
+            tvMedicineSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
+            tvMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
+            tvMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
+            tvMedicinePh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
             tvMedicineViberPh.setText(medicineModel.getMedicineViberPh());
             tvMedicinePayment.setText(medicineModel.getMedicinePayment());
             tvMedicineSalePerPc1.setText(medicineModel.getMedicineSalePcPerPrice1());
@@ -164,6 +164,7 @@ public class MedicineDetailActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("Medicine",medicineModel);
             startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

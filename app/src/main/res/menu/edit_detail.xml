@@ -4,12 +4,13 @@
 
     <item
         android:id="@+id/edit_data"
-        app:showAsAction="withText"
-        android:title="Edit"/>
+        android:title="EDIT"
+
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/print_data"
-        app:showAsAction="withText"
-        android:title="Print"/>
+        android:title="DELETE"
+        app:showAsAction="always"/>
 
 </menu>

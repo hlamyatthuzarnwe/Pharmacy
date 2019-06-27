@@ -139,6 +139,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:text="Address"/>
+                <EditText
+                    android:id="@+id/edtAddress_medicineAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="Supplier Name"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -371,10 +386,37 @@
                 <EditText
                     android:id="@+id/edtMedicineNote"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     android:gravity="start"
                     tools:text="testing purpose" />
             </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeSave_medicineAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/custom_btn_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Save"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/txt_size_ex_large" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 

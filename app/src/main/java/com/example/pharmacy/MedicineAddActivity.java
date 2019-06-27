@@ -11,7 +11,9 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
@@ -113,8 +115,15 @@ public class MedicineAddActivity extends AppCompatActivity {
     @BindView(R.id.edtMedicineNote)
     EditText edtMedicineNote;
 
+    @BindView(R.id.edtAddress_medicineAdd)
+    EditText edtAddress;
+
+    @BindView(R.id.relativeSave_medicineAdd)
+    RelativeLayout relativeSave;
+
    private SupplierModel supplierModel;
    private String idEdit;
+   private boolean is_edit=false;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -135,6 +144,11 @@ public class MedicineAddActivity extends AppCompatActivity {
 
         if(medicineModel != null){
             idEdit = medicineModel.getMedcineId();
+            if (idEdit.isEmpty()){
+                is_edit = false;
+            }else {
+                is_edit = true;
+            }
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicineCode.setText(medicineModel.getMedicineCode());
             edtMedicineCategory.setText(medicineModel.getMedicineCategory());
@@ -142,11 +156,12 @@ public class MedicineAddActivity extends AppCompatActivity {
             edtMedicneDzCostPrice.setText(medicineModel.getMedicineCostPerDz());
             edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
             edtMedicineDzQty.setText(medicineModel.getMedicineQtyPerDz());
-            edtMedicineCompanyName.setText(medicineModel.getMedicineCompanyName());
-            edtSupplierName.setText(medicineModel.getMedicineSupplierName());
-            edtContactMedicinePh1.setText(medicineModel.getMedicineContactPh1());
-            edtContactMedicinePh2.setText(medicineModel.getMedicineContactPh2());
-            edtMedicineContactPh3.setText(medicineModel.getMedicineContactPh3());
+            edtMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
+            edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
+            edtSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
+            edtContactMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
+            edtContactMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
+            edtMedicineContactPh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
             edtMedicineViberPh.setText(medicineModel.getMedicineViberPh());
             edtMedicinePayment.setText(medicineModel.getMedicinePayment());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
@@ -161,6 +176,94 @@ public class MedicineAddActivity extends AppCompatActivity {
             edtMedicineExpDate.setText(medicineModel.getMedicineExpDate());
             edtMedicineNote.setText(medicineModel.getMedicineNote());
         }
+
+        relativeSave.setOnClickListener(view -> {
+
+
+            String mName = edtMedicineName.getText().toString();
+            String mCode = edtMedicineCode.getText().toString();
+            String mCategory = edtMedicineCategory.getText().toString();
+            String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
+            String mCostPerDz = edtMedicneDzCostPrice.getText().toString();
+            String mQtyPerPc = edtMedicinePcQty.getText().toString();
+            String mQtyPerDz = edtMedicineDzQty.getText().toString();
+            String mCompanyName = edtMedicineCompanyName.getText().toString();
+            String address = edtAddress.getText().toString();
+            String mSupplierName = edtSupplierName.getText().toString();
+            String mContactPh1 = edtContactMedicinePh1.getText().toString();
+            String mContactPh2 = edtContactMedicinePh2.getText().toString();
+            String mContactPh3 = edtMedicineContactPh3.getText().toString();
+            String mViberPh = edtMedicineViberPh.getText().toString();
+            String mPayment = edtMedicinePayment.getText().toString();
+            String mSalePricePc1 = edtSaleMedicinePcPrice1.getText().toString();
+            String mSalePriceDz1 = edtSaleMedicineDzPrice1.getText().toString();
+            String mSalePricePc2 = edtSaleMedicinePcPrice2.getText().toString();
+            String mSalePriceDz2 = edtSaleMedicineDzPrice2.getText().toString();
+            String mSalePricePc3 = edtSaleMedicinePcPrice3.getText().toString();
+            String mSalePriceDz3 = edtSaleMedicineDzPrice3.getText().toString();
+            String mSalePricePc4 = edtSaleMedicinePcPrice4.getText().toString();
+            String mSalePriceDz4 = edtSaleMedicineDzCostPrice4.getText().toString();
+            String mReceiveDate = edtMedicineReceivedDate.getText().toString();
+            String mExpDate = edtMedicineExpDate.getText().toString();
+            String mNote = edtMedicineNote.getText().toString();
+
+            MedicineModel medicineModel = new MedicineModel();
+
+            if (is_edit){
+                medicineModel.setMedcineId(idEdit);
+            }else {
+                medicineModel.setMedcineId(UUID.randomUUID().toString());
+            }
+
+
+            medicineModel.setMedicineName(mName);
+            medicineModel.setMedicineCode(mCode);
+            medicineModel.setMedicineCategory(mCategory);
+            medicineModel.setMedicineCostPerPc(mCostPerPc);
+            medicineModel.setMedicineCostPerDz(mCostPerDz);
+            medicineModel.setMedicineQtyPerPc(mQtyPerPc);
+            medicineModel.setMedicineQtyPerDz(mQtyPerDz);
+
+            medicineModel.setMedicineViberPh(mViberPh);
+            medicineModel.setMedicinePayment(mPayment);
+            medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
+            medicineModel.setMedicineSaleDzPerPrice1(mSalePriceDz1);
+            medicineModel.setMedicineSalePcPerPrice2(mSalePricePc2);
+            medicineModel.setMedicineSaleDzPerPrice2(mSalePriceDz2);
+            medicineModel.setMedicineSalePcPerPrice3(mSalePricePc3);
+            medicineModel.setMedicineSaleDzPerPrice3(mSalePriceDz3);
+            medicineModel.setMedicineSalePcPerPrice4(mSalePricePc4);
+            medicineModel.setMedicineSaleDzPerPrice4(mSalePriceDz4);
+            medicineModel.setMedicineReceivedDate(mReceiveDate);
+            medicineModel.setMedicineExpDate(mExpDate);
+            medicineModel.setMedicineNote(mNote);
+
+            //            medicineModel.setSupplierModel(mCompanyName);
+//            medicineModel.setMedicineSupplierName(mSupplierName);
+//            medicineModel.setMedicineContactPh1(mContactPh1);
+//            medicineModel.setMedicineContactPh2(mContactPh2);
+//            medicineModel.setMedicineContactPh3(mContactPh3);
+
+            SupplierModel supplierModel = new SupplierModel();
+            supplierModel.setCompanyName(mCompanyName);
+            supplierModel.setCompanyAddress(address);
+            supplierModel.setSupplierName(mSupplierName);
+            supplierModel.setSuplier_phno1(mContactPh1);
+            supplierModel.setSupplier_phno2(mContactPh2);
+            supplierModel.setSupplier_phno3(mContactPh3);
+            //
+            //
+            medicineModel.setSupplierModel(supplierModel);
+
+            realm.executeTransaction(realm -> {
+                realm.copyToRealmOrUpdate(supplierModel);
+                realm.copyToRealmOrUpdate(medicineModel);
+                Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+            });
+
+
+
+        });
     }
 
     private void setUpExpireDateTime() {
@@ -255,6 +358,7 @@ public class MedicineAddActivity extends AppCompatActivity {
             String mQtyPerPc = edtMedicinePcQty.getText().toString();
             String mQtyPerDz = edtMedicineDzQty.getText().toString();
             String mCompanyName = edtMedicineCompanyName.getText().toString();
+            String address = edtAddress.getText().toString();
             String mSupplierName = edtSupplierName.getText().toString();
             String mContactPh1 = edtContactMedicinePh1.getText().toString();
             String mContactPh2 = edtContactMedicinePh2.getText().toString();
@@ -275,7 +379,13 @@ public class MedicineAddActivity extends AppCompatActivity {
 
             MedicineModel medicineModel = new MedicineModel();
 
-            medicineModel.setMedcineId(UUID.randomUUID().toString());
+            if (is_edit){
+                medicineModel.setMedcineId(idEdit);
+            }else {
+                medicineModel.setMedcineId(UUID.randomUUID().toString());
+            }
+
+
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCode(mCode);
             medicineModel.setMedicineCategory(mCategory);
@@ -283,11 +393,7 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedicineCostPerDz(mCostPerDz);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
             medicineModel.setMedicineQtyPerDz(mQtyPerDz);
-            medicineModel.setMedicineCompanyName(mCompanyName);
-            medicineModel.setMedicineSupplierName(mSupplierName);
-            medicineModel.setMedicineContactPh1(mContactPh1);
-            medicineModel.setMedicineContactPh2(mContactPh2);
-            medicineModel.setMedicineContactPh3(mContactPh3);
+
             medicineModel.setMedicineViberPh(mViberPh);
             medicineModel.setMedicinePayment(mPayment);
             medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
@@ -302,7 +408,25 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedicineExpDate(mExpDate);
             medicineModel.setMedicineNote(mNote);
 
+            //            medicineModel.setSupplierModel(mCompanyName);
+//            medicineModel.setMedicineSupplierName(mSupplierName);
+//            medicineModel.setMedicineContactPh1(mContactPh1);
+//            medicineModel.setMedicineContactPh2(mContactPh2);
+//            medicineModel.setMedicineContactPh3(mContactPh3);
+
+            SupplierModel supplierModel = new SupplierModel();
+            supplierModel.setCompanyName(mCompanyName);
+            supplierModel.setCompanyAddress(address);
+            supplierModel.setSupplierName(mSupplierName);
+            supplierModel.setSuplier_phno1(mContactPh1);
+            supplierModel.setSupplier_phno2(mContactPh2);
+            supplierModel.setSupplier_phno3(mContactPh3);
+            //
+            //
+            medicineModel.setSupplierModel(supplierModel);
+
             realm.executeTransaction(realm -> {
+                realm.copyToRealmOrUpdate(supplierModel);
                 realm.copyToRealmOrUpdate(medicineModel);
                 Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
             });
@@ -317,6 +441,7 @@ public class MedicineAddActivity extends AppCompatActivity {
             String mQtyPerPc = edtMedicinePcQty.getText().toString();
             String mQtyPerDz = edtMedicineDzQty.getText().toString();
             String mCompanyName = edtMedicineCompanyName.getText().toString();
+
             String mSupplierName = edtSupplierName.getText().toString();
             String mContactPh1 = edtContactMedicinePh1.getText().toString();
             String mContactPh2 = edtContactMedicinePh2.getText().toString();
@@ -345,11 +470,7 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedicineCostPerDz(mCostPerDz);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
             medicineModel.setMedicineQtyPerDz(mQtyPerDz);
-            medicineModel.setMedicineCompanyName(mCompanyName);
-            medicineModel.setMedicineSupplierName(mSupplierName);
-            medicineModel.setMedicineContactPh1(mContactPh1);
-            medicineModel.setMedicineContactPh2(mContactPh2);
-            medicineModel.setMedicineContactPh3(mContactPh3);
+
             medicineModel.setMedicineViberPh(mViberPh);
             medicineModel.setMedicinePayment(mPayment);
             medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
@@ -363,6 +484,15 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedicineReceivedDate(mReceiveDate);
             medicineModel.setMedicineExpDate(mExpDate);
             medicineModel.setMedicineNote(mNote);
+
+//            medicineModel.setMedicineCompanyName(mCompanyName);
+//            medicineModel.setMedicineSupplierName(mSupplierName);
+//            medicineModel.setMedicineContactPh1(mContactPh1);
+//            medicineModel.setMedicineContactPh2(mContactPh2);
+//            medicineModel.setMedicineContactPh3(mContactPh3);
+
+            SupplierModel supplierModel = new SupplierModel();
+
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(medicineModel);

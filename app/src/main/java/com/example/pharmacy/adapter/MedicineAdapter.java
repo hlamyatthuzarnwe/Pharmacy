@@ -96,9 +96,11 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if(medicineModel.getMedicineCategory() != null){
                 tvMedicineCategory_detail .setText(medicineModel.getMedicineCategory());
             }
-            if (medicineModel.getMedicineSupplierName() != null){
-                tvMedicineSupplierName.setText(medicineModel.getMedicineSupplierName());
+
+            if(medicineModel.getSupplierModel().getSupplierName() != null){
+                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
             }
+
             if (medicineModel.getMedicinePayment() != null){
                 tvMedicinePayment.setText(medicineModel.getMedicinePayment());
             }

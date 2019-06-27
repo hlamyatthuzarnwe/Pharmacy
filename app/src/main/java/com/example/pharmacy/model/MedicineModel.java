@@ -18,11 +18,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
     private String medicineCostPerDz;
     private String medicineQtyPerPc;
     private String medicineQtyPerDz;
-    private String medicineCompanyName;
-    private String medicineSupplierName;
-    private String medicineContactPh1;
-    private String medicineContactPh2;
-    private String medicineContactPh3;
+
     private String medicineViberPh;
     private String medicinePayment;
     private String medicineSalePcPerPrice1;
@@ -36,40 +32,80 @@ public class MedicineModel extends RealmObject implements Parcelable {
     private String medicineReceivedDate;
     private String medicineExpDate;
     private String medicineNote;
+    private SupplierModel supplierModel;
+
+    public MedicineModel(){}
+
+    protected MedicineModel(Parcel in) {
+        medcineId = in.readString();
+        medicineName = in.readString();
+        medicineCode = in.readString();
+        medicineCategory = in.readString();
+        medicineCostPerPc = in.readString();
+        medicineCostPerDz = in.readString();
+        medicineQtyPerPc = in.readString();
+        medicineQtyPerDz = in.readString();
+        medicineViberPh = in.readString();
+        medicinePayment = in.readString();
+        medicineSalePcPerPrice1 = in.readString();
+        medicineSaleDzPerPrice1 = in.readString();
+        medicineSalePcPerPrice2 = in.readString();
+        medicineSaleDzPerPrice2 = in.readString();
+        medicineSalePcPerPrice3 = in.readString();
+        medicineSaleDzPerPrice3 = in.readString();
+        medicineSalePcPerPrice4 = in.readString();
+        medicineSaleDzPerPrice4 = in.readString();
+        medicineReceivedDate = in.readString();
+        medicineExpDate = in.readString();
+        medicineNote = in.readString();
+        supplierModel = in.readParcelable(SupplierModel.class.getClassLoader());
+    }
+
+    public static final Creator<MedicineModel> CREATOR = new Creator<MedicineModel>() {
+        @Override
+        public MedicineModel createFromParcel(Parcel in) {
+            return new MedicineModel(in);
+        }
+
+        @Override
+        public MedicineModel[] newArray(int size) {
+            return new MedicineModel[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
     public static Creator<MedicineModel> getCREATOR() {
         return CREATOR;
     }
 
-    public MedicineModel(){}
-
-    public MedicineModel(String medcineId, String medicineName, String medicineCode, String medicineCategory, String medicineCostPerPc, String medicineCostPerDz, String medicineQtyPerPc, String medicineQtyPerDz, String medicineCompanyName, String medicineSupplierName, String medicineContactPh1, String medicineContactPh2, String medicineContactPh3, String medicineViberPh, String medicinePayment, String medicineSalePcPerPrice1, String medicineSaleDzPerPrice1, String medicineSalePcPerPrice2, String medicineSaleDzPerPrice2, String medicineSalePcPerPrice3, String medicineSaleDzPerPrice3, String medicineSalePcPerPrice4, String medicineSaleDzPerPrice4, String medicineReceivedDate, String medicineExpDate, String medicineNote) {
-        this.medcineId = medcineId;
-        this.medicineName = medicineName;
-        this.medicineCode = medicineCode;
-        this.medicineCategory = medicineCategory;
-        this.medicineCostPerPc = medicineCostPerPc;
-        this.medicineCostPerDz = medicineCostPerDz;
-        this.medicineQtyPerPc = medicineQtyPerPc;
-        this.medicineQtyPerDz = medicineQtyPerDz;
-        this.medicineCompanyName = medicineCompanyName;
-        this.medicineSupplierName = medicineSupplierName;
-        this.medicineContactPh1 = medicineContactPh1;
-        this.medicineContactPh2 = medicineContactPh2;
-        this.medicineContactPh3 = medicineContactPh3;
-        this.medicineViberPh = medicineViberPh;
-        this.medicinePayment = medicinePayment;
-        this.medicineSalePcPerPrice1 = medicineSalePcPerPrice1;
-        this.medicineSaleDzPerPrice1 = medicineSaleDzPerPrice1;
-        this.medicineSalePcPerPrice2 = medicineSalePcPerPrice2;
-        this.medicineSaleDzPerPrice2 = medicineSaleDzPerPrice2;
-        this.medicineSalePcPerPrice3 = medicineSalePcPerPrice3;
-        this.medicineSaleDzPerPrice3 = medicineSaleDzPerPrice3;
-        this.medicineSalePcPerPrice4 = medicineSalePcPerPrice4;
-        this.medicineSaleDzPerPrice4 = medicineSaleDzPerPrice4;
-        this.medicineReceivedDate = medicineReceivedDate;
-        this.medicineExpDate = medicineExpDate;
-        this.medicineNote = medicineNote;
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(medcineId);
+        parcel.writeString(medicineName);
+        parcel.writeString(medicineCode);
+        parcel.writeString(medicineCategory);
+        parcel.writeString(medicineCostPerPc);
+        parcel.writeString(medicineCostPerDz);
+        parcel.writeString(medicineQtyPerPc);
+        parcel.writeString(medicineQtyPerDz);
+        parcel.writeString(medicineViberPh);
+        parcel.writeString(medicinePayment);
+        parcel.writeString(medicineSalePcPerPrice1);
+        parcel.writeString(medicineSaleDzPerPrice1);
+        parcel.writeString(medicineSalePcPerPrice2);
+        parcel.writeString(medicineSaleDzPerPrice2);
+        parcel.writeString(medicineSalePcPerPrice3);
+        parcel.writeString(medicineSaleDzPerPrice3);
+        parcel.writeString(medicineSalePcPerPrice4);
+        parcel.writeString(medicineSaleDzPerPrice4);
+        parcel.writeString(medicineReceivedDate);
+        parcel.writeString(medicineExpDate);
+        parcel.writeString(medicineNote);
+        parcel.writeParcelable(supplierModel, i);
     }
 
     public String getMedcineId() {
@@ -134,46 +170,6 @@ public class MedicineModel extends RealmObject implements Parcelable {
 
     public void setMedicineQtyPerDz(String medicineQtyPerDz) {
         this.medicineQtyPerDz = medicineQtyPerDz;
-    }
-
-    public String getMedicineCompanyName() {
-        return medicineCompanyName;
-    }
-
-    public void setMedicineCompanyName(String medicineCompanyName) {
-        this.medicineCompanyName = medicineCompanyName;
-    }
-
-    public String getMedicineSupplierName() {
-        return medicineSupplierName;
-    }
-
-    public void setMedicineSupplierName(String medicineSupplierName) {
-        this.medicineSupplierName = medicineSupplierName;
-    }
-
-    public String getMedicineContactPh1() {
-        return medicineContactPh1;
-    }
-
-    public void setMedicineContactPh1(String medicineContactPh1) {
-        this.medicineContactPh1 = medicineContactPh1;
-    }
-
-    public String getMedicineContactPh2() {
-        return medicineContactPh2;
-    }
-
-    public void setMedicineContactPh2(String medicineContactPh2) {
-        this.medicineContactPh2 = medicineContactPh2;
-    }
-
-    public String getMedicineContactPh3() {
-        return medicineContactPh3;
-    }
-
-    public void setMedicineContactPh3(String medicineContactPh3) {
-        this.medicineContactPh3 = medicineContactPh3;
     }
 
     public String getMedicineViberPh() {
@@ -280,79 +276,11 @@ public class MedicineModel extends RealmObject implements Parcelable {
         this.medicineNote = medicineNote;
     }
 
-    protected MedicineModel(Parcel in) {
-        medcineId = in.readString();
-        medicineName = in.readString();
-        medicineCode = in.readString();
-        medicineCategory = in.readString();
-        medicineCostPerPc = in.readString();
-        medicineCostPerDz = in.readString();
-        medicineQtyPerPc = in.readString();
-        medicineQtyPerDz = in.readString();
-        medicineCompanyName = in.readString();
-        medicineSupplierName = in.readString();
-        medicineContactPh1 = in.readString();
-        medicineContactPh2 = in.readString();
-        medicineContactPh3 = in.readString();
-        medicineViberPh = in.readString();
-        medicinePayment = in.readString();
-        medicineSalePcPerPrice1 = in.readString();
-        medicineSaleDzPerPrice1 = in.readString();
-        medicineSalePcPerPrice2 = in.readString();
-        medicineSaleDzPerPrice2 = in.readString();
-        medicineSalePcPerPrice3 = in.readString();
-        medicineSaleDzPerPrice3 = in.readString();
-        medicineSalePcPerPrice4 = in.readString();
-        medicineSaleDzPerPrice4 = in.readString();
-        medicineReceivedDate = in.readString();
-        medicineExpDate = in.readString();
-        medicineNote = in.readString();
+    public SupplierModel getSupplierModel() {
+        return supplierModel;
     }
 
-    public static final Creator<MedicineModel> CREATOR = new Creator<MedicineModel>() {
-        @Override
-        public MedicineModel createFromParcel(Parcel in) {
-            return new MedicineModel(in);
-        }
-
-        @Override
-        public MedicineModel[] newArray(int size) {
-            return new MedicineModel[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(medcineId);
-        dest.writeString(medicineName);
-        dest.writeString(medicineCode);
-        dest.writeString(medicineCategory);
-        dest.writeString(medicineCostPerPc);
-        dest.writeString(medicineCostPerDz);
-        dest.writeString(medicineQtyPerPc);
-        dest.writeString(medicineQtyPerDz);
-        dest.writeString(medicineCompanyName);
-        dest.writeString(medicineSupplierName);
-        dest.writeString(medicineContactPh1);
-        dest.writeString(medicineContactPh2);
-        dest.writeString(medicineContactPh3);
-        dest.writeString(medicineViberPh);
-        dest.writeString(medicinePayment);
-        dest.writeString(medicineSalePcPerPrice1);
-        dest.writeString(medicineSaleDzPerPrice1);
-        dest.writeString(medicineSalePcPerPrice2);
-        dest.writeString(medicineSaleDzPerPrice2);
-        dest.writeString(medicineSalePcPerPrice3);
-        dest.writeString(medicineSaleDzPerPrice3);
-        dest.writeString(medicineSalePcPerPrice4);
-        dest.writeString(medicineSaleDzPerPrice4);
-        dest.writeString(medicineReceivedDate);
-        dest.writeString(medicineExpDate);
-        dest.writeString(medicineNote);
+    public void setSupplierModel(SupplierModel supplierModel) {
+        this.supplierModel = supplierModel;
     }
 }
