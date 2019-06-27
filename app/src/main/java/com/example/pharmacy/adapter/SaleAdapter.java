@@ -67,7 +67,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleCustomerName)
         TextView tvSaleCustomerName;
 
-        @BindView(R.id.tvSaleCustomerAddress)
+       @BindView(R.id.tvSaleCustomerAddress)
         TextView tvSaleCustomerAddress;
 
         @BindView(R.id.tvSaleMedicineName)
@@ -114,16 +114,11 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if(saleModel.getSaleCategory() != null){
                 tvSaleMedicineCategory.setText(saleModel.getSaleCategory());
             }
-            if(saleModel.getSaleCostPerPc() != null){
+           if (saleModel.getSaleTotalAmt() != null){
                 tvSalePricePerPc.setText(saleModel.getSaleCostPerPc());
-            }
-            if (saleModel.getSaleCostPerDz() != null){
                 tvSalePricePerDz.setText(saleModel.getSaleCostPerDz());
-            }
-            if (saleModel.getSaleTotalAmt() != null){
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());
-            }
-            if (saleModel.getSaleDuedate() != null){
+            }if (saleModel.getSaleDuedate() != null){
                 tvSaleDueDate.setText(saleModel.getSaleDuedate());
             }
             saleView.setOnClickListener(v -> {
