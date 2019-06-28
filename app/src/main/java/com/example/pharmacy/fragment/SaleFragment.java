@@ -88,16 +88,16 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         if(saleModelList != null && !saleModelList.isEmpty()){
             saleAdapter.getSaleModelList().addAll(saleModelList);
-            saleAdapter.notifyDataSetChanged();
         }
+        saleAdapter.notifyDataSetChanged();
         if(medicineModelList != null && !medicineModelList.isEmpty()){
             medicineAdapter.getMedicineModelList().addAll(medicineModelList);
-            medicineAdapter.notifyDataSetChanged();
         }
+        medicineAdapter.notifyDataSetChanged();
         if(customerModelList != null && !customerModelList.isEmpty()){
             customerAdapter.getCustomerModelList().addAll(customerModelList);
-            customerAdapter.notifyDataSetChanged();
         }
+        customerAdapter.notifyDataSetChanged();
 
     }
 

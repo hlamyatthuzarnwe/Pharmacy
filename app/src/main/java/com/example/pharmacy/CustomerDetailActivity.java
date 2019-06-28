@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pharmacy.model.CustomerModel;
+import com.example.pharmacy.model.MedicineModel;
 import com.example.yy.R;
 
 import butterknife.BindView;
@@ -98,6 +100,18 @@ public class CustomerDetailActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("Customer",customerModel);
             startActivity(intent);
+        }
+        if (item.getItemId() == R.id.delete_data){
+            String cId = customerModel.getCustomerId();
+
+            final CustomerModel deleteResults = realm.where(CustomerModel.class).equalTo("customerId", cId).findFirst();
+            realm.executeTransaction(realm -> {
+                if (deleteResults != null) {
+                    deleteResults.deleteFromRealm();
+                }
+                Toast.makeText(CustomerDetailActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
+                finish();
+            });
         }
 
         return super.onOptionsItemSelected(item);

@@ -76,8 +76,9 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
 
         if(supplierModelList != null && !supplierModelList.isEmpty()){
             supplierAdapter.getSupplierModelList().addAll(supplierModelList);
-            supplierAdapter.notifyDataSetChanged();
         }
+        supplierAdapter.notifyDataSetChanged();
+
     }
 
     @Override

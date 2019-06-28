@@ -9,7 +9,7 @@ import io.realm.annotations.PrimaryKey;
 public class SupplierModel extends RealmObject implements Parcelable {
 
     @PrimaryKey
-    private String suplierId;
+    private String supplierId;
 
     private String supplierName;
     private String companyName;
@@ -25,8 +25,21 @@ public class SupplierModel extends RealmObject implements Parcelable {
 
     }
 
+    public SupplierModel(String supplierId, String supplierName, String companyName, String companyAddress, String suplier_phno1, String supplier_phno2, String supplier_phno3, String supplier_phno4, String supplier_phno5, String supplierNote) {
+        this.supplierId = supplierId;
+        this.supplierName = supplierName;
+        this.companyName = companyName;
+        this.companyAddress = companyAddress;
+        this.suplier_phno1 = suplier_phno1;
+        this.supplier_phno2 = supplier_phno2;
+        this.supplier_phno3 = supplier_phno3;
+        this.supplier_phno4 = supplier_phno4;
+        this.supplier_phno5 = supplier_phno5;
+        this.supplierNote = supplierNote;
+    }
+
     protected SupplierModel(Parcel in) {
-        suplierId = in.readString();
+        supplierId = in.readString();
         supplierName = in.readString();
         companyName = in.readString();
         companyAddress = in.readString();
@@ -51,11 +64,11 @@ public class SupplierModel extends RealmObject implements Parcelable {
     };
 
     public String getSuplierId() {
-        return suplierId;
+        return supplierId;
     }
 
     public void setSuplierId(String suplierId) {
-        this.suplierId = suplierId;
+        this.supplierId = suplierId;
     }
 
     public String getSupplierName() {
@@ -137,7 +150,7 @@ public class SupplierModel extends RealmObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(suplierId);
+        dest.writeString(supplierId);
         dest.writeString(supplierName);
         dest.writeString(companyName);
         dest.writeString(companyAddress);

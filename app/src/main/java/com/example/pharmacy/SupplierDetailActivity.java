@@ -8,7 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
@@ -89,13 +91,24 @@ public class SupplierDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == R.id.edit_data)
-        {
-            Intent intent = new Intent(SupplierDetailActivity.this,SupplierAddActivity.class);
+        if (item.getItemId() == R.id.edit_data) {
+            Intent intent = new Intent(SupplierDetailActivity.this, SupplierAddActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("Supplier",supplierModel);
+            intent.putExtra("Supplier", supplierModel);
             startActivity(intent);
+        }
+        if (item.getItemId() == R.id.delete_data) {
+            String sId = supplierModel.getSuplierId();
+
+            final SupplierModel deleteResults = realm.where(SupplierModel.class).equalTo("supplierId", sId).findFirst();
+            realm.executeTransaction(realm -> {
+                if (deleteResults != null) {
+                    deleteResults.deleteFromRealm();
+                }
+                Toast.makeText(SupplierDetailActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
+                finish();
+            });
         }
         return super.onOptionsItemSelected(item);
     }

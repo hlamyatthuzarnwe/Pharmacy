@@ -75,8 +75,8 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
 
         if(customerModelList != null && !customerModelList.isEmpty()){
             customerAdapter.getCustomerModelList().addAll(customerModelList);
-            customerAdapter.notifyDataSetChanged();
         }
+        customerAdapter.notifyDataSetChanged();
     }
 
 
