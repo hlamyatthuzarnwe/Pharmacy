@@ -8,7 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
@@ -154,6 +156,18 @@ public class SaleDetailActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("Sale",saleModel);
             startActivity(intent);
+        }
+        if (item.getItemId() == R.id.delete_data){
+            String sId = saleModel.getSaleInvoiceNo();
+
+            final SaleModel deleteResults = realm.where(SaleModel.class).equalTo("saleInvoiceNo", sId).findFirst();
+            realm.executeTransaction(realm -> {
+                if (deleteResults != null) {
+                    deleteResults.deleteFromRealm();
+                }
+                Toast.makeText(SaleDetailActivity.this, "Successfully Delete Data", Toast.LENGTH_SHORT).show();
+                finish();
+            });
         }
 
         return super.onOptionsItemSelected(item);

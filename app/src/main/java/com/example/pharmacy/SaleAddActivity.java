@@ -345,6 +345,7 @@ public class SaleAddActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(edtSaleInvoiceId_add.getText())) {
             saleId = Integer.parseInt(edtSaleInvoiceId_add.getText().toString());
         }
+       /*
         if(item.getItemId() == R.id.menu_add){
             String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
             String saleCustomerName = edtCustomerName_add.getText().toString();
@@ -518,6 +519,7 @@ public class SaleAddActivity extends AppCompatActivity {
             edtSaleDueDate.setText("");
             edtSaleNote.setText("");
         }
+        */
 
 
         return super.onOptionsItemSelected(item);

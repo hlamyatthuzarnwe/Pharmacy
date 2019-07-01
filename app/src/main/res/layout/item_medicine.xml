@@ -9,6 +9,7 @@
     android:layout_marginTop="5dp">
 
     <LinearLayout
+        android:background="@color/lightBlue"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,6 +21,7 @@
             android:id="@+id/tvMedicineName"/>
 
         <LinearLayout
+            android:background="@color/color_grey_stroke_dark"
             android:padding="5dp"
             android:layout_weight="1"
             android:orientation="vertical"

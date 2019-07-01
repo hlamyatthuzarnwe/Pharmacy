@@ -126,6 +126,7 @@ public class SaleReportAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+/*
 
         if(item.getItemId() == R.id.menu_add){
             String saleInvoiceNo = edtSaleInvoiceId_add.getText().toString();
@@ -206,6 +207,8 @@ public class SaleReportAddActivity extends AppCompatActivity {
             edtSaleProfit.setText("");
         }
 
+
+ */
         return super.onOptionsItemSelected(item);
     }
 }

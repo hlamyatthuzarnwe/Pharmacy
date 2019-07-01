@@ -96,9 +96,9 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         }
 
         public void bind(SaleModel saleModel) {
-//             if(saleModel.getSaleInvoiceNo() != null){
-//                tvSaleInvoiceNo.setText(saleModel.getSaleInvoiceNo());
-//            }
+             if(saleModel.getSaleInvoiceNo() != null){
+                tvSaleInvoiceNo.setText(saleModel.getSaleInvoiceNo());
+           }
             if(saleModel.getSaleInvoiceDate() != null){
                 tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             }

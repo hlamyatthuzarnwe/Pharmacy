@@ -166,7 +166,8 @@ public class MedicineDetailActivity extends AppCompatActivity {
             intent.putExtra("Medicine",medicineModel);
             startActivity(intent);
             finish();
-        }if (item.getItemId() == R.id.delete_data){
+        }
+        if (item.getItemId() == R.id.delete_data){
             String mId = medicineModel.getMedcineId();
 
             final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("medcineId", mId).findFirst();
