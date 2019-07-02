@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.example.pharmacy.LoginActivity"></activity>
-        <activity android:name="com.example.pharmacy.SplashActivity">
-
-        </activity>
+        <activity android:name="com.example.pharmacy.SaleMedicineDetailInformationActivity"></activity>
+        <activity android:name="com.example.pharmacy.SaleMedicineInformationActivity" />
+        <activity android:name="com.example.pharmacy.LoginActivity" />
+        <activity android:name="com.example.pharmacy.SplashActivity" />
         <activity android:name="com.example.pharmacy.SaleReportDetailActivity" />
         <activity android:name="com.example.pharmacy.SaleReportAddActivity" />
         <activity android:name="com.example.pharmacy.SaleDetailActivity" />
@@ -36,21 +36,21 @@
             </intent-filter>
         </activity>
 
-
-        <meta-data android:name="com.facebook.accountkit.ApplicationName"
+        <meta-data
+            android:name="com.facebook.accountkit.ApplicationName"
             android:value="@string/app_name" />
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/FACEBOOK_APP_ID" />
-        <meta-data android:name="com.facebook.accountkit.ClientToken"
+        <meta-data
+            android:name="com.facebook.accountkit.ClientToken"
             android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
 
-        <activity
-            android:name="com.facebook.accountkit.ui.AccountKitActivity" />
+        <activity android:name="com.facebook.accountkit.ui.AccountKitActivity" />
 
-        <meta-data android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
-            android:value="false"/>
-
-
+        <meta-data
+            android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
+            android:value="false" />
     </application>
 
 </manifest>

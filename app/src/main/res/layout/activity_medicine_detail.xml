@@ -29,7 +29,6 @@
                 android:layout_height="match_parent">
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -57,7 +56,6 @@
                 </android.support.v7.widget.CardView>
 
                <android.support.v7.widget.CardView
-                   app:cardCornerRadius="15dp"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:orientation="horizontal"
@@ -85,7 +83,6 @@
                </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -111,7 +108,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -145,7 +141,6 @@
 
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -167,7 +162,7 @@
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineQtyPerPc"/>
                         <TextView
-                            android:background="@color/color_maya"
+                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
@@ -178,7 +173,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -203,7 +197,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -227,7 +220,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -251,7 +243,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -275,7 +266,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -299,7 +289,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -323,7 +312,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -347,7 +335,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -371,7 +358,7 @@
                         <TextView
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
+                            android:background="@color/color_baby_blue"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -380,7 +367,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -403,7 +389,7 @@
                         android:id="@+id/tvMedicineSalePerPc2"/>
                     <TextView
                         android:layout_marginTop="5dp"
-                        android:background="@color/color_maya"
+                        android:background="@color/color_baby_blue"
                         android:layout_marginLeft="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -413,7 +399,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -436,7 +421,7 @@
                             android:id="@+id/tvMedicineSalePerPc3"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
+                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -446,7 +431,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -469,7 +453,7 @@
                             android:id="@+id/tvMedicineSalePerPc4"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
+                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -479,7 +463,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -504,7 +487,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -519,7 +501,7 @@
                             android:text="Expire Date"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
+                            android:background="@color/color_hex_pink"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -529,7 +511,6 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    app:cardCornerRadius="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
