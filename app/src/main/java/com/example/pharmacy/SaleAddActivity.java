@@ -166,6 +166,7 @@ public class SaleAddActivity extends AppCompatActivity {
         setUpDuteDate();
 
         saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);

@@ -33,8 +33,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     private static final String TAG = "MainActivity";
     private SaleAdapter saleAdapter;
-    private CustomerAdapter customerAdapter;
-    private MedicineAdapter medicineAdapter;
+
 
     @BindView(R.id.swipeSale)
     SwipeRefreshLayout swipeRefreshLayout;
@@ -69,13 +68,11 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         swipeRefreshLayout.setOnRefreshListener(this);
         realm = Realm.getDefaultInstance();
         saleAdapter = new SaleAdapter();
-        customerAdapter = new CustomerAdapter();
-        medicineAdapter = new MedicineAdapter();
+
         linearLayoutManager = new LinearLayoutManager(context);
         rvSale.setLayoutManager(linearLayoutManager);
         rvSale.setAdapter(saleAdapter);
-        rvSale.setAdapter(customerAdapter);
-        rvSale.setAdapter(medicineAdapter);
+
     }
 
     private void getAllSale() {
@@ -83,21 +80,13 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).findAll();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
         Log.d(TAG,"getData : "+saleModelList.size());
-        Log.d(TAG,"getData : "+customerModelList.size());
-        Log.d(TAG,"getData : "+medicineModelList.size());
+
 
         if(saleModelList != null && !saleModelList.isEmpty()){
             saleAdapter.getSaleModelList().addAll(saleModelList);
         }
         saleAdapter.notifyDataSetChanged();
-        if(medicineModelList != null && !medicineModelList.isEmpty()){
-            medicineAdapter.getMedicineModelList().addAll(medicineModelList);
-        }
-        medicineAdapter.notifyDataSetChanged();
-        if(customerModelList != null && !customerModelList.isEmpty()){
-            customerAdapter.getCustomerModelList().addAll(customerModelList);
-        }
-        customerAdapter.notifyDataSetChanged();
+
 
     }
 
@@ -105,9 +94,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public void onRefresh() {
         swipeRefreshLayout.setRefreshing(false);
         saleAdapter.clear();
-        medicineAdapter.clear();
-        customerAdapter.clear();
-        getAllSale();
+             getAllSale();
 
     }
 }

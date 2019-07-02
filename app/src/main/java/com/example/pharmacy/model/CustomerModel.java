@@ -30,7 +30,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
     private String customerDueDate;
     private String customerNote;
 
-    private SaleModel saleModel;
     private RealmList<MedicineModel> medicineLists;
 
 
@@ -180,14 +179,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerNote = customerNote;
     }
 
-    public SaleModel getSaleModel() {
-        return saleModel;
-    }
-
-    public void setSaleModel(SaleModel saleModel) {
-        this.saleModel = saleModel;
-    }
-
     public RealmList<MedicineModel> getMedicineLists() {
         return medicineLists;
     }
@@ -215,7 +206,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerInvoiceDate = customerInvoiceDate;
         this.customerDueDate = customerDueDate;
         this.customerNote = customerNote;
-        this.saleModel = saleModel;
         this.medicineLists = medicineLists;
     }
 
@@ -242,7 +232,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
         customerBalance = in.readString();
         customerNote = in.readString();
         customerDueDate = in.readString();
-        saleModel = in.readParcelable(SaleModel.class.getClassLoader());
     }
 
     @Override
@@ -265,7 +254,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
         dest.writeString(customerBalance);
         dest.writeString(customerDueDate);
         dest.writeString(customerNote);
-        dest.writeParcelable(saleModel, flags);
     }
 
     @Override
