@@ -6,20 +6,29 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@android:color/white"
+    app:cardCornerRadius="15dp"
     android:layout_marginTop="5dp">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvSupplier_supplierName"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/color_maya"
+            app:cardCornerRadius="15dp">
+            <TextView
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvSupplier_supplierName"/>
+        </android.support.v7.widget.CardView>
+
 
         <LinearLayout
+            android:background="@color/color_hex_pink"
             android:orientation="vertical"
             android:padding="5dp"
             android:layout_weight="1"

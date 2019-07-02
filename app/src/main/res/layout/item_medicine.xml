@@ -6,54 +6,67 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@android:color/white"
+    app:cardCornerRadius="15dp"
     android:layout_marginTop="5dp">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineName"/>
 
-        <LinearLayout
-            android:padding="5dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineCategory_detail"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineSupplierName"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicinePayment"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineExpDate"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineReceivedDate"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineQtyPerPc"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedicineQtyPerDz"/>
-    </LinearLayout>
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/color_maya"
+            app:cardCornerRadius="15dp">
+            <TextView
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMedicineName"/>
+        </android.support.v7.widget.CardView>
+
+
+            <LinearLayout
+
+                android:background="@color/color_hex_pink"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicineCategory_detail"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicineSupplierName"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicinePayment"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicineExpDate"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicineReceivedDate"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicineQtyPerPc"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvMedicineQtyPerDz"/>
+
+            </LinearLayout>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

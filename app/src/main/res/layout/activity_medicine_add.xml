@@ -86,13 +86,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Pc"
+                    android:inputType="number"
                     android:id="@+id/edtMedicinePcCostPrice"/>
                 <EditText
                     android:id="@+id/edtMedicneDzCostPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Cost per Dz"/>
+                    android:hint="Cost Per Dz"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -108,13 +110,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Qty Per Pc"
+                    android:inputType="number"
                     android:id="@+id/edtMedicinePcQty"/>
                 <EditText
                     android:id="@+id/edtMedicineDzQty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Qty Per Dz"/>
+                    android:hint="Qty Per Dz"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -174,7 +178,8 @@
                     android:id="@+id/edtContactMedicinePh1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -189,7 +194,8 @@
                     android:id="@+id/edtContactMedicinePh2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -204,7 +210,8 @@
                     android:id="@+id/edtMedicineContactPh3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -219,7 +226,8 @@
                     android:id="@+id/edtMedicineViberPh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -249,14 +257,16 @@
                     android:id="@+id/edtSaleMedicinePcPrice1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Cost per Pc"
-                    android:layout_weight="1" />
+                    android:hint="Cost Per Pc"
+                    android:layout_weight="1"
+                    android:inputType="number"/>
                 <EditText
                     android:id="@+id/edtSaleMedicineDzPrice1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Cost per Pc"
-                    android:layout_weight="1" />
+                    android:hint="Cost Per Dz"
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -272,13 +282,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Pc"
+                    android:inputType="number"
                     android:id="@+id/edtSaleMedicinePcPrice2"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Dz"
-                    android:id="@+id/edtSaleMedicineDzPrice2"/>
+                    android:id="@+id/edtSaleMedicineDzPrice2"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -294,13 +306,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Pc"
-                    android:id="@+id/edtSaleMedicinePcPrice3"/>
+                    android:id="@+id/edtSaleMedicinePcPrice3"
+                    android:inputType="number"/>
                 <EditText
                     android:id="@+id/edtSaleMedicineDzPrice3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Cost Per Dz"/>
+                    android:hint="Cost Per Dz"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -316,13 +330,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Pc"
+                    android:inputType="number"
                     android:id="@+id/edtSaleMedicinePcPrice4"/>
                 <EditText
                     android:id="@+id/edtSaleMedicineDzCostPrice4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Cost Per Dz"/>
+                    android:hint="Cost Per Dz"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout

@@ -77,7 +77,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerLevel1_add"/>
+                    android:id="@+id/edtCustomerLevel1_add"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -92,7 +93,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerLevel2_add"/>
+                    android:id="@+id/edtCustomerLevel2_add"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -107,7 +109,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerLevel3_add"/>
+                    android:id="@+id/edtCustomerLevel3_add"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -118,11 +121,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Customer Level 4"/>
+
                 <EditText
+                    android:id="@+id/edtCustomerLevel4_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerLevel4_add"/>
+                    android:inputType="number" />
             </LinearLayout>
 
 
@@ -153,7 +158,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerPhNo1"/>
+                    android:id="@+id/edtCustomerPhNo1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -168,7 +174,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerPhNo2"/>
+                    android:id="@+id/edtCustomerPhNo2"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -183,7 +190,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerPhNo3"/>
+                    android:id="@+id/edtCustomerPhNo3"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -198,7 +206,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerPhNo4"/>
+                    android:id="@+id/edtCustomerPhNo4"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -213,7 +222,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/edtCustomerPhNo5"/>
+                    android:id="@+id/edtCustomerPhNo5"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -228,7 +238,8 @@
                     android:id="@+id/edtSaleTotalAmt_add"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout
@@ -243,7 +254,8 @@
                     android:id="@+id/edtSaleUpFront"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -257,7 +269,8 @@
                     android:id="@+id/edtSaleBalance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:inputType="number"/>
             </LinearLayout>
 
             <LinearLayout

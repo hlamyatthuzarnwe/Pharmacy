@@ -33,4 +33,16 @@
     <color name="color_forward">#C4D577</color>
     <color name="secondary_text">#9a9a9a</color>
     <color name="color_grey_border">#efefef</color>
+    <color name="color_pink">#f48fb1</color>
+    <color name="color_hex_pink">#ffc0cb</color>
+    <color name="color_cyan">#00ffff</color>
+    <color name="color_hex">#ff80ed</color>
+    <color name="color_hex_slate_gray1">#c6e2ff</color>
+    <color name="Color_hex">#c0d6e4</color>
+    <color name="light_blue">#add8e6</color>
+    <color name="color_light_blue">#add3e6</color>
+    <color name="color_olympic">#008ECC</color>
+    <color name="color_azure">#0080FF</color>
+    <color name="color_maya">#73C2FB</color>
+    <color name="color_baby_blue">#89CFF0</color>
 </resources>

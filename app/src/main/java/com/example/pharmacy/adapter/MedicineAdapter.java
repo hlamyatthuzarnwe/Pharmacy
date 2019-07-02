@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.pharmacy.CustomerDetailActivity;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.MedicineDetailActivity;
+import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
         public View mView;
         private Context context;
+        private SupplierModel supplierModel;
 
         @BindView(R.id.tvMedicineName)
         TextView tvMedicineName;
@@ -96,9 +98,9 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if(medicineModel.getMedicineCategory() != null){
                 tvMedicineCategory_detail .setText(medicineModel.getMedicineCategory());
             }
-          /*  if(medicineModel.getSupplierModel().getSupplierName() != null){
-                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
-            }*/
+//            if(supplierModel.getSupplierName() != null){
+//                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
+//            }
             if (medicineModel.getMedicinePayment() != null){
                 tvMedicinePayment.setText(medicineModel.getMedicinePayment());
             }
