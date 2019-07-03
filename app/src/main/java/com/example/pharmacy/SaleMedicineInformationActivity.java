@@ -46,7 +46,6 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
 
-
     private SearchMedicineAdapter adapter;
 
     @Override

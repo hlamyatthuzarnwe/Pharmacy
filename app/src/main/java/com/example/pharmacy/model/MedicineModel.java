@@ -34,6 +34,8 @@ public class MedicineModel extends RealmObject implements Parcelable {
     private String medicineNote;
     private SupplierModel supplierModel;
 
+    private String medicineSubAmt;
+
     public MedicineModel(){}
 
     protected MedicineModel(Parcel in) {
@@ -59,6 +61,8 @@ public class MedicineModel extends RealmObject implements Parcelable {
         medicineExpDate = in.readString();
         medicineNote = in.readString();
         supplierModel = in.readParcelable(SupplierModel.class.getClassLoader());
+
+        medicineSubAmt = in.readString();
     }
 
     public static final Creator<MedicineModel> CREATOR = new Creator<MedicineModel>() {
@@ -106,6 +110,16 @@ public class MedicineModel extends RealmObject implements Parcelable {
         parcel.writeString(medicineExpDate);
         parcel.writeString(medicineNote);
         parcel.writeParcelable(supplierModel, i);
+
+        parcel.writeString(medicineSubAmt);
+    }
+
+    public String getMedicineSubAmt() {
+        return medicineSubAmt;
+    }
+
+    public void setMedicineSubAmt(String medicineSubAmt) {
+        this.medicineSubAmt = medicineSubAmt;
     }
 
     public String getMedcineId() {

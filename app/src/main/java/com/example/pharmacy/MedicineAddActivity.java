@@ -179,7 +179,6 @@ public class MedicineAddActivity extends AppCompatActivity {
 
         relativeSave.setOnClickListener(view -> {
 
-
             String mName = edtMedicineName.getText().toString();
             String mCode = edtMedicineCode.getText().toString();
             String mCategory = edtMedicineCategory.getText().toString();

@@ -39,9 +39,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/edtMedicineName"
+                            android:textCursorDrawable="@null"
                             android:hint="Medicine Name"
                             android:layout_marginLeft="15dp"
-                            android:id="@+id/edtMedicineName_saleDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"/>
@@ -49,11 +50,13 @@
 
                    <android.support.design.widget.TextInputLayout
                        android:layout_width="match_parent"
+
                        android:layout_height="wrap_content">
                        <EditText
+                           android:id="@+id/edtMedicineCategory"
+                           android:textCursorDrawable="@null"
                            android:hint="Category"
                            android:layout_marginLeft="15dp"
-                           android:id="@+id/edtMedicineCategory_saleDetail"
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
                            android:layout_weight="1"/>
@@ -63,21 +66,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/edtMedicinePcCostPrice"
+                            android:textCursorDrawable="@null"
                             android:layout_marginLeft="15dp"
-                            android:id="@+id/edtMedicineQty_saleDetail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:hint="Quantity"
-                            android:inputType="number"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/edtMedicineCostPrice_saleDetail"
                             android:hint="Price"
                             android:layout_weight="1"
                             android:inputType="number"
@@ -89,8 +80,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/edtMedicinePcQty"
                             android:layout_marginLeft="15dp"
-                            android:id="@+id/edtMedicineSubAmt_saleDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Quantity"
+                            android:inputType="number"/>
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/edtMedicneSubAmt"
+                            android:layout_marginLeft="15dp"
                             android:hint="Sub Amount"
                             android:layout_weight="1"
                             android:inputType="number"
@@ -98,61 +103,8 @@
                             android:layout_height="wrap_content" />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/edtMedicineTotalAmt_saleDetail"
-                            android:hint="Total Amount"
-                            android:layout_weight="1"
-                            android:inputType="number"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:id="@+id/edtMedicineUpFront_saleDetail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:hint="Up Front"
-                            android:inputType="number"
-                            android:layout_weight="1"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/edtMedicineBalance_saleDetail"
-                            android:hint="Balance"
-                            android:layout_weight="1"
-                            android:inputType="number"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <EditText
-                            android:layout_gravity="start"
-                            android:hint="Note"
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/edtSaleNote_saleDetail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="start"
-                            tools:text="testing purpose" />
-                    </android.support.design.widget.TextInputLayout>
-
                     <RelativeLayout
-                        android:id="@+id/relativeSave_medicineAdd"
+                        android:id="@+id/relativeSave_medicineSaleAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
