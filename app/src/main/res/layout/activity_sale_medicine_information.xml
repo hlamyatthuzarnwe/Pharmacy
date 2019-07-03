@@ -16,7 +16,8 @@
         <include layout="@layout/toolbar"/>
 
     </android.support.design.widget.AppBarLayout>
-    <ScrollView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeSearchMedicine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -24,30 +25,41 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <android.support.v7.widget.CardView
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp"
-                app:cardCornerRadius="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/edtSearchMedicineInfo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Search Medicine Name"/>
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/rvMedicine"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <EditText android:id="@+id/edtSearch_searchMedicine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext_main_search"
+                    android:hint="@string/search_medicine"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"
+                    android:textSize="20sp"/>
+
+                <Button android:id="@+id/btnSearch_searchMedicine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/button_main_search"
+                    android:text="Search"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvMedicineList_searchMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </android.support.design.widget.CoordinatorLayout>
