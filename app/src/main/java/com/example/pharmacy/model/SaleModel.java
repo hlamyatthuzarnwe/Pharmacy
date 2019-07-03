@@ -43,10 +43,21 @@ public class SaleModel extends RealmObject implements Parcelable {
     private String saleUpFront;
     private String saleNote;
     private String salePayment;
+    public static final Creator<SaleModel> CREATOR = new Creator<SaleModel>() {
+        @Override
+        public SaleModel createFromParcel(Parcel in) {
+            return new SaleModel(in);
+        }
+
+        @Override
+        public SaleModel[] newArray(int size) {
+            return new SaleModel[size];
+        }
+    };
+    private CustomerModel customerModel;
 
     public SaleModel(String saleInvoiceNo,  String saleInvoiceDate, String saleCustomerName, String saleCustomerLevel1, String saleCustomerLevel2, String saleCustomerLevel3, String saleCustomerLevel4, String saleCustomerAddress, String saleCustomerPhNo1, String saleCustomerPhNo2, String saleCustomerPhNo3, String saleMedicineName, String saleMedicineCode, String saleCategory, String saleCostPerPc, String saleCostPerDz, String saleQtyPerPc, String saleQtyPerDz, String sellingPricePerPc1, String sellingPricePerDz1, String sellingPricePerPc2, String sellingPricePerDz2, String sellingPricePerPc3, String sellingPricePerDz3, String sellingPricePerPc4, String sellingPricePerDz4, String saleSubTotalAmt, String saleTotalAmt, String saleBalance, String saleDuedate, String saleUpFront, String saleNote, String salePayment) {
         this.saleInvoiceNo = saleInvoiceNo;
-
         this.saleInvoiceDate = saleInvoiceDate;
         this.saleCustomerName = saleCustomerName;
         this.saleCustomerLevel1 = saleCustomerLevel1;
@@ -81,23 +92,19 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.salePayment = salePayment;
     }
 
+
+
     public SaleModel(){}
 
-
-    public static Creator<SaleModel> getCREATOR() {
-        return CREATOR;
-    }
-
     protected SaleModel(Parcel in) {
-
-        saleInvoiceNo =  in.readString();
+        saleInvoiceNo = in.readString();
         saleInvoiceDate = in.readString();
         saleCustomerName = in.readString();
-        saleCustomerAddress = in.readString();
         saleCustomerLevel1 = in.readString();
         saleCustomerLevel2 = in.readString();
         saleCustomerLevel3 = in.readString();
         saleCustomerLevel4 = in.readString();
+        saleCustomerAddress = in.readString();
         saleCustomerPhNo1 = in.readString();
         saleCustomerPhNo2 = in.readString();
         saleCustomerPhNo3 = in.readString();
@@ -115,6 +122,7 @@ public class SaleModel extends RealmObject implements Parcelable {
         sellingPricePerPc3 = in.readString();
         sellingPricePerDz3 = in.readString();
         sellingPricePerPc4 = in.readString();
+        sellingPricePerDz4 = in.readString();
         saleSubTotalAmt = in.readString();
         saleTotalAmt = in.readString();
         saleBalance = in.readString();
@@ -122,6 +130,16 @@ public class SaleModel extends RealmObject implements Parcelable {
         saleUpFront = in.readString();
         saleNote = in.readString();
         salePayment = in.readString();
+        customerModel = in.readParcelable(CustomerModel.class.getClassLoader());
+    }
+
+    public static Creator<SaleModel> getCREATOR() {
+        return CREATOR;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public String getSaleInvoiceNo() {
@@ -364,16 +382,50 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleDuedate = saleDuedate;
     }
 
-    public String getSaleNote() {
-        return saleNote;
-    }
-
     public String getSaleUpFront() {
         return saleUpFront;
     }
 
     public void setSaleUpFront(String saleUpFront) {
         this.saleUpFront = saleUpFront;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(saleInvoiceNo);
+        parcel.writeString(saleInvoiceDate);
+        parcel.writeString(saleCustomerName);
+        parcel.writeString(saleCustomerLevel1);
+        parcel.writeString(saleCustomerLevel2);
+        parcel.writeString(saleCustomerLevel3);
+        parcel.writeString(saleCustomerLevel4);
+        parcel.writeString(saleCustomerAddress);
+        parcel.writeString(saleCustomerPhNo1);
+        parcel.writeString(saleCustomerPhNo2);
+        parcel.writeString(saleCustomerPhNo3);
+        parcel.writeString(saleMedicineName);
+        parcel.writeString(saleMedicineCode);
+        parcel.writeString(saleCategory);
+        parcel.writeString(saleCostPerPc);
+        parcel.writeString(saleCostPerDz);
+        parcel.writeString(saleQtyPerPc);
+        parcel.writeString(saleQtyPerDz);
+        parcel.writeString(sellingPricePerPc1);
+        parcel.writeString(sellingPricePerDz1);
+        parcel.writeString(sellingPricePerPc2);
+        parcel.writeString(sellingPricePerDz2);
+        parcel.writeString(sellingPricePerPc3);
+        parcel.writeString(sellingPricePerDz3);
+        parcel.writeString(sellingPricePerPc4);
+        parcel.writeString(sellingPricePerDz4);
+        parcel.writeString(saleSubTotalAmt);
+        parcel.writeString(saleTotalAmt);
+        parcel.writeString(saleBalance);
+        parcel.writeString(saleDuedate);
+        parcel.writeString(saleUpFront);
+        parcel.writeString(saleNote);
+        parcel.writeString(salePayment);
+        parcel.writeParcelable(customerModel, i);
     }
 
     public void setSaleNote(String saleNote) {
@@ -388,57 +440,15 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.salePayment = salePayment;
     }
 
-    public static final Creator<SaleModel> CREATOR = new Creator<SaleModel>() {
-        @Override
-        public SaleModel createFromParcel(Parcel in) {
-            return new SaleModel(in);
-        }
-
-        @Override
-        public SaleModel[] newArray(int size) {
-            return new SaleModel[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getSaleNote() {
+        return saleNote;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public CustomerModel getCustomerModel() {
+        return customerModel;
+    }
 
-        dest.writeString(saleInvoiceNo);
-        dest.writeString(saleInvoiceDate);
-        dest.writeString(saleCustomerName);
-        dest.writeString(saleCustomerAddress);
-        dest.writeString(saleCustomerLevel1);
-        dest.writeString(saleCustomerLevel2);
-        dest.writeString(saleCustomerLevel3);
-        dest.writeString(saleCustomerLevel4);
-        dest.writeString(saleCustomerPhNo1);
-        dest.writeString(saleCustomerPhNo2);
-        dest.writeString(saleCustomerPhNo3);
-        dest.writeString(saleMedicineName);
-        dest.writeString(saleMedicineCode);
-        dest.writeString(saleCategory);
-        dest.writeString(saleCostPerPc);
-        dest.writeString(saleCostPerDz);
-        dest.writeString(saleQtyPerPc);
-        dest.writeString(saleQtyPerDz);
-        dest.writeString(sellingPricePerPc1);
-        dest.writeString(sellingPricePerDz1);
-        dest.writeString(sellingPricePerPc2);
-        dest.writeString(sellingPricePerDz2);
-        dest.writeString(sellingPricePerPc3);
-        dest.writeString(sellingPricePerDz3);
-        dest.writeString(sellingPricePerPc4);
-        dest.writeString(sellingPricePerDz4);
-        dest.writeString(saleSubTotalAmt);
-        dest.writeString(saleTotalAmt);
-        dest.writeString(saleBalance);
-        dest.writeString(saleDuedate);
-        dest.writeString(saleUpFront);
-        dest.writeString(salePayment);
+    public void setCustomerModel(CustomerModel customerModel) {
+        this.customerModel = customerModel;
     }
 }

@@ -85,6 +85,7 @@ public class SaleAddActivity extends AppCompatActivity {
         setUpSaleInvoiceDate();
 
         saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);
@@ -121,12 +122,14 @@ public class SaleAddActivity extends AppCompatActivity {
         customerModel.setCustomerPhNo2(saleCustomerPhNo2);
         customerModel.setCustomerPhNo3(saleCustomerPhNo3);
 
-        realm.executeTransaction(realm -> {
+       /* realm.executeTransaction(realm -> {
             realm.copyToRealmOrUpdate(saleModel);
             realm.copyToRealmOrUpdate(medicineModel);
             realm.copyToRealmOrUpdate(customerModel);
             Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
-        });
+        });*/
+          Intent intent = new Intent(SaleAddActivity.this,SaleMedicineInformationActivity.class);
+          startActivity(intent);
 
        });
 

@@ -9,6 +9,8 @@
     <color name="color_dimgray">#696969</color>
     <color name="color_grey">#808080</color>
     <color name="color_darkgrey">#A9A9A9</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_edit_text_stroke">#d6d6d6</color>
     <color name="silver">#C0C0C0</color>
     <color name="lightBlue">#4AB8B8</color>
     <color name="colorTextColorPrimary">#3e3e3e</color>
