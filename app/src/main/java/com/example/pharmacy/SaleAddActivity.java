@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -13,7 +14,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pharmacy.helper.DateTimeHelper;
@@ -65,10 +68,35 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.edtCustomerPhNo3)
     EditText edtCustomerPhNo3;
 
+//    @BindView(R.id.tvMedicineName)
+//    EditText tvMedicineName;
+//
+//    @BindView(R.id.tvMedicineCostPerPc)
+//    EditText tvMedicineCostPerPc;
+//
+//    @BindView(R.id.tvMedicineQtyPerPc)
+//    EditText tvMedicineQtyPerPc;
+//
+//    @BindView(R.id.tvMedicineSubAmt_saleMedicine)
+//    EditText tvMedicineSubAmt_saleMedicine;
 
-  @BindView(R.id.relativeSave_saleAdd)
-   RelativeLayout relativeSave;
+    @BindView(R.id.linearLayout_medicine_saleAdd)
+    LinearLayout linearLayout_medicine_saleAdd;
 
+    @BindView(R.id.tvMedicineInfo)
+    TextView tvMedicineInfo;
+
+    @BindView(R.id.tvMedicieDetail)
+    TextView tvMedicieDetail;
+
+    @BindView(R.id.relativeSave_saleAdd)
+    RelativeLayout relativeSave;
+
+//    @BindView(R.id.rvSaleAddMedicine)
+//    RecyclerView rvSaleAddMedicine;
+//
+//    @BindView(R.id.relativeSave_medicineSaleAdd)
+//    RelativeLayout relativeSave_medicineSaleAdd;
 
     private String medcineId;
     private String customerId;
@@ -101,7 +129,7 @@ public class SaleAddActivity extends AppCompatActivity {
 
         }
 
-      relativeSave.setOnClickListener(v -> {
+        tvMedicineInfo.setOnClickListener(v -> {
         String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
         String saleCustomerName = edtCustomerName_add.getText().toString();
 
@@ -132,6 +160,25 @@ public class SaleAddActivity extends AppCompatActivity {
           startActivity(intent);
 
        });
+
+        tvMedicieDetail.setOnClickListener(v -> {
+            Intent intent = new Intent(SaleAddActivity.this,SaleMedicineDetailInformationActivity.class);
+            startActivity(intent);
+        });
+
+//        relativeSave_medicineSaleAdd.setOnClickListener(v -> {
+//            String mName = tvMedicineName.getText().toString();
+//            String mPrice = tvMedicineCostPerPc.getText().toString();
+//            String mQty = tvMedicineQtyPerPc.getText().toString();
+//            String mSubAmt = tvMedicineSubAmt_saleMedicine.getText().toString();
+//
+//            SaleModel saleModel = new SaleModel();
+//
+//            saleModel.setSaleMedicineName(mName);
+//            saleModel.setSaleCostPerPc(mPrice);
+//            saleModel.setSaleQtyPerPc(mQty);
+//            saleModel.setSaleSubTotalAmt(mSubAmt);
+//        });
 
     }
 

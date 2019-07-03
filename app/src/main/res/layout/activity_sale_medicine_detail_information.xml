@@ -48,20 +48,6 @@
                             android:layout_weight="1"/>
                     </android.support.design.widget.TextInputLayout>
 
-                   <android.support.design.widget.TextInputLayout
-                       android:layout_width="match_parent"
-
-                       android:layout_height="wrap_content">
-                       <EditText
-                           android:id="@+id/edtMedicineCategory"
-                           android:textCursorDrawable="@null"
-                           android:hint="Category"
-                           android:layout_marginLeft="15dp"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:layout_weight="1"/>
-                   </android.support.design.widget.TextInputLayout>
-
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">

@@ -27,9 +27,6 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
     @BindView(R.id.edtMedicineName)
     EditText edtMedicineName;
 
-    @BindView(R.id.edtMedicineCategory)
-    EditText edtMedicineCategory;
-
     @BindView(R.id.edtMedicinePcCostPrice)
     EditText edtMedicinePcCostPrice;
 
@@ -60,14 +57,12 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
         if (medicineModel != null){
             edtMedicineName.setText(medicineModel.getMedicineName());
-            edtMedicineCategory.setText(medicineModel.getMedicineCategory());
             edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
             edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
             edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
         }
         relativeSave_medicineSaleAdd.setOnClickListener(v -> {
             String mName = edtMedicineName.getText().toString();
-            String mCategory = edtMedicineCategory.getText().toString();
             String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
             String mQtyPerPc = edtMedicinePcQty.getText().toString();
             String mSubAmt = edtMedicneSubAmt.getText().toString();
@@ -75,7 +70,6 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
             MedicineModel medicineModel = new MedicineModel();
 
             medicineModel.setMedicineName(mName);
-            medicineModel.setMedicineCategory(mCategory);
             medicineModel.setMedicineCostPerPc(mCostPerPc);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
             medicineModel.setMedicineSubAmt(mSubAmt);
@@ -84,6 +78,9 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
                 realm1.copyToRealmOrUpdate(medicineModel);
                 Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
             });
+
+            Intent intent = new Intent(SaleMedicineDetailInformationActivity.this,SaleAddActivity.class);
+            startActivity(intent);
         });
 
     }

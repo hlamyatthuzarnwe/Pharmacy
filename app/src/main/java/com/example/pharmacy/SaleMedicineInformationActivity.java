@@ -1,6 +1,7 @@
 package com.example.pharmacy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ import io.realm.Realm;
 
 public class SaleMedicineInformationActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG = "SaleMedicineActivity";
+    private static final String TAG = "SaleMedicineInformationActivity";
 
     private Toolbar toolbar;
 
@@ -34,6 +35,7 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
 //    EditText edtSearchMedicinInfo;
     @BindView(R.id.swipeSearchMedicine)
     SwipeRefreshLayout swipe;
+
     @BindView(R.id.rvMedicineList_searchMedicine)
     RecyclerView rvMedicine;
 
@@ -42,6 +44,7 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
 
     @BindView(R.id.btnSearch_searchMedicine)
     Button btnSearch;
+
 
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
@@ -66,6 +69,12 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
             }
 
         });
+
+        rvMedicine.setOnClickListener(v -> {
+            Intent intent = new Intent(SaleMedicineInformationActivity.this,SaleMedicineDetailInformationActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void init() {
@@ -81,7 +90,7 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
     private void getAllMedicine() {
         adapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
-        Log.d(TAG,"getData : "+medicineModelList.size());
+       // Log.d(TAG,"getData : "+medicineModelList.size());
 
         if (!medicineModelList.isEmpty()) {
             adapter.getMedicineModelList().addAll(medicineModelList);
@@ -92,7 +101,7 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
         adapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class)
                 .contains("medicineName",name, Case.INSENSITIVE).findAll();
-        Log.d(TAG,"getSearchData : "+medicineModelList.size());
+       // Log.d(TAG,"getSearchData : "+medicineModelList.size());
 
         if (!medicineModelList.isEmpty()) {
             adapter.getMedicineModelList().addAll(medicineModelList);
