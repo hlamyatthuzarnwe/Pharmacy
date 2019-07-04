@@ -98,6 +98,9 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if(medicineModel.getMedicineCategory() != null){
                 tvMedicineCategory_detail .setText(medicineModel.getMedicineCategory());
             }
+//            if (medicineModel.getSupplierModel().getSupplierName() != null){
+//                tvMedicineSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
+//            }
 //            if(supplierModel.getSupplierName() != null){
 //                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
 //            }
@@ -116,6 +119,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if (medicineModel.getMedicineQtyPerDz() != null){
                 tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
             }
+
             mView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, MedicineDetailActivity.class);
                 intent.putExtra("MedicineModel",medicineModel);

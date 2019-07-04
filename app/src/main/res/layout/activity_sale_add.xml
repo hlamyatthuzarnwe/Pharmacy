@@ -206,12 +206,14 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                app:cardCornerRadius="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <android.support.v7.widget.RecyclerView
+                    android:background="@color/color_hex_pink"
                     android:id="@+id/rvSaleAddMedicine"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="300dp"
                     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                     android:orientation="horizontal">
 

@@ -297,4 +297,5 @@ public class MedicineModel extends RealmObject implements Parcelable {
     public void setSupplierModel(SupplierModel supplierModel) {
         this.supplierModel = supplierModel;
     }
+
 }

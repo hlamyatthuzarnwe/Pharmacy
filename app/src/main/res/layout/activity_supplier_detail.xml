@@ -23,148 +23,222 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Supplier Name"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/tvSupplier_supplierName_detail"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
+            <android.support.v7.widget.CardView
+                app:cardCornerRadius="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Company Name"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvCompanyName_detail"/>
-            </LinearLayout>
+                       <TextView
+                           android:layout_marginTop="35dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Supplier Name" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Address"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvCompanyAddress_detail"/>
-            </LinearLayout>
+                       <TextView
+                           android:id="@+id/tvSupplier_supplierName_detail"
+                           android:background="@color/color_maya"
+                           android:layout_marginTop="35dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Phone Number 1"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvSupplierPhoneNo1_detail"/>
-            </LinearLayout>
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Phone Number 2"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvSupplierPhoneNo2_detail"/>
-            </LinearLayout>
+                       <TextView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Company Name" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Phone Number 3"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvSupplierPhoneNo3_detail"/>
-            </LinearLayout>
+                       <TextView
+                           android:id="@+id/tvCompanyName_detail"
+                           android:background="@color/color_maya"
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Phone Number 4"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvSupplierPhoneNo4_detail"/>
-            </LinearLayout>
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Phone Number 5"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvSupplierPhoneNo5_detail"/>
-            </LinearLayout>
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Address" />
 
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:orientation="vertical"
+                       <TextView
+                           android:id="@+id/tvCompanyAddress_detail"
+                           android:background="@color/color_maya"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Phone Number 1" />
+
+                       <TextView
+                           android:id="@+id/tvSupplierPhoneNo1_detail"
+                           android:background="@color/color_maya"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Phone Number 2" />
+
+                       <TextView
+                           android:id="@+id/tvSupplierPhoneNo2_detail"
+                           android:background="@color/color_maya"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Phone Number 3" />
+
+                       <TextView
+                           android:id="@+id/tvSupplierPhoneNo3_detail"
+                           android:background="@color/color_maya"
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Phone Number 4" />
+
+                       <TextView
+                           android:id="@+id/tvSupplierPhoneNo4_detail"
+                           android:background="@color/color_maya"
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_margin="5dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                       <TextView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:text="Phone Number 5" />
+
+                       <TextView
+                           android:id="@+id/tvSupplierPhoneNo5_detail"
+                           android:background="@color/color_maya"
+                           android:layout_marginTop="5dp"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1" />
+                   </LinearLayout>
+
+               </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp">
+                <LinearLayout
+                    android:background="@color/color_baby_blue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Note"
-                    android:layout_gravity="start"/>
-                <TextView
-                    android:id="@+id/tvSupplierNote_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:gravity="start"
-                    tools:text="testing purpose"/>
-            </LinearLayout>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Note" />
+
+                    <TextView
+                        android:id="@+id/tvSupplierNote_detail"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:gravity="start"
+                        tools:text="testing purpose" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
         </LinearLayout>
 
     </ScrollView>

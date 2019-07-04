@@ -27,6 +27,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
+    @BindView(R.id.tvCustomerInvoiceDate_detail)
+    TextView tvCustomerInvoiceDate_detail;
+
     @BindView(R.id.tvCustomerName_detail)
     TextView tvCustomerName_detail;
 
@@ -50,6 +53,18 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.tvCustomerPhNo5_detail)
     TextView tvCustomerPhNo5_detail;
+
+    @BindView(R.id.tvCustomerTotalAmt_detail)
+    TextView tvCustomerTotalAmt_detail;
+
+    @BindView(R.id.tvCustomerUpFront_detail)
+    TextView tvCustomerUpFront_detail;
+
+    @BindView(R.id.tvCustomerBalance_detail)
+    TextView tvCustomerBalance_detail;
+
+    @BindView(R.id.tvCustomerDuteDate_detail)
+    TextView tvCustomerDuteDate_detail;
 
     @BindView(R.id.tvCustomerNote_detail)
     TextView tvCustomerNote_detail;
@@ -79,8 +94,13 @@ public class CustomerDetailActivity extends AppCompatActivity {
             tvCustomerPhNo3_detail.setText(customerModel.getCustomerPhNo3());
             tvCustomerPhNo4_detail.setText(customerModel.getCustomerPhNo4());
             tvCustomerPhNo5_detail.setText(customerModel.getCustomerPhNo5());
-            Log.d(TAG, "onCreate: note : "+customerModel.getCustomerNote());
+            tvCustomerTotalAmt_detail.setText(customerModel.getCustomerTotalAmt());
+            tvCustomerUpFront_detail.setText(customerModel.getCustomerUpFront());
+            tvCustomerBalance_detail.setText(customerModel.getCustomerBalance());
+            tvCustomerDuteDate_detail.setText(customerModel.getCustomerDueDate());
             tvCustomerNote_detail.setText(customerModel.getCustomerNote());
+           // Log.d(TAG, "onCreate: note : "+customerModel.getCustomerNote());
+
         }
     }
 

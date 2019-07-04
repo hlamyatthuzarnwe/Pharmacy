@@ -187,7 +187,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.medicineLists = medicineLists;
     }
 
-    public CustomerModel(String customerId, String customerName, String customerLevel1, String customerLevel2, String customerLevel3, String customerLevel4, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerTotalAmt, String customerUpFront, String customerBalance, String customerInvoiceDate, String customerDueDate, String customerNote, SaleModel saleModel, RealmList<MedicineModel> medicineLists) {
+    public CustomerModel(String customerId, String customerName, String customerLevel1, String customerLevel2, String customerLevel3, String customerLevel4, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerTotalAmt, String customerUpFront, String customerBalance, String customerInvoiceDate, String customerDueDate, String customerNote, RealmList<MedicineModel> medicineLists) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerLevel1 = customerLevel1;

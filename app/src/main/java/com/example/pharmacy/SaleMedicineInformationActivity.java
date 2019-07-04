@@ -67,7 +67,6 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
             if (!text.isEmpty()){
                 getSearchMedicine(text);
             }
-
         });
 
         rvMedicine.setOnClickListener(v -> {

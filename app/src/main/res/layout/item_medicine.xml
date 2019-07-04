@@ -28,45 +28,51 @@
         </android.support.v7.widget.CardView>
 
 
-            <LinearLayout
+        <LinearLayout
 
-                android:background="@color/color_hex_pink"
-                android:padding="5dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
+            android:layout_width="351dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_hex_pink"
+            android:orientation="vertical"
+            android:padding="5dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicineCategory_detail"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicineSupplierName"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicinePayment"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicineExpDate"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicineReceivedDate"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicineQtyPerPc"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvMedicineQtyPerDz"/>
+            <TextView
+                android:id="@+id/tvMedicineCategory_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tvMedicineSupplierName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvMedicinePayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvMedicineExpDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvMedicineReceivedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvMedicineQtyPerPc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvMedicineQtyPerDz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

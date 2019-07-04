@@ -37,14 +37,11 @@ public class CustomerAddActivity extends AppCompatActivity {
     private Context context;
     int cId;
 
-    @BindView(R.id.edtCustomerName_add)
-    EditText edtCustomerName_add;
-
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
 
-    @BindView(R.id.edtSaleDueDate)
-    EditText edtSaleDueDate;
+    @BindView(R.id.edtCustomerName_add)
+    EditText edtCustomerName_add;
 
     @BindView(R.id.edtCustomerAddress_add)
     EditText edtCustomerAddress_add;
@@ -67,6 +64,18 @@ public class CustomerAddActivity extends AppCompatActivity {
     @BindView(R.id.edtCustomerPhNo5)
     EditText edtCustomerPhNo5;
 
+    @BindView(R.id.edtSaleTotalAmt_add)
+    EditText edtSaleTotalAmt_add;
+
+    @BindView(R.id.edtSaleUpFront)
+    EditText edtSaleUpFront;
+
+    @BindView(R.id.edtSaleBalance)
+    EditText edtSaleBalance;
+
+    @BindView(R.id.edtSaleDueDate)
+    EditText edtSaleDueDate;
+
     @BindView(R.id.edtCustomerNote)
     EditText edtCustomerNote;
 
@@ -74,6 +83,7 @@ public class CustomerAddActivity extends AppCompatActivity {
     RelativeLayout relativeSave;
 
     private String idEdit;
+    private boolean is_edit=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +103,12 @@ public class CustomerAddActivity extends AppCompatActivity {
 
         if(customerModel != null){
             idEdit = customerModel.getCustomerId();
+            if (idEdit.isEmpty()){
+                is_edit = false;
+            }else {
+                is_edit = true;
+            }
+         //   idEdit = customerModel.getCustomerId();
             edtCustomerName_add.setText(customerModel.getCustomerName());
             edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
 //            edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
@@ -101,6 +117,10 @@ public class CustomerAddActivity extends AppCompatActivity {
             edtCustomerPhNo3.setText(customerModel.getCustomerPhNo3());
             edtCustomerPhNo4.setText(customerModel.getCustomerPhNo4());
             edtCustomerPhNo5.setText(customerModel.getCustomerPhNo5());
+            edtSaleTotalAmt_add.setText(customerModel.getCustomerTotalAmt());
+            edtSaleUpFront.setText(customerModel.getCustomerUpFront());
+            edtSaleBalance.setText(customerModel.getCustomerBalance());
+            edtSaleDueDate.setText(customerModel.getCustomerDueDate());
             edtCustomerNote.setText(customerModel.getCustomerNote());
         }
         relativeSave.setOnClickListener(v -> {{
@@ -112,9 +132,19 @@ public class CustomerAddActivity extends AppCompatActivity {
             String cPhNo3 = edtCustomerPhNo3.getText().toString();
             String cPhNo4 = edtCustomerPhNo4.getText().toString();
             String cPhNo5 = edtCustomerPhNo5.getText().toString();
+            String cTotalAmt = edtSaleTotalAmt_add.getText().toString();
+            String cUpFront = edtSaleUpFront.getText().toString();
+            String cBalance = edtSaleBalance.getText().toString();
+            String cDueDate = edtSaleDueDate.getText().toString();
             String cNote = edtCustomerNote.getText().toString();
 
             CustomerModel customerModel = new CustomerModel();
+
+            if (is_edit){
+                customerModel.setCustomerId(idEdit);
+            }else {
+                customerModel.setCustomerId(UUID.randomUUID().toString());
+            }
 
             customerModel.setCustomerId(UUID.randomUUID().toString());
             customerModel.setCustomerName(cName);
@@ -125,6 +155,10 @@ public class CustomerAddActivity extends AppCompatActivity {
             customerModel.setCustomerPhNo3(cPhNo3);
             customerModel.setCustomerPhNo4(cPhNo4);
             customerModel.setCustomerPhNo5(cPhNo5);
+            customerModel.setCustomerTotalAmt(cTotalAmt);
+            customerModel.setCustomerUpFront(cUpFront);
+            customerModel.setCustomerBalance(cBalance);
+            customerModel.setCustomerDueDate(cDueDate);
             customerModel.setCustomerNote(cNote);
 
             realm.executeTransaction(realm -> {
@@ -220,6 +254,11 @@ public class CustomerAddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (is_edit){
+            customerModel.setCustomerId(idEdit);
+        }else {
+            customerModel.setCustomerId(UUID.randomUUID().toString());
+        }
 
         return super.onOptionsItemSelected(item);
     }
