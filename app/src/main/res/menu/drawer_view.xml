@@ -6,6 +6,10 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/drawer_view_login"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Login"/>
+        <item
             android:id="@+id/drawer_view_product"
             android:icon="@android:drawable/ic_menu_info_details"
             android:title="Medicine List"/>

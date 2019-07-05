@@ -111,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fabAdd.setOnClickListener(v -> {
             switch (LOCATE_ACTIVITY){
+                case 0:
+                    Intent intent0 = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivity(intent0);
+                    break;
                 case 1:
                     Intent intent1 = new Intent(MainActivity.this,MedicineAddActivity.class);
                 startActivity(intent1);

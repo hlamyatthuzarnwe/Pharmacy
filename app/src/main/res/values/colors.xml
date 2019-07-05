@@ -47,4 +47,6 @@
     <color name="color_azure">#0080FF</color>
     <color name="color_maya">#73C2FB</color>
     <color name="color_baby_blue">#89CFF0</color>
+    <color name="colorhex">#cdad78</color>
+    <color name="color_hex_orange">#ffa500</color>
 </resources>
