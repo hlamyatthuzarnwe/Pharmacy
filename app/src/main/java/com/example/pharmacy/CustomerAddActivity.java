@@ -8,29 +8,37 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.pharmacy.helper.DateTimeHelper;
 import com.example.pharmacy.model.CustomerModel;
 import com.example.yy.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 
-public class CustomerAddActivity extends AppCompatActivity {
+public class CustomerAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = "CustomerAddActivity";
     private static final char UNIX_SEPRATOR = '/';
 
+   // private Spinner spinner;
     private Realm realm;
     private CustomerModel customerModel;
     private Toolbar toolbar;
@@ -45,6 +53,9 @@ public class CustomerAddActivity extends AppCompatActivity {
 
     @BindView(R.id.edtCustomerAddress_add)
     EditText edtCustomerAddress_add;
+
+    @BindView(R.id.spinnerAdd)
+    Spinner spinnerAdd;
 
 //    @BindView(R.id.edtCustomerLevel_add)
 //    EditText edtCustomerLevel_add;
@@ -126,7 +137,8 @@ public class CustomerAddActivity extends AppCompatActivity {
         relativeSave.setOnClickListener(v -> {{
             String cName = edtCustomerName_add.getText().toString();
             String cAddress = edtCustomerAddress_add.getText().toString();
-            // String clevel = edtCustomerLevel_add.getText().toString();
+
+             //String clevel = spinnerAdd.getText().toString();
             String cPhNo1 = edtCustomerPhNo1.getText().toString();
             String cPhNo2 = edtCustomerPhNo2.getText().toString();
             String cPhNo3 = edtCustomerPhNo3.getText().toString();
@@ -168,6 +180,18 @@ public class CustomerAddActivity extends AppCompatActivity {
         }
 
         });
+
+        spinnerAdd.setOnItemSelectedListener(this);
+        List<String> list = new ArrayList<String>();
+        list.add("Level 1");
+        list.add("Level 2");
+        list.add("Level 3");
+        list.add("Level 4");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdd.setAdapter(adapter);
+
 
     }
 
@@ -261,5 +285,17 @@ public class CustomerAddActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String level = parent.getItemAtPosition(position).toString();
+        Toast.makeText(this, level, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

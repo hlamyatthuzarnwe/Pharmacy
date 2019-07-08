@@ -73,6 +73,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             ButterKnife.bind(this,itemView);
             context = itemView.getContext();
             cView = itemView;
+
         }
 
         public void bind(CustomerModel customerModel) {
@@ -83,9 +84,9 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             if(customerModel.getCustomerAddress() != null){
                 tvCustomerAddress.setText(customerModel.getCustomerAddress());
             }
-            if(customerModel.getCustomerLevel1() != null){
-                tvCustomerLevel.setText(customerModel.getCustomerLevel1());
-                Log.d(TAG, "bind: level : "+customerModel.getCustomerLevel1());
+            if(customerModel.getCustomerLevel() != null){
+                tvCustomerLevel.setText(customerModel.getCustomerLevel());
+                Log.d(TAG, "bind: level : "+customerModel.getCustomerLevel());
           }
 //            if(customerModel.getCustomerAddress() != null){
 //                tvCustomerAddress.setText(customerModel.getCustomerLevel());

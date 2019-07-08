@@ -13,10 +13,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
     private String customerId;
 
     private String customerName;
-    private String customerLevel1;
-    private String customerLevel2;
-    private String customerLevel3;
-    private String customerLevel4;
+    private String customerLevel;
     private String customerAddress;
     private String customerPhNo1;
     private String customerPhNo2;
@@ -51,36 +48,12 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerName = customerName;
     }
 
-    public String getCustomerLevel1() {
-        return customerLevel1;
+    public String getCustomerLevel() {
+        return customerLevel;
     }
 
-    public void setCustomerLevel1(String customerLevel1) {
-        this.customerLevel1 = customerLevel1;
-    }
-
-    public String getCustomerLevel2() {
-        return customerLevel2;
-    }
-
-    public void setCustomerLevel2(String customerLevel2) {
-        this.customerLevel2 = customerLevel2;
-    }
-
-    public String getCustomerLevel3() {
-        return customerLevel3;
-    }
-
-    public void setCustomerLevel3(String customerLevel3) {
-        this.customerLevel3 = customerLevel3;
-    }
-
-    public String getCustomerLevel4() {
-        return customerLevel4;
-    }
-
-    public void setCustomerLevel4(String customerLevel4) {
-        this.customerLevel4 = customerLevel4;
+    public void setCustomerLevel(String customerLevel) {
+        this.customerLevel = customerLevel;
     }
 
     public String getCustomerAddress() {
@@ -187,13 +160,10 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.medicineLists = medicineLists;
     }
 
-    public CustomerModel(String customerId, String customerName, String customerLevel1, String customerLevel2, String customerLevel3, String customerLevel4, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerTotalAmt, String customerUpFront, String customerBalance, String customerInvoiceDate, String customerDueDate, String customerNote, RealmList<MedicineModel> medicineLists) {
+    public CustomerModel(String customerId, String customerName, String customerLevel, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerTotalAmt, String customerUpFront, String customerBalance, String customerInvoiceDate, String customerDueDate, String customerNote, RealmList<MedicineModel> medicineLists) {
         this.customerId = customerId;
         this.customerName = customerName;
-        this.customerLevel1 = customerLevel1;
-        this.customerLevel2 = customerLevel2;
-        this.customerLevel3 = customerLevel3;
-        this.customerLevel4 = customerLevel4;
+        this.customerLevel = customerLevel;
         this.customerAddress = customerAddress;
         this.customerPhNo1 = customerPhNo1;
         this.customerPhNo2 = customerPhNo2;
@@ -217,10 +187,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
         customerId = in.readString();
         customerName = in.readString();
         customerInvoiceDate = in.readString();
-        customerLevel1 = in.readString();
-        customerLevel2 = in.readString();
-        customerLevel3 = in.readString();
-        customerLevel4 = in.readString();
+        customerLevel = in.readString();
         customerAddress = in.readString();
         customerPhNo1 = in.readString();
         customerPhNo2 = in.readString();
@@ -239,10 +206,7 @@ public class CustomerModel extends RealmObject implements Parcelable {
         dest.writeString(customerId);
         dest.writeString(customerName);
         dest.writeString(customerInvoiceDate);
-        dest.writeString(customerLevel1);
-        dest.writeString(customerLevel2);
-        dest.writeString(customerLevel3);
-        dest.writeString(customerLevel4);
+        dest.writeString(customerLevel);
         dest.writeString(customerAddress);
         dest.writeString(customerPhNo1);
         dest.writeString(customerPhNo2);
