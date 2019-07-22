@@ -92,8 +92,7 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.relativeSave_saleAdd)
     RelativeLayout relativeSave;
 
-//    @BindView(R.id.rvSaleAddMedicine)
-//    RecyclerView rvSaleAddMedicine;
+
 //
 //    @BindView(R.id.relativeSave_medicineSaleAdd)
 //    RelativeLayout relativeSave_medicineSaleAdd;

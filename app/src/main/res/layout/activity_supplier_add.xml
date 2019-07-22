@@ -34,11 +34,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Supplier Name"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSupplierName_add"/>
             </LinearLayout>
 
@@ -49,11 +51,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Company Name"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtCompanyName_add"/>
             </LinearLayout>
 
@@ -64,11 +68,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Address"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtCompanyAddress_add"/>
             </LinearLayout>
 
@@ -79,11 +85,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Phone Number 1"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSupplierPhNo1"
                     android:inputType="number"/>
             </LinearLayout>
@@ -95,11 +103,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Phone Number 2"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSupplierPhNo2"
                     android:inputType="number"/>
             </LinearLayout>
@@ -111,11 +121,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Phone Number 3"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSupplierPhNo3"
                     android:inputType="number"/>
             </LinearLayout>
@@ -127,11 +139,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Phone Number 4"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSupplierPhNo4"
                     android:inputType="number"/>
             </LinearLayout>
@@ -143,11 +157,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="15dp"
                 android:text="Phone Number 5"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:id="@+id/edtSupplierPhNo5"
                 android:inputType="number"/>
         </LinearLayout>
@@ -160,12 +176,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:text="Note"
                 android:layout_gravity="start"/>
             <EditText
                 android:id="@+id/edtSupplierNote_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+                android:layout_marginRight="15dp"
                 tools:text="testing purpose"
                 android:gravity="start" />
         </LinearLayout>

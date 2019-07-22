@@ -36,6 +36,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
     @NonNull
     @Override
     public SaleAdapter.SaleViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
         View view = layoutInflater.inflate(R.layout.item_sale,viewGroup,false);
         return new SaleAdapter.SaleViewHolder(view);

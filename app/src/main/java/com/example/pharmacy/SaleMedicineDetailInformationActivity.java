@@ -61,11 +61,23 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
             edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
             edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
         }
+
         relativeSave_medicineSaleAdd.setOnClickListener(v -> {
             String mName = edtMedicineName.getText().toString();
             String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
             String mQtyPerPc = edtMedicinePcQty.getText().toString();
             String mSubAmt = edtMedicneSubAmt.getText().toString();
+
+//            int cost = Integer.parseInt(mCostPerPc);
+//
+//            int qty = Integer.parseInt(mQtyPerPc);
+//            int amount;
+//
+//            if (edtMedicinePcQty != null){
+//
+//                amount = cost * qty;
+//                edtMedicneSubAmt.setText(Integer.toString(amount));
+//            }
 
             MedicineModel medicineModel = new MedicineModel();
 

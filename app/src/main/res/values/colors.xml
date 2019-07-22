@@ -49,4 +49,5 @@
     <color name="color_baby_blue">#89CFF0</color>
     <color name="colorhex">#cdad78</color>
     <color name="color_hex_orange">#ffa500</color>
+    <color name="rich_black">#010203</color>
 </resources>

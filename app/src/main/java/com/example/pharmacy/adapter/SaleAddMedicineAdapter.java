@@ -1,13 +1,17 @@
 package com.example.pharmacy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.pharmacy.SaleAddActivity;
+import com.example.pharmacy.SaleDetailActivity;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
@@ -42,7 +46,7 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
     @Override
     public void onBindViewHolder(@NonNull SaleAddMedicineAdapter.SaleAddViewHolder saleAddViewHolder, int position) {
 
-        SaleAddViewHolder.bind(saleModelList.get(position));
+        saleAddViewHolder.bind(saleModelList.get(position));
     }
 
     @Override
@@ -87,6 +91,12 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
             if (saleModel.getSaleSubTotalAmt() != null){
                 tvSaleSubAmtPerPc.setText(saleModel.getSaleSubTotalAmt());
             }
+
+            saleAddView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, SaleAddActivity.class);
+                intent.putExtra("SaleModel",saleModel);
+                context.startActivity(intent);
+            });
         }
 
     }

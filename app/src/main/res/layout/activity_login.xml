@@ -30,7 +30,7 @@
                     android:src="@drawable/logo"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                    android:layout_height="100dp" />
                 <TextView
                     android:id="@+id/tvLogoName"
                     android:layout_width="match_parent"
@@ -40,13 +40,14 @@
                     android:padding="15dp"
                     android:textSize="30dp"
                     android:textColor="@color/color_hex_orange"
-                    android:textFontWeight="100dp"
-                    android:text="ရွှေအိုး"
+                    android:textFontWeight="50dp"
+                    android:text="Pharmacy"
                     android:textAlignment="center" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:layout_weight="30"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="20dp">

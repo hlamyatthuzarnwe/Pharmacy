@@ -34,12 +34,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
                 android:text="Medicine Name"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:id="@+id/edtMedicineName"/>
         </LinearLayout>
 
@@ -50,11 +52,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="15dp"
                 android:text="Medicine Code"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:id="@+id/edtMedicineCode"/>
         </LinearLayout>
 
@@ -65,11 +69,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="15dp"
                 android:text="Category"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:id="@+id/edtMedicineCategory"/>
         </LinearLayout>
 
@@ -80,11 +86,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Cost Price"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
                     android:hint="Cost Per Pc"
                     android:inputType="number"
                     android:id="@+id/edtMedicinePcCostPrice"/>
@@ -92,6 +101,8 @@
                     android:id="@+id/edtMedicneDzCostPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:hint="Cost Per Dz"
                     android:inputType="number"/>
@@ -104,11 +115,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Quantity"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:hint="Qty Per Pc"
                     android:inputType="number"
                     android:id="@+id/edtMedicinePcQty"/>
@@ -117,6 +131,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:hint="Qty Per Dz"
                     android:inputType="number"/>
             </LinearLayout>
@@ -128,11 +144,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Company Name"/>
                 <EditText
                     android:id="@+id/edtMedicineCompanyName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -143,11 +161,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Address"/>
                 <EditText
                     android:id="@+id/edtAddress_medicineAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -158,11 +178,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Supplier Name"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSupplierName"/>
             </LinearLayout>
 
@@ -173,13 +195,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Contact Phone Number 1"/>
+
                 <EditText
                     android:id="@+id/edtContactMedicinePh1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:inputType="number"/>
+                    android:layout_marginRight="15dp"
+                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
@@ -189,12 +214,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Contact Phone Number 2"/>
                 <EditText
                     android:id="@+id/edtContactMedicinePh2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:inputType="number"/>
             </LinearLayout>
 
@@ -205,12 +232,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Contact Phone Number 3"/>
                 <EditText
                     android:id="@+id/edtMedicineContactPh3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:inputType="number"/>
             </LinearLayout>
 
@@ -221,12 +250,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Viber Phone Number"/>
                 <EditText
                     android:id="@+id/edtMedicineViberPh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="15dp"
                     android:inputType="number"/>
             </LinearLayout>
 
@@ -237,12 +268,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Payment"/>
                 <EditText
                     android:id="@+id/edtMedicinePayment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -252,6 +285,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Selling Price 1"/>
                 <EditText
                     android:id="@+id/edtSaleMedicinePcPrice1"
@@ -259,12 +293,16 @@
                     android:layout_height="wrap_content"
                     android:hint="Cost Per Pc"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:inputType="number"/>
                 <EditText
                     android:id="@+id/edtSaleMedicineDzPrice1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Cost Per Dz"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:inputType="number"/>
             </LinearLayout>
@@ -276,12 +314,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Selling Price 2"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Pc"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:inputType="number"
                     android:id="@+id/edtSaleMedicinePcPrice2"/>
                 <EditText
@@ -289,6 +330,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Dz"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:id="@+id/edtSaleMedicineDzPrice2"
                     android:inputType="number"/>
             </LinearLayout>
@@ -300,11 +343,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Selling Price 3"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:hint="Cost Per Pc"
                     android:id="@+id/edtSaleMedicinePcPrice3"
                     android:inputType="number"/>
@@ -313,6 +359,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:hint="Cost Per Dz"
                     android:inputType="number"/>
             </LinearLayout>
@@ -324,12 +372,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Selling Price 4"/>
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Cost Per Pc"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:inputType="number"
                     android:id="@+id/edtSaleMedicinePcPrice4"/>
                 <EditText
@@ -337,6 +388,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:hint="Cost Per Dz"
                     android:inputType="number"/>
             </LinearLayout>
@@ -348,6 +401,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Received Date"/>
                 <EditText
                     android:layout_weight="1"
@@ -356,6 +410,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
 
+
+                    android:layout_marginRight="15dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="10dp"
                     android:paddingStart="10dp"
@@ -371,6 +427,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
                     android:text="Expire Date"/>
                 <EditText
                     android:layout_weight="1"
@@ -379,6 +436,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
 
+
+                    android:layout_marginRight="15dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="10dp"
                     android:paddingStart="10dp"
@@ -392,19 +451,21 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-                <TextView
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Note"
-                    android:layout_gravity="start"/>
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/edtMedicineNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="Note"
+                        android:layout_marginLeft="15dp"
+                        android:layout_gravity="start"
+                        tools:text="testing purpose" />
+                </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/edtMedicineNote"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    tools:text="testing purpose" />
+
             </LinearLayout>
 
             <RelativeLayout
