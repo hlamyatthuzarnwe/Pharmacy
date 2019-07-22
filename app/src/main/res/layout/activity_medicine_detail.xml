@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_baby_blue"
     tools:context="com.example.pharmacy.MedicineDetailActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -31,11 +32,11 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="15dp"
+                    app:cardCornerRadius="15dp">
 
                     <LinearLayout
-                        android:layout_margin="5dp"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -44,7 +45,6 @@
                             android:layout_weight="1"
                             android:text="Medicine Name" />
                         <TextView
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:id="@+id/tvMedicineName_detail"
@@ -52,67 +52,43 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Medicine Code" />
 
-               <android.support.v7.widget.CardView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="horizontal"
-                   android:layout_marginTop="5dp">
-                   <LinearLayout
-                       android:layout_margin="5dp"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/tvMedicineCode_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
 
-                       <TextView
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:layout_weight="1"
-                           android:text="Medicine Code" />
-
-                       <TextView
-                           android:background="@color/color_maya"
-                           android:layout_marginLeft="5dp"
-                           android:layout_marginTop="5dp"
-                           android:id="@+id/tvMedicineCode_detail"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:layout_weight="1" />
-                   </LinearLayout>
-               </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_margin="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Category"/>
                         <TextView
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineCategory_detail"/>
+
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="15dp"
+                    app:cardCornerRadius="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -121,7 +97,6 @@
                             android:layout_weight="1"
                             android:text="Cost Price"/>
                             <TextView
-                                android:background="@color/color_maya"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginLeft="5dp"
                                 android:layout_width="match_parent"
@@ -129,7 +104,6 @@
                                 android:layout_weight="1"
                                 android:id="@+id/tvMedicineCostPerPc"/>
                         <TextView
-                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
@@ -143,9 +117,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -154,7 +129,6 @@
                             android:layout_weight="1"
                             android:text="Quantity"/>
                         <TextView
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
@@ -162,7 +136,6 @@
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineQtyPerPc"/>
                         <TextView
-                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
@@ -175,10 +148,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
-
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -187,69 +160,49 @@
                             android:layout_weight="1"
                             android:text="Company Name"/>
                         <TextView
-                            android:background="@color/color_maya"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineCompanyName"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Supplier Name"/>
                         <TextView
-                            android:background="@color/color_maya"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineSupplierName"/>
+
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Contact Phone Number 1"/>
                         <TextView
-                            android:background="@color/color_maya"
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicinePh1"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -257,22 +210,11 @@
                             android:text="Contact Phone Number 2"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicinePh2"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -280,22 +222,11 @@
                             android:text="Contact Phone Number 3"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicinePh3"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -303,22 +234,11 @@
                             android:text="Viber Phone Number"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineViberPh"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -326,20 +246,21 @@
                             android:text="Payment"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicinePayment"/>
+
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -350,7 +271,6 @@
                         <TextView
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -358,20 +278,21 @@
                         <TextView
                             android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_baby_blue"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineSalePerDz1"/>
+
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
@@ -381,7 +302,6 @@
                         android:text="Selling Price 2"/>
                     <TextView
                         android:layout_marginTop="5dp"
-                        android:background="@color/color_maya"
                         android:layout_marginLeft="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -389,7 +309,6 @@
                         android:id="@+id/tvMedicineSalePerPc2"/>
                     <TextView
                         android:layout_marginTop="5dp"
-                        android:background="@color/color_baby_blue"
                         android:layout_marginLeft="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -401,9 +320,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -413,7 +333,6 @@
                             android:text="Selling Price 3"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -421,7 +340,6 @@
                             android:id="@+id/tvMedicineSalePerPc3"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -433,9 +351,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -445,7 +364,6 @@
                             android:text="Selling Price 4"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -453,7 +371,6 @@
                             android:id="@+id/tvMedicineSalePerPc4"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_baby_blue"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -465,9 +382,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -477,23 +395,12 @@
                             android:text="Received Date "/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineReceivedDate"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -501,21 +408,24 @@
                             android:text="Expire Date"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_hex_pink"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineExpDate"/>
+
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+
+
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginTop="15dp">
                     <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <TextView
@@ -525,7 +435,6 @@
                             android:text="Note"/>
                         <TextView
                             android:layout_marginTop="5dp"
-                            android:background="@color/color_maya"
                             android:layout_marginLeft="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
