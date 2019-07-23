@@ -1,8 +1,11 @@
 package com.example.pharmacy;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,12 +16,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yy.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseTooManyRequestsException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final String TAG ="LogiNActivity";
+
+    private static final int RC_SIGN_IN = 123;
+    String phone;
+    FirebaseAuth auth = FirebaseAuth.getInstance();
+    @BindView(R.id.btnLogin)
+    Button btnConfirm;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private String mVerificationId;
 
 //    @BindView(R.id.imgLogo)
 //    ImageView imgLogo;
@@ -30,17 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.edtLoginUserName)
     EditText edtLoginUserName;
-
-    @BindView(R.id.edtLoginPin)
-    EditText edtLoginPin;
-
-    @BindView(R.id.btnLogin)
-    Button btnLogin;
-
-    @BindView(R.id.btnExit)
-    Button btnExit;
-
-    private int counter = 5;
+    private PhoneAuthProvider.ForceResendingToken mResendToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,38 +64,78 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
+        getProgeressDialog().dismiss();
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
-            public void onClick(View v) {
-                validate(edtLoginUserName.getText().toString(), edtLoginPin.getText().toString());
-            }
-        });
+            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                getProgeressDialog().dismiss();
+                Log.d(TAG, "onVerificationCompleted: " + phoneAuthCredential);
+//                Log.d(TAG, "onVerificationCompleted: current user : "+auth.getCurrentUser().getPhoneNumber());
+//                Log.d(TAG, "onVerificationCompleted: current uid : "+auth.getCurrentUser().getUid());
+                signInWithPhoneAuthCredential(phoneAuthCredential);
 
-        btnExit.setOnClickListener(v -> {
-            finish();
-            System.exit(0);
-        });
-    }
 
-    private void validate(String userName,String password){
-        {
-            if ( userName.equals(edtLoginUserName) && password.equals(edtLoginPin )  ){
-                Toast.makeText(LoginActivity.this, "Your Pin Number is Correct and Your Name is "+userName, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,MainActivity.class);
-                startActivity(intent);
-                //finish();
             }
-            else {
-                counter--;
-                if(counter == 0){
-                    btnLogin.setEnabled(false);
+
+            @Override
+            public void onVerificationFailed(FirebaseException e) {
+                Log.w(TAG, "onVerificationFailed", e);
+
+                if (e instanceof FirebaseAuthInvalidCredentialsException) {
+                    // Invalid request
+                    // ...
+                } else if (e instanceof FirebaseTooManyRequestsException) {
+                    // The SMS quota for the project has been exceeded
+                    // ...
                 }
-                Toast.makeText(LoginActivity.this, "No of attempts reamining : "+String.valueOf(counter), Toast.LENGTH_SHORT).show();
             }
 
-        }
+            @Override
+            public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(verificationId, forceResendingToken);
+                Log.d(TAG, "onCodeSent: id : " + verificationId);
+                Log.d(TAG, "onCodeSent: token : "+forceResendingToken);
+
+                // Save verification ID and resending token so we can use them later
+                mVerificationId = verificationId;
+                mResendToken = forceResendingToken;
+            }
+
+            @Override
+            public void onCodeAutoRetrievalTimeOut(String s) {
+                super.onCodeAutoRetrievalTimeOut(s);
+                Log.d(TAG, "onCodeAutoRetrievalTimeOut: "+s);
+            }
+        };
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                getProgeressDialog().show();
+
+
+                    phone ="+95"+edtLoginUserName.getText().toString().trim();
+                    Log.d(TAG, "onClick: var phone : "+phone);
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                            phone,
+                            60,
+                            TimeUnit.SECONDS,
+                            LoginActivity.this,
+                            mCallbacks
+                    );
+
+
+
+                getProgeressDialog().dismiss();
+
+            }
+
+        });
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -98,5 +153,48 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getProgeressDialog().dismiss();
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        auth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        getProgeressDialog().dismiss();
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+
+                            FirebaseUser user = task.getResult().getUser();
+
+
+                            Log.d(TAG, "onComplete: phone number : " + user.getPhoneNumber());
+                            Log.d(TAG, "onComplete: display name : " + user.getDisplayName());
+                            Log.d(TAG, "onComplete: user id : " + user.getUid());
+                            startActivity(new Intent(LoginActivity.this, MedicineAddActivity.class));
+                            // ...
+                        } else {
+                            // Sign in failed, display a message and update the UI
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                                // The verification code entered was invalid
+                            }
+                        }
+                    }
+                });
+    }
+    private ProgressDialog getProgeressDialog(){
+        ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setMessage("Logging in with Phone Number ");
+        return dialog;
     }
 }
