@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_baby_blue"
     tools:context="com.example.pharmacy.SupplierDetailActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -24,9 +23,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
                <LinearLayout
-                   android:background="@color/color_baby_blue"
                    android:orientation="vertical"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content">
@@ -61,7 +58,7 @@
                            android:layout_height="wrap_content">
 
                            <TextView
-                               android:layout_marginTop="35dp"
+                               android:layout_marginTop="15dp"
                                android:layout_width="match_parent"
                                android:layout_height="wrap_content"
                                android:layout_weight="1"

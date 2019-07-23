@@ -111,23 +111,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fabAdd.setOnClickListener(v -> {
             switch (LOCATE_ACTIVITY){
-                case 0:
-                    Intent intent0 = new Intent(MainActivity.this,LoginActivity.class);
-                    startActivity(intent0);
-                    break;
+
                 case 1:
                     Intent intent1 = new Intent(MainActivity.this,MedicineAddActivity.class);
                 startActivity(intent1);
                 break;
 
-                case 2:
-                    Intent intent2 = new Intent(MainActivity.this,CustomerAddActivity.class);
-                startActivity(intent2);
+                case 3:
+                    Intent intent3 = new Intent(MainActivity.this,CustomerAddActivity.class);
+                startActivity(intent3);
                 break;
 
-                case 3:
-                    Intent intent3 = new Intent(MainActivity.this,SupplierAddActivity.class);
-                startActivity(intent3);
+                case 4:
+                    Intent intent4 = new Intent(MainActivity.this,SupplierAddActivity.class);
+                startActivity(intent4);
                 break;
 
                 case 7:
@@ -135,9 +132,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     startActivity(intent7);
                     break;
 
+//                case 0:
+//                    Intent intent0 = new Intent(MainActivity.this,LoginActivity.class);
+//                    startActivity(intent0);
+//                    break;
+
                 default:
                     Intent intent = new Intent(MainActivity.this,MedicineAddActivity.class);
-                startActivity(intent);
+                    startActivity(intent);
+
             }
 
         });

@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_baby_blue"
     tools:context="com.example.pharmacy.MedicineAddActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -456,7 +455,7 @@
 
 
                         android:layout_marginRight="15dp"
-                        android:layout_marginStart="0dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingTop="10dp"
@@ -478,7 +477,7 @@
 
 
                         android:layout_marginRight="15dp"
-                        android:layout_marginStart="0dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingTop="10dp"

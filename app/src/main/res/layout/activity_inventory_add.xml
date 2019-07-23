@@ -28,82 +28,104 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Medicine Name"/>
-                <EditText
-                    android:id="@+id/edtMedicineName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
+           <android.support.v7.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="15dp"
+               app:cardCornerRadius="15dp">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Medicine Code"/>
-                <EditText
-                    android:id="@+id/edtMedicineCode"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
+                   <android.support.design.widget.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <EditText
+                           android:id="@+id/edtMedicineName"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:layout_marginLeft="15dp"
+                           android:hint="Medicine Name"/>
+                   </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Medicine Quantity"/>
-                <EditText
-                    android:id="@+id/edtMedicineQty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
+                   <android.support.design.widget.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <EditText
+                           android:id="@+id/edtMedicineCode"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:layout_marginLeft="15dp"
+                           android:text="Medicine Code"/>
+                   </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Expire Date"/>
-                <EditText
-                    android:id="@+id/edtExpDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
+                   <android.support.design.widget.TextInputLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+                       <EditText
+                           android:id="@+id/edtMedicineQty"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:layout_marginLeft="15dp"
+                           android:text="Medicine Quantity"/>
+                   </android.support.design.widget.TextInputLayout>
 
-            <LinearLayout
+               </LinearLayout>
+           </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:cardCornerRadius="15dp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Note"
-                    android:layout_gravity="start"/>
-                <EditText
-                    android:id="@+id/edtInventoryNote"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:gravity="start"
-                    tools:text="testing purpose" />
-            </LinearLayout>
+                    android:orientation="vertical">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/edtExpDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:text="Expire Date"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+           <android.support.v7.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="15dp"
+               app:cardCornerRadius="15dp">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="1"
+                       android:text="Note"
+                       android:layout_marginLeft="15dp"
+                       android:layout_marginTop="15dp"
+                       android:layout_gravity="start"/>
+                   <EditText
+                       android:id="@+id/edtInventoryNote"
+                       android:layout_width="match_parent"
+                       android:layout_height="300dp"
+                       android:gravity="start"
+                       tools:hint="testing purpose" />
+               </LinearLayout>
+           </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
