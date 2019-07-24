@@ -4,37 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/drawer_view_login"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Login"/>
-        <item
-            android:id="@+id/drawer_view_product"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Medicine List"/>
-        <item
-            android:id="@+id/drawer_view_customer"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Customers" />
-        <item
-            android:id="@+id/drawer_view_supplier"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Suppliers" />
 
-        <item
-            android:id="@+id/drawer_view_sale_report"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Sales Report"/>
-        <item
-            android:id="@+id/drawer_view_inventory"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Inventory" />
-        <item
-            android:id="@+id/drawer_view_user_manage"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="User Manage" />
-    </group>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/drawer_view_login"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="Login"/>
+        </group>
+
+        <group android:checkableBehavior="single">
+
+            <item
+                android:id="@+id/drawer_view_product"
+                android:icon="@drawable/medicine"
+                android:title="Medicine List"/>
+            <item
+                android:id="@+id/drawer_view_customer"
+                android:icon="@drawable/customer"
+                android:title="Customers" />
+            <item
+                android:id="@+id/drawer_view_supplier"
+                android:icon="@drawable/supplier"
+                android:title="Suppliers" />
+
+            <item
+                android:id="@+id/drawer_view_sale_report"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="Sales Report"/>
+            <item
+                android:id="@+id/drawer_view_inventory"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="Inventory" />
+            <item
+                android:id="@+id/drawer_view_user_manage"
+                android:icon="@android:drawable/ic_menu_info_details"
+                android:title="User Manage" />
+        </group>
+
 
     <item
         android:title="Sub menu"
@@ -43,12 +49,11 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/drawer_view_sale"
-                    android:icon="@android:drawable/ic_menu_info_details"
+                    android:icon="@drawable/pharmacist"
                     android:title="Sale" />
 
             </group>
         </menu>
-
 
     </item>
 

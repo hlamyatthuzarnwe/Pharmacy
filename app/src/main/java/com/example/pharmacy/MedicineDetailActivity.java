@@ -128,11 +128,16 @@ public class MedicineDetailActivity extends AppCompatActivity {
             tvMedicineCostPerDz.setText(medicineModel.getMedicineCostPerDz());
             tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
-            tvMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
-            tvMedicineSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
-            tvMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
-            tvMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
-            tvMedicinePh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
+            if (medicineModel.getSupplierModel() != null){
+                tvMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
+                tvMedicineSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
+                tvMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
+                tvMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
+                tvMedicinePh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
+            }
+
+
+
             tvMedicineViberPh.setText(medicineModel.getMedicineViberPh());
             tvMedicinePayment.setText(medicineModel.getMedicinePayment());
             tvMedicineSalePerPc1.setText(medicineModel.getMedicineSalePcPerPrice1());

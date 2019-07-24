@@ -26,6 +26,7 @@ import android.support.v7.widget.Toolbar;
 import com.example.pharmacy.adapter.MedicineAdapter;
 import com.example.pharmacy.fragment.CustomerFragment;
 import com.example.pharmacy.fragment.InventoryFragment;
+import com.example.pharmacy.fragment.LoginFragment;
 import com.example.pharmacy.fragment.MedicineFragment;
 import com.example.pharmacy.fragment.SaleReportFragment;
 import com.example.pharmacy.fragment.UserManageFragment;
@@ -113,8 +114,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             switch (LOCATE_ACTIVITY){
 
                 case 0:
-                    Intent intent0 = new Intent(MainActivity.this,LoginActivity.class);
+                   Intent intent0 = new Intent(MainActivity.this,LoginActivity.class);
                     startActivity(intent0);
+
                     break;
 
                 case 1:
@@ -136,7 +138,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Intent intent7 = new Intent(MainActivity.this,SaleAddActivity.class);
                     startActivity(intent7);
                     break;
-
 
 
 //                default:
@@ -161,6 +162,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void selectDrawerItem(MenuItem menuItem) {
         switch (menuItem.getItemId()){
+            case R.id.drawer_view_login:
+                fragmentClass = LoginFragment.class;
+                LOCATE_ACTIVITY = 0;
+                break;
             case R.id.drawer_view_product :
                 fragmentClass = MedicineFragment.class;
                 LOCATE_ACTIVITY = 1;

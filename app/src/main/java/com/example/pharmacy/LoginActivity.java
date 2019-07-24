@@ -115,7 +115,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 getProgeressDialog().show();
 
-
                     phone ="+95"+edtLoginUserName.getText().toString().trim();
                     Log.d(TAG, "onClick: var phone : "+phone);
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -126,16 +125,10 @@ public class LoginActivity extends AppCompatActivity {
                             mCallbacks
                     );
 
-
-
                 getProgeressDialog().dismiss();
-
             }
-
         });
     }
-
-
 
     @Override
     public void onBackPressed() {

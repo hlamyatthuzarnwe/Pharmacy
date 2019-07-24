@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/swipeMedicine"
-    android:background="@android:color/white"
+    android:background="@color/colorDefaultBgColor"
     tools:context="com.example.pharmacy.fragment.MedicineFragment">
 
     <!-- TODO: Update blank fragment layout -->
