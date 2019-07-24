@@ -27,7 +27,7 @@
                 android:orientation="vertical">
                 <ImageView
                     android:id="@+id/imgLogo"
-                    android:src="@drawable/pharmacy"
+                    android:src="@drawable/herbal"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="100dp" />
@@ -39,7 +39,7 @@
                     android:padding="15dp"
                     android:textSize="30dp"
                     android:textColor="@color/color_hex_orange"
-                    android:text="Shwe Ohh"
+                    android:text="Pharmacy"
                     android:textAlignment="center" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
