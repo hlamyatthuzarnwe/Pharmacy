@@ -156,12 +156,15 @@ public class MedicineAddActivity extends AppCompatActivity {
             edtMedicneDzCostPrice.setText(medicineModel.getMedicineCostPerDz());
             edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
             edtMedicineDzQty.setText(medicineModel.getMedicineQtyPerDz());
-            edtMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
-            edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
-            edtSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
-            edtContactMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
-            edtContactMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
-            edtMedicineContactPh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
+            if (medicineModel.getSupplierModel() != null){
+                edtMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
+                edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
+                edtSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
+                edtContactMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
+                edtContactMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
+                edtMedicineContactPh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
+            }
+
             edtMedicineViberPh.setText(medicineModel.getMedicineViberPh());
             edtMedicinePayment.setText(medicineModel.getMedicinePayment());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
@@ -237,7 +240,7 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedicineExpDate(mExpDate);
             medicineModel.setMedicineNote(mNote);
 
-            //            medicineModel.setSupplierModel(mCompanyName);
+//            medicineModel.setSupplierModel(mCompanyName);
 //            medicineModel.setMedicineSupplierName(mSupplierName);
 //            medicineModel.setMedicineContactPh1(mContactPh1);
 //            medicineModel.setMedicineContactPh2(mContactPh2);
