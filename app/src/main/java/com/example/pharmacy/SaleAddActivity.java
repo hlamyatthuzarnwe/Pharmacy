@@ -93,11 +93,11 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.linearLayout_medicine_saleAdd)
     LinearLayout linearLayout_medicine_saleAdd;
 
-    @BindView(R.id.tvMedicineInfo)
-    TextView tvMedicineInfo;
+    @BindView(R.id.btnMedicineAdd)
+    Button btnMedicineAdd;
 
-    @BindView(R.id.tvMedicieDetail)
-    TextView tvMedicieDetail;
+//    @BindView(R.id.tvMedicieDetail)
+//    TextView tvMedicieDetail;
 
     @BindView(R.id.relativeSave_saleAdd)
     RelativeLayout relativeSave;
@@ -134,13 +134,17 @@ public class SaleAddActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);
-      /*  CustomerModel cModel = new CustomerModel();
-        cModel.setCustomerName(edtCustomerName_add.toString());
-        cModel.setCustomerAddress(edtCustomerAddress_add.toString());
-        cModel.setMedicineLists(medicineList);
-
-        saleModel.set
-        saleModel.setCustomerModel(cModel);*/
+//        CustomerModel cModel = new CustomerModel();
+//        cModel.setCustomerName(edtCustomerName_add.toString());
+//        cModel.setCustomerAddress(edtCustomerAddress_add.toString());
+//        cModel.setMedicineLists(medicineList);
+//
+//       saleModel.setSaleCustomerName(edtCustomerName_add.toString());
+//       saleModel.setSaleCustomerAddress(edtCustomerAddress_add.toString());
+//       saleModel.setSaleCustomerPhNo1(edtCustomerPhNo1.toString());
+//       saleModel.setSaleCustomerPhNo2(edtCustomerPhNo2.toString());
+//        saleModel.setSaleCustomerPhNo3(edtCustomerPhNo3.toString());
+//        saleModel.setCustomerModel(cModel);
 
         if(saleModel != null){
 
@@ -162,7 +166,7 @@ public class SaleAddActivity extends AppCompatActivity {
             }*/
         }
 
-        tvMedicineInfo.setOnClickListener(v -> {
+        btnMedicineAdd.setOnClickListener(v -> {
         String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
         String saleCustomerName = edtCustomerName_add.getText().toString();
 
@@ -194,10 +198,10 @@ public class SaleAddActivity extends AppCompatActivity {
 
        });
 
-        tvMedicieDetail.setOnClickListener(v -> {
-            Intent intent = new Intent(SaleAddActivity.this,SaleMedicineDetailInformationActivity.class);
-            startActivity(intent);
-        });
+//        tvMedicieDetail.setOnClickListener(v -> {
+//            Intent intent = new Intent(SaleAddActivity.this,SaleMedicineDetailInformationActivity.class);
+//            startActivity(intent);
+//        });
 
 //        relativeSave_medicineSaleAdd.setOnClickListener(v -> {
 //            String mName = tvMedicineName.getText().toString();

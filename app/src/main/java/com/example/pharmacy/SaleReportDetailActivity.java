@@ -46,7 +46,7 @@ public class SaleReportDetailActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("SaleReport Detail ");
+        toolbar.setTitle("SaleReportActivity Detail ");
         setSupportActionBar(toolbar);
 
 

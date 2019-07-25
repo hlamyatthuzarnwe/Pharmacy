@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/max_order"
+        android:title="Max Order"/>
+    <item
+        android:id="@+id/min_order"
+        android:title="Min Order" />
+    <item
+        android:id="@+id/reorder_level"
+        android:title="Reorder Level"/>
+    <item
+        android:id="@+id/product_balance"
+        android:title="Product Balance"/>
+
+</menu>

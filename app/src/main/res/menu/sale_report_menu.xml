@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/purchase_list"
+        android:title="Purchase List"/>
+    <item
+        android:id="@+id/sale_list"
+        android:title="Sale List"/>
+    <item
+        android:id="@+id/profit_by_month"
+        android:title="Monthly Profit"/>
+    <item
+        android:id="@+id/loss_by_month"
+        android:title="Monthly Loss"/>
+    <item
+        android:id="@+id/profit_by_year"
+        android:title="Yearly Profit"/>
+    <item
+        android:id="@+id/loss_by_year"
+        android:title="Yearly Loss"/>
+
+</menu>

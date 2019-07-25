@@ -4,8 +4,8 @@
     package="com.example.yy">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
         android:name="com.example.pharmacy.app.PharmacyApp"
@@ -16,10 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.example.pharmacy.SaleReportActivity"></activity>
+        <activity android:name="com.example.pharmacy.InventoryActivity" />
         <activity android:name="com.example.pharmacy.LoginActivity" />
-        <activity android:name="com.example.pharmacy.SaleMedicineDetailInformationActivity"></activity>
+        <activity android:name="com.example.pharmacy.SaleMedicineDetailInformationActivity" />
         <activity android:name="com.example.pharmacy.SaleMedicineInformationActivity" />
-        <activity android:name="com.example.pharmacy.SplashActivity" >
+        <activity android:name="com.example.pharmacy.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,9 +38,7 @@
         <activity android:name="com.example.pharmacy.CustomerAddActivity" />
         <activity android:name="com.example.pharmacy.MedicineDetailActivity" />
         <activity android:name="com.example.pharmacy.MedicineAddActivity" />
-        <activity android:name="com.example.pharmacy.MainActivity">
-
-        </activity>
+        <activity android:name="com.example.pharmacy.MainActivity" />
 
         <meta-data
             android:name="com.facebook.accountkit.ApplicationName"

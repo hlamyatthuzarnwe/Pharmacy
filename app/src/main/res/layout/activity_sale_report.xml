@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-    android:id="@+id/swipeMedicineInfo"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pharmacy.SaleMedicineInformationActivity">
+    tools:context="com.example.pharmacy.SaleReportActivity">
+
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,8 +18,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipeSearchMedicine"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -27,6 +27,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +42,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_edittext_main_search"
-                    android:hint="@string/search_medicine"
+                    android:hint="@string/search_date"
                     android:imeOptions="actionSearch"
                     android:singleLine="true"
                     android:textSize="20sp"/>
@@ -52,6 +53,8 @@
                     android:background="@drawable/button_main_search"
                     android:text="Search"
                     android:textColor="@android:color/white"/>
+
+
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -62,8 +65,15 @@
 
             </android.support.v7.widget.RecyclerView>
 
+
         </LinearLayout>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+
+    </ScrollView>
+
+
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>

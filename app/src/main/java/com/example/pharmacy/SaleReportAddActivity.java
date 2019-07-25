@@ -64,7 +64,7 @@ public class SaleReportAddActivity extends AppCompatActivity {
         saleModel = (SaleModel) getIntent().getParcelableExtra("Sale");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("SaleReport Data");
+        toolbar.setTitle("SaleReportActivity Data");
         setSupportActionBar(toolbar);
 
         if (saleModel != null && customerModel != null){
