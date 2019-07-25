@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.pharmacy.helper.MedicineModelList;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.yy.R;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +45,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private Context context;
+    private ArrayList<MedicineModel> medicineList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
+        medicineList = MedicineModelList.getInstance();
         medicineModel = (MedicineModel)getIntent().getParcelableExtra("MedicineModel");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -85,11 +91,10 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
             medicineModel.setMedicineCostPerPc(mCostPerPc);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
             medicineModel.setMedicineSubAmt(mSubAmt);
+            Log.d("SaleAdd", "onCreate: SubAmt : "+medicineModel.getMedicineSubAmt());
+            medicineList.add(medicineModel);
+            Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
 
-            realm.executeTransaction(realm1 -> {
-                realm1.copyToRealmOrUpdate(medicineModel);
-                Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
-            });
 
             Intent intent = new Intent(SaleMedicineDetailInformationActivity.this,SaleAddActivity.class);
             startActivity(intent);

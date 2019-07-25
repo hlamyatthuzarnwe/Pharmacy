@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -19,12 +21,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pharmacy.adapter.SaleAddMedicineAdapter;
 import com.example.pharmacy.helper.DateTimeHelper;
+import com.example.pharmacy.helper.MedicineModelList;
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -42,6 +47,7 @@ public class SaleAddActivity extends AppCompatActivity {
     private SaleModel saleModel;
     private CustomerModel customerModel;
     private MedicineModel medicineModel;
+    private SaleAddMedicineAdapter adapter;
     private Toolbar toolbar;
     private Context context;
     int saleId;
@@ -68,6 +74,9 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.edtCustomerPhNo3)
     EditText edtCustomerPhNo3;
 
+    @BindView(R.id.rvMedicine_SaleAddMedicine)
+    RecyclerView rvMedicine;
+
 //    @BindView(R.id.tvMedicineName)
 //    EditText tvMedicineName;
 //
@@ -92,6 +101,7 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.relativeSave_saleAdd)
     RelativeLayout relativeSave;
 
+    private ArrayList<MedicineModel> medicineList;
 
 //
 //    @BindView(R.id.relativeSave_medicineSaleAdd)
@@ -108,7 +118,14 @@ public class SaleAddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sale_add);
 
         ButterKnife.bind(this);
+        medicineList = MedicineModelList.getInstance();
         realm = Realm.getDefaultInstance();
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        adapter = new SaleAddMedicineAdapter();
+        rvMedicine.setLayoutManager(layoutManager);
+        rvMedicine.setAdapter(adapter);
+
         setUpSaleInvoiceDate();
 
         saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
@@ -126,6 +143,15 @@ public class SaleAddActivity extends AppCompatActivity {
             edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
             edtCustomerPhNo1.setText(customerModel.getCustomerPhNo1());
 
+        }
+        Log.d(TAG, "onCreate: sub : "+medicineList.size());
+        if (medicineList != null){
+            Log.d(TAG, "onCreate: medicineList : "+medicineList.size());
+            adapter.getSaleModelList().addAll(medicineList);
+            adapter.notifyDataSetChanged();
+            /*for (MedicineModel m : medicineList){
+                adapter.getSaleModelList().add(m);
+            }*/
         }
 
         tvMedicineInfo.setOnClickListener(v -> {

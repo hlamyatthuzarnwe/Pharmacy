@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.pharmacy.SaleAddActivity;
 import com.example.pharmacy.SaleDetailActivity;
+import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
@@ -24,13 +25,13 @@ import butterknife.ButterKnife;
 public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicineAdapter.SaleAddViewHolder> {
 
     private static final String TAG = "SaleAddMedicineAdapter";
-    private List<SaleModel> saleModelList = new ArrayList<>();
+    private List<MedicineModel> saleModelList = new ArrayList<>();
 
     public void clear(){
         saleModelList.clear();
     }
 
-    public List<SaleModel> getSaleModelList() {
+    public List<MedicineModel> getSaleModelList() {
         return saleModelList;
     }
 
@@ -51,7 +52,7 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
 
     @Override
     public int getItemCount() {
-        return 0;
+        return saleModelList.size();
     }
 
     public class SaleAddViewHolder extends RecyclerView.ViewHolder {
@@ -78,19 +79,20 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
             context = itemView.getContext();
             saleAddView = itemView;
         }
-        public void bind(SaleModel saleModel){
-            if (saleModel.getSaleMedicineName() != null){
-                tvSaleMedicineName.setText(saleModel.getSaleMedicineName());
+        public void bind(MedicineModel saleModel){
+            Log.d(TAG, "bind: name : "+saleModel.getMedicineName());
+            if (saleModel.getMedicineName() != null){
+                tvSaleMedicineName.setText(saleModel.getMedicineName());
             }
-            if (saleModel.getSaleCostPerPc() != null){
-                tvSalePricePerPc.setText(saleModel.getSaleCostPerPc());
+            if (saleModel.getMedicineCategory() != null){
+                tvSalePricePerPc.setText(saleModel.getMedicineCategory());
             }
-            if (saleModel.getSaleQtyPerPc() != null){
-                tvSaleQtyPerPc.setText(saleModel.getSaleQtyPerPc());
+            if (saleModel.getMedicineSubAmt() != null){
+                tvSaleQtyPerPc.setText(saleModel.getMedicineSubAmt());
             }
-            if (saleModel.getSaleSubTotalAmt() != null){
+          /*  if (saleModel.getSaleSubTotalAmt() != null){
                 tvSaleSubAmtPerPc.setText(saleModel.getSaleSubTotalAmt());
-            }
+            }*/
 
             saleAddView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleAddActivity.class);
