@@ -37,6 +37,7 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class SaleAddActivity extends AppCompatActivity {
 
@@ -101,7 +102,7 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.relativeSave_saleAdd)
     RelativeLayout relativeSave;
 
-    private ArrayList<MedicineModel> medicineList;
+    private RealmList<MedicineModel> medicineList;
 
 //
 //    @BindView(R.id.relativeSave_medicineSaleAdd)
@@ -133,6 +134,13 @@ public class SaleAddActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);
+      /*  CustomerModel cModel = new CustomerModel();
+        cModel.setCustomerName(edtCustomerName_add.toString());
+        cModel.setCustomerAddress(edtCustomerAddress_add.toString());
+        cModel.setMedicineLists(medicineList);
+
+        saleModel.set
+        saleModel.setCustomerModel(cModel);*/
 
         if(saleModel != null){
 

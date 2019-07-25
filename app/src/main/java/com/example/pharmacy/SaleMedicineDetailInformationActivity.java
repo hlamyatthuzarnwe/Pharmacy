@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private Context context;
-    private ArrayList<MedicineModel> medicineList;
+    private RealmList<MedicineModel> medicineList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

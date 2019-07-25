@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pharmacy.helper.SharepreferenceHelper;
 import com.example.yy.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,10 +41,13 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 123;
     String phone;
     FirebaseAuth auth = FirebaseAuth.getInstance();
+
     @BindView(R.id.btnLogin)
     Button btnConfirm;
+
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String mVerificationId;
+    private SharepreferenceHelper share;
 
 //    @BindView(R.id.imgLogo)
 //    ImageView imgLogo;
@@ -64,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
+        share = SharepreferenceHelper.getHelper(this);
         getProgeressDialog().dismiss();
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -71,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                 getProgeressDialog().dismiss();
                 Log.d(TAG, "onVerificationCompleted: " + phoneAuthCredential);
+
 //                Log.d(TAG, "onVerificationCompleted: current user : "+auth.getCurrentUser().getPhoneNumber());
 //                Log.d(TAG, "onVerificationCompleted: current uid : "+auth.getCurrentUser().getUid());
                 signInWithPhoneAuthCredential(phoneAuthCredential);
@@ -163,17 +169,19 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
+                            share.setLogIn(true);
 
                             FirebaseUser user = task.getResult().getUser();
-
 
                             Log.d(TAG, "onComplete: phone number : " + user.getPhoneNumber());
                             Log.d(TAG, "onComplete: display name : " + user.getDisplayName());
                             Log.d(TAG, "onComplete: user id : " + user.getUid());
-                            startActivity(new Intent(LoginActivity.this, MedicineAddActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
                             // ...
                         } else {
                             // Sign in failed, display a message and update the UI
+                            share.setLogIn(false);
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid

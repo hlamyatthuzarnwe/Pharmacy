@@ -4,18 +4,20 @@ import com.example.pharmacy.model.MedicineModel;
 
 import java.util.ArrayList;
 
+import io.realm.RealmList;
+
 public class MedicineModelList {
     //create an object of CaseRecordModel
-    private static ArrayList<MedicineModel> instance;
+    private static RealmList<MedicineModel> instance;
 
     //make the constructor private so that this class cannot be
     //instantiated
     private MedicineModelList(){}
 
     //Get the only object available
-    public static synchronized ArrayList<MedicineModel> getInstance(){
+    public static synchronized RealmList<MedicineModel> getInstance(){
         if (instance == null){
-            instance = new ArrayList<>();
+            instance = new RealmList<>();
         }
         return instance;
     }
