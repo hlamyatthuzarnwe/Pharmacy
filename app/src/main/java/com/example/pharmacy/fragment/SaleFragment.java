@@ -31,7 +31,7 @@ import io.realm.Realm;
  */
 public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "SaleFragment";
     private SaleAdapter saleAdapter;
 
 
@@ -76,6 +76,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void getAllSale() {
+        saleAdapter.clear();
         final List<SaleModel> saleModelList = realm.where(SaleModel.class).findAll();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).findAll();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();

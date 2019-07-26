@@ -84,6 +84,8 @@
                             android:layout_marginLeft="15dp"
                             android:hint="Sub Amount"
                             android:layout_weight="1"
+                            android:clickable="false"
+                            android:focusable="false"
                             android:inputType="number"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />

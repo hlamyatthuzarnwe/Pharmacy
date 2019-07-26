@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="120dp"
     android:orientation="vertical"
     android:background="@android:color/white"
     android:layout_marginTop="5dp"
@@ -15,8 +15,7 @@
         android:layout_height="wrap_content">
         <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:cardCornerRadius="15dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp">
@@ -31,11 +30,7 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            app:cardCornerRadius="15dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp">
+            android:layout_margin="2dp">
             <LinearLayout
                 android:background="@color/color_hex_pink"
                 android:padding="5dp"
@@ -58,26 +53,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvSaleMedicineName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvSaleMedicineCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvSalePricePerPc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvSalePricePerDz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvSaleTotalAmt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvSaleDueDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,9 +67,36 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         if (medicineModel != null){
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
-            edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
+          //  edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
             edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
         }
+        edtMedicinePcQty.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int price = 0;
+                if (edtMedicinePcCostPrice.getText() != null &&
+                        !edtMedicinePcCostPrice.getText().toString().equals("")){
+                    price = Integer.parseInt(edtMedicinePcCostPrice.getText().toString());
+                }
+                int qty = 0;
+                if (edtMedicinePcQty.getText() != null &&
+                   ! edtMedicinePcQty.getText().toString().equals("")){
+                    qty = Integer.parseInt(edtMedicinePcQty.getText().toString());
+                }
+                int total = price * qty;
+                edtMedicneSubAmt.setText(String.valueOf(total));
+            }
+        });
 
         relativeSave_medicineSaleAdd.setOnClickListener(v -> {
             String mName = edtMedicineName.getText().toString();

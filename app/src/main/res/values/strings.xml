@@ -14,6 +14,11 @@
     <string name="search_date">Search Date</string>
     <string name="qty">Qty : </string>
     <string name="price">Price : </string>
+    <string name="save">Save</string>
+    <string name="add">Add New Medicine</string>
+    <string name="medicine">Medicine</string>
+    <string name="total_amount">Total Amount :</string>
+    <string name="medicine_lists">Medicine Lists</string>
 
 
 </resources>

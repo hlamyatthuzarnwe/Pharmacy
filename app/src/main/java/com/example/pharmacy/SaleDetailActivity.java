@@ -26,10 +26,10 @@ public class SaleDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
-    @BindView(R.id.tvSaleInvoiceNo)
+    @BindView(R.id.tvSaleInvoiceNo_detail)
     TextView tvSaleInvoiceNo;
 
-    @BindView(R.id.tvSaleInvoiceDate)
+    @BindView(R.id.tvSaleInvoiceDate_detail)
     TextView tvSaleInvoiceDate;
 
     @BindView(R.id.tvSaleCustomerName_detail)
@@ -74,11 +74,11 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSalePricePerDz_detail)
     TextView tvSalePricePerDz_detail;
 
-    @BindView(R.id.tvMedicineQtyPerPc)
+   /* @BindView(R.id.tvMedicineQtyPerPc_detail)
     TextView tvMedicineQtyPerPc;
 
-    @BindView(R.id.tvMedicineQtyPerDz)
-    TextView tvMedicineQtyPerDz;
+    @BindView(R.id.tvMedicineQtyPerDz_detail)
+    TextView tvMedicineQtyPerDz;*/
 
     @BindView(R.id.tvSaleSubTotalAmt_detail)
     TextView tvSaleSubTotalAmt_detail;
@@ -102,8 +102,6 @@ public class SaleDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sale_detail);
-
-
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
         saleModel = (SaleModel) getIntent().getParcelableExtra("SaleModel");
@@ -129,8 +127,8 @@ public class SaleDetailActivity extends AppCompatActivity {
             tvSaleCategory_detail.setText(saleModel.getSaleCategory());
             tvSalePricePerPc_detail.setText(saleModel.getSaleCostPerPc());
             tvSalePricePerDz_detail.setText(saleModel.getSaleCostPerDz());
-            tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
-            tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
+         //   tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
+           // tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
             tvSaleSubTotalAmt_detail.setText(saleModel.getSaleSubTotalAmt());
             tvSaleTotalAmt_detail.setText(saleModel.getSaleTotalAmt());
             tvSaleUpFront_detail.setText(saleModel.getSaleUpFront());

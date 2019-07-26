@@ -45,8 +45,6 @@ public class SaleAddActivity extends AppCompatActivity {
     private static final char UNIX_SEPRATOR = '/';
 
     private Realm realm;
-    private SaleModel saleModel;
-    private CustomerModel customerModel;
     private MedicineModel medicineModel;
     private SaleAddMedicineAdapter adapter;
     private Toolbar toolbar;
@@ -78,6 +76,9 @@ public class SaleAddActivity extends AppCompatActivity {
     @BindView(R.id.rvMedicine_SaleAddMedicine)
     RecyclerView rvMedicine;
 
+    @BindView(R.id.tvTotalAmount_saleAdd)
+    TextView tvTotalAmount;
+
 //    @BindView(R.id.tvMedicineName)
 //    EditText tvMedicineName;
 //
@@ -91,10 +92,10 @@ public class SaleAddActivity extends AppCompatActivity {
 //    EditText tvMedicineSubAmt_saleMedicine;
 
     @BindView(R.id.linearLayout_medicine_saleAdd)
-    LinearLayout linearLayout_medicine_saleAdd;
+    RelativeLayout linearLayout_medicine_saleAdd;
 
-    @BindView(R.id.btnMedicineAdd)
-    Button btnMedicineAdd;
+    @BindView(R.id.linearAddMedicine_saleAdd)
+    LinearLayout btnMedicineAdd;
 
 //    @BindView(R.id.tvMedicieDetail)
 //    TextView tvMedicieDetail;
@@ -129,72 +130,32 @@ public class SaleAddActivity extends AppCompatActivity {
 
         setUpSaleInvoiceDate();
 
-        saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
+      //  saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);
-//        CustomerModel cModel = new CustomerModel();
-//        cModel.setCustomerName(edtCustomerName_add.toString());
-//        cModel.setCustomerAddress(edtCustomerAddress_add.toString());
-//        cModel.setMedicineLists(medicineList);
-//
-//       saleModel.setSaleCustomerName(edtCustomerName_add.toString());
-//       saleModel.setSaleCustomerAddress(edtCustomerAddress_add.toString());
-//       saleModel.setSaleCustomerPhNo1(edtCustomerPhNo1.toString());
-//       saleModel.setSaleCustomerPhNo2(edtCustomerPhNo2.toString());
-//        saleModel.setSaleCustomerPhNo3(edtCustomerPhNo3.toString());
-//        saleModel.setCustomerModel(cModel);
 
-        if(saleModel != null){
 
-            edtSaleInvoiceId_add.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
-            edtSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
-            edtCustomerName_add.setText(customerModel.getCustomerName());
-
-            edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
-            edtCustomerPhNo1.setText(customerModel.getCustomerPhNo1());
-
-        }
-        Log.d(TAG, "onCreate: sub : "+medicineList.size());
         if (medicineList != null){
             Log.d(TAG, "onCreate: medicineList : "+medicineList.size());
             adapter.getSaleModelList().addAll(medicineList);
             adapter.notifyDataSetChanged();
+            int amount = 0;
+            for (int i=0;i < medicineList.size();i++){
+                if (medicineList.get(i) != null){
+                    amount += Integer.parseInt(medicineList.get(i).getMedicineSubAmt());
+                }
+
+            }
+            tvTotalAmount.setText(String.valueOf(amount));
             /*for (MedicineModel m : medicineList){
                 adapter.getSaleModelList().add(m);
             }*/
         }
 
         btnMedicineAdd.setOnClickListener(v -> {
-        String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
-        String saleCustomerName = edtCustomerName_add.getText().toString();
-
-        String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
-        String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
-        String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
-        String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
-
-        SaleModel saleModel = new SaleModel();
-        MedicineModel medicineModel = new MedicineModel();
-        CustomerModel customerModel = new CustomerModel();
-
-        saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
-        saleModel.setSaleInvoiceDate(saleInvoiceDate);
-
-        customerModel.setCustomerAddress(saleCustomerAddress);
-        customerModel.setCustomerPhNo1(saleCustomerPhNo1);
-        customerModel.setCustomerPhNo2(saleCustomerPhNo2);
-        customerModel.setCustomerPhNo3(saleCustomerPhNo3);
-
-       /* realm.executeTransaction(realm -> {
-            realm.copyToRealmOrUpdate(saleModel);
-            realm.copyToRealmOrUpdate(medicineModel);
-            realm.copyToRealmOrUpdate(customerModel);
-            Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
-        });*/
-          Intent intent = new Intent(SaleAddActivity.this,SaleMedicineInformationActivity.class);
-          startActivity(intent);
+            insertDate();
 
        });
 
@@ -216,6 +177,55 @@ public class SaleAddActivity extends AppCompatActivity {
 //            saleModel.setSaleQtyPerPc(mQty);
 //            saleModel.setSaleSubTotalAmt(mSubAmt);
 //        });
+
+    }
+
+    private void insertDate() {
+        SaleModel saleModel = new SaleModel();
+        CustomerModel cModel = new CustomerModel();
+
+        String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
+        String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
+        String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
+        String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
+        String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
+
+        cModel.setCustomerName(edtCustomerName_add.getText().toString());
+        cModel.setCustomerAddress(edtCustomerAddress_add.getText().toString());
+        cModel.setCustomerAddress(saleCustomerAddress);
+        cModel.setCustomerPhNo1(saleCustomerPhNo1);
+        cModel.setCustomerPhNo2(saleCustomerPhNo2);
+        cModel.setCustomerPhNo3(saleCustomerPhNo3);
+        cModel.setMedicineLists(medicineList);
+
+        saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
+        saleModel.setSaleInvoiceDate(saleInvoiceDate);
+        saleModel.setSaleCustomerName(edtCustomerName_add.getText().toString());
+        saleModel.setSaleCustomerAddress(edtCustomerAddress_add.getText().toString());
+        saleModel.setSaleCustomerPhNo1(edtCustomerPhNo1.getText().toString());
+        saleModel.setSaleCustomerPhNo2(edtCustomerPhNo2.getText().toString());
+        saleModel.setSaleCustomerPhNo3(edtCustomerPhNo3.getText().toString());
+        saleModel.setCustomerModel(cModel);
+
+          realm.executeTransaction(realm -> {
+            realm.copyToRealmOrUpdate(saleModel);
+            realm.copyToRealmOrUpdate(cModel);
+
+            Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+        });
+        Intent intent = new Intent(SaleAddActivity.this,SaleMedicineInformationActivity.class);
+        startActivity(intent);
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -261,25 +271,5 @@ public class SaleAddActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (TextUtils.isEmpty(edtSaleInvoiceId_add.getText())) {
-            saleId = Integer.parseInt(edtSaleInvoiceId_add.getText().toString());
-        }
-            realm.executeTransaction(realm -> {
-                realm.copyToRealmOrUpdate(saleModel);
-                realm.copyToRealmOrUpdate(medicineModel);
-                realm.copyToRealmOrUpdate(customerModel);
-                Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
-            });
-
-        return super.onOptionsItemSelected(item);
-    }
 }

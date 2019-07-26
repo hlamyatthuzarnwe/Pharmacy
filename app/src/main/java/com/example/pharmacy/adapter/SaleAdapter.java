@@ -51,7 +51,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return saleModelList.size();
     }
 
     public class SaleViewHolder extends RecyclerView.ViewHolder {

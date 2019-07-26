@@ -113,12 +113,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fabAdd.setOnClickListener(v -> {
             switch (LOCATE_ACTIVITY){
 
-                case 0:
-                   Intent intent0 = new Intent(MainActivity.this,LoginActivity.class);
-                    startActivity(intent0);
-
-                    break;
-
                 case 1:
                     Intent intent1 = new Intent(MainActivity.this,MedicineAddActivity.class);
                 startActivity(intent1);
@@ -162,10 +156,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void selectDrawerItem(MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.drawer_view_login:
-                fragmentClass = LoginFragment.class;
-                LOCATE_ACTIVITY = 0;
-                break;
             case R.id.drawer_view_product :
                 fragmentClass = MedicineFragment.class;
                 LOCATE_ACTIVITY = 1;
