@@ -12,8 +12,11 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
@@ -22,15 +25,17 @@ import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 
-public class MedicineAddActivity extends AppCompatActivity {
+public class MedicineAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = "MedicineAddActivity";
     private static final char UNIX_SEPRATOR = '/';
@@ -120,6 +125,9 @@ public class MedicineAddActivity extends AppCompatActivity {
 
     @BindView(R.id.relativeSave_medicineAdd)
     RelativeLayout relativeSave;
+
+    @BindView(R.id.spinnerAdd)
+    Spinner spinnerAdd;
 
    private SupplierModel supplierModel;
    private String idEdit;
@@ -263,6 +271,18 @@ public class MedicineAddActivity extends AppCompatActivity {
             });
         });
 
+        spinnerAdd.setOnItemSelectedListener(this);
+        List<String> list = new ArrayList<String>();
+        list.add("Card");
+        list.add("Dozens");
+        list.add("Bottle");
+        list.add("Capsule");
+        list.add("Package");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdd.setAdapter(adapter);
+
     }
 
     private void setUpExpireDateTime() {
@@ -354,5 +374,15 @@ public class MedicineAddActivity extends AppCompatActivity {
             medicineModel.setMedcineId(UUID.randomUUID().toString());
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

@@ -12,6 +12,8 @@
     <string name="ACCOUNT_KIT_CLIENT_TOKEN">c58d528805a61853b71baf9680169f77</string>
     <string name="search_medicine">Search Medicine</string>
     <string name="search_date">Search Date</string>
+    <string name="qty">Qty : </string>
+    <string name="price">Price : </string>
 
 
 </resources>

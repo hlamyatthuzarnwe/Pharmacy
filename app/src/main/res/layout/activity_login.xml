@@ -38,7 +38,7 @@
                     android:layout_marginTop="15dp"
                     android:padding="15dp"
                     android:textSize="30dp"
-                    android:textColor="@color/color_hex_orange"
+                    android:textColor="@color/color_azure"
                     android:text="Pharmacy"
                     android:textAlignment="center" />
             </LinearLayout>

@@ -63,8 +63,6 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
         @BindView(R.id.tvSaleMedicineName)
         TextView tvSaleMedicineName;
 
-        @BindView(R.id.tvSalePricePerPc)
-        TextView tvSalePricePerPc;
 
         @BindView(R.id.tvSaleQtyPerPc)
         TextView tvSaleQtyPerPc;
@@ -79,24 +77,22 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
             context = itemView.getContext();
             saleAddView = itemView;
         }
-        public void bind(MedicineModel saleModel){
-            Log.d(TAG, "bind: name : "+saleModel.getMedicineName());
-            if (saleModel.getMedicineName() != null){
-                tvSaleMedicineName.setText(saleModel.getMedicineName());
+        public void bind(MedicineModel medicineModel){
+            Log.d(TAG, "bind: name : "+medicineModel.getMedicineName());
+            if (medicineModel.getMedicineName() != null){
+                tvSaleMedicineName.setText(medicineModel.getMedicineName());
             }
-            if (saleModel.getMedicineCategory() != null){
-                tvSalePricePerPc.setText(saleModel.getMedicineCategory());
+            if (medicineModel.getMedicineQtyPerPc() != null){
+                tvSaleQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             }
-            if (saleModel.getMedicineSubAmt() != null){
-                tvSaleQtyPerPc.setText(saleModel.getMedicineSubAmt());
+            if (medicineModel.getMedicineSubAmt() != null){
+                tvSaleSubAmtPerPc.setText(medicineModel.getMedicineSubAmt());
             }
-          /*  if (saleModel.getSaleSubTotalAmt() != null){
-                tvSaleSubAmtPerPc.setText(saleModel.getSaleSubTotalAmt());
-            }*/
+
 
             saleAddView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleAddActivity.class);
-                intent.putExtra("SaleModel",saleModel);
+                intent.putExtra("SaleModel",medicineModel);
                 context.startActivity(intent);
             });
         }
