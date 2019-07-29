@@ -69,24 +69,6 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.edtCustomerPhNo3)
     EditText edtCustomerPhNo3;
 
-    @BindView(R.id.edtCustomerPhNo4)
-    EditText edtCustomerPhNo4;
-
-    @BindView(R.id.edtCustomerPhNo5)
-    EditText edtCustomerPhNo5;
-
-    @BindView(R.id.edtSaleTotalAmt_add)
-    EditText edtSaleTotalAmt_add;
-
-    @BindView(R.id.edtSaleUpFront)
-    EditText edtSaleUpFront;
-
-    @BindView(R.id.edtSaleBalance)
-    EditText edtSaleBalance;
-
-    @BindView(R.id.edtSaleDueDate)
-    EditText edtSaleDueDate;
-
     @BindView(R.id.edtCustomerNote)
     EditText edtCustomerNote;
 
@@ -104,7 +86,6 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
         setUpInvoiceDate();
-        setUpDueDate();
 
         customerModel = (CustomerModel) getIntent().getParcelableExtra("Customer");
 
@@ -126,12 +107,7 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
             edtCustomerPhNo1.setText(customerModel.getCustomerPhNo1());
             edtCustomerPhNo2.setText(customerModel.getCustomerPhNo2());
             edtCustomerPhNo3.setText(customerModel.getCustomerPhNo3());
-            edtCustomerPhNo4.setText(customerModel.getCustomerPhNo4());
-            edtCustomerPhNo5.setText(customerModel.getCustomerPhNo5());
-            edtSaleTotalAmt_add.setText(customerModel.getCustomerTotalAmt());
-            edtSaleUpFront.setText(customerModel.getCustomerUpFront());
-            edtSaleBalance.setText(customerModel.getCustomerBalance());
-            edtSaleDueDate.setText(customerModel.getCustomerDueDate());
+
             edtCustomerNote.setText(customerModel.getCustomerNote());
         }
         relativeSave.setOnClickListener(v -> {{
@@ -142,12 +118,7 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
             String cPhNo1 = edtCustomerPhNo1.getText().toString();
             String cPhNo2 = edtCustomerPhNo2.getText().toString();
             String cPhNo3 = edtCustomerPhNo3.getText().toString();
-            String cPhNo4 = edtCustomerPhNo4.getText().toString();
-            String cPhNo5 = edtCustomerPhNo5.getText().toString();
-            String cTotalAmt = edtSaleTotalAmt_add.getText().toString();
-            String cUpFront = edtSaleUpFront.getText().toString();
-            String cBalance = edtSaleBalance.getText().toString();
-            String cDueDate = edtSaleDueDate.getText().toString();
+
             String cNote = edtCustomerNote.getText().toString();
 
             CustomerModel customerModel = new CustomerModel();
@@ -165,12 +136,6 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
             customerModel.setCustomerPhNo1(cPhNo1);
             customerModel.setCustomerPhNo2(cPhNo2);
             customerModel.setCustomerPhNo3(cPhNo3);
-            customerModel.setCustomerPhNo4(cPhNo4);
-            customerModel.setCustomerPhNo5(cPhNo5);
-            customerModel.setCustomerTotalAmt(cTotalAmt);
-            customerModel.setCustomerUpFront(cUpFront);
-            customerModel.setCustomerBalance(cBalance);
-            customerModel.setCustomerDueDate(cDueDate);
             customerModel.setCustomerNote(cNote);
 
             realm.executeTransaction(realm -> {
@@ -195,39 +160,6 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
 
     }
 
-    private void setUpDueDate() {
-        // Registration Date
-        edtSaleDueDate.setInputType(InputType.TYPE_NULL);
-        edtSaleDueDate.setFocusableInTouchMode(false);
-        edtSaleDueDate.setOnClickListener(v -> {
-            String localDate = edtSaleDueDate.getText().toString();
-            String enteredRegDate = DateTimeHelper.convertDateFormat(localDate,
-                    DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT,
-                    DateTimeHelper.LOCAL_DATE_FORMAT);
-            Date initDate = new Date();
-            if (!TextUtils.isEmpty(enteredRegDate)) {
-                Date parsedDated = DateTimeHelper.getDateFromString(enteredRegDate, DateTimeHelper.LOCAL_DATE_FORMAT);
-                if (parsedDated != null) {
-                    initDate = parsedDated;
-                }
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(initDate);
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this, DatePickerDialog.THEME_HOLO_LIGHT,
-                    (view, year, monthOfYear, dayOfMonth) -> {
-
-                        String strDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
-
-                        edtSaleDueDate.setText(DateTimeHelper.convertDateFormat(strDate,
-                                DateTimeHelper.LOCAL_DATE_FORMAT,
-                                DateTimeHelper.LOCAL_DATE_DISPLAY_FORMAT));
-
-
-                    }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-            // datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-            datePickerDialog.show();
-        });
-    }
 
     private void setUpInvoiceDate() {
         // Registration Date

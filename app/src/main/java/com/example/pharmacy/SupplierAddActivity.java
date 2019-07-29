@@ -49,12 +49,6 @@ public class SupplierAddActivity extends AppCompatActivity {
     @BindView(R.id.edtSupplierPhNo3)
     EditText edtSupplierPhNo3;
 
-    @BindView(R.id.edtSupplierPhNo4)
-    EditText edtSupplierPhNo4;
-
-    @BindView(R.id.edtSupplierPhNo5)
-    EditText edtSupplierPhNo5;
-
     @BindView(R.id.edtSupplierNote_add)
     EditText edtSupplierNote_add;
 
@@ -83,8 +77,6 @@ public class SupplierAddActivity extends AppCompatActivity {
             edtSupplierPhNo1.setText(supplierModel.getSuplier_phno1());
             edtSupplierPhNo2.setText(supplierModel.getSupplier_phno2());
             edtSupplierPhNo3.setText(supplierModel.getSupplier_phno3());
-            edtSupplierPhNo4.setText(supplierModel.getSupplier_phno4());
-            edtSupplierPhNo5.setText(supplierModel.getSupplier_phno5());
             edtSupplierNote_add.setText(supplierModel.getSupplierNote());
         }
         relativeSave.setOnClickListener(v -> {
@@ -94,8 +86,6 @@ public class SupplierAddActivity extends AppCompatActivity {
             String sPhNo1 = edtSupplierPhNo1.getText().toString();
             String sPhNo2 = edtSupplierPhNo2.getText().toString();
             String sPhNo3 = edtSupplierPhNo3.getText().toString();
-            String sPhNo4 = edtSupplierPhNo4.getText().toString();
-            String sPhNo5 = edtSupplierPhNo5.getText().toString();
             String sNote = edtSupplierNote_add.getText().toString();
 
             SupplierModel supplierModel = new SupplierModel();
@@ -107,8 +97,6 @@ public class SupplierAddActivity extends AppCompatActivity {
             supplierModel.setSuplier_phno1(sPhNo1);
             supplierModel.setSupplier_phno2(sPhNo2);
             supplierModel.setSupplier_phno3(sPhNo3);
-            supplierModel.setSupplier_phno4(sPhNo4);
-            supplierModel.setSupplier_phno5(sPhNo5);
             supplierModel.setSupplierNote(sNote);
 
             realm.executeTransaction(realm -> {

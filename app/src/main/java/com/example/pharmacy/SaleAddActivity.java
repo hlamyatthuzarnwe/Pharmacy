@@ -13,25 +13,32 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pharmacy.adapter.SaleAddMedicineAdapter;
 import com.example.pharmacy.helper.DateTimeHelper;
 import com.example.pharmacy.helper.MedicineModelList;
+import com.example.pharmacy.helper.SaleAddList;
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
+import com.example.pharmacy.model.SaleListModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import butterknife.BindView;
@@ -39,7 +46,7 @@ import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmList;
 
-public class SaleAddActivity extends AppCompatActivity {
+public class SaleAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final String TAG = "SaleAddActivity";
     private static final char UNIX_SEPRATOR = '/';
@@ -49,14 +56,10 @@ public class SaleAddActivity extends AppCompatActivity {
     private SaleAddMedicineAdapter adapter;
     private Toolbar toolbar;
     private Context context;
-    int saleId;
-
-    @BindView(R.id.edtSaleInvoiceId_add)
-    EditText edtSaleInvoiceId_add;
+    String selectedCustomerLevel;
 
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
-
 
     @BindView(R.id.edtCustomerName_add)
     EditText edtCustomerName_add;
@@ -78,6 +81,9 @@ public class SaleAddActivity extends AppCompatActivity {
 
     @BindView(R.id.tvTotalAmount_saleAdd)
     TextView tvTotalAmount;
+
+    @BindView(R.id.spinnerAdd)
+    Spinner spinnerAdd;
 
 //    @BindView(R.id.tvMedicineName)
 //    EditText tvMedicineName;
@@ -104,6 +110,7 @@ public class SaleAddActivity extends AppCompatActivity {
     RelativeLayout relativeSave;
 
     private RealmList<MedicineModel> medicineList;
+    private SaleListModel saleList;
 
 //
 //    @BindView(R.id.relativeSave_medicineSaleAdd)
@@ -121,6 +128,7 @@ public class SaleAddActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         medicineList = MedicineModelList.getInstance();
+        saleList = SaleAddList.getSaleItems();
         realm = Realm.getDefaultInstance();
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -154,10 +162,29 @@ public class SaleAddActivity extends AppCompatActivity {
             }*/
         }
 
+        if (saleList != null){
+            edtSaleInvoiceDate.setText(saleList.getInvoiceDate());
+            edtCustomerName_add.setText(saleList.getCustomerName());
+            edtCustomerAddress_add.setText(saleList.getCustomerAddress());
+
+        }
+
         btnMedicineAdd.setOnClickListener(v -> {
+            insertSaleItems();
             insertDate();
 
        });
+
+        spinnerAdd.setOnItemSelectedListener(this);
+        List<String> list = new ArrayList<String>();
+        list.add("Level 1");
+        list.add("Level 2");
+        list.add("Level 3");
+        list.add("Level 4");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdd.setAdapter(adapter);
 
 //        tvMedicieDetail.setOnClickListener(v -> {
 //            Intent intent = new Intent(SaleAddActivity.this,SaleMedicineDetailInformationActivity.class);
@@ -177,6 +204,22 @@ public class SaleAddActivity extends AppCompatActivity {
 //            saleModel.setSaleQtyPerPc(mQty);
 //            saleModel.setSaleSubTotalAmt(mSubAmt);
 //        });
+
+    }
+
+    private void insertSaleItems() {
+        String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
+        String customeName = edtCustomerName_add.getText().toString();
+        String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
+        String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
+        String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
+        String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
+
+        saleList.setInvoiceDate(saleInvoiceDate);
+        saleList.setCustomerName(customeName);
+        saleList.setCustomerAddress(saleCustomerAddress);
+        saleList.setCustomerLevel(selectedCustomerLevel);
+
 
     }
 
@@ -215,17 +258,6 @@ public class SaleAddActivity extends AppCompatActivity {
         });
         Intent intent = new Intent(SaleAddActivity.this,SaleMedicineInformationActivity.class);
         startActivity(intent);
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -272,4 +304,15 @@ public class SaleAddActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+
+        selectedCustomerLevel = adapterView.getItemAtPosition(position).toString();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

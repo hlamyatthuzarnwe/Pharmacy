@@ -40,14 +40,14 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:text="Invoice Date"/>
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_weight="1"
                             android:id="@+id/tvCustomerInvoiceDate_detail"/>
 
@@ -66,21 +66,22 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_margin="5dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Customer Name"/>
                         <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/tvCustomerName_detail"
                             android:layout_weight="1"/>
 
                         <TextView
-                            android:layout_margin="5dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -90,18 +91,19 @@
                             android:id="@+id/spinnerItemCustomerLevel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
                             android:padding="2dp"
                             android:textSize="12sp" />
 
                         <TextView
-                            android:layout_margin="5dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Customer Address"/>
                         <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -120,158 +122,49 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Customer Phone Number 1"/>
                         <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvCustomerPhNo1_detail"/>
 
                         <TextView
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Customer Phone Number 2"/>
                         <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvCustomerPhNo2_detail"/>
 
                         <TextView
-                            android:layout_margin="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Customer Phone Number 3"/>
                         <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvCustomerPhNo3_detail"/>
 
-
-                        <TextView
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Customer Phone Number 4"/>
-                        <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvCustomerPhNo4_detail"/>
-
-                        <TextView
-                            android:layout_margin="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Customer Phone Number 5"/>
-                        <TextView
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvCustomerPhNo5_detail"/>
-
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:cardCornerRadius="15dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_weight="1"
-                            android:text="Total Amount"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:id="@+id/tvCustomerTotalAmt_detail"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_weight="1"
-                            android:text="Up Front"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:id="@+id/tvCustomerUpFront_detail"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_weight="1"
-                            android:text="Balance"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:id="@+id/tvCustomerBalance_detail"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-              <android.support.v7.widget.CardView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="15dp"
-                  app:cardCornerRadius="15dp">
-                  <LinearLayout
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical">
-                      <TextView
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_margin="5dp"
-                          android:layout_weight="1"
-                          android:text="Due Date"/>
-                      <TextView
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:layout_margin="5dp"
-                          android:layout_marginTop="5dp"
-                          android:layout_weight="1"
-                          android:id="@+id/tvCustomerDuteDate_detail"/>
-                  </LinearLayout>
-              </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -289,9 +182,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Customer Note" />
                         <TextView
-                            android:layout_marginTop="15dp"
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/tvCustomerNote_detail"
                             android:layout_width="match_parent"
                             android:layout_height="300dp"

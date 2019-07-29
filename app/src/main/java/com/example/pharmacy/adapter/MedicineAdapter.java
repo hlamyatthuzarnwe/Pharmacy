@@ -69,20 +69,11 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         @BindView(R.id.tvMedicineSupplierName)
         TextView tvMedicineSupplierName;
 
-         @BindView(R.id.tvMedicinePayment)
-         TextView tvMedicinePayment;
-
-         @BindView(R.id.tvMedicineReceivedDate)
-         TextView tvMedicineReceivedDate;
-
          @BindView(R.id.tvMedicineExpDate)
          TextView tvMedicineExpDate;
 
          @BindView(R.id.tvMedicineQtyPerPc)
          TextView tvMedicineQtyPerPc;
-
-         @BindView(R.id.tvMedicineQtyPerDz)
-         TextView tvMedicineQtyPerDz;
 
         public MedicineViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -104,20 +95,11 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 //            if(supplierModel.getSupplierName() != null){
 //                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
 //            }
-            if (medicineModel.getMedicinePayment() != null){
-                tvMedicinePayment.setText(medicineModel.getMedicinePayment());
-            }
-            if (medicineModel.getMedicineReceivedDate() != null){
-                tvMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
-            }
             if (medicineModel.getMedicineExpDate() != null){
                 tvMedicineExpDate.setText(medicineModel.getMedicineExpDate());
             }
             if(medicineModel.getMedicineQtyPerPc() != null){
                 tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
-            }
-            if (medicineModel.getMedicineQtyPerDz() != null){
-                tvMedicineQtyPerDz.setText(medicineModel.getMedicineQtyPerDz());
             }
 
             mView.setOnClickListener(v -> {

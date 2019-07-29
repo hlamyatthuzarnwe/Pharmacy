@@ -42,24 +42,26 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Medicine Name" />
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/tvMedicineName_detail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 
                         <TextView
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Medicine Code" />
 
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/tvMedicineCode_detail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -69,10 +71,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Category"/>
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -94,17 +97,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Cost Price"/>
                             <TextView
-                                android:layout_marginTop="5dp"
-                                android:layout_marginLeft="5dp"
+                                android:layout_marginLeft="15dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:id="@+id/tvMedicineCostPerPc"/>
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -126,21 +129,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Quantity"/>
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineQtyPerPc"/>
-                        <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineQtyPerDz"/>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -157,9 +154,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Company Name"/>
                         <TextView
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -169,13 +168,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Supplier Name"/>
-                        <TextView
+                            android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
+                            android:text="Company Address"/>
+                        <TextView
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/tvMedicineSupplierName"/>
+                            android:id="@+id/tvMedicineCompanyAddress"/>
+
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -194,21 +196,40 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Supplier Name"/>
+                        <TextView
+                            android:layout_marginLeft="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/tvMedicineSupplierName"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Contact Phone Number 1"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/tvMedicinePh1"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Contact Phone Number 2"/>
                         <TextView
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -218,9 +239,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Contact Phone Number 3"/>
                         <TextView
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -230,21 +253,26 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Viber Phone Number"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
                             android:id="@+id/tvMedicineViberPh"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Payment"/>
                         <TextView
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -266,17 +294,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Selling Price 1"/>
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineSalePerPc1"/>
                         <TextView
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -298,17 +326,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
                         android:text="Selling Price 2"/>
                     <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/tvMedicineSalePerPc2"/>
                     <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -329,17 +357,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Selling Price 3"/>
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineSalePerPc3"/>
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -360,17 +388,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Selling Price 4"/>
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineSalePerPc4"/>
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -391,30 +419,45 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Received Date "/>
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:id="@+id/tvMedicineReceivedDate"/>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Expire Date"/>
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineExpDate"/>
-
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="15dp"
+                android:layout_marginTop="15dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Expire Date"/>
+                <TextView
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/tvMedicineExpDate"/>
+
+            </LinearLayout>
+            </android.support.v7.widget.CardView>
 
 
 
@@ -431,10 +474,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:text="Note"/>
                         <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

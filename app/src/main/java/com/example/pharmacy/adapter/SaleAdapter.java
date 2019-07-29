@@ -59,35 +59,14 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         public View saleView;
         private Context context;
 
-        @BindView(R.id.tvSaleInvoiceNo)
-        TextView tvSaleInvoiceNo;
-
         @BindView(R.id.tvSaleInvoiceDate)
         TextView tvSaleInvoiceDate;
 
         @BindView(R.id.tvSaleCustomerName)
         TextView tvSaleCustomerName;
 
-       @BindView(R.id.tvSaleCustomerAddress)
-        TextView tvSaleCustomerAddress;
-
-        @BindView(R.id.tvSaleMedicineName)
-        TextView tvSaleMedicineName;
-
-        @BindView(R.id.tvSaleMedicineCategory)
-        TextView tvSaleMedicineCategory;
-
-        @BindView(R.id.tvSalePricePerPc)
-        TextView tvSalePricePerPc;
-
-        @BindView(R.id.tvSalePricePerDz)
-        TextView tvSalePricePerDz;
-
         @BindView(R.id.tvSaleTotalAmt)
         TextView tvSaleTotalAmt;
-
-        @BindView(R.id.tvSaleDueDate)
-        TextView tvSaleDueDate;
 
         public SaleViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,31 +76,19 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         }
 
         public void bind(SaleModel saleModel) {
-             if(saleModel.getSaleInvoiceNo() != null){
-                tvSaleInvoiceNo.setText(saleModel.getSaleInvoiceNo());
-           }
+
             if(saleModel.getSaleInvoiceDate() != null){
                 tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             }
             if(saleModel.getSaleCustomerName() != null){
                 tvSaleCustomerName.setText(saleModel.getSaleCustomerName());
             }
-            if(saleModel.getSaleCustomerAddress() != null){
-                tvSaleCustomerAddress.setText(saleModel.getSaleCustomerAddress());
-            }
-            if (saleModel.getSaleMedicineName() !=  null){
-                tvSaleMedicineName.setText(saleModel.getSaleMedicineName());
-            }
-            if(saleModel.getSaleCategory() != null){
-                tvSaleMedicineCategory.setText(saleModel.getSaleCategory());
-            }
+
            if (saleModel.getSaleTotalAmt() != null){
-                tvSalePricePerPc.setText(saleModel.getSaleCostPerPc());
-                tvSalePricePerDz.setText(saleModel.getSaleCostPerDz());
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());
-            }if (saleModel.getSaleDuedate() != null){
-                tvSaleDueDate.setText(saleModel.getSaleDuedate());
             }
+
+
             saleView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleDetailActivity.class);
                 intent.putExtra("SaleModel",saleModel);
