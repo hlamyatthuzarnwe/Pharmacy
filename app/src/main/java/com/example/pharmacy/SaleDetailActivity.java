@@ -26,14 +26,14 @@ public class SaleDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
+    @BindView(R.id.spinnerAdd)
+    TextView customerLevel;
+
     @BindView(R.id.tvSaleInvoiceDate_detail)
     TextView tvSaleInvoiceDate;
 
     @BindView(R.id.tvSaleCustomerName_detail)
     TextView tvSaleCustomerName_detail;
-
-    @BindView(R.id.tvSaleCustomerLevel1_detail)
-    TextView tvSaleCustomerLevel1_detail;
 
     @BindView(R.id.tvSaleCustomerAddress_detail)
     TextView tvSaleCustomerAddress_detail;
@@ -84,7 +84,7 @@ public class SaleDetailActivity extends AppCompatActivity {
            // tvSaleInvoiceNo.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             tvSaleCustomerName_detail.setText(saleModel.getSaleCustomerName());
-            tvSaleCustomerLevel1_detail.setText(saleModel.getSaleCustomerLevel1());
+            customerLevel.setText(saleModel.getSaleCustomerLevel());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
             tvSaleCustomerPhNo1_detail.setText(saleModel.getSaleCustomerPhNo1());
             tvSaleCustomerPhNo2_detail.setText(saleModel.getSaleCustomerPhNo2());

@@ -13,10 +13,7 @@ public class SaleModel extends RealmObject implements Parcelable {
 
     private String saleInvoiceDate;
     private String saleCustomerName;
-    private String saleCustomerLevel1;
-    private String saleCustomerLevel2;
-    private String saleCustomerLevel3;
-    private String saleCustomerLevel4;
+    private String saleCustomerLevel;
     private String saleCustomerAddress;
     private String saleCustomerPhNo1;
     private String saleCustomerPhNo2;
@@ -56,14 +53,13 @@ public class SaleModel extends RealmObject implements Parcelable {
     };
     private CustomerModel customerModel;
 
-    public SaleModel(String saleInvoiceNo,  String saleInvoiceDate, String saleCustomerName, String saleCustomerLevel1, String saleCustomerLevel2, String saleCustomerLevel3, String saleCustomerLevel4, String saleCustomerAddress, String saleCustomerPhNo1, String saleCustomerPhNo2, String saleCustomerPhNo3, String saleMedicineName, String saleMedicineCode, String saleCategory, String saleCostPerPc, String saleCostPerDz, String saleQtyPerPc, String saleQtyPerDz, String sellingPricePerPc1, String sellingPricePerDz1, String sellingPricePerPc2, String sellingPricePerDz2, String sellingPricePerPc3, String sellingPricePerDz3, String sellingPricePerPc4, String sellingPricePerDz4, String saleSubTotalAmt, String saleTotalAmt, String saleBalance, String saleDuedate, String saleUpFront, String saleNote, String salePayment) {
+    public SaleModel(){}
+
+    public SaleModel(String saleInvoiceNo, String saleInvoiceDate, String saleCustomerName, String saleCustomerLevel, String saleCustomerAddress, String saleCustomerPhNo1, String saleCustomerPhNo2, String saleCustomerPhNo3, String saleMedicineName, String saleMedicineCode, String saleCategory, String saleCostPerPc, String saleCostPerDz, String saleQtyPerPc, String saleQtyPerDz, String sellingPricePerPc1, String sellingPricePerDz1, String sellingPricePerPc2, String sellingPricePerDz2, String sellingPricePerPc3, String sellingPricePerDz3, String sellingPricePerPc4, String sellingPricePerDz4, String saleSubTotalAmt, String saleTotalAmt, String saleBalance, String saleDuedate, String saleUpFront, String saleNote, String salePayment, CustomerModel customerModel) {
         this.saleInvoiceNo = saleInvoiceNo;
         this.saleInvoiceDate = saleInvoiceDate;
         this.saleCustomerName = saleCustomerName;
-        this.saleCustomerLevel1 = saleCustomerLevel1;
-        this.saleCustomerLevel2 = saleCustomerLevel2;
-        this.saleCustomerLevel3 = saleCustomerLevel3;
-        this.saleCustomerLevel4 = saleCustomerLevel4;
+        this.saleCustomerLevel = saleCustomerLevel;
         this.saleCustomerAddress = saleCustomerAddress;
         this.saleCustomerPhNo1 = saleCustomerPhNo1;
         this.saleCustomerPhNo2 = saleCustomerPhNo2;
@@ -90,20 +86,14 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleUpFront = saleUpFront;
         this.saleNote = saleNote;
         this.salePayment = salePayment;
+        this.customerModel = customerModel;
     }
-
-
-
-    public SaleModel(){}
 
     protected SaleModel(Parcel in) {
         saleInvoiceNo = in.readString();
         saleInvoiceDate = in.readString();
         saleCustomerName = in.readString();
-        saleCustomerLevel1 = in.readString();
-        saleCustomerLevel2 = in.readString();
-        saleCustomerLevel3 = in.readString();
-        saleCustomerLevel4 = in.readString();
+        saleCustomerLevel = in.readString();
         saleCustomerAddress = in.readString();
         saleCustomerPhNo1 = in.readString();
         saleCustomerPhNo2 = in.readString();
@@ -166,36 +156,12 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleCustomerName = saleCustomerName;
     }
 
-    public String getSaleCustomerLevel1() {
-        return saleCustomerLevel1;
+    public String getSaleCustomerLevel() {
+        return saleCustomerLevel;
     }
 
-    public void setSaleCustomerLevel1(String saleCustomerLevel1) {
-        this.saleCustomerLevel1 = saleCustomerLevel1;
-    }
-
-    public String getSaleCustomerLevel2() {
-        return saleCustomerLevel2;
-    }
-
-    public void setSaleCustomerLevel2(String saleCustomerLevel2) {
-        this.saleCustomerLevel2 = saleCustomerLevel2;
-    }
-
-    public String getSaleCustomerLevel3() {
-        return saleCustomerLevel3;
-    }
-
-    public void setSaleCustomerLevel3(String saleCustomerLevel3) {
-        this.saleCustomerLevel3 = saleCustomerLevel3;
-    }
-
-    public String getSaleCustomerLevel4() {
-        return saleCustomerLevel4;
-    }
-
-    public void setSaleCustomerLevel4(String saleCustomerLevel4) {
-        this.saleCustomerLevel4 = saleCustomerLevel4;
+    public void setSaleCustomerLevel(String saleCustomerLevel) {
+        this.saleCustomerLevel = saleCustomerLevel;
     }
 
     public String getSaleCustomerAddress() {
@@ -395,10 +361,7 @@ public class SaleModel extends RealmObject implements Parcelable {
         parcel.writeString(saleInvoiceNo);
         parcel.writeString(saleInvoiceDate);
         parcel.writeString(saleCustomerName);
-        parcel.writeString(saleCustomerLevel1);
-        parcel.writeString(saleCustomerLevel2);
-        parcel.writeString(saleCustomerLevel3);
-        parcel.writeString(saleCustomerLevel4);
+        parcel.writeString(saleCustomerLevel);
         parcel.writeString(saleCustomerAddress);
         parcel.writeString(saleCustomerPhNo1);
         parcel.writeString(saleCustomerPhNo2);

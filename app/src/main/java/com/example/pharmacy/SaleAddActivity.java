@@ -56,7 +56,9 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
     private SaleAddMedicineAdapter adapter;
     private Toolbar toolbar;
     private Context context;
+
     String selectedCustomerLevel;
+    String level;
 
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
@@ -211,6 +213,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
         String customeName = edtCustomerName_add.getText().toString();
         String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
+
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
         String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
         String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
@@ -306,7 +309,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-
+        level = adapterView.getItemAtPosition(position).toString();
         selectedCustomerLevel = adapterView.getItemAtPosition(position).toString();
 
     }

@@ -119,7 +119,6 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
             String cPhNo1 = edtCustomerPhNo1.getText().toString();
             String cPhNo2 = edtCustomerPhNo2.getText().toString();
             String cPhNo3 = edtCustomerPhNo3.getText().toString();
-
             String cNote = edtCustomerNote.getText().toString();
 
             CustomerModel customerModel = new CustomerModel();
