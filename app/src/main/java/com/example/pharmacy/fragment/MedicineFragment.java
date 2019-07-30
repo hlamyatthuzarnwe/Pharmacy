@@ -62,6 +62,7 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         context = view.getContext();
 
         init();
+        Log.d(TAG, "onCreateView: RealmPath : "+realm.getPath());
 
         getAllMedicine();
         return view;

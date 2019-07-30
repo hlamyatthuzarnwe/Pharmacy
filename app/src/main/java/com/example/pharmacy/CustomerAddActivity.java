@@ -44,6 +44,7 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
     private Toolbar toolbar;
     private Context context;
     int cId;
+    String level;
 
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
@@ -103,7 +104,7 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
          //   idEdit = customerModel.getCustomerId();
             edtCustomerName_add.setText(customerModel.getCustomerName());
             edtCustomerAddress_add.setText(customerModel.getCustomerAddress());
-//            edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
+          // edtCustomerLevel_add.setText(customerModel.getCustomerLevel());
             edtCustomerPhNo1.setText(customerModel.getCustomerPhNo1());
             edtCustomerPhNo2.setText(customerModel.getCustomerPhNo2());
             edtCustomerPhNo3.setText(customerModel.getCustomerPhNo3());
@@ -132,10 +133,12 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
             customerModel.setCustomerId(UUID.randomUUID().toString());
             customerModel.setCustomerName(cName);
             customerModel.setCustomerAddress(cAddress);
-            //customerModel.setCustomerLevel(clevel);
+            customerModel.setCustomerLevel(level);
             customerModel.setCustomerPhNo1(cPhNo1);
             customerModel.setCustomerPhNo2(cPhNo2);
             customerModel.setCustomerPhNo3(cPhNo3);
+
+
             customerModel.setCustomerNote(cNote);
 
             realm.executeTransaction(realm -> {
@@ -222,7 +225,7 @@ public class CustomerAddActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String level = parent.getItemAtPosition(position).toString();
+         level = parent.getItemAtPosition(position).toString();
         Toast.makeText(this, level, Toast.LENGTH_SHORT).show();
     }
 
