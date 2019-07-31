@@ -63,7 +63,7 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_medicine, container, false);
-
+        setHasOptionsMenu(true);
         ButterKnife.bind(this,view);
         context = view.getContext();
 
@@ -87,8 +87,9 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
             public boolean onQueryTextSubmit(String query) {
                 RealmResults<MedicineModel> patients = realm.where(MedicineModel.class)
                         .equalTo("medicineName", query)
-                        .findAllAsync()
-                        .sort("createdTime", Sort.DESCENDING);
+                        .findAllAsync();
+                medicineAdapter.clear();
+                medicineAdapter.getMedicineModelList().addAll(patients);
                 return true;
             }
 
