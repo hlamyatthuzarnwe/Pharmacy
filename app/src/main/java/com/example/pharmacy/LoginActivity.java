@@ -36,7 +36,7 @@ import io.realm.Realm;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String TAG ="LogiNActivity";
+    private static final String TAG ="LoginActivity";
 
     private static final int RC_SIGN_IN = 123;
     String phone;
