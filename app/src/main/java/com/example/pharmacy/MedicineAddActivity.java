@@ -1,12 +1,14 @@
 package com.example.pharmacy;
 
 import android.app.DatePickerDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -34,6 +36,8 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class MedicineAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -44,6 +48,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     private MedicineModel medicineModel;
     private Toolbar toolbar;
     private Context context;
+    String mName;
 
     @BindView(R.id.edtMedicineName)
     EditText edtMedicineName;
@@ -190,7 +195,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
         relativeSave.setOnClickListener(view -> {
 
-            String mName = edtMedicineName.getText().toString();
+             mName = edtMedicineName.getText().toString();
             String mCode = edtMedicineCode.getText().toString();
             String mCategory = edtMedicineCategory.getText().toString();
             String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
@@ -255,6 +260,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 //            medicineModel.setMedicineContactPh3(mContactPh3);
 
             SupplierModel supplierModel = new SupplierModel();
+            supplierModel.setSuplierId(UUID.randomUUID().toString());
             supplierModel.setCompanyName(mCompanyName);
             supplierModel.setCompanyAddress(address);
             supplierModel.setSupplierName(mSupplierName);
@@ -363,6 +369,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+
         return true;
     }
 
@@ -373,6 +380,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         }else {
             medicineModel.setMedcineId(UUID.randomUUID().toString());
         }
+
         return super.onOptionsItemSelected(item);
     }
 
