@@ -7,8 +7,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -24,7 +29,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Case;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,12 +62,59 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sale, container, false);
+        setHasOptionsMenu(true);
         ButterKnife.bind(this,view);
         context = view.getContext();
 
         init();
         getAllSale();
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_search_view,menu);
+        MenuItem searchItem = menu.findItem(R.id.menu_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setQueryHint( "Search by Name");
+        searchView.setScrollBarSize(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (TextUtils.isEmpty(query)){
+                    getAllSale();
+                }else {
+                    getSearchList(query);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                if (TextUtils.isEmpty(s)){
+                    getAllSale();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+    }
+
+    private void getSearchList(String query) {
+        saleAdapter.clear();
+        RealmResults<SaleModel> saleList = realm.where(SaleModel.class)
+                .contains("medicineName", query, Case.INSENSITIVE)
+                .findAll();
+        RealmResults<SaleModel> test = realm.where(SaleModel.class)
+                .findAll();
+
+        Log.d(TAG, "onQueryTextSubmit: query : "+query);
+        Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
+        Log.d(TAG, "onQueryTextSubmit: "+saleList.size());
+        saleAdapter.getSaleModelList().addAll(saleList);
+        saleAdapter.notifyDataSetChanged();
     }
 
     private void init() {

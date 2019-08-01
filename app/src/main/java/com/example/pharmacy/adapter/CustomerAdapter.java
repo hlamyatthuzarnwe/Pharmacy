@@ -58,11 +58,14 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         public View cView;
         private Context context;
 
+        @BindView(R.id.tvMedicineName)
+        TextView tvMedicineName;
+
         @BindView(R.id.tvCustomerName)
         TextView tvCustomerName;
 
-        @BindView(R.id.tvCustomerLevel)
-        TextView tvCustomerLevel;
+        @BindView(R.id.tvCustomerPhNo1_detail)
+        TextView tvCustomerPhNo1_detail;
 
         @BindView(R.id.tvCustomerAddress)
         TextView tvCustomerAddress;
@@ -77,6 +80,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         }
 
         public void bind(CustomerModel customerModel) {
+
             if (customerModel.getCustomerName() != null){
                 tvCustomerName.setText(customerModel.getCustomerName());
                 Log.d(TAG, "bind: name : "+customerModel.getCustomerName());
@@ -84,14 +88,14 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             if(customerModel.getCustomerAddress() != null){
                 tvCustomerAddress.setText(customerModel.getCustomerAddress());
             }
-            if(customerModel.getCustomerLevel() != null){
-                tvCustomerLevel.setText(customerModel.getCustomerLevel());
-                Log.d(TAG, "bind: level : "+customerModel.getCustomerLevel());
+            if(customerModel.getCustomerPhNo1() != null){
+                tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
+                Log.d(TAG, "bind: level : "+customerModel.getCustomerPhNo1());
           }
-//            if(customerModel.getCustomerAddress() != null){
-//                tvCustomerAddress.setText(customerModel.getCustomerLevel());
-//                Log.d(TAG, "bind: address : "+customerModel.getCustomerAddress());
-//            }
+            if(customerModel.getCustomerAddress() != null){
+                tvCustomerAddress.setText(customerModel.getCustomerLevel());
+                Log.d(TAG, "bind: address : "+customerModel.getCustomerAddress());
+            }
 
             cView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, CustomerDetailActivity.class);

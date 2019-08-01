@@ -364,7 +364,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
-
         return true;
     }
 
@@ -382,10 +381,12 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
 
     }
 }

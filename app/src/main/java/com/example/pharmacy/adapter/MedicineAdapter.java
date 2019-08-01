@@ -44,9 +44,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
     @Override
     public void onBindViewHolder(@NonNull MedicineViewHolder medicineViewHolder, int position) {
-
         medicineViewHolder.bind(medicineModelList.get(position));
-
     }
 
     @Override
@@ -68,8 +66,6 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
         @BindView(R.id.tvMedicineSupplierName)
         TextView tvMedicineSupplierName;
-
-
 
          @BindView(R.id.tvMedicineQtyPerPc)
          TextView tvMedicineQtyPerPc;

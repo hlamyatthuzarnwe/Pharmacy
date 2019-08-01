@@ -61,6 +61,9 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
         @BindView(R.id.tvSupplier_supplierName)
         TextView tvSupplier_supplierName;
 
+        @BindView(R.id.tvMedicineName)
+        TextView tvMedicineName;
+
         @BindView(R.id.tvCompanyName)
         TextView tvCompanyName;
 
