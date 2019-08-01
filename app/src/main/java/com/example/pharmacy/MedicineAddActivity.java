@@ -68,8 +68,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.edtMedicinePcQty)
     EditText edtMedicinePcQty;
 
-    @BindView(R.id.edtMedicineDzQty)
-    EditText edtMedicineDzQty;
 
     @BindView(R.id.edtMedicineCompanyName)
     EditText edtMedicineCompanyName;
@@ -168,7 +166,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
             edtMedicneDzCostPrice.setText(medicineModel.getMedicineCostPerDz());
             edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
-            edtMedicineDzQty.setText(medicineModel.getMedicineQtyPerDz());
             if (medicineModel.getSupplierModel() != null){
                 edtMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
                 edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
@@ -201,7 +198,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
             String mCostPerDz = edtMedicneDzCostPrice.getText().toString();
             String mQtyPerPc = edtMedicinePcQty.getText().toString();
-            String mQtyPerDz = edtMedicineDzQty.getText().toString();
             String mCompanyName = edtMedicineCompanyName.getText().toString();
             String address = edtAddress.getText().toString();
             String mSupplierName = edtSupplierName.getText().toString();
@@ -237,7 +233,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             medicineModel.setMedicineCostPerPc(mCostPerPc);
             medicineModel.setMedicineCostPerDz(mCostPerDz);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
-            medicineModel.setMedicineQtyPerDz(mQtyPerDz);
 
             medicineModel.setMedicineViberPh(mViberPh);
             medicineModel.setMedicinePayment(mPayment);

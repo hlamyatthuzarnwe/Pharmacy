@@ -17,6 +17,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
        // getSupportActionBar().hide();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
         share = SharepreferenceHelper.getHelper(this);
 
         new Handler().postDelayed(this::initProcess,1500);
@@ -26,9 +29,11 @@ public class SplashActivity extends AppCompatActivity {
         if (share.isLogIn()){
             Intent intent = new Intent(SplashActivity.this,MainActivity.class);
             startActivity(intent);
+            finish();
         }else {
             Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
             startActivity(intent);
+            finish();
         }
 
 

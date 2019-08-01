@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.pharmacy.SplashActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"/>
-
-    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

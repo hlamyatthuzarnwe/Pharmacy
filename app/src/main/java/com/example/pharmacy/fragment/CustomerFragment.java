@@ -61,6 +61,7 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_customer, container, false);
         ButterKnife.bind(this,view);
+        setHasOptionsMenu(true);
         init();
         getAllCustomer();
         return view;

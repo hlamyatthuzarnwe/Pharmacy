@@ -1,20 +1,19 @@
 package com.example.pharmacy;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.pharmacy.helper.MyanProgressDialog;
 import com.example.pharmacy.helper.SharepreferenceHelper;
 import com.example.yy.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,9 +33,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 
+
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String TAG ="LoginActivity";
+    private static final String TAG = "LoginActivity";
 
     private static final int RC_SIGN_IN = 123;
     String phone;
@@ -44,37 +44,39 @@ public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.btnLogin)
     Button btnConfirm;
-
+    @BindView(R.id.edtLoginUserName)
+    EditText edtLoginUserName;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String mVerificationId;
-    private SharepreferenceHelper share;
 
-//    @BindView(R.id.imgLogo)
+    //    @BindView(R.id.imgLogo)
 //    ImageView imgLogo;
 //
 //    @BindView(R.id.tvLogoName)
 //    TextView tvLogoName;
-
+    private SharepreferenceHelper share;
     private Realm realm;
-
-    @BindView(R.id.edtLoginUserName)
-    EditText edtLoginUserName;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
+    private MyanProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         ButterKnife.bind(this);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
+        dialog = new MyanProgressDialog(this);
         realm = Realm.getDefaultInstance();
         share = SharepreferenceHelper.getHelper(this);
-        getProgeressDialog().dismiss();
+        dialog.hideDialog();
 
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+                mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                getProgeressDialog().dismiss();
+                dialog.hideDialog();
                 Log.d(TAG, "onVerificationCompleted: " + phoneAuthCredential);
 
 //                Log.d(TAG, "onVerificationCompleted: current user : "+auth.getCurrentUser().getPhoneNumber());
@@ -87,8 +89,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
                 Log.w(TAG, "onVerificationFailed", e);
+                dialog.hideDialog();
+                showAlert();
 
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
+
                     // Invalid request
                     // ...
                 } else if (e instanceof FirebaseTooManyRequestsException) {
@@ -101,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(verificationId, forceResendingToken);
                 Log.d(TAG, "onCodeSent: id : " + verificationId);
-                Log.d(TAG, "onCodeSent: token : "+forceResendingToken);
+                Log.d(TAG, "onCodeSent: token : " + forceResendingToken);
 
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId;
@@ -111,29 +116,33 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCodeAutoRetrievalTimeOut(String s) {
                 super.onCodeAutoRetrievalTimeOut(s);
-                Log.d(TAG, "onCodeAutoRetrievalTimeOut: "+s);
+                dialog.hideDialog();
+                showAlert();
+                Log.d(TAG, "onCodeAutoRetrievalTimeOut: " + s);
             }
         };
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                getProgeressDialog().show();
-
-                    phone ="+95"+edtLoginUserName.getText().toString().trim();
-                    Log.d(TAG, "onClick: var phone : "+phone);
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            phone,
-                            60,
-                            TimeUnit.SECONDS,
-                            LoginActivity.this,
-                            mCallbacks
-                    );
-
-                getProgeressDialog().dismiss();
+                signIn();
             }
         });
+    }
+
+    private void signIn() {
+        phone = "+95" + edtLoginUserName.getText().toString().trim();
+        Log.d(TAG, "onClick: var phone : " + phone);
+        if (!TextUtils.isEmpty(phone)) {
+            dialog.showDialog();
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    phone,
+                    60,
+                    TimeUnit.SECONDS,
+                    LoginActivity.this,
+                    mCallbacks
+            );
+        }
     }
 
     @Override
@@ -157,7 +166,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getProgeressDialog().dismiss();
+        dialog.hideDialog();
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -165,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        getProgeressDialog().dismiss();
+                        dialog.hideDialog();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
@@ -182,6 +191,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // Sign in failed, display a message and update the UI
                             share.setLogIn(false);
+                            showAlert();
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid
@@ -190,12 +200,20 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-    private ProgressDialog getProgeressDialog(){
-        ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
-        dialog.setIndeterminate(true);
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setMessage("Logging in with Phone Number ");
-        return dialog;
+
+    private void showAlert() {
+        dialog.hideDialog();
+        new AlertDialog.Builder(LoginActivity.this)
+                .setMessage("Internet Connection Error")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        (dialog, whichButton) -> signIn())
+                .setNegativeButton("No",
+                        (dialogInterface, i) -> {
+                            dialog.hideDialog();
+                            dialogInterface.dismiss();
+                        }).show();
     }
+
+
 }

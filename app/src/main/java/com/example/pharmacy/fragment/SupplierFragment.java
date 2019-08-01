@@ -21,6 +21,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmResults;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,7 +73,7 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
     }
 
     private void getAllSupplier() {
-        final List<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
+        final RealmResults<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
         Log.d(TAG,"getData : "+supplierModelList.size());
 
         if(supplierModelList != null && !supplierModelList.isEmpty()){

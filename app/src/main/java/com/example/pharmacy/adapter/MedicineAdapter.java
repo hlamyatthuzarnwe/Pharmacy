@@ -63,14 +63,13 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         @BindView(R.id.tvMedicineName)
         TextView tvMedicineName;
 
-        @BindView(R.id.tvMedicineCategory_detail)
+        @BindView(R.id.tvMedicineCategory)
         TextView tvMedicineCategory_detail;
 
         @BindView(R.id.tvMedicineSupplierName)
         TextView tvMedicineSupplierName;
 
-         @BindView(R.id.tvMedicineExpDate)
-         TextView tvMedicineExpDate;
+
 
          @BindView(R.id.tvMedicineQtyPerPc)
          TextView tvMedicineQtyPerPc;
@@ -84,20 +83,18 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
         public void bind(MedicineModel medicineModel) {
             if(medicineModel.getMedicineName() != null){
-                tvMedicineName.setText(medicineModel.getMedicineName());
+                tvMedicineName.setText(" "+medicineModel.getMedicineName());
             }
             if(medicineModel.getMedicineCategory() != null){
-                tvMedicineCategory_detail .setText(medicineModel.getMedicineCategory());
+                tvMedicineCategory_detail .setText(" "+medicineModel.getMedicineCategory());
             }
-//            if (medicineModel.getSupplierModel().getSupplierName() != null){
-//                tvMedicineSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
-//            }
+            if (medicineModel.getSupplierModel() != null){
+                tvMedicineSupplierName.setText(" "+medicineModel.getSupplierModel().getSupplierName());
+            }
 //            if(supplierModel.getSupplierName() != null){
 //                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
 //            }
-            if (medicineModel.getMedicineExpDate() != null){
-                tvMedicineExpDate.setText(medicineModel.getMedicineExpDate());
-            }
+
             if(medicineModel.getMedicineQtyPerPc() != null){
                 tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             }

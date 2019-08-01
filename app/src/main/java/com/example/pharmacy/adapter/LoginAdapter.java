@@ -54,8 +54,7 @@ public class LoginAdapter extends RecyclerView.Adapter<LoginAdapter.LoginViewHol
         private Context context;
         private LoginModel loginModel;
 
-        @BindView(R.id.edtLoginPin)
-        EditText edtLoginPin;
+
 
         @BindView(R.id.edtLoginUserName)
         EditText edtLoginUserName;
@@ -70,9 +69,6 @@ public class LoginAdapter extends RecyclerView.Adapter<LoginAdapter.LoginViewHol
         public void bind(LoginModel loginModel) {
             if (loginModel.getUserName() != null){
                 edtLoginUserName.setText(loginModel.getUserName());
-            }
-            if (loginModel.getLoginPin() != null){
-                edtLoginPin.setText(loginModel.getLoginPin());
             }
 
             loginView.setOnClickListener(v -> {
