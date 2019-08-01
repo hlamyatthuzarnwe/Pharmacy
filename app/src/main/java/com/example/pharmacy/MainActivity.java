@@ -1,5 +1,6 @@
 package com.example.pharmacy;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -30,16 +31,19 @@ import com.example.pharmacy.fragment.LoginFragment;
 import com.example.pharmacy.fragment.MedicineFragment;
 import com.example.pharmacy.fragment.SaleReportFragment;
 import com.example.pharmacy.fragment.UserManageFragment;
+import com.example.pharmacy.helper.SharepreferenceHelper;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.yy.R;
 import com.example.pharmacy.fragment.SaleFragment;
 import com.example.pharmacy.fragment.SupplierFragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 import io.realm.RealmList;
 
 import static com.example.yy.R.string.navigation_drawer_close;
@@ -52,13 +56,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle drawerToggle;
     Fragment fragment = null;
     Class fragmentClass;
-    private int LOCATE_ACTIVITY;
+    private static int LOCATE_ACTIVITY  = 0;
     @BindView(R.id.fabAddMedicine)
     FloatingActionButton fabAdd;
+    SharepreferenceHelper share;
 
     private static final String TAG = "MainActivity";
-    private MedicineAdapter medicineAdapter;
-    private LinearLayoutManager linearLayoutManager;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -70,8 +73,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ButterKnife.bind(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        share = SharepreferenceHelper.getHelper(this);
 
-        PackageInfo info;
+      /*  PackageInfo info;
         try {
             info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
             Log.d(TAG, "onCreate: PN" + getPackageName());
@@ -89,9 +93,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.e("no such an algorithm", e.toString());
         } catch (Exception e) {
             Log.e("exception", e.toString());
-        }
+        }*/
 
-        RealmList<MedicineModel> medicineModelRealmList = new RealmList<>();
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawerMain);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
@@ -100,38 +103,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
         nvDrawer.setNavigationItemSelectedListener(this);
-        fragmentClass = MedicineFragment.class;
-        try {
+        LOCATE_ACTIVITY = 0;
+        MenuItem menuItem = nvDrawer.getMenu().getItem(0);
+        onNavigationItemSelected(menuItem);
+       // fragmentClass = MedicineFragment.class;
+      /*  try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();*/
 
         fabAdd.setOnClickListener(v -> {
             switch (LOCATE_ACTIVITY){
 
-                case 1:
+                case 0:
                     Intent intent1 = new Intent(MainActivity.this,MedicineAddActivity.class);
                 startActivity(intent1);
                 break;
 
-                case 2:
+                case 1:
                     Intent intent2 = new Intent(MainActivity.this,CustomerAddActivity.class);
                 startActivity(intent2);
                 break;
 
-                case 3:
+                case 2:
                     Intent intent3 = new Intent(MainActivity.this,SupplierAddActivity.class);
                 startActivity(intent3);
                 break;
 
-                case 7:
+                case 6:
                     Intent intent7 = new Intent(MainActivity.this,SaleAddActivity.class);
                     startActivity(intent7);
                     break;
+
 
 
 //                default:
@@ -158,34 +165,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (menuItem.getItemId()){
             case R.id.drawer_view_product :
                 fragmentClass = MedicineFragment.class;
-                LOCATE_ACTIVITY = 1;
+                LOCATE_ACTIVITY = 0;
                 break;
             case R.id.drawer_view_customer:
                 fragmentClass = CustomerFragment.class;
-                LOCATE_ACTIVITY = 2;
+                LOCATE_ACTIVITY = 1;
                 break;
             case R.id.drawer_view_supplier:
                 fragmentClass = SupplierFragment.class;
-                LOCATE_ACTIVITY = 3;
+                LOCATE_ACTIVITY = 2;
                 break;
             case R.id.drawer_view_sale_report:
                 fragmentClass = SaleReportFragment.class;
-                LOCATE_ACTIVITY = 4;
+                LOCATE_ACTIVITY = 3;
                 break;
             case R.id.drawer_view_inventory:
                 fragmentClass = InventoryFragment.class;
-                LOCATE_ACTIVITY = 5;
+                LOCATE_ACTIVITY = 4;
                 break;
             case R.id.drawer_view_user_manage:
                 fragmentClass = UserManageFragment.class;
-                LOCATE_ACTIVITY = 6;
+                LOCATE_ACTIVITY = 5;
                 break;
             case R.id.drawer_view_sale:
                 fragmentClass = SaleFragment.class;
-                LOCATE_ACTIVITY = 7;
+                LOCATE_ACTIVITY = 6;
                 break;
+            case R.id.drawer_view_logOut:
+                    new AlertDialog.Builder(this)
+                            .setMessage("Are you sure want to logout?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes",
+                                    (dialog, whichButton) -> {
+                                        FirebaseAuth.getInstance().signOut();
+                                        share.setLogIn(false);
+                                        Realm.getDefaultInstance().executeTransaction(realm -> realm.deleteAll());
+                                        Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                    })
+                            .setNegativeButton("No",
+                                    (dialog, whichButton) -> dialog.dismiss()).show();
+                    break;
             default:
+                LOCATE_ACTIVITY = 1;
                 fragmentClass = MedicineFragment.class;
+                break;
         }
         try {
             fragment = (Fragment) fragmentClass.newInstance();

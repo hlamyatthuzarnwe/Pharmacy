@@ -6,13 +6,6 @@
     tools:showIn="navigation_view">
 
         <group android:checkableBehavior="single">
-            <item
-                android:id="@+id/drawer_view_login"
-                android:icon="@drawable/login1"
-                android:title="Login"/>
-        </group>
-
-        <group android:checkableBehavior="single">
 
             <item
                 android:id="@+id/drawer_view_product"
@@ -50,7 +43,11 @@
                 <item
                     android:id="@+id/drawer_view_sale"
                     android:icon="@drawable/sale"
-                    android:title="Sale" />
+                    android:title="Sale List" />
+                <item
+                    android:id="@+id/drawer_view_logOut"
+                    android:icon="@drawable/sale"
+                    android:title="Logout" />
 
             </group>
         </menu>
