@@ -11,6 +11,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
@@ -39,7 +41,7 @@ import io.realm.Sort;
  */
 public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG="MainActivity";
+    private static final String TAG="MedicineFragment";
     private MedicineAdapter medicineAdapter;
 
     @BindView(R.id.swipeMedicine)
@@ -68,7 +70,6 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         context = view.getContext();
 
         init();
-        Log.d(TAG, "onCreateView: RealmPath : "+realm.getPath());
 
         getAllMedicine();
         return view;
@@ -85,16 +86,20 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                RealmResults<MedicineModel> patients = realm.where(MedicineModel.class)
-                        .equalTo("medicineName", query)
-                        .findAllAsync();
-                medicineAdapter.clear();
-                medicineAdapter.getMedicineModelList().addAll(patients);
+               if (TextUtils.isEmpty(query)){
+                   getAllMedicine();
+               }else {
+                   getSearchList(query);
+               }
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
+                if (TextUtils.isEmpty(s)){
+                    getAllMedicine();
+                    return true;
+                }
                 return false;
             }
         });
@@ -110,8 +115,23 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         rvMedicine.setLayoutManager(linearLayoutManager);
         rvMedicine.setAdapter(medicineAdapter);
     }
+    private void getSearchList(String query){
+        medicineAdapter.clear();
+        RealmResults<MedicineModel> medicineList = realm.where(MedicineModel.class)
+                .contains("medicineName", query, Case.INSENSITIVE)
+                .findAll();
+        RealmResults<MedicineModel> test = realm.where(MedicineModel.class)
+                .findAll();
+
+        Log.d(TAG, "onQueryTextSubmit: query : "+query);
+        Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
+        Log.d(TAG, "onQueryTextSubmit: "+medicineList.size());
+        medicineAdapter.getMedicineModelList().addAll(medicineList);
+        medicineAdapter.notifyDataSetChanged();
+    }
 
     private void getAllMedicine() {
+        medicineAdapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
         Log.d(TAG,"getData : "+medicineModelList.size());
 
