@@ -62,6 +62,9 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleInvoiceDate)
         TextView tvSaleInvoiceDate;
 
+        @BindView(R.id.tvMedicineName)
+        TextView tvMedicineName;
+
         @BindView(R.id.tvSaleCustomerName)
         TextView tvSaleCustomerName;
 

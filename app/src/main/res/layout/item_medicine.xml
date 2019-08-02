@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
@@ -27,16 +26,16 @@
             tool:text="Decolgen" />
 
         <LinearLayout
-            android:layout_toEndOf="@id/tvMedicineName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tvMedicineName"
             android:orientation="vertical"
             android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:orientation="horizontal"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:padding="5dp">
 
                 <TextView
@@ -69,6 +68,7 @@
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

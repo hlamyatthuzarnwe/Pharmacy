@@ -39,7 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <EditText
-                            android:id="@+id/edtMedicineName"
+                            android:id="@+id/edtSaleMedicineName"
                             android:textCursorDrawable="@null"
                             android:hint="Medicine Name"
                             android:layout_marginLeft="15dp"
@@ -52,7 +52,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <EditText
-                            android:id="@+id/edtMedicinePcCostPrice"
+                            android:id="@+id/edtSaleMedicinePcPrice1"
                             android:textCursorDrawable="@null"
                             android:layout_marginLeft="15dp"
                             android:hint="Price"

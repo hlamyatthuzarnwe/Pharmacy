@@ -31,11 +31,11 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
     private Realm realm;
     private MedicineModel medicineModel;
 
-    @BindView(R.id.edtMedicineName)
-    EditText edtMedicineName;
+    @BindView(R.id.edtSaleMedicineName)
+    EditText edtSaleMedicineName;
 
-    @BindView(R.id.edtMedicinePcCostPrice)
-    EditText edtMedicinePcCostPrice;
+    @BindView(R.id.edtSaleMedicinePcPrice1)
+    EditText edtSaleMedicinePcPrice1;
 
     @BindView(R.id.edtMedicinePcQty)
     EditText edtMedicinePcQty;
@@ -58,16 +58,16 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
         medicineList = MedicineModelList.getInstance();
-        medicineModel = (MedicineModel)getIntent().getParcelableExtra("MedicineModel");
+        medicineModel = (MedicineModel) getIntent().getParcelableExtra("MedicineModel");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Medicine Detail ");
         setSupportActionBar(toolbar);
 
-        if (medicineModel != null){
-            edtMedicineName.setText(medicineModel.getMedicineName());
-            edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
-          //  edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
+        if (medicineModel != null) {
+            edtSaleMedicineName.setText(medicineModel.getMedicineName());
+            edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
+            //  edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
             edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
         }
         edtMedicinePcQty.addTextChangedListener(new TextWatcher() {
@@ -84,13 +84,13 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 int price = 0;
-                if (edtMedicinePcCostPrice.getText() != null &&
-                        !edtMedicinePcCostPrice.getText().toString().equals("")){
-                    price = Integer.parseInt(edtMedicinePcCostPrice.getText().toString());
+                if (edtSaleMedicinePcPrice1.getText() != null &&
+                        !edtSaleMedicinePcPrice1.getText().toString().equals("")) {
+                    price = Integer.parseInt(edtSaleMedicinePcPrice1.getText().toString());
                 }
                 int qty = 0;
                 if (edtMedicinePcQty.getText() != null &&
-                   ! edtMedicinePcQty.getText().toString().equals("")){
+                        !edtMedicinePcQty.getText().toString().equals("")) {
                     qty = Integer.parseInt(edtMedicinePcQty.getText().toString());
                 }
                 int total = price * qty;
@@ -99,8 +99,8 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         });
 
         relativeSave_medicineSaleAdd.setOnClickListener(v -> {
-            String mName = edtMedicineName.getText().toString();
-            String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
+            String mName = edtSaleMedicineName.getText().toString();
+            String mCostPerPc = edtSaleMedicinePcPrice1.getText().toString();
             String mQtyPerPc = edtMedicinePcQty.getText().toString();
             String mSubAmt = edtMedicneSubAmt.getText().toString();
 
@@ -121,12 +121,12 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
             medicineModel.setMedicineCostPerPc(mCostPerPc);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
             medicineModel.setMedicineSubAmt(mSubAmt);
-            Log.d("SaleAdd", "onCreate: SubAmt : "+medicineModel.getMedicineSubAmt());
+            Log.d("SaleAdd", "onCreate: SubAmt : " + medicineModel.getMedicineSubAmt());
             medicineList.add(medicineModel);
             Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
 
 
-            Intent intent = new Intent(SaleMedicineDetailInformationActivity.this,SaleAddActivity.class);
+            Intent intent = new Intent(SaleMedicineDetailInformationActivity.this, SaleAddActivity.class);
             startActivity(intent);
         });
 
