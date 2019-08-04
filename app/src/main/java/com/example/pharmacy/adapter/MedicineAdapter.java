@@ -23,14 +23,14 @@ import butterknife.ButterKnife;
 
 public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.MedicineViewHolder> {
 
-    private static final String TAG="MedicineAdapter";
+    private static final String TAG = "MedicineAdapter";
     private List<MedicineModel> medicineModelList = new ArrayList<>();
 
-    public void clear(){
+    public void clear() {
         medicineModelList.clear();
     }
 
-    public List<MedicineModel> getMedicineModelList(){
+    public List<MedicineModel> getMedicineModelList() {
         return medicineModelList;
     }
 
@@ -38,7 +38,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
     @Override
     public MedicineViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_medicine,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.item_medicine, viewGroup, false);
         return new MedicineViewHolder(view);
     }
 
@@ -67,37 +67,37 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         @BindView(R.id.tvMedicineSupplierName)
         TextView tvMedicineSupplierName;
 
-         @BindView(R.id.tvMedicineQtyPerPc)
-         TextView tvMedicineQtyPerPc;
+        @BindView(R.id.tvMedicineQtyPerPc)
+        TextView tvMedicineQtyPerPc;
 
         public MedicineViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             mView = itemView;
         }
 
         public void bind(MedicineModel medicineModel) {
-            if(medicineModel.getMedicineName() != null){
-                tvMedicineName.setText(" "+medicineModel.getMedicineName());
+            if (medicineModel.getMedicineName() != null) {
+                tvMedicineName.setText(" " + medicineModel.getMedicineName());
             }
-            if(medicineModel.getMedicineCategory() != null){
-                tvMedicineCategory_detail .setText(" "+medicineModel.getMedicineCategory());
+            if (medicineModel.getMedicineCategory() != null) {
+                tvMedicineCategory_detail.setText(" " + medicineModel.getMedicineCategory());
             }
-            if (medicineModel.getSupplierModel() != null){
-                tvMedicineSupplierName.setText(" "+medicineModel.getSupplierModel().getSupplierName());
+            if (medicineModel.getSupplierModel() != null) {
+                tvMedicineSupplierName.setText(" " + medicineModel.getSupplierModel().getSupplierName());
             }
 //            if(supplierModel.getSupplierName() != null){
 //                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
 //            }
 
-            if(medicineModel.getMedicineQtyPerPc() != null){
+            if (medicineModel.getMedicineQtyPerPc() != null) {
                 tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             }
 
             mView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, MedicineDetailActivity.class);
-                intent.putExtra("MedicineModel",medicineModel);
+                intent.putExtra("MedicineModel", medicineModel);
                 context.startActivity(intent);
             });
         }

@@ -64,13 +64,10 @@ public class SearchMedicineAdapter  extends RecyclerView.Adapter<SearchMedicineA
         public void bind(MedicineModel model){
             tvName.setText(model.getMedicineName());
 
-            cView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, SaleMedicineDetailInformationActivity.class);
-                    intent.putExtra("MedicineModel",model);
-                    context.startActivity(intent);
-                }
+            cView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, SaleMedicineDetailInformationActivity.class);
+                intent.putExtra("MedicineModel",model);
+                context.startActivity(intent);
             });
         }
     }

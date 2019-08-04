@@ -22,14 +22,14 @@ import butterknife.ButterKnife;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
 
-    private static final String TAG="CustomerAdapter";
+    private static final String TAG = "CustomerAdapter";
     private List<CustomerModel> customerModelList = new ArrayList<>();
 
-    public void clear(){
+    public void clear() {
         customerModelList.clear();
     }
 
-    public List<CustomerModel>getCustomerModelList(){
+    public List<CustomerModel> getCustomerModelList() {
         return customerModelList;
     }
 
@@ -37,7 +37,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     @Override
     public CustomerAdapter.CustomerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_customer,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.item_customer, viewGroup, false);
         return new CustomerViewHolder(view);
     }
 
@@ -73,7 +73,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             cView = itemView;
 
@@ -81,25 +81,25 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         public void bind(CustomerModel customerModel) {
 
-            if (customerModel.getCustomerName() != null){
+            if (customerModel.getCustomerName() != null) {
                 tvCustomerName.setText(customerModel.getCustomerName());
-                Log.d(TAG, "bind: name : "+customerModel.getCustomerName());
+                Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
             }
-            if(customerModel.getCustomerAddress() != null){
+            if (customerModel.getCustomerAddress() != null) {
                 tvCustomerAddress.setText(customerModel.getCustomerAddress());
             }
-            if(customerModel.getCustomerPhNo1() != null){
+            if (customerModel.getCustomerPhNo1() != null) {
                 tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
-                Log.d(TAG, "bind: level : "+customerModel.getCustomerPhNo1());
-          }
-            if(customerModel.getCustomerAddress() != null){
+                Log.d(TAG, "bind: level : " + customerModel.getCustomerPhNo1());
+            }
+            if (customerModel.getCustomerAddress() != null) {
                 tvCustomerAddress.setText(customerModel.getCustomerLevel());
-                Log.d(TAG, "bind: address : "+customerModel.getCustomerAddress());
+                Log.d(TAG, "bind: address : " + customerModel.getCustomerAddress());
             }
 
             cView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, CustomerDetailActivity.class);
-                intent.putExtra("CustomerModel",customerModel);
+                intent.putExtra("CustomerModel", customerModel);
                 context.startActivity(intent);
             });
         }

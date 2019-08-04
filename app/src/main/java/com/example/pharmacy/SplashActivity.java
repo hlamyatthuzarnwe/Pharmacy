@@ -9,6 +9,7 @@ import com.example.pharmacy.helper.SharepreferenceHelper;
 import com.example.yy.R;
 
 public class SplashActivity extends AppCompatActivity {
+
     private static final String TAG = "SplashActivity";
     private SharepreferenceHelper share;
 

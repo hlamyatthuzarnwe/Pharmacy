@@ -22,11 +22,8 @@ public class PharmacyApp extends Application {
         RealmConfiguration realmConfig = new RealmConfiguration.Builder()
                 .name("medicine_db")
                 .schemaVersion(1)
-                .migration(new RealmMigration() {
-                    @Override
-                    public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
+                .migration((realm, oldVersion, newVersion) -> {
 
-                    }
                 })
                 .build();
         Realm.setDefaultConfiguration(realmConfig);

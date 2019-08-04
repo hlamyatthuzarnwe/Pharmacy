@@ -27,7 +27,7 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
     private static final String TAG = "SaleAddMedicineAdapter";
     private List<MedicineModel> saleModelList = new ArrayList<>();
 
-    public void clear(){
+    public void clear() {
         saleModelList.clear();
     }
 
@@ -40,7 +40,7 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
     public SaleAddMedicineAdapter.SaleAddViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_sale_add,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.item_sale_add, viewGroup, false);
         return new SaleAddMedicineAdapter.SaleAddViewHolder(view);
     }
 
@@ -73,26 +73,27 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
 
         public SaleAddViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             saleAddView = itemView;
         }
-        public void bind(MedicineModel medicineModel){
-            Log.d(TAG, "bind: name : "+medicineModel.getMedicineName());
-            if (medicineModel.getMedicineName() != null){
+
+        public void bind(MedicineModel medicineModel) {
+            Log.d(TAG, "bind: name : " + medicineModel.getMedicineName());
+            if (medicineModel.getMedicineName() != null) {
                 tvSaleMedicineName.setText(medicineModel.getMedicineName());
             }
-            if (medicineModel.getMedicineQtyPerPc() != null){
+            if (medicineModel.getMedicineQtyPerPc() != null) {
                 tvSaleQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
             }
-            if (medicineModel.getMedicineSubAmt() != null){
+            if (medicineModel.getMedicineSubAmt() != null) {
                 tvSaleSubAmtPerPc.setText(medicineModel.getMedicineSubAmt());
             }
 
 
             saleAddView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleAddActivity.class);
-                intent.putExtra("SaleModel",medicineModel);
+                intent.putExtra("SaleModel", medicineModel);
                 context.startActivity(intent);
             });
         }

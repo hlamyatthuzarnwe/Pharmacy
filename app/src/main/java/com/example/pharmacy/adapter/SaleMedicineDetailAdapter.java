@@ -25,7 +25,7 @@ public class SaleMedicineDetailAdapter extends RecyclerView.Adapter<SaleMedicine
     private static final String TAG = "SaleMedicineDetailAdapter";
     private List<MedicineModel> medicineModelList = new ArrayList<>();
 
-    public void clear(){
+    public void clear() {
         medicineModelList.clear();
     }
 
@@ -37,7 +37,7 @@ public class SaleMedicineDetailAdapter extends RecyclerView.Adapter<SaleMedicine
     @Override
     public SaleMedicineViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_sale,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.item_sale, viewGroup, false);
         return new SaleMedicineDetailAdapter.SaleMedicineViewHolder(view);
     }
 
@@ -72,28 +72,28 @@ public class SaleMedicineDetailAdapter extends RecyclerView.Adapter<SaleMedicine
 
         public SaleMedicineViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             saleView = itemView;
         }
 
         public void bind(MedicineModel medicineModel) {
 
-            if (medicineModel.getMedicineName() != null){
+            if (medicineModel.getMedicineName() != null) {
                 tvMedicineName_saleMedicine.setText(medicineModel.getMedicineName());
             }
-            if (medicineModel.getMedicineCostPerPc() != null){
+            if (medicineModel.getMedicineCostPerPc() != null) {
                 tvMedicinePrice_saleMedicine.setText(medicineModel.getMedicineCostPerPc());
             }
-            if (medicineModel.getMedicineQtyPerPc() != null){
+            if (medicineModel.getMedicineQtyPerPc() != null) {
                 tvMedicineQty_saleMedicine.setText(medicineModel.getMedicineQtyPerPc());
             }
-            if (medicineModel.getMedicineSubAmt() != null){
+            if (medicineModel.getMedicineSubAmt() != null) {
                 tvMedicineSubAmt_saleMedicine.setText(medicineModel.getMedicineSubAmt());
             }
             saleView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleMedicineDetailInformationActivity.class);
-                intent.putExtra("MedicineModel",medicineModel);
+                intent.putExtra("MedicineModel", medicineModel);
                 context.startActivity(intent);
             });
         }
