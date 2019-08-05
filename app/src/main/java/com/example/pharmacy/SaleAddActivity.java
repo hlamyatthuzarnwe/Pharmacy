@@ -3,21 +3,16 @@ package com.example.pharmacy;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -50,42 +45,34 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     private static final String TAG = "SaleAddActivity";
     private static final char UNIX_SEPRATOR = '/';
-
-    private Realm realm;
-    private MedicineModel medicineModel;
-    private SaleAddMedicineAdapter adapter;
-    private Toolbar toolbar;
-    private Context context;
-
     String selectedCustomerLevel;
     String level;
-
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
-
     @BindView(R.id.edtCustomerName_add)
     EditText edtCustomerName_add;
-
     @BindView(R.id.edtCustomerAddress_add)
     EditText edtCustomerAddress_add;
-
     @BindView(R.id.edtCustomerPhNo1)
     EditText edtCustomerPhNo1;
-
     @BindView(R.id.edtCustomerPhNo2)
     EditText edtCustomerPhNo2;
-
     @BindView(R.id.edtCustomerPhNo3)
     EditText edtCustomerPhNo3;
-
     @BindView(R.id.rvMedicine_SaleAddMedicine)
     RecyclerView rvMedicine;
-
     @BindView(R.id.tvTotalAmount_saleAdd)
     TextView tvTotalAmount;
-
     @BindView(R.id.spinnerAdd)
     Spinner spinnerAdd;
+    @BindView(R.id.linearLayout_medicine_saleAdd)
+    RelativeLayout linearLayout_medicine_saleAdd;
+    @BindView(R.id.linearAddMedicine_saleAdd)
+    LinearLayout btnMedicineAdd;
+    @BindView(R.id.relativeSave_saleAdd)
+    RelativeLayout relativeSave;
+    private Realm realm;
+    private MedicineModel medicineModel;
 
 //    @BindView(R.id.tvMedicineName)
 //    EditText tvMedicineName;
@@ -98,19 +85,12 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 //
 //    @BindView(R.id.tvMedicineSubAmt_saleMedicine)
 //    EditText tvMedicineSubAmt_saleMedicine;
-
-    @BindView(R.id.linearLayout_medicine_saleAdd)
-    RelativeLayout linearLayout_medicine_saleAdd;
-
-    @BindView(R.id.linearAddMedicine_saleAdd)
-    LinearLayout btnMedicineAdd;
+    private SaleAddMedicineAdapter adapter;
+    private Toolbar toolbar;
 
 //    @BindView(R.id.tvMedicieDetail)
 //    TextView tvMedicieDetail;
-
-    @BindView(R.id.relativeSave_saleAdd)
-    RelativeLayout relativeSave;
-
+    private Context context;
     private RealmList<MedicineModel> medicineList;
     private SaleListModel saleList;
 
@@ -140,20 +120,20 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
         setUpSaleInvoiceDate();
 
-      //  saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
+        //  saleModel = (SaleModel)getIntent().getParcelableExtra("Sale");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);
 
 
-        if (medicineList != null){
-            Log.d(TAG, "onCreate: medicineList : "+medicineList.size());
+        if (medicineList != null) {
+            Log.d(TAG, "onCreate: medicineList : " + medicineList.size());
             adapter.getSaleModelList().addAll(medicineList);
             adapter.notifyDataSetChanged();
             int amount = 0;
-            for (int i=0;i < medicineList.size();i++){
-                if (medicineList.get(i) != null){
+            for (int i = 0; i < medicineList.size(); i++) {
+                if (medicineList.get(i) != null) {
                     amount += Integer.parseInt(medicineList.get(i).getMedicineSubAmt());
                 }
 
@@ -164,18 +144,28 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
             }*/
         }
 
-        if (saleList != null){
+        if (saleList != null) {
             edtSaleInvoiceDate.setText(saleList.getInvoiceDate());
             edtCustomerName_add.setText(saleList.getCustomerName());
             edtCustomerAddress_add.setText(saleList.getCustomerAddress());
+            edtCustomerPhNo1.setText(saleList.getPhone());
 
         }
 
         btnMedicineAdd.setOnClickListener(v -> {
             insertSaleItems();
-            insertDate();
 
-       });
+
+        });
+        relativeSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertData();
+                Intent intent = new Intent(SaleAddActivity.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
 
         spinnerAdd.setOnItemSelectedListener(this);
         List<String> list = new ArrayList<String>();
@@ -210,23 +200,23 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
     }
 
     private void insertSaleItems() {
-        String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
+        String saleInvoiceDate = edtSaleInvoiceDate.getText().toString();
         String customeName = edtCustomerName_add.getText().toString();
         String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
 
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
-        String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
-        String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
+
 
         saleList.setInvoiceDate(saleInvoiceDate);
         saleList.setCustomerName(customeName);
         saleList.setCustomerAddress(saleCustomerAddress);
         saleList.setCustomerLevel(selectedCustomerLevel);
-
-
+        saleList.setPhone(saleCustomerPhNo1);
+        Intent intent = new Intent(SaleAddActivity.this, SaleMedicineInformationActivity.class);
+        startActivity(intent);
     }
 
-    private void insertDate() {
+    private void insertData() {
         SaleModel saleModel = new SaleModel();
         CustomerModel cModel = new CustomerModel();
 
@@ -234,17 +224,18 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
         String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
         String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
-        String saleInvoiceDate =  edtSaleInvoiceDate.getText().toString();
+        String saleInvoiceDate = edtSaleInvoiceDate.getText().toString();
 
+        cModel.setCustomerId(UUID.randomUUID().toString());
         cModel.setCustomerName(edtCustomerName_add.getText().toString());
-        cModel.setCustomerAddress(edtCustomerAddress_add.getText().toString());
         cModel.setCustomerAddress(saleCustomerAddress);
         cModel.setCustomerPhNo1(saleCustomerPhNo1);
         cModel.setCustomerPhNo2(saleCustomerPhNo2);
         cModel.setCustomerPhNo3(saleCustomerPhNo3);
         cModel.setMedicineLists(medicineList);
+       // Log.d(TAG, "insertData: invoide : "+MedicineModelList.getNumber());
 
-        saleModel.setSaleInvoiceNo(UUID.randomUUID().toString());
+        saleModel.setSaleInvoiceNo(String.valueOf(MedicineModelList.getNumber()));
         saleModel.setSaleInvoiceDate(saleInvoiceDate);
         saleModel.setSaleCustomerName(edtCustomerName_add.getText().toString());
         saleModel.setSaleCustomerAddress(edtCustomerAddress_add.getText().toString());
@@ -252,21 +243,28 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         saleModel.setSaleCustomerPhNo2(edtCustomerPhNo2.getText().toString());
         saleModel.setSaleCustomerPhNo3(edtCustomerPhNo3.getText().toString());
         saleModel.setCustomerModel(cModel);
+        saleModel.setSaleTotalAmt(tvTotalAmount.getText().toString());
 
-          realm.executeTransaction(realm -> {
+        realm.executeTransaction(realm -> {
             realm.copyToRealmOrUpdate(saleModel);
             realm.copyToRealmOrUpdate(cModel);
 
             Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
         });
-        Intent intent = new Intent(SaleAddActivity.this,SaleMedicineInformationActivity.class);
-        startActivity(intent);
+        MedicineModelList.clear();
+        SaleAddList.clear();
 
     }
+    private String invoiceNumber(){
+        int i = MedicineModelList.invoiceNumber + 1;
+        MedicineModelList.invoiceNumber = i;
+        return String.valueOf(i);
+    }
+
 
     private void setUpSaleInvoiceDate() {
         // Registration Date
-       // edtSaleInvoiceDate.setInputType(InputType.TYPE_NULL);
+        // edtSaleInvoiceDate.setInputType(InputType.TYPE_NULL);
         edtSaleInvoiceDate.setFocusableInTouchMode(false);
         edtSaleInvoiceDate.setOnClickListener(v -> {
             String localDate = edtSaleInvoiceDate.getText().toString();
@@ -301,9 +299,8 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
         super.onBackPressed();
+        finish();
     }
 
 

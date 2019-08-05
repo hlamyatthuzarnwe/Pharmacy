@@ -9,6 +9,7 @@ import io.realm.RealmList;
 public class MedicineModelList {
     //create an object of CaseRecordModel
     private static RealmList<MedicineModel> instance;
+    public static int invoiceNumber=0 ;
 
     //make the constructor private so that this class cannot be
     //instantiated
@@ -21,7 +22,13 @@ public class MedicineModelList {
         }
         return instance;
     }
+    public static int getNumber(){
+        invoiceNumber += 1;
+        return invoiceNumber;
+    }
     public static void clear(){
         instance = null;
     }
+
+
 }

@@ -28,461 +28,368 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Medicine Information"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/txt_size_large"
+                    android:textStyle="normal" />
+
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    app:cardCornerRadius="15dp">
+                    android:layout_margin="10dp"
+                    >
 
                     <LinearLayout
+                        android:padding="10dp"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Medicine Name" />
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/tvMedicineName_detail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Medicine Code" />
-
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/tvMedicineCode_detail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Category"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineCategory_detail"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    app:cardCornerRadius="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Cost Price"/>
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
                             <TextView
-                                android:layout_marginLeft="15dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:id="@+id/tvMedicineCostPerPc"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
+                                android:text="Medicine Name"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal" />
+                            <TextView
+                                android:id="@+id/tvMedicineName_detail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineCostPerDz"/>
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Medicine Code"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvMedicineCode_detail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Category"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineCategory_detail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Cost Price"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineCostPerPc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Quantity"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineQtyPerPc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                               android:text="Selling Price"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineSalePerPc1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+                        </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Quantity"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineQtyPerPc"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Company Name"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineCompanyName"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Company Address"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineCompanyAddress"/>
-
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Supplier Name"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSupplierName"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Contact Phone Number 1"/>
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/tvMedicinePh1"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Contact Phone Number 2"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicinePh2"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Contact Phone Number 3"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicinePh3"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Viber Phone Number"/>
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:id="@+id/tvMedicineViberPh"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Payment"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicinePayment"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Selling Price 1"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSalePerPc1"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSalePerDz1"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Selling Price 2"/>
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:id="@+id/tvMedicineSalePerPc2"/>
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:id="@+id/tvMedicineSalePerDz2"/>
-                </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Selling Price 3"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSalePerPc3"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSalePerDz3"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Selling Price 4"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSalePerPc4"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineSalePerDz4"/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Received Date "/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineReceivedDate"/>
-
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="15dp"
-                android:layout_marginTop="15dp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Expire Date"/>
-                <TextView
-                    android:layout_marginLeft="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/tvMedicineExpDate"/>
-
-            </LinearLayout>
-            </android.support.v7.widget.CardView>
+                    android:layout_marginStart="10dp"
+                    android:text="Supplier Information"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/txt_size_large" />
 
 
 
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:cardCornerRadius="15dp"
-                    android:layout_marginTop="15dp">
+                    android:layout_margin="10dp">
                     <LinearLayout
+                        android:padding="10dp"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="15dp"
-                            android:layout_marginTop="5dp"
-                            android:text="Note"/>
-                        <TextView
-                            android:layout_marginLeft="15dp"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Supplier Name"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal" />
+                            <TextView
+                                android:id="@+id/tvMedicineSupplierName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/tvMedicineNote"/>
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Company Name"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineCompanyName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Company Address"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineCompanyAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Contact Phone Number"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicinePh1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                               android:text="Payment"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicinePayment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                               android:text="Received Date "
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineReceivedDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Expire Date"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineExpDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                               android:text="Note"
+                                android:textSize="@dimen/txt_size_large"
+                                android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/tvMedicineNote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txt_size_large"/>
+                        </LinearLayout>
+
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 

@@ -270,6 +270,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 realm.copyToRealmOrUpdate(medicineModel);
                 Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
             });
+           finish();
         });
 
         spinnerAdd.setOnItemSelectedListener(this);
@@ -356,9 +357,8 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
         super.onBackPressed();
+        finish();
     }
 
     @Override

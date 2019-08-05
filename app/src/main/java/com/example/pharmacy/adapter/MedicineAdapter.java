@@ -56,7 +56,6 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
         public View mView;
         private Context context;
-        private SupplierModel supplierModel;
 
         @BindView(R.id.tvMedicineName)
         TextView tvMedicineName;

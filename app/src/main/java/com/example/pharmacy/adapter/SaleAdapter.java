@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.pharmacy.CustomerDetailActivity;
 import com.example.pharmacy.SaleDetailActivity;
+import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
@@ -19,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmList;
 
 public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder> {
 
@@ -81,7 +85,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         public void bind(SaleModel saleModel) {
 
             if (saleModel.getSaleInvoiceDate() != null) {
-                tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
+                tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceNo());
             }
             if (saleModel.getSaleCustomerName() != null) {
                 tvSaleCustomerName.setText(saleModel.getSaleCustomerName());
@@ -89,6 +93,18 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
 
             if (saleModel.getSaleTotalAmt() != null) {
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());
+            }
+            if (saleModel.getCustomerModel() != null){
+                ArrayList<String> arrayList = new ArrayList<>();
+                for (int i=0;i<saleModel.getCustomerModel().getMedicineLists().size();i++){
+                    arrayList.add(saleModel.getCustomerModel().getMedicineLists().get(i).getMedicineName());
+                    Log.d(TAG, "bind: name : "+saleModel.getCustomerModel().getMedicineLists().get(i));
+
+                }
+               // Log.d(TAG, "bind: medicine name : "+medicines);
+                String medicine = TextUtils.join(",",arrayList);
+                tvMedicineName.setText(medicine);
+                Log.d(TAG, "bind: test : "+medicine);
             }
 
 

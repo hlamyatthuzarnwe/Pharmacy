@@ -68,7 +68,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
             edtSaleMedicineName.setText(medicineModel.getMedicineName());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
             //  edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
-            edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
+           // edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
         }
         edtMedicinePcQty.addTextChangedListener(new TextWatcher() {
             @Override
@@ -115,8 +115,6 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 //                edtMedicneSubAmt.setText(Integer.toString(amount));
 //            }
 
-            MedicineModel medicineModel = new MedicineModel();
-
             medicineModel.setMedicineName(mName);
             medicineModel.setMedicineCostPerPc(mCostPerPc);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
@@ -127,7 +125,9 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
 
             Intent intent = new Intent(SaleMedicineDetailInformationActivity.this, SaleAddActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+
         });
 
     }

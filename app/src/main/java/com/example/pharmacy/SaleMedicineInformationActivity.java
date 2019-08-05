@@ -69,11 +69,6 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
             }
         });
 
-        rvMedicine.setOnClickListener(v -> {
-            Intent intent = new Intent(SaleMedicineInformationActivity.this,SaleMedicineDetailInformationActivity.class);
-            startActivity(intent);
-        });
-
     }
 
     private void init() {
