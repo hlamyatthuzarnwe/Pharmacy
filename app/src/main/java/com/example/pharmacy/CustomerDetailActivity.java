@@ -33,20 +33,11 @@ public class CustomerDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvCustomerName_detail)
     TextView tvCustomerName_detail;
 
-    @BindView(R.id.spinnerItemCustomerLevel)
-    TextView spinnerItemCustomerLevel;
-
     @BindView(R.id.tvCustomerAddress_detail)
     TextView tvCustomerAddress_detail;
 
     @BindView(R.id.tvCustomerPhNo1_detail)
     TextView tvCustomerPhNo1_detail;
-
-    @BindView(R.id.tvCustomerPhNo2_detail)
-    TextView tvCustomerPhNo2_detail;
-
-    @BindView(R.id.tvCustomerPhNo3_detail)
-    TextView tvCustomerPhNo3_detail;
 
     @BindView(R.id.tvCustomerNote_detail)
     TextView tvCustomerNote_detail;
@@ -69,12 +60,10 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
             tvCustomerName_detail.setText(customerModel.getCustomerName());
             tvCustomerName_detail.setText(customerModel.getCustomerName());
-            spinnerItemCustomerLevel.setText(customerModel.getCustomerLevel());
+          //  spinnerItemCustomerLevel.setText(customerModel.getCustomerLevel());
 //            tvCustomerLevel_detail.setText(customerModel.getCustomerLevel());
             tvCustomerAddress_detail.setText(customerModel.getCustomerAddress());
             tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
-            tvCustomerPhNo2_detail.setText(customerModel.getCustomerPhNo2());
-            tvCustomerPhNo3_detail.setText(customerModel.getCustomerPhNo3());
             tvCustomerNote_detail.setText(customerModel.getCustomerNote());
            // Log.d(TAG, "onCreate: note : "+customerModel.getCustomerNote());
 

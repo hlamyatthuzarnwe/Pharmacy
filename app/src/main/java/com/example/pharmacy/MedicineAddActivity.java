@@ -87,9 +87,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.edtMedicineViberPh)
     EditText edtMedicineViberPh;
 
-    @BindView(R.id.edtMedicinePayment)
-    EditText edtMedicinePayment;
-
     @BindView(R.id.edtSaleMedicinePcPrice1)
     EditText edtSaleMedicinePcPrice1;
 
@@ -176,7 +173,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             }
 
             edtMedicineViberPh.setText(medicineModel.getMedicineViberPh());
-            edtMedicinePayment.setText(medicineModel.getMedicinePayment());
+           // edtMedicinePayment.setText(medicineModel.getMedicinePayment());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
             edtSaleMedicineDzPrice1.setText(medicineModel.getMedicineSaleDzPerPrice1());
             edtSaleMedicinePcPrice2.setText(medicineModel.getMedicineSalePcPerPrice2());
@@ -205,7 +202,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             String mContactPh2 = edtContactMedicinePh2.getText().toString();
             String mContactPh3 = edtMedicineContactPh3.getText().toString();
             String mViberPh = edtMedicineViberPh.getText().toString();
-            String mPayment = edtMedicinePayment.getText().toString();
+          //  String mPayment = edtMedicinePayment.getText().toString();
             String mSalePricePc1 = edtSaleMedicinePcPrice1.getText().toString();
             String mSalePriceDz1 = edtSaleMedicineDzPrice1.getText().toString();
             String mSalePricePc2 = edtSaleMedicinePcPrice2.getText().toString();
@@ -235,7 +232,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
 
             medicineModel.setMedicineViberPh(mViberPh);
-            medicineModel.setMedicinePayment(mPayment);
+           // medicineModel.setMedicinePayment(mPayment);
             medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
             medicineModel.setMedicineSaleDzPerPrice1(mSalePriceDz1);
             medicineModel.setMedicineSalePcPerPrice2(mSalePricePc2);

@@ -26,8 +26,6 @@ public class SaleDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
 
-  //  @BindView(R.id.spinnerAdd)
-   // TextView customerLevel;
 
     @BindView(R.id.tvSaleInvoiceDate_detail)
     TextView tvSaleInvoiceDate;
@@ -41,32 +39,24 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleCustomerPhNo1_detail)
     TextView tvSaleCustomerPhNo1_detail;
 
-    @BindView(R.id.tvSaleCustomerPhNo2_detail)
-    TextView tvSaleCustomerPhNo2_detail;
-
-    @BindView(R.id.tvSaleCustomerPhNo3_detail)
-    TextView tvSaleCustomerPhNo3_detail;
-
     @BindView(R.id.tvSaleMedicineName_detail)
     TextView tvSaleMedicineName_detail;
 
     @BindView(R.id.tvSalePricePerPc_detail)
     TextView tvSalePricePerPc_detail;
 
-    @BindView(R.id.tvSalePricePerDz_detail)
-    TextView tvSalePricePerDz_detail;
-
-   /* @BindView(R.id.tvMedicineQtyPerPc_detail)
+    @BindView(R.id.tvSaleQuantityPerPc_detail)
     TextView tvMedicineQtyPerPc;
 
-    @BindView(R.id.tvMedicineQtyPerDz_detail)
-    TextView tvMedicineQtyPerDz;*/
+   /* @BindView(R.id.tvMedicineQtyPerDz_detail)
+    TextView tvMedicineQtyPerDz;
+
+
+  @BindView(R.id.spinnerAdd)
+   TextView customerLevel;*/
 
     @BindView(R.id.tvSaleTotalAmt_detail)
     TextView tvSaleTotalAmt_detail;
-
-    @BindView(R.id.tvSaleNote_detail)
-    TextView tvSaleNote_detail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,15 +77,12 @@ public class SaleDetailActivity extends AppCompatActivity {
          //   customerLevel.setText(saleModel.getSaleCustomerLevel());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
             tvSaleCustomerPhNo1_detail.setText(saleModel.getSaleCustomerPhNo1());
-            tvSaleCustomerPhNo2_detail.setText(saleModel.getSaleCustomerPhNo2());
-            tvSaleCustomerPhNo3_detail.setText(saleModel.getSaleCustomerPhNo3());
+
             tvSaleMedicineName_detail.setText(saleModel.getSaleMedicineName());
             tvSalePricePerPc_detail.setText(saleModel.getSaleCostPerPc());
-            tvSalePricePerDz_detail.setText(saleModel.getSaleCostPerDz());
-         //   tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
+            tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
            // tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
             tvSaleTotalAmt_detail.setText(saleModel.getSaleTotalAmt());
-            tvSaleNote_detail.setText(saleModel.getSaleNote());
         }
     }
 

@@ -24,290 +24,269 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Sale Information"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txt_size_large"
+                android:textStyle="normal" />
+
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
+                android:layout_margin="10dp">
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
                     <TextView
+                        android:text="Sale Invoice Date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Sale Invoice Date"/>
+                        android:textSize="@dimen/txt_size_large"
+                        android:textStyle="normal"/>
                     <TextView
                         android:id="@+id/tvSaleInvoiceDate_detail"
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-           <android.support.v7.widget.CardView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="15dp"
-               app:cardCornerRadius="15dp">
-               <LinearLayout
-                   android:orientation="vertical"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:layout_marginLeft="15dp"
-                       android:layout_marginTop="5dp"
-                       android:text="Customer Name"/>
-                   <TextView
-                       android:id="@+id/tvSaleCustomerName_detail"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="15dp"
-                       android:layout_weight="1"/>
-
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:layout_marginLeft="15dp"
-                       android:layout_marginTop="5dp"
-                       android:text="Customer Address"/>
-                   <TextView
-                       android:id="@+id/tvSaleCustomerAddress_detail"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="15dp"
-                       android:layout_weight="1"/>
-
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="1"
-                       android:layout_marginLeft="15dp"
-                       android:layout_marginTop="5dp"
-                       android:text="Customer Level "/>
-                   <TextView
-                       android:id="@+id/tvSaleCustomerLevel1_detail"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="15dp"
-                       android:layout_weight="1"/>
-
-               </LinearLayout>
-           </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Customer Phone No 1"/>
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/txt_size_large"/>
+
+                </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:text="Customer Information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txt_size_large" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="Customer Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/txt_size_large"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:id="@+id/tvSaleCustomerName_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/txt_size_large"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="Customer Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/txt_size_large"
+                        android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/tvSaleCustomerAddress_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/txt_size_large"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="Contact PhNo. "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/txt_size_large"
+                        android:textStyle="normal"/>
                     <TextView
                         android:id="@+id/tvSaleCustomerPhNo1_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Customer Phone No 2"/>
-                    <TextView
-                        android:id="@+id/tvSaleCustomerPhNo2_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Customer Phone No 3"/>
-                    <TextView
-                        android:id="@+id/tvSaleCustomerPhNo3_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/txt_size_large"/>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+
+               </LinearLayout>
+
+           </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Medicine Information"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txt_size_large"
+                android:textStyle="normal" />
+
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
                     <TextView
+                        android:text="Medicine Name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Medicine Name"/>
+                        android:textSize="@dimen/txt_size_large"
+                        android:textStyle="normal"/>
                     <TextView
                         android:id="@+id/tvSaleMedicineName_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/txt_size_large"/>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="Quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="@dimen/txt_size_large"
+                            android:textStyle="normal"/>
+                        <TextView
+                            android:id="@+id/tvSaleQuantityPerPc_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/txt_size_large"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="Price "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="@dimen/txt_size_large"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:id="@+id/tvSalePricePerPc_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/txt_size_large"/>
+
+                    </LinearLayout>
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
                     <TextView
+                        android:text="Total Amount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Price "/>
-                    <TextView
-                        android:id="@+id/tvSalePricePerPc_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-                    <TextView
-                        android:id="@+id/tvSalePricePerDz_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="15dp"
-                        android:text="Quantity"/>
-                    <TextView
-                        android:id="@+id/tvSaleQuantityPerPc_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-                    <TextView
-                        android:id="@+id/tvSaleQuantityPerDz_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Total Amount"/>
+                        android:textSize="@dimen/txt_size_large"
+                        android:textStyle="normal"/>
                     <TextView
                         android:id="@+id/tvSaleTotalAmt_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"/>
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="15dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="15dp"
                         android:layout_weight="1"
-                        android:text="Note" />
-                    <TextView
-                        android:id="@+id/tvSaleNote_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/txt_size_large"/>
+
                 </LinearLayout>
+
+
+                </LinearLayout>
+
             </android.support.v7.widget.CardView>
-
-
 
         </LinearLayout>
 

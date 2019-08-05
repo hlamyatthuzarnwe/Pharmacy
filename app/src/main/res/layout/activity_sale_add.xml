@@ -143,7 +143,7 @@
                             android:id="@+id/edtCustomerPhNo1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Customer Phone Number 1"
+                            android:hint="Contact PhNo. "
                             android:inputType="number"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>

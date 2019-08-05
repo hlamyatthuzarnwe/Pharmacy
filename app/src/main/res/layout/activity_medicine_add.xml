@@ -140,18 +140,6 @@
                         android:layout_margin="5dp"
                         android:drawSelectorOnTop="true" />
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
-                            android:id="@+id/edtMedicinePayment"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Payment"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"

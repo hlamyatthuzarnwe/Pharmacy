@@ -38,11 +38,6 @@ public class SupplierDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSupplierPhoneNo1_detail)
     TextView tvSupplierPhoneNo1_detail;
 
-    @BindView(R.id.tvSupplierPhoneNo2_detail)
-    TextView tvSupplierPhoneNo2_detail;
-
-    @BindView(R.id.tvSupplierPhoneNo3_detail)
-    TextView tvSupplierPhoneNo3_detail;
 
     @BindView(R.id.tvSupplierNote_detail)
     TextView tvSupplierNote_detail;
@@ -66,8 +61,6 @@ public class SupplierDetailActivity extends AppCompatActivity {
             tvCompanyName_detail.setText(supplierModel.getCompanyName());
             tvCompanyAddress_detail.setText(supplierModel.getCompanyAddress());
             tvSupplierPhoneNo1_detail.setText(supplierModel.getSuplier_phno1());
-            tvSupplierPhoneNo2_detail.setText(supplierModel.getSupplier_phno2());
-            tvSupplierPhoneNo3_detail.setText(supplierModel.getSupplier_phno3());
             tvSupplierNote_detail.setText(supplierModel.getSupplierNote());
         }
 
