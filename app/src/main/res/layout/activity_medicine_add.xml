@@ -98,7 +98,7 @@
                             android:id="@+id/edtMedicinePcCostPrice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Cost Per Medicine"
+                            android:hint="Cost Price"
                             android:inputType="number"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -151,24 +151,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Selling Price Per Pc"
+                            android:hint="Sell Price"
                             android:inputType="number"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
-                            android:id="@+id/edtSaleMedicineDzPrice1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Selling Price Per Dz"
-                            android:inputType="number"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
 
 
                     <EditText
@@ -231,62 +218,6 @@
                         android:layout_margin="5dp">
 
                         <EditText
-                            android:id="@+id/edtContactMedicinePh1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Supplier Phone Number 1"
-                            android:inputType="number"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
-                            android:id="@+id/edtContactMedicinePh2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Supplier Phone Number 2"
-                            android:inputType="number"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
-                            android:id="@+id/edtMedicineContactPh3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Supplier Phone Number 3"
-                            android:inputType="number"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
-                            android:id="@+id/edtMedicineViberPh"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Viber Phone Number"
-                            android:inputType="number"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
                             android:id="@+id/edtMedicineCompanyName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -306,6 +237,21 @@
                             android:hint="Address"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <EditText
+                            android:id="@+id/edtContactMedicinePh1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contact Phone Number "
+                            android:inputType="number"
+                            android:padding="5dp" />
+                    </android.support.design.widget.TextInputLayout>
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

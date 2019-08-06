@@ -41,11 +41,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Medicine Type : "
+                    android:text="Company Name : "
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvMedicineCategory"
+                    android:id="@+id/tvMedicineCompanyName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>

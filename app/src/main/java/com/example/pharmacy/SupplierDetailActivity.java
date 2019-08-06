@@ -38,10 +38,6 @@ public class SupplierDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSupplierPhoneNo1_detail)
     TextView tvSupplierPhoneNo1_detail;
 
-
-    @BindView(R.id.tvSupplierNote_detail)
-    TextView tvSupplierNote_detail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +57,6 @@ public class SupplierDetailActivity extends AppCompatActivity {
             tvCompanyName_detail.setText(supplierModel.getCompanyName());
             tvCompanyAddress_detail.setText(supplierModel.getCompanyAddress());
             tvSupplierPhoneNo1_detail.setText(supplierModel.getSuplier_phno1());
-            tvSupplierNote_detail.setText(supplierModel.getSupplierNote());
         }
 
     }

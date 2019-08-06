@@ -39,10 +39,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvCustomerPhNo1_detail)
     TextView tvCustomerPhNo1_detail;
 
-    @BindView(R.id.tvCustomerNote_detail)
-    TextView tvCustomerNote_detail;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,14 +54,17 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
         if(customerModel != null){
 
+            tvCustomerInvoiceDate_detail.setText(customerModel.getCustomerInvoiceDate());
+            Log.d(TAG,"onCreate: InvoiceDate : "+customerModel.getCustomerInvoiceDate());
             tvCustomerName_detail.setText(customerModel.getCustomerName());
-            tvCustomerName_detail.setText(customerModel.getCustomerName());
+
           //  spinnerItemCustomerLevel.setText(customerModel.getCustomerLevel());
 //            tvCustomerLevel_detail.setText(customerModel.getCustomerLevel());
             tvCustomerAddress_detail.setText(customerModel.getCustomerAddress());
             tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
-            tvCustomerNote_detail.setText(customerModel.getCustomerNote());
+           // tvCustomerNote_detail.setText(customerModel.getCustomerNote());
            // Log.d(TAG, "onCreate: note : "+customerModel.getCustomerNote());
+
 
         }
     }

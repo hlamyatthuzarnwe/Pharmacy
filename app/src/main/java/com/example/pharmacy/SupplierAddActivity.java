@@ -43,15 +43,6 @@ public class SupplierAddActivity extends AppCompatActivity {
     @BindView(R.id.edtSupplierPhNo1)
     EditText edtSupplierPhNo1;
 
-    @BindView(R.id.edtSupplierPhNo2)
-    EditText edtSupplierPhNo2;
-
-    @BindView(R.id.edtSupplierPhNo3)
-    EditText edtSupplierPhNo3;
-
-    @BindView(R.id.edtSupplierNote_add)
-    EditText edtSupplierNote_add;
-
     @BindView(R.id.relativeSave_supplierAdd)
     RelativeLayout relativeSave;
 
@@ -75,18 +66,13 @@ public class SupplierAddActivity extends AppCompatActivity {
             edtCompanyName_add.setText(supplierModel.getCompanyName());
             edtCompanyAddress_add.setText(supplierModel.getCompanyAddress());
             edtSupplierPhNo1.setText(supplierModel.getSuplier_phno1());
-            edtSupplierPhNo2.setText(supplierModel.getSupplier_phno2());
-            edtSupplierPhNo3.setText(supplierModel.getSupplier_phno3());
-            edtSupplierNote_add.setText(supplierModel.getSupplierNote());
+
         }
         relativeSave.setOnClickListener(v -> {
             String sName = edtSupplierName_add.getText().toString();
             String sCompanyName = edtCompanyName_add.getText().toString();
             String sCompanyAddress = edtCompanyAddress_add.getText().toString();
             String sPhNo1 = edtSupplierPhNo1.getText().toString();
-            String sPhNo2 = edtSupplierPhNo2.getText().toString();
-            String sPhNo3 = edtSupplierPhNo3.getText().toString();
-            String sNote = edtSupplierNote_add.getText().toString();
 
             SupplierModel supplierModel = new SupplierModel();
 
@@ -95,9 +81,6 @@ public class SupplierAddActivity extends AppCompatActivity {
             supplierModel.setCompanyName(sCompanyName);
             supplierModel.setCompanyAddress(sCompanyAddress);
             supplierModel.setSuplier_phno1(sPhNo1);
-            supplierModel.setSupplier_phno2(sPhNo2);
-            supplierModel.setSupplier_phno3(sPhNo3);
-            supplierModel.setSupplierNote(sNote);
 
             realm.executeTransaction(realm -> {
                 realm.copyToRealmOrUpdate(supplierModel);

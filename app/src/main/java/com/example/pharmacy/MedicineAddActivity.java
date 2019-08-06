@@ -78,20 +78,9 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.edtContactMedicinePh1)
     EditText edtContactMedicinePh1;
 
-    @BindView(R.id.edtContactMedicinePh2)
-    EditText edtContactMedicinePh2;
-
-    @BindView(R.id.edtMedicineContactPh3)
-    EditText edtMedicineContactPh3;
-
-    @BindView(R.id.edtMedicineViberPh)
-    EditText edtMedicineViberPh;
 
     @BindView(R.id.edtSaleMedicinePcPrice1)
     EditText edtSaleMedicinePcPrice1;
-
-    @BindView(R.id.edtSaleMedicineDzPrice1)
-    EditText edtSaleMedicineDzPrice1;
 
     @BindView(R.id.edtSaleMedicinePcPrice2)
     EditText edtSaleMedicinePcPrice2;
@@ -168,14 +157,12 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
                 edtSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
                 edtContactMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
-                edtContactMedicinePh2.setText(medicineModel.getSupplierModel().getSupplier_phno2());
-                edtMedicineContactPh3.setText(medicineModel.getSupplierModel().getSupplier_phno3());
+
             }
 
-            edtMedicineViberPh.setText(medicineModel.getMedicineViberPh());
+
            // edtMedicinePayment.setText(medicineModel.getMedicinePayment());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
-            edtSaleMedicineDzPrice1.setText(medicineModel.getMedicineSaleDzPerPrice1());
             edtSaleMedicinePcPrice2.setText(medicineModel.getMedicineSalePcPerPrice2());
             edtSaleMedicineDzPrice2.setText(medicineModel.getMedicineSaleDzPerPrice2());
             edtSaleMedicinePcPrice3.setText(medicineModel.getMedicineSalePcPerPrice3());
@@ -199,12 +186,8 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             String address = edtAddress.getText().toString();
             String mSupplierName = edtSupplierName.getText().toString();
             String mContactPh1 = edtContactMedicinePh1.getText().toString();
-            String mContactPh2 = edtContactMedicinePh2.getText().toString();
-            String mContactPh3 = edtMedicineContactPh3.getText().toString();
-            String mViberPh = edtMedicineViberPh.getText().toString();
           //  String mPayment = edtMedicinePayment.getText().toString();
             String mSalePricePc1 = edtSaleMedicinePcPrice1.getText().toString();
-            String mSalePriceDz1 = edtSaleMedicineDzPrice1.getText().toString();
             String mSalePricePc2 = edtSaleMedicinePcPrice2.getText().toString();
             String mSalePriceDz2 = edtSaleMedicineDzPrice2.getText().toString();
             String mSalePricePc3 = edtSaleMedicinePcPrice3.getText().toString();
@@ -231,10 +214,9 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             medicineModel.setMedicineCostPerDz(mCostPerDz);
             medicineModel.setMedicineQtyPerPc(mQtyPerPc);
 
-            medicineModel.setMedicineViberPh(mViberPh);
+
            // medicineModel.setMedicinePayment(mPayment);
             medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
-            medicineModel.setMedicineSaleDzPerPrice1(mSalePriceDz1);
             medicineModel.setMedicineSalePcPerPrice2(mSalePricePc2);
             medicineModel.setMedicineSaleDzPerPrice2(mSalePriceDz2);
             medicineModel.setMedicineSalePcPerPrice3(mSalePricePc3);
@@ -257,8 +239,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             supplierModel.setCompanyAddress(address);
             supplierModel.setSupplierName(mSupplierName);
             supplierModel.setSuplier_phno1(mContactPh1);
-            supplierModel.setSupplier_phno2(mContactPh2);
-            supplierModel.setSupplier_phno3(mContactPh3);
 
             medicineModel.setSupplierModel(supplierModel);
 

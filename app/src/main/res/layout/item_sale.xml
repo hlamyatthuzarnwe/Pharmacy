@@ -40,8 +40,6 @@
                     android:textSize="@dimen/txt_size_large"
                     tool:text="Medicine Name"/>
 
-
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,7 +69,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sale Total Amount : "
+                    android:text="Total Amount : "
                     android:textStyle="bold" />
 
                 <TextView

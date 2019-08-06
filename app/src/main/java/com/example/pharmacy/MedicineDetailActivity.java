@@ -29,12 +29,8 @@ public class MedicineDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvMedicineName_detail)
     TextView tvMedicineName_detail;
 
-    @BindView(R.id.tvMedicineCategory_detail)
-    TextView tvMedicineCategory_detail;
-
    @BindView(R.id.tvMedicineCostPerPc)
    TextView tvMedicineCostPerPc;
-
 
    @BindView(R.id.tvMedicineQtyPerPc)
    TextView tvMedicineQtyPerPc;
@@ -51,7 +47,6 @@ public class MedicineDetailActivity extends AppCompatActivity {
    @BindView(R.id.tvMedicinePh1)
    TextView tvMedicinePh1;
 
-
     @BindView(R.id.tvMedicineSalePerPc1)
     TextView tvMedicineSalePerPc1;
 
@@ -60,9 +55,6 @@ public class MedicineDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.tvMedicineExpDate)
     TextView tvMedicineExpDate;
-
-    @BindView(R.id.tvMedicineNote)
-    TextView tvMedicineNote;
 
     private Toolbar toolbar;
     private Context context;
@@ -85,7 +77,6 @@ public class MedicineDetailActivity extends AppCompatActivity {
         if(medicineModel != null){
 
             tvMedicineName_detail.setText(medicineModel.getMedicineName());
-            tvMedicineCategory_detail.setText(medicineModel.getMedicineCategory());
             tvMedicineCostPerPc.setText(medicineModel.getMedicineCostPerPc());
             tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
 
@@ -101,7 +92,6 @@ public class MedicineDetailActivity extends AppCompatActivity {
 
             tvMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
             tvMedicineExpDate.setText(medicineModel.getMedicineExpDate());
-            tvMedicineNote.setText(medicineModel.getMedicineNote());
         }
     }
 

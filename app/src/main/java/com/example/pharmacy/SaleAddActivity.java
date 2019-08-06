@@ -49,28 +49,35 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
     String level;
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
+
     @BindView(R.id.edtCustomerName_add)
     EditText edtCustomerName_add;
+
     @BindView(R.id.edtCustomerAddress_add)
     EditText edtCustomerAddress_add;
+
     @BindView(R.id.edtCustomerPhNo1)
     EditText edtCustomerPhNo1;
-    @BindView(R.id.edtCustomerPhNo2)
-    EditText edtCustomerPhNo2;
-    @BindView(R.id.edtCustomerPhNo3)
-    EditText edtCustomerPhNo3;
+
+
     @BindView(R.id.rvMedicine_SaleAddMedicine)
     RecyclerView rvMedicine;
+
     @BindView(R.id.tvTotalAmount_saleAdd)
     TextView tvTotalAmount;
+
     @BindView(R.id.spinnerAdd)
     Spinner spinnerAdd;
+
     @BindView(R.id.linearLayout_medicine_saleAdd)
     RelativeLayout linearLayout_medicine_saleAdd;
+
     @BindView(R.id.linearAddMedicine_saleAdd)
     LinearLayout btnMedicineAdd;
+
     @BindView(R.id.relativeSave_saleAdd)
     RelativeLayout relativeSave;
+
     private Realm realm;
     private MedicineModel medicineModel;
 
@@ -85,6 +92,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 //
 //    @BindView(R.id.tvMedicineSubAmt_saleMedicine)
 //    EditText tvMedicineSubAmt_saleMedicine;
+
     private SaleAddMedicineAdapter adapter;
     private Toolbar toolbar;
 
@@ -222,16 +230,12 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
         String saleCustomerAddress = edtCustomerAddress_add.getText().toString();
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
-        String saleCustomerPhNo2 = edtCustomerPhNo2.getText().toString();
-        String saleCustomerPhNo3 = edtCustomerPhNo3.getText().toString();
         String saleInvoiceDate = edtSaleInvoiceDate.getText().toString();
 
         cModel.setCustomerId(UUID.randomUUID().toString());
         cModel.setCustomerName(edtCustomerName_add.getText().toString());
         cModel.setCustomerAddress(saleCustomerAddress);
         cModel.setCustomerPhNo1(saleCustomerPhNo1);
-        cModel.setCustomerPhNo2(saleCustomerPhNo2);
-        cModel.setCustomerPhNo3(saleCustomerPhNo3);
         cModel.setMedicineLists(medicineList);
        // Log.d(TAG, "insertData: invoide : "+MedicineModelList.getNumber());
 
@@ -240,8 +244,6 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         saleModel.setSaleCustomerName(edtCustomerName_add.getText().toString());
         saleModel.setSaleCustomerAddress(edtCustomerAddress_add.getText().toString());
         saleModel.setSaleCustomerPhNo1(edtCustomerPhNo1.getText().toString());
-        saleModel.setSaleCustomerPhNo2(edtCustomerPhNo2.getText().toString());
-        saleModel.setSaleCustomerPhNo3(edtCustomerPhNo3.getText().toString());
         saleModel.setCustomerModel(cModel);
         saleModel.setSaleTotalAmt(tvTotalAmount.getText().toString());
 

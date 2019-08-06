@@ -60,8 +60,8 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         @BindView(R.id.tvMedicineName)
         TextView tvMedicineName;
 
-        @BindView(R.id.tvMedicineCategory)
-        TextView tvMedicineCategory_detail;
+        @BindView(R.id.tvMedicineCompanyName)
+        TextView tvMedicineCompanyName;
 
         @BindView(R.id.tvMedicineSupplierName)
         TextView tvMedicineSupplierName;
@@ -80,15 +80,12 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             if (medicineModel.getMedicineName() != null) {
                 tvMedicineName.setText(" " + medicineModel.getMedicineName());
             }
-            if (medicineModel.getMedicineCategory() != null) {
-                tvMedicineCategory_detail.setText(" " + medicineModel.getMedicineCategory());
+            if (medicineModel.getSupplierModel().getCompanyName() != null) {
+                tvMedicineCompanyName.setText(" " + medicineModel.getSupplierModel().getCompanyName());
             }
             if (medicineModel.getSupplierModel() != null) {
                 tvMedicineSupplierName.setText(" " + medicineModel.getSupplierModel().getSupplierName());
             }
-//            if(supplierModel.getSupplierName() != null){
-//                tvMedicineSupplierName .setText(medicineModel.getSupplierModel().getSupplierName());
-//            }
 
             if (medicineModel.getMedicineQtyPerPc() != null) {
                 tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
