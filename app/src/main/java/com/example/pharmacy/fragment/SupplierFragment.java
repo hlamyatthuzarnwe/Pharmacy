@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.pharmacy.adapter.SupplierAdapter;
 import com.example.pharmacy.model.MedicineModel;
@@ -44,6 +45,9 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     @BindView(R.id.rvSupplier)
     RecyclerView rvSupplier;
+
+    @BindView(R.id.tvCount_supplierFragment)
+    TextView tvCount;
 
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
@@ -116,25 +120,34 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
         RealmResults<SupplierModel> supplierList = realm.where(SupplierModel.class)
                 .contains("supplierName", query, Case.INSENSITIVE)
                 .findAll();
-        RealmResults<SupplierModel> test = realm.where(SupplierModel.class)
-                .findAll();
 
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
-        Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+supplierList.size());
+
+        getSupplierCount(supplierList.size());
+
         supplierAdapter.getSupplierModelList().addAll(supplierList);
         supplierAdapter.notifyDataSetChanged();
     }
 
     private void getAllSupplier() {
+        supplierAdapter.clear();
         final RealmResults<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
         Log.d(TAG,"getData : "+supplierModelList.size());
 
         if(supplierModelList != null && !supplierModelList.isEmpty()){
+           getSupplierCount(supplierModelList.size());
             supplierAdapter.getSupplierModelList().addAll(supplierModelList);
         }
         supplierAdapter.notifyDataSetChanged();
 
+    }
+    private void getSupplierCount(int count){
+        if (count == 1) {
+            tvCount.setText(String.valueOf(count)+" Supplier");
+        }else if (count > 1){
+            tvCount.setText(String.valueOf(count)+" Suppliers");
+        }
     }
 
     @Override

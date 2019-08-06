@@ -214,7 +214,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
 
-
+        Log.d(TAG, "insertSaleItems: invoice : "+saleInvoiceDate);
         saleList.setInvoiceDate(saleInvoiceDate);
         saleList.setCustomerName(customeName);
         saleList.setCustomerAddress(saleCustomerAddress);

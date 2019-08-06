@@ -4,15 +4,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pharmacy.adapter.MedicineSaleDetailAdapter;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +31,8 @@ public class SaleDetailActivity extends AppCompatActivity {
     private SaleModel saleModel;
     private Toolbar toolbar;
     private Context context;
+    private MedicineSaleDetailAdapter adapter;
+    private ArrayList<MedicineModel> mModel= new ArrayList<>();
 
 
     @BindView(R.id.tvSaleInvoiceDate_detail)
@@ -39,14 +47,11 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleCustomerPhNo1_detail)
     TextView tvSaleCustomerPhNo1_detail;
 
-    @BindView(R.id.tvSaleMedicineName_detail)
-    TextView tvSaleMedicineName_detail;
 
-    @BindView(R.id.tvSalePricePerPc_detail)
-    TextView tvSalePricePerPc_detail;
 
-    @BindView(R.id.tvSaleQuantityPerPc_detail)
-    TextView tvMedicineQtyPerPc;
+
+
+
 
    /* @BindView(R.id.tvMedicineQtyPerDz_detail)
     TextView tvMedicineQtyPerDz;
@@ -55,8 +60,10 @@ public class SaleDetailActivity extends AppCompatActivity {
   @BindView(R.id.spinnerAdd)
    TextView customerLevel;*/
 
-    @BindView(R.id.tvSaleTotalAmt_detail)
-    TextView tvSaleTotalAmt_detail;
+
+
+    @BindView(R.id.rvMedicine_saleDetail)
+    RecyclerView rvMedicine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +72,17 @@ public class SaleDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
         saleModel = (SaleModel) getIntent().getParcelableExtra("SaleModel");
+        mModel = getIntent().getParcelableArrayListExtra("medicineModel");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Detail ");
         setSupportActionBar(toolbar);
+
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        adapter = new MedicineSaleDetailAdapter();
+        rvMedicine.setAdapter(adapter);
+        rvMedicine.setLayoutManager(manager);
+
 
         if(saleModel != null){
            // tvSaleInvoiceNo.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
@@ -77,12 +91,17 @@ public class SaleDetailActivity extends AppCompatActivity {
          //   customerLevel.setText(saleModel.getSaleCustomerLevel());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
             tvSaleCustomerPhNo1_detail.setText(saleModel.getSaleCustomerPhNo1());
+            Log.d(TAG, "onCreate: size : "+saleModel.getCustomerModel().getCustomerAddress());
+           // adapter.getMedicineModelList().addAll(saleModel.getCustomerModel().getMedicineLists());
+            //adapter.notifyDataSetChanged();
 
-            tvSaleMedicineName_detail.setText(saleModel.getSaleMedicineName());
-            tvSalePricePerPc_detail.setText(saleModel.getSaleCostPerPc());
-            tvMedicineQtyPerPc.setText(saleModel.getSaleQtyPerPc());
            // tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
-            tvSaleTotalAmt_detail.setText(saleModel.getSaleTotalAmt());
+        }
+        if (mModel != null){
+            Log.d(TAG, "onCreate: size : "+mModel.size());
+          adapter.clear();
+          adapter.getMedicineModelList().addAll(mModel);
+          adapter.notifyDataSetChanged();
         }
     }
 

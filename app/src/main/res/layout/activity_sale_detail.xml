@@ -162,114 +162,29 @@
 
            </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <TextView
+                android:padding="10dp"
+                android:textSize="@dimen/txt_size_large"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Medicine Information"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp">
+                android:layout_height="wrap_content" />
 
-                <LinearLayout
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvMedicine_saleDetail"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:text="Medicine Name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="@dimen/txt_size_large"
-                        android:textStyle="normal"/>
-                    <TextView
-                        android:id="@+id/tvSaleMedicineName_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/txt_size_large"/>
-
-                </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:text="Quantity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="@dimen/txt_size_large"
-                            android:textStyle="normal"/>
-                        <TextView
-                            android:id="@+id/tvSaleQuantityPerPc_detail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/txt_size_large"/>
-
-                    </LinearLayout>
+                </android.support.v7.widget.RecyclerView>
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="horizontal">
 
-                        <TextView
-                            android:text="Price "
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textSize="@dimen/txt_size_large"
-                            android:textStyle="normal" />
-                        <TextView
-                            android:id="@+id/tvSalePricePerPc_detail"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/txt_size_large"/>
-
-                    </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:text="Total Amount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="@dimen/txt_size_large"
-                        android:textStyle="normal"/>
-                    <TextView
-                        android:id="@+id/tvSaleTotalAmt_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/txt_size_large"/>
-
-                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
 
 
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 

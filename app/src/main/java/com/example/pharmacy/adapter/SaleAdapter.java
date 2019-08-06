@@ -29,6 +29,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
     private static final String TAG = "SaleAdapter";
     private List<SaleModel> saleModelList = new ArrayList<>();
 
+
     public void clear() {
         saleModelList.clear();
     }
@@ -74,6 +75,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
 
         @BindView(R.id.tvSaleTotalAmt)
         TextView tvSaleTotalAmt;
+        private ArrayList<MedicineModel> medicineModels = new ArrayList<>();
 
         public SaleViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,21 +98,26 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             }
             if (saleModel.getCustomerModel() != null){
                 ArrayList<String> arrayList = new ArrayList<>();
+
                 for (int i=0;i<saleModel.getCustomerModel().getMedicineLists().size();i++){
+                    medicineModels.add(saleModel.getCustomerModel().getMedicineLists().get(i));
                     arrayList.add(saleModel.getCustomerModel().getMedicineLists().get(i).getMedicineName());
                     Log.d(TAG, "bind: name : "+saleModel.getCustomerModel().getMedicineLists().get(i));
 
                 }
                // Log.d(TAG, "bind: medicine name : "+medicines);
-                String medicine = TextUtils.join(",",arrayList);
+                String medicine = TextUtils.join(", ",arrayList);
                 tvMedicineName.setText(medicine);
                 Log.d(TAG, "bind: test : "+medicine);
+                Log.d(TAG, "bind: origin size : "+saleModel.getCustomerModel().getMedicineLists().size());
+                Log.d(TAG, "bind: size : "+medicineModels.size());
             }
 
 
             saleView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleDetailActivity.class);
                 intent.putExtra("SaleModel", saleModel);
+                intent.putExtra("medicineModel",medicineModels);
                 context.startActivity(intent);
             });
 

@@ -89,11 +89,7 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
             if(supplierModel.getCompanyAddress() != null){
                 tvCompanyAddress.setText(supplierModel.getCompanyAddress());
             }
-            sView.setOnClickListener(v -> {
-                Intent intent = new Intent(context, SupplierDetailActivity.class);
-                intent.putExtra("SupplierModel",supplierModel);
-                context.startActivity(intent);
-            });
+
         }
     }
 }

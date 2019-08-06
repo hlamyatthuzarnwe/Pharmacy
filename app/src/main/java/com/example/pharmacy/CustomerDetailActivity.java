@@ -13,11 +13,14 @@ import android.widget.Toast;
 
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
+import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmModel;
+import io.realm.RealmResults;
 
 public class CustomerDetailActivity extends AppCompatActivity {
 
@@ -52,18 +55,24 @@ public class CustomerDetailActivity extends AppCompatActivity {
         toolbar.setTitle("Customer Detail ");
         setSupportActionBar(toolbar);
 
-        if(customerModel != null){
+        if (customerModel != null) {
+            SaleModel saleModel = realm.where(SaleModel.class)
+                    .equalTo("customerModel.customerId", customerModel.getCustomerId())
+                    .findFirst();
 
-            tvCustomerInvoiceDate_detail.setText(customerModel.getCustomerInvoiceDate());
-            Log.d(TAG,"onCreate: InvoiceDate : "+customerModel.getCustomerInvoiceDate());
+            if (saleModel != null){
+                tvCustomerInvoiceDate_detail.setText(saleModel.getSaleInvoiceDate());
+                Log.d(TAG, "onCreate: InvoiceDate : " + saleModel.getSaleInvoiceDate());
+            }
+
             tvCustomerName_detail.setText(customerModel.getCustomerName());
 
-          //  spinnerItemCustomerLevel.setText(customerModel.getCustomerLevel());
+            //  spinnerItemCustomerLevel.setText(customerModel.getCustomerLevel());
 //            tvCustomerLevel_detail.setText(customerModel.getCustomerLevel());
             tvCustomerAddress_detail.setText(customerModel.getCustomerAddress());
             tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
-           // tvCustomerNote_detail.setText(customerModel.getCustomerNote());
-           // Log.d(TAG, "onCreate: note : "+customerModel.getCustomerNote());
+            // tvCustomerNote_detail.setText(customerModel.getCustomerNote());
+            // Log.d(TAG, "onCreate: note : "+customerModel.getCustomerNote());
 
 
         }
@@ -71,22 +80,21 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.edit_detail,menu);
+        getMenuInflater().inflate(R.menu.edit_detail, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == R.id.edit_data)
-        {
-            Intent intent = new Intent(CustomerDetailActivity.this,CustomerAddActivity.class);
+        if (item.getItemId() == R.id.edit_data) {
+            Intent intent = new Intent(CustomerDetailActivity.this, CustomerAddActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("Customer",customerModel);
+            intent.putExtra("Customer", customerModel);
             startActivity(intent);
         }
-        if (item.getItemId() == R.id.delete_data){
+        if (item.getItemId() == R.id.delete_data) {
             String cId = customerModel.getCustomerId();
 
             final CustomerModel deleteResults = realm.where(CustomerModel.class).equalTo("customerId", cId).findFirst();

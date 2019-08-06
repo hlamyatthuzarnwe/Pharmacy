@@ -14,21 +14,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvSaleInvoiceDate"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerVertical="true"
+        <LinearLayout
+            android:id="@+id/linearNumber"
+            android:padding="10dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:textColor="@color/color_white"
-            android:textSize="@dimen/txt_size_ex_large"
-            tool:text="Iinvoice Date" />
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <TextView
+                android:id="@+id/tvSaleInvoiceDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/txt_size_ex_large"
+                tool:text="1" />
+            <TextView
+                android:text="(Invoice No)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/tvSaleInvoiceDate"
+            android:layout_toEndOf="@id/linearNumber"
             android:orientation="vertical"
             android:padding="10dp">
                 <TextView
@@ -38,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:textSize="@dimen/txt_size_large"
+                    android:textColor="@color/colorPrimary"
                     tool:text="Medicine Name"/>
 
             <LinearLayout
