@@ -1,7 +1,6 @@
 package com.example.pharmacy.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pharmacy.CustomerDetailActivity;
-import com.example.pharmacy.SupplierDetailActivity;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
@@ -61,14 +58,14 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
         @BindView(R.id.tvSupplier_supplierName)
         TextView tvSupplier_supplierName;
 
-        @BindView(R.id.tvMedicineName)
-        TextView tvMedicineName;
-
         @BindView(R.id.tvCompanyName)
         TextView tvCompanyName;
 
         @BindView(R.id.tvCompanyAddress)
         TextView tvCompanyAddress;
+
+        @BindView(R.id.tvSupplierPhoneNo)
+        TextView tvSupplierPhoneNo;
 
         public SupplierViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +85,9 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
             }
             if(supplierModel.getCompanyAddress() != null){
                 tvCompanyAddress.setText(supplierModel.getCompanyAddress());
+            }
+            if (supplierModel.getSuplier_phno1() != null){
+                tvSupplierPhoneNo.setText(supplierModel.getSuplier_phno1());
             }
 
         }

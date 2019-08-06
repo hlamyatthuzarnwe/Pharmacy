@@ -1,7 +1,6 @@
 package com.example.pharmacy.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -12,8 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pharmacy.model.CustomerModel;
-import com.example.pharmacy.CustomerDetailActivity;
-import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
 import java.util.ArrayList;
@@ -22,7 +19,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.RealmList;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
 
@@ -83,7 +79,6 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             context = itemView.getContext();
             cView = itemView;
             realm = Realm.getDefaultInstance();
-
         }
 
         public void bind(CustomerModel customerModel) {
@@ -113,11 +108,6 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             }
 
 
-            cView.setOnClickListener(v -> {
-                Intent intent = new Intent(context, CustomerDetailActivity.class);
-                intent.putExtra("CustomerModel", customerModel);
-                context.startActivity(intent);
-            });
         }
     }
 }

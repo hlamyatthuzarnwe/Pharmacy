@@ -32,9 +32,7 @@
         <activity android:name="com.example.pharmacy.SaleReportAddActivity" />
         <activity android:name="com.example.pharmacy.SaleDetailActivity" />
         <activity android:name="com.example.pharmacy.SaleAddActivity" />
-        <activity android:name="com.example.pharmacy.SupplierDetailActivity" />
         <activity android:name="com.example.pharmacy.SupplierAddActivity" />
-        <activity android:name="com.example.pharmacy.CustomerDetailActivity" />
         <activity android:name="com.example.pharmacy.CustomerAddActivity" />
         <activity android:name="com.example.pharmacy.MedicineDetailActivity" />
         <activity android:name="com.example.pharmacy.MedicineAddActivity" />

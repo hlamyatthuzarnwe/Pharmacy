@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.pharmacy.adapter.CustomerAdapter;
 import com.example.pharmacy.adapter.MedicineAdapter;
@@ -47,6 +48,10 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     @BindView(R.id.rvSale)
     RecyclerView rvSale;
+
+    @BindView(R.id.tvCount_saleFragment)
+    TextView tvCount;
+
 
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
@@ -113,9 +118,13 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+saleList.size());
+
+        getSaleCount(saleList.size());
+
         saleAdapter.getSaleModelList().addAll(saleList);
         saleAdapter.notifyDataSetChanged();
     }
+
 
     private void init() {
         swipeRefreshLayout.setRefreshing(false);
@@ -138,11 +147,20 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 
         if(saleModelList != null && !saleModelList.isEmpty()){
+            getSaleCount(saleModelList.size());
             saleAdapter.getSaleModelList().addAll(saleModelList);
         }
         saleAdapter.notifyDataSetChanged();
 
+    }
 
+
+    private void getSaleCount(int count) {
+        if (count == 1) {
+            tvCount.setText(String.valueOf(count)+" Sale Item");
+        }else if (count > 1){
+            tvCount.setText(String.valueOf(count)+" Sale Items");
+        }
     }
 
     @Override

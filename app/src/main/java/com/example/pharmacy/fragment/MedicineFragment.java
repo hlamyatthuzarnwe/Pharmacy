@@ -20,7 +20,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 import com.example.pharmacy.adapter.MedicineAdapter;
 import com.example.pharmacy.model.MedicineModel;
@@ -49,6 +51,9 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     @BindView(R.id.rvMedicine)
     RecyclerView rvMedicine;
+
+    @BindView(R.id.tvCount_medicineFragment)
+    TextView tvCount;
 
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
@@ -123,6 +128,8 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         RealmResults<MedicineModel> test = realm.where(MedicineModel.class)
                 .findAll();
 
+        getMedicineCount(medicineList.size());
+
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+medicineList.size());
@@ -130,15 +137,26 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         medicineAdapter.notifyDataSetChanged();
     }
 
+
+
     private void getAllMedicine() {
         medicineAdapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
         Log.d(TAG,"getData : "+medicineModelList.size());
 
         if(medicineModelList != null && !medicineModelList.isEmpty()){
+            getMedicineCount(medicineModelList.size());
             medicineAdapter.getMedicineModelList().addAll(medicineModelList);
         }
         medicineAdapter.notifyDataSetChanged();
+    }
+
+    private void getMedicineCount(int count) {
+        if (count == 1) {
+            tvCount.setText(String.valueOf(count)+" Medicine");
+        }else if (count > 1){
+            tvCount.setText(String.valueOf(count)+" Medicines");
+        }
     }
 
     @Override

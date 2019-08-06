@@ -91,7 +91,7 @@ public class SaleDetailActivity extends AppCompatActivity {
          //   customerLevel.setText(saleModel.getSaleCustomerLevel());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
             tvSaleCustomerPhNo1_detail.setText(saleModel.getSaleCustomerPhNo1());
-            Log.d(TAG, "onCreate: size : "+saleModel.getCustomerModel().getCustomerAddress());
+           // Log.d(TAG, "onCreate: size : "+saleModel.getCustomerModel().getCustomerAddress());
            // adapter.getMedicineModelList().addAll(saleModel.getCustomerModel().getMedicineLists());
             //adapter.notifyDataSetChanged();
 

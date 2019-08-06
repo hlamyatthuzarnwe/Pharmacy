@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
@@ -44,6 +45,9 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     @BindView(R.id.rvCustomer)
     RecyclerView rvCustomer;
+
+    @BindView(R.id.tvCount_customerFragment)
+    TextView tvCount;
 
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
@@ -110,9 +114,13 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+customerList.size());
+
+        getCustomerCount(customerList.size());
+
         customerAdapter.getCustomerModelList().addAll(customerList);
         customerAdapter.notifyDataSetChanged();
     }
+
 
     private void init() {
         swipeRefreshLayout.setRefreshing(false);
@@ -125,16 +133,24 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
     }
 
     private void getAllCustomer() {
-
+        customerAdapter.clear();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).sort("customerName", Sort.ASCENDING).findAll();
         Log.d(TAG,"getData : "+customerModelList.size());
 
         if(customerModelList != null && !customerModelList.isEmpty()){
+            getCustomerCount(customerModelList.size());
             customerAdapter.getCustomerModelList().addAll(customerModelList);
         }
         customerAdapter.notifyDataSetChanged();
     }
 
+    private void getCustomerCount(int count) {
+        if (count == 1) {
+            tvCount.setText(String.valueOf(count)+" Customer");
+        }else if (count > 1){
+            tvCount.setText(String.valueOf(count)+" Customers");
+        }
+    }
 
     @Override
     public void onRefresh() {

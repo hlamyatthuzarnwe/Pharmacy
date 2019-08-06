@@ -9,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pharmacy.CustomerDetailActivity;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.MedicineDetailActivity;
-import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
 import java.util.ArrayList;

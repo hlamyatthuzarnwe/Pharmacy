@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.pharmacy.CustomerDetailActivity;
 import com.example.pharmacy.SaleDetailActivity;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
@@ -22,7 +21,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.RealmList;
 
 public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder> {
 
