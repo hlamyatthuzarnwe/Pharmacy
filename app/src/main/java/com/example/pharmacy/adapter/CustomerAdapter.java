@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pharmacy.model.CustomerModel;
+import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
 import java.util.ArrayList;
@@ -83,6 +84,18 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         public void bind(CustomerModel customerModel) {
 
+         /*   SaleModel ss =realm.where(SaleModel.class).equalTo("customerModel.customerId",customerModel.getCustomerId())
+                    .findFirst();
+
+
+            try {
+                Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
+                Log.d(TAG, "bind: sale : "+ss.getSaleInvoiceNo());
+            }catch (NullPointerException nn){
+                Log.d(TAG, "bind: "+nn.getLocalizedMessage());
+            }*/
+
+
             if (customerModel.getMedicineLists() != null){
                 ArrayList<String> medicineList = new ArrayList<>();
                 for (int i = 0;i < customerModel.getMedicineLists().size();i++){
@@ -90,21 +103,21 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
                 }
                 String lists = TextUtils.join(", ",medicineList);
                 tvMedicineName.setText(lists);
-                Log.d(TAG, "bind: medicineList : " + lists);
+               // Log.d(TAG, "bind: medicineList : " + lists);
             }
 
             if (customerModel.getCustomerName() != null) {
                 tvCustomerName.setText(customerModel.getCustomerName());
-                Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
+             //   Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
             }
 
             if (customerModel.getCustomerAddress() != null) {
                 tvCustomerAddress.setText(customerModel.getCustomerAddress());
-                Log.d(TAG, "bind: address : " + customerModel.getCustomerAddress());
+              //  Log.d(TAG, "bind: address : " + customerModel.getCustomerAddress());
             }
             if (customerModel.getCustomerPhNo1() != null) {
                 tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
-                Log.d(TAG, "bind: ph no : " + customerModel.getCustomerPhNo1());
+             //   Log.d(TAG, "bind: ph no : " + customerModel.getCustomerPhNo1());
             }
 
 

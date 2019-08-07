@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
+import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 import com.example.pharmacy.adapter.CustomerAdapter;
 
@@ -136,6 +137,7 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
         customerAdapter.clear();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).sort("customerName", Sort.ASCENDING).findAll();
         Log.d(TAG,"getData : "+customerModelList.size());
+
 
         if(customerModelList != null && !customerModelList.isEmpty()){
             getCustomerCount(customerModelList.size());

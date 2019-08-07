@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import io.realm.RealmObject;
 
-public class SaleListModel extends RealmObject implements Parcelable {
+public class SaleListModel implements Parcelable {
 
     private String invoiceDate;
     private String customerName;
@@ -13,7 +13,7 @@ public class SaleListModel extends RealmObject implements Parcelable {
     private String customerAddress;
     private String phone;
 
-    public SaleListModel(){
+    public SaleListModel() {
 
     }
 

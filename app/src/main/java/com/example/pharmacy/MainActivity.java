@@ -2,12 +2,7 @@ package com.example.pharmacy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -17,34 +12,24 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 
-import android.util.Base64;
-import android.util.Log;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
-import com.example.pharmacy.adapter.MedicineAdapter;
 import com.example.pharmacy.fragment.CustomerFragment;
 import com.example.pharmacy.fragment.InventoryFragment;
-import com.example.pharmacy.fragment.LoginFragment;
 import com.example.pharmacy.fragment.MedicineFragment;
 import com.example.pharmacy.fragment.SaleReportFragment;
 import com.example.pharmacy.fragment.UserManageFragment;
 import com.example.pharmacy.helper.SharepreferenceHelper;
-import com.example.pharmacy.model.MedicineModel;
 import com.example.yy.R;
 import com.example.pharmacy.fragment.SaleFragment;
 import com.example.pharmacy.fragment.SupplierFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.RealmList;
 
 import static com.example.yy.R.string.navigation_drawer_close;
 import static com.example.yy.R.string.navigation_drawer_open;

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -142,6 +143,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         realm = Realm.getDefaultInstance();
         setUpReceivedDateTime();
         setUpExpireDateTime();
+        Log.d(TAG, "onCreate: uuid : "+UUID.randomUUID());
 
         medicineModel = (MedicineModel)getIntent().getParcelableExtra("Medicine");
 
