@@ -13,24 +13,16 @@ public class CustomerModel extends RealmObject implements Parcelable {
     private String customerId;
 
     private String customerName;
-    private String customerLevel;
     private String customerAddress;
     private String customerPhNo1;
-    private String customerPhNo2;
-    private String customerPhNo3;
-    private String customerPhNo4;
-    private String customerPhNo5;
-    private String customerTotalAmt;
-    private String customerUpFront;
-    private String customerBalance;
     private String customerInvoiceDate;
-    private String customerDueDate;
     private String customerNote;
 
     private RealmList<MedicineModel> medicineLists;
 
 
-    public CustomerModel(){}
+    public CustomerModel() {
+    }
 
     public String getCustomerId() {
         return customerId;
@@ -46,14 +38,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
-    }
-
-    public String getCustomerLevel() {
-        return customerLevel;
-    }
-
-    public void setCustomerLevel(String customerLevel) {
-        this.customerLevel = customerLevel;
     }
 
     public String getCustomerAddress() {
@@ -72,61 +56,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerPhNo1 = customerPhNo1;
     }
 
-    public String getCustomerPhNo2() {
-        return customerPhNo2;
-    }
-
-    public void setCustomerPhNo2(String customerPhNo2) {
-        this.customerPhNo2 = customerPhNo2;
-    }
-
-    public String getCustomerPhNo3() {
-        return customerPhNo3;
-    }
-
-    public void setCustomerPhNo3(String customerPhNo3) {
-        this.customerPhNo3 = customerPhNo3;
-    }
-
-    public String getCustomerPhNo4() {
-        return customerPhNo4;
-    }
-
-    public void setCustomerPhNo4(String customerPhNo4) {
-        this.customerPhNo4 = customerPhNo4;
-    }
-
-    public String getCustomerPhNo5() {
-        return customerPhNo5;
-    }
-
-    public void setCustomerPhNo5(String customerPhNo5) {
-        this.customerPhNo5 = customerPhNo5;
-    }
-
-    public String getCustomerTotalAmt() {
-        return customerTotalAmt;
-    }
-
-    public void setCustomerTotalAmt(String customerTotalAmt) {
-        this.customerTotalAmt = customerTotalAmt;
-    }
-
-    public String getCustomerUpFront() {
-        return customerUpFront;
-    }
-
-    public void setCustomerUpFront(String customerUpFront) {
-        this.customerUpFront = customerUpFront;
-    }
-
-    public String getCustomerBalance() {
-        return customerBalance;
-    }
-
-    public void setCustomerBalance(String customerBalance) {
-        this.customerBalance = customerBalance;
-    }
 
     public String getCustomerInvoiceDate() {
         return customerInvoiceDate;
@@ -134,14 +63,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
 
     public void setCustomerInvoiceDate(String customerInvoiceDate) {
         this.customerInvoiceDate = customerInvoiceDate;
-    }
-
-    public String getCustomerDueDate() {
-        return customerDueDate;
-    }
-
-    public void setCustomerDueDate(String customerDueDate) {
-        this.customerDueDate = customerDueDate;
     }
 
     public String getCustomerNote() {
@@ -160,21 +81,12 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.medicineLists = medicineLists;
     }
 
-    public CustomerModel(String customerId, String customerName, String customerLevel, String customerAddress, String customerPhNo1, String customerPhNo2, String customerPhNo3, String customerPhNo4, String customerPhNo5, String customerTotalAmt, String customerUpFront, String customerBalance, String customerInvoiceDate, String customerDueDate, String customerNote, RealmList<MedicineModel> medicineLists) {
+    public CustomerModel(String customerId, String customerName, String customerAddress, String customerPhNo1, String customerInvoiceDate, String customerNote, RealmList<MedicineModel> medicineLists) {
         this.customerId = customerId;
         this.customerName = customerName;
-        this.customerLevel = customerLevel;
         this.customerAddress = customerAddress;
         this.customerPhNo1 = customerPhNo1;
-        this.customerPhNo2 = customerPhNo2;
-        this.customerPhNo3 = customerPhNo3;
-        this.customerPhNo4 = customerPhNo4;
-        this.customerPhNo5 = customerPhNo5;
-        this.customerTotalAmt = customerTotalAmt;
-        this.customerUpFront = customerUpFront;
-        this.customerBalance = customerBalance;
         this.customerInvoiceDate = customerInvoiceDate;
-        this.customerDueDate = customerDueDate;
         this.customerNote = customerNote;
         this.medicineLists = medicineLists;
     }
@@ -187,18 +99,9 @@ public class CustomerModel extends RealmObject implements Parcelable {
         customerId = in.readString();
         customerName = in.readString();
         customerInvoiceDate = in.readString();
-        customerLevel = in.readString();
         customerAddress = in.readString();
         customerPhNo1 = in.readString();
-        customerPhNo2 = in.readString();
-        customerPhNo3 = in.readString();
-        customerPhNo4 = in.readString();
-        customerPhNo5 = in.readString();
-        customerTotalAmt = in.readString();
-        customerUpFront = in.readString();
-        customerBalance = in.readString();
         customerNote = in.readString();
-        customerDueDate = in.readString();
     }
 
     @Override
@@ -206,17 +109,8 @@ public class CustomerModel extends RealmObject implements Parcelable {
         dest.writeString(customerId);
         dest.writeString(customerName);
         dest.writeString(customerInvoiceDate);
-        dest.writeString(customerLevel);
         dest.writeString(customerAddress);
         dest.writeString(customerPhNo1);
-        dest.writeString(customerPhNo2);
-        dest.writeString(customerPhNo3);
-        dest.writeString(customerPhNo4);
-        dest.writeString(customerPhNo5);
-        dest.writeString(customerTotalAmt);
-        dest.writeString(customerUpFront);
-        dest.writeString(customerBalance);
-        dest.writeString(customerDueDate);
         dest.writeString(customerNote);
     }
 

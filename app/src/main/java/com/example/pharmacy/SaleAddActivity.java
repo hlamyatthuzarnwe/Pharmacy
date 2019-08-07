@@ -103,7 +103,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
     private SaleAddMedicineAdapter adapter;
     private Toolbar toolbar;
 
-//    @BindView(R.id.tvMedicieDetail)
+    //    @BindView(R.id.tvMedicieDetail)
 //    TextView tvMedicieDetail;
     private Context context;
     private RealmList<MedicineModel> medicineList;
@@ -174,10 +174,10 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         });
         relativeSave.setOnClickListener(view -> {
 
-            if (validateField()){
+            if (validateField()) {
 
                 insertData();
-                Intent intent = new Intent(SaleAddActivity.this,MainActivity.class);
+                Intent intent = new Intent(SaleAddActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
@@ -217,12 +217,12 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     private boolean validateField() {
 
-        if (TextUtils.isEmpty(edtCustomerName_add.getText().toString().trim())){
+        if (TextUtils.isEmpty(edtCustomerName_add.getText().toString().trim())) {
             tilCustomerName.setErrorEnabled(true);
             tilCustomerName.setError("Customer Name required");
             return false;
         }
-        if (TextUtils.isEmpty(edtCustomerPhNo1.getText().toString().trim())){
+        if (TextUtils.isEmpty(edtCustomerPhNo1.getText().toString().trim())) {
             tilCustomerPh.setErrorEnabled(true);
             tilCustomerPh.setError("Customer Phone Number required");
             return false;
@@ -238,11 +238,10 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
 
-        Log.d(TAG, "insertSaleItems: invoice : "+saleInvoiceDate);
+        //  Log.d(TAG, "insertSaleItems: invoice : "+saleInvoiceDate);
         saleList.setInvoiceDate(saleInvoiceDate);
         saleList.setCustomerName(customeName);
         saleList.setCustomerAddress(saleCustomerAddress);
-        saleList.setCustomerLevel(selectedCustomerLevel);
         saleList.setPhone(saleCustomerPhNo1);
         Intent intent = new Intent(SaleAddActivity.this, SaleMedicineInformationActivity.class);
         startActivity(intent);
@@ -261,7 +260,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         cModel.setCustomerAddress(saleCustomerAddress);
         cModel.setCustomerPhNo1(saleCustomerPhNo1);
         cModel.setMedicineLists(medicineList);
-       // Log.d(TAG, "insertData: invoide : "+MedicineModelList.getNumber());
+        // Log.d(TAG, "insertData: invoide : "+MedicineModelList.getNumber());
 
         saleModel.setSaleInvoiceNo(String.valueOf(MedicineModelList.getNumber()));
         saleModel.setSaleInvoiceDate(saleInvoiceDate);
@@ -281,7 +280,8 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         SaleAddList.clear();
 
     }
-    private String invoiceNumber(){
+
+    private String invoiceNumber() {
         int i = MedicineModelList.invoiceNumber + 1;
         MedicineModelList.invoiceNumber = i;
         return String.valueOf(i);

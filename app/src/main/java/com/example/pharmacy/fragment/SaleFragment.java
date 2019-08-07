@@ -68,7 +68,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sale, container, false);
         setHasOptionsMenu(true);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         context = view.getContext();
 
         init();
@@ -79,17 +79,17 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_search_view,menu);
+        inflater.inflate(R.menu.menu_search_view, menu);
         MenuItem searchItem = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint( "Search by Name");
+        searchView.setQueryHint("Search by Name");
         searchView.setScrollBarSize(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (TextUtils.isEmpty(query)){
+                if (TextUtils.isEmpty(query)) {
                     getAllSale();
-                }else {
+                } else {
                     getSearchList(query);
                 }
                 return true;
@@ -97,7 +97,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
             @Override
             public boolean onQueryTextChange(String s) {
-                if (TextUtils.isEmpty(s)){
+                if (TextUtils.isEmpty(s)) {
                     getAllSale();
                     return true;
                 }
@@ -115,9 +115,11 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         RealmResults<SaleModel> test = realm.where(SaleModel.class)
                 .findAll();
 
+        /*
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+saleList.size());
+         */
 
         getSaleCount(saleList.size());
 
@@ -143,10 +145,10 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         final List<SaleModel> saleModelList = realm.where(SaleModel.class).findAll();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).findAll();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
-        Log.d(TAG,"getData : "+saleModelList.size());
+        // Log.d(TAG,"getData : "+saleModelList.size());
 
 
-        if(saleModelList != null && !saleModelList.isEmpty()){
+        if (saleModelList != null && !saleModelList.isEmpty()) {
             getSaleCount(saleModelList.size());
             saleAdapter.getSaleModelList().addAll(saleModelList);
         }
@@ -157,9 +159,9 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     private void getSaleCount(int count) {
         if (count == 1) {
-            tvCount.setText(String.valueOf(count)+" Sale Item");
-        }else if (count > 1){
-            tvCount.setText(String.valueOf(count)+" Sale Items");
+            tvCount.setText(String.valueOf(count) + " Sale Item");
+        } else if (count > 1) {
+            tvCount.setText(String.valueOf(count) + " Sale Items");
         }
     }
 
@@ -167,7 +169,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public void onRefresh() {
         swipeRefreshLayout.setRefreshing(false);
         saleAdapter.clear();
-             getAllSale();
+        getAllSale();
 
     }
 }

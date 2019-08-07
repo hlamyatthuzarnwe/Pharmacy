@@ -94,28 +94,30 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if (saleModel.getSaleTotalAmt() != null) {
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());
             }
-            if (saleModel.getCustomerModel() != null){
+            if (saleModel.getCustomerModel() != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
 
-                for (int i=0;i<saleModel.getCustomerModel().getMedicineLists().size();i++){
+                for (int i = 0; i < saleModel.getCustomerModel().getMedicineLists().size(); i++) {
                     medicineModels.add(saleModel.getCustomerModel().getMedicineLists().get(i));
                     arrayList.add(saleModel.getCustomerModel().getMedicineLists().get(i).getMedicineName());
-                    Log.d(TAG, "bind: name : "+saleModel.getCustomerModel().getMedicineLists().get(i));
+                    Log.d(TAG, "bind: name : " + saleModel.getCustomerModel().getMedicineLists().get(i));
 
                 }
-               // Log.d(TAG, "bind: medicine name : "+medicines);
-                String medicine = TextUtils.join(", ",arrayList);
+                // Log.d(TAG, "bind: medicine name : "+medicines);
+                String medicine = TextUtils.join(", ", arrayList);
                 tvMedicineName.setText(medicine);
+               /*
                 Log.d(TAG, "bind: test : "+medicine);
                 Log.d(TAG, "bind: origin size : "+saleModel.getCustomerModel().getMedicineLists().size());
                 Log.d(TAG, "bind: size : "+medicineModels.size());
+                */
             }
 
 
             saleView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleDetailActivity.class);
                 intent.putExtra("SaleModel", saleModel);
-                intent.putExtra("medicineModel",medicineModels);
+                intent.putExtra("medicineModel", medicineModels);
                 context.startActivity(intent);
             });
 

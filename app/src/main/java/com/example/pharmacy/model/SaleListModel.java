@@ -9,14 +9,12 @@ public class SaleListModel implements Parcelable {
 
     private String invoiceDate;
     private String customerName;
-    private String customerLevel;
     private String customerAddress;
     private String phone;
 
     public SaleListModel() {
 
     }
-
 
     protected SaleListModel(Parcel in) {
     }
@@ -56,14 +54,6 @@ public class SaleListModel implements Parcelable {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
-    }
-
-    public String getCustomerLevel() {
-        return customerLevel;
-    }
-
-    public void setCustomerLevel(String customerLevel) {
-        this.customerLevel = customerLevel;
     }
 
     public String getCustomerAddress() {

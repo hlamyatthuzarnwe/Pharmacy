@@ -16,13 +16,14 @@
 
         <LinearLayout
             android:id="@+id/linearNumber"
-            android:padding="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:layout_centerVertical="true"
             android:orientation="vertical"
-            android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:padding="10dp">
+
             <TextView
                 android:id="@+id/tvSaleInvoiceDate"
                 android:layout_width="wrap_content"
@@ -30,11 +31,12 @@
                 android:textColor="@color/color_white"
                 android:textSize="@dimen/txt_size_ex_large"
                 tool:text="1" />
+
             <TextView
-                android:text="(Invoice No)"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorWhite"/>
+                android:text="(Invoice No)"
+                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
 
@@ -44,15 +46,16 @@
             android:layout_toEndOf="@id/linearNumber"
             android:orientation="vertical"
             android:padding="10dp">
-                <TextView
-                    android:padding="5dp"
-                    android:id="@+id/tvMedicineName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:textSize="@dimen/txt_size_large"
-                    android:textColor="@color/colorPrimary"
-                    tool:text="Medicine Name"/>
+
+            <TextView
+                android:id="@+id/tvMedicineName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/txt_size_large"
+                tool:text="Medicine Name" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -18,10 +18,6 @@ public class DateTimeHelper {
     public static final String LOCAL_DATE_FORMAT = "dd/MM/yyyy";
     public static final String LOCAL_DATE_DISPLAY_FORMAT = "dd MMM, yyyy";
     public static final String LOCAL_TIME_FORMAT = "hh:mm a";
-
-
-
-
     private static final String TAG = DateTimeHelper.class.getSimpleName();
 
     public static Date getDateFromString(String strDate, String dateFormat) {
@@ -41,8 +37,8 @@ public class DateTimeHelper {
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, locale);
         try {
             String cleanedDate = strDate.replace("T", " ");
-            if(cleanedDate.contains(".")){
-                cleanedDate = cleanedDate.substring(0,cleanedDate.indexOf("."));
+            if (cleanedDate.contains(".")) {
+                cleanedDate = cleanedDate.substring(0, cleanedDate.indexOf("."));
             }
             Log.d(TAG, "getDateFromString: Remove T " + cleanedDate);
             return sdf.parse(cleanedDate);

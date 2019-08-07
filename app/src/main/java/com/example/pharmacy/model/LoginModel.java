@@ -13,7 +13,8 @@ public class LoginModel extends RealmObject implements Parcelable {
 
     private String userName;
 
-    public LoginModel(){}
+    public LoginModel() {
+    }
 
     public LoginModel(String loginPin, String userName) {
         this.loginPin = loginPin;

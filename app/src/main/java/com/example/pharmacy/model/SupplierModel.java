@@ -15,26 +15,18 @@ public class SupplierModel extends RealmObject implements Parcelable {
     private String companyName;
     private String companyAddress;
     private String suplier_phno1;
-    private String supplier_phno2;
-    private String supplier_phno3;
-    private String supplier_phno4;
-    private String supplier_phno5;
     private String supplierNote;
 
-    public SupplierModel(){
+    public SupplierModel() {
 
     }
 
-    public SupplierModel(String supplierId, String supplierName, String companyName, String companyAddress, String suplier_phno1, String supplier_phno2, String supplier_phno3, String supplier_phno4, String supplier_phno5, String supplierNote) {
+    public SupplierModel(String supplierId, String supplierName, String companyName, String companyAddress, String suplier_phno1, String supplierNote) {
         this.supplierId = supplierId;
         this.supplierName = supplierName;
         this.companyName = companyName;
         this.companyAddress = companyAddress;
         this.suplier_phno1 = suplier_phno1;
-        this.supplier_phno2 = supplier_phno2;
-        this.supplier_phno3 = supplier_phno3;
-        this.supplier_phno4 = supplier_phno4;
-        this.supplier_phno5 = supplier_phno5;
         this.supplierNote = supplierNote;
     }
 
@@ -44,10 +36,6 @@ public class SupplierModel extends RealmObject implements Parcelable {
         companyName = in.readString();
         companyAddress = in.readString();
         suplier_phno1 = in.readString();
-        supplier_phno2 = in.readString();
-        supplier_phno3 = in.readString();
-        supplier_phno4 = in.readString();
-        supplier_phno5 = in.readString();
         supplierNote = in.readString();
     }
 
@@ -103,38 +91,6 @@ public class SupplierModel extends RealmObject implements Parcelable {
         this.suplier_phno1 = suplier_phno1;
     }
 
-    public String getSupplier_phno2() {
-        return supplier_phno2;
-    }
-
-    public void setSupplier_phno2(String supplier_phno2) {
-        this.supplier_phno2 = supplier_phno2;
-    }
-
-    public String getSupplier_phno3() {
-        return supplier_phno3;
-    }
-
-    public void setSupplier_phno3(String supplier_phno3) {
-        this.supplier_phno3 = supplier_phno3;
-    }
-
-    public String getSupplier_phno4() {
-        return supplier_phno4;
-    }
-
-    public void setSupplier_phno4(String supplier_phno4) {
-        this.supplier_phno4 = supplier_phno4;
-    }
-
-    public String getSupplier_phno5() {
-        return supplier_phno5;
-    }
-
-    public void setSupplier_phno5(String supplier_phno5) {
-        this.supplier_phno5 = supplier_phno5;
-    }
-
     public String getSupplierNote() {
         return supplierNote;
     }
@@ -155,10 +111,6 @@ public class SupplierModel extends RealmObject implements Parcelable {
         dest.writeString(companyName);
         dest.writeString(companyAddress);
         dest.writeString(suplier_phno1);
-        dest.writeString(supplier_phno2);
-        dest.writeString(supplier_phno3);
-        dest.writeString(supplier_phno4);
-        dest.writeString(supplier_phno5);
         dest.writeString(supplierNote);
     }
 }

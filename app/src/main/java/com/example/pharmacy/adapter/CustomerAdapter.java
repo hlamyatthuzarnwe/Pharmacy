@@ -96,28 +96,28 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             }*/
 
 
-            if (customerModel.getMedicineLists() != null){
+            if (customerModel.getMedicineLists() != null) {
                 ArrayList<String> medicineList = new ArrayList<>();
-                for (int i = 0;i < customerModel.getMedicineLists().size();i++){
+                for (int i = 0; i < customerModel.getMedicineLists().size(); i++) {
                     medicineList.add(customerModel.getMedicineLists().get(i).getMedicineName());
                 }
-                String lists = TextUtils.join(", ",medicineList);
+                String lists = TextUtils.join(", ", medicineList);
                 tvMedicineName.setText(lists);
-               // Log.d(TAG, "bind: medicineList : " + lists);
+                // Log.d(TAG, "bind: medicineList : " + lists);
             }
 
             if (customerModel.getCustomerName() != null) {
                 tvCustomerName.setText(customerModel.getCustomerName());
-             //   Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
+                //   Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
             }
 
             if (customerModel.getCustomerAddress() != null) {
                 tvCustomerAddress.setText(customerModel.getCustomerAddress());
-              //  Log.d(TAG, "bind: address : " + customerModel.getCustomerAddress());
+                //  Log.d(TAG, "bind: address : " + customerModel.getCustomerAddress());
             }
             if (customerModel.getCustomerPhNo1() != null) {
                 tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
-             //   Log.d(TAG, "bind: ph no : " + customerModel.getCustomerPhNo1());
+                //   Log.d(TAG, "bind: ph no : " + customerModel.getCustomerPhNo1());
             }
 
 

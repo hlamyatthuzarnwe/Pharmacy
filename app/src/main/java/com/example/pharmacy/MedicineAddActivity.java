@@ -93,32 +93,12 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.edtSaleMedicinePcPrice1)
     EditText edtSaleMedicinePcPrice1;
 
-    @BindView(R.id.edtSaleMedicinePcPrice2)
-    EditText edtSaleMedicinePcPrice2;
-
-    @BindView(R.id.edtSaleMedicineDzPrice2)
-    EditText edtSaleMedicineDzPrice2;
-
-    @BindView(R.id.edtSaleMedicinePcPrice3)
-    EditText edtSaleMedicinePcPrice3;
-
-    @BindView(R.id.edtSaleMedicineDzPrice3)
-    EditText edtSaleMedicineDzPrice3;
-
-    @BindView(R.id.edtSaleMedicinePcPrice4)
-    EditText edtSaleMedicinePcPrice4;
-
-    @BindView(R.id.edtSaleMedicineDzCostPrice4)
-    EditText edtSaleMedicineDzCostPrice4;
 
     @BindView(R.id.edtMedicineReceivedDate)
     EditText edtMedicineReceivedDate;
 
     @BindView(R.id.edtMedicineExpDate)
     EditText edtMedicineExpDate;
-
-    @BindView(R.id.edtMedicineNote)
-    EditText edtMedicineNote;
 
     @BindView(R.id.edtAddress_medicineAdd)
     EditText edtAddress;
@@ -129,9 +109,9 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.spinnerAdd)
     Spinner spinnerAdd;
 
-   private SupplierModel supplierModel;
-   private String idEdit;
-   private boolean is_edit=false;
+    private SupplierModel supplierModel;
+    private String idEdit;
+    private boolean is_edit = false;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -143,25 +123,25 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         realm = Realm.getDefaultInstance();
         setUpReceivedDateTime();
         setUpExpireDateTime();
-        Log.d(TAG, "onCreate: uuid : "+UUID.randomUUID());
+        //Log.d(TAG, "onCreate: uuid : "+UUID.randomUUID());
 
-        medicineModel = (MedicineModel)getIntent().getParcelableExtra("Medicine");
+        medicineModel = (MedicineModel) getIntent().getParcelableExtra("Medicine");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Medicine Data");
         setSupportActionBar(toolbar);
 
-        if(medicineModel != null){
+        if (medicineModel != null) {
             idEdit = medicineModel.getMedcineId();
-            if (idEdit.isEmpty()){
+            if (idEdit.isEmpty()) {
                 is_edit = false;
-            }else {
+            } else {
                 is_edit = true;
             }
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
             edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
-            if (medicineModel.getSupplierModel() != null){
+            if (medicineModel.getSupplierModel() != null) {
                 edtMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
                 edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
                 edtSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
@@ -169,25 +149,15 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
             }
 
-
-           // edtMedicinePayment.setText(medicineModel.getMedicinePayment());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
-            edtSaleMedicinePcPrice2.setText(medicineModel.getMedicineSalePcPerPrice2());
-            edtSaleMedicineDzPrice2.setText(medicineModel.getMedicineSaleDzPerPrice2());
-            edtSaleMedicinePcPrice3.setText(medicineModel.getMedicineSalePcPerPrice3());
-            edtSaleMedicineDzPrice3.setText(medicineModel.getMedicineSaleDzPerPrice3());
-            edtSaleMedicinePcPrice4.setText(medicineModel.getMedicineSalePcPerPrice4());
-            edtSaleMedicineDzCostPrice4.setText(medicineModel.getMedicineSaleDzPerPrice4());
             edtMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
             edtMedicineExpDate.setText(medicineModel.getMedicineExpDate());
-            edtMedicineNote.setText(medicineModel.getMedicineNote());
         }
 
         relativeSave.setOnClickListener(view -> {
 
 
-            if (validateField()){
-
+            if (validateField()) {
 
                 mName = edtMedicineName.getText().toString();
                 String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
@@ -196,23 +166,15 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 String address = edtAddress.getText().toString();
                 String mSupplierName = edtSupplierName.getText().toString();
                 String mContactPh1 = edtContactMedicinePh1.getText().toString();
-                //  String mPayment = edtMedicinePayment.getText().toString();
                 String mSalePricePc1 = edtSaleMedicinePcPrice1.getText().toString();
-                String mSalePricePc2 = edtSaleMedicinePcPrice2.getText().toString();
-                String mSalePriceDz2 = edtSaleMedicineDzPrice2.getText().toString();
-                String mSalePricePc3 = edtSaleMedicinePcPrice3.getText().toString();
-                String mSalePriceDz3 = edtSaleMedicineDzPrice3.getText().toString();
-                String mSalePricePc4 = edtSaleMedicinePcPrice4.getText().toString();
-                String mSalePriceDz4 = edtSaleMedicineDzCostPrice4.getText().toString();
                 String mReceiveDate = edtMedicineReceivedDate.getText().toString();
                 String mExpDate = edtMedicineExpDate.getText().toString();
-                String mNote = edtMedicineNote.getText().toString();
 
                 MedicineModel medicineModel = new MedicineModel();
 
-                if (is_edit){
+                if (is_edit) {
                     medicineModel.setMedcineId(idEdit);
-                }else {
+                } else {
                     medicineModel.setMedcineId(UUID.randomUUID().toString());
                 }
 
@@ -220,25 +182,9 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 medicineModel.setMedicineName(mName);
                 medicineModel.setMedicineCostPerPc(mCostPerPc);
                 medicineModel.setMedicineQtyPerPc(mQtyPerPc);
-
-
-                // medicineModel.setMedicinePayment(mPayment);
                 medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
-                medicineModel.setMedicineSalePcPerPrice2(mSalePricePc2);
-                medicineModel.setMedicineSaleDzPerPrice2(mSalePriceDz2);
-                medicineModel.setMedicineSalePcPerPrice3(mSalePricePc3);
-                medicineModel.setMedicineSaleDzPerPrice3(mSalePriceDz3);
-                medicineModel.setMedicineSalePcPerPrice4(mSalePricePc4);
-                medicineModel.setMedicineSaleDzPerPrice4(mSalePriceDz4);
                 medicineModel.setMedicineReceivedDate(mReceiveDate);
                 medicineModel.setMedicineExpDate(mExpDate);
-                medicineModel.setMedicineNote(mNote);
-
-//            medicineModel.setSupplierModel(mCompanyName);
-//            medicineModel.setMedicineSupplierName(mSupplierName);
-//            medicineModel.setMedicineContactPh1(mContactPh1);
-//            medicineModel.setMedicineContactPh2(mContactPh2);
-//            medicineModel.setMedicineContactPh3(mContactPh3);
 
                 SupplierModel supplierModel = new SupplierModel();
                 supplierModel.setSuplierId(UUID.randomUUID().toString());
@@ -271,33 +217,29 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         spinnerAdd.setAdapter(adapter);
 
     }
-    private boolean validateField(){
-        if (TextUtils.isEmpty(edtMedicineName.getText().toString().trim())){
+
+    private boolean validateField() {
+        if (TextUtils.isEmpty(edtMedicineName.getText().toString().trim())) {
             tilMedicineName.setErrorEnabled(true);
             tilMedicineName.setError("Medicine Name required");
             return false;
-        }
-        else if (TextUtils.isEmpty(edtMedicinePcCostPrice.getText().toString().trim())){
+        } else if (TextUtils.isEmpty(edtMedicinePcCostPrice.getText().toString().trim())) {
             tilMedicineCost.setErrorEnabled(true);
             tilMedicineCost.setError("Medicine Cost required");
             return false;
-        }
-        else if (TextUtils.isEmpty(edtMedicinePcQty.getText().toString().trim())){
+        } else if (TextUtils.isEmpty(edtMedicinePcQty.getText().toString().trim())) {
             tilMedicineQty.setErrorEnabled(true);
             tilMedicineQty.setError("Medicine Quantity required");
             return false;
-        }
-        else if (TextUtils.isEmpty(edtSaleMedicinePcPrice1.getText().toString().trim())){
+        } else if (TextUtils.isEmpty(edtSaleMedicinePcPrice1.getText().toString().trim())) {
             tilMedicineSalePrice.setErrorEnabled(true);
             tilMedicineSalePrice.setError("Medicine Sale Price required");
             return false;
-        }
-        else if (TextUtils.isEmpty(edtMedicineCompanyName.getText().toString().trim())){
+        } else if (TextUtils.isEmpty(edtMedicineCompanyName.getText().toString().trim())) {
             tilCompanyName.setErrorEnabled(true);
             tilCompanyName.setError("Medicine Company Name required");
             return false;
-        }
-        else if (TextUtils.isEmpty(edtContactMedicinePh1.getText().toString().trim())){
+        } else if (TextUtils.isEmpty(edtContactMedicinePh1.getText().toString().trim())) {
             tilCompanyPh.setErrorEnabled(true);
             tilCompanyPh.setError("Medicine Compan Phone Number required");
             return false;
@@ -387,9 +329,9 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (is_edit){
+        if (is_edit) {
             medicineModel.setMedcineId(idEdit);
-        }else {
+        } else {
             medicineModel.setMedcineId(UUID.randomUUID().toString());
         }
 

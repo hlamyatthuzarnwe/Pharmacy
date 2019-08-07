@@ -10,7 +10,7 @@ public class RealmMigration implements io.realm.RealmMigration {
 
         RealmSchema schema = realm.getSchema();
 
-        if(oldVersion == 0){
+        if (oldVersion == 0) {
 
             oldVersion++;
         }

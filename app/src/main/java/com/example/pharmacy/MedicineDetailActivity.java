@@ -29,23 +29,23 @@ public class MedicineDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvMedicineName_detail)
     TextView tvMedicineName_detail;
 
-   @BindView(R.id.tvMedicineCostPerPc)
-   TextView tvMedicineCostPerPc;
+    @BindView(R.id.tvMedicineCostPerPc)
+    TextView tvMedicineCostPerPc;
 
-   @BindView(R.id.tvMedicineQtyPerPc)
-   TextView tvMedicineQtyPerPc;
+    @BindView(R.id.tvMedicineQtyPerPc)
+    TextView tvMedicineQtyPerPc;
 
-   @BindView(R.id.tvMedicineCompanyName)
-   TextView tvMedicineCompanyName;
+    @BindView(R.id.tvMedicineCompanyName)
+    TextView tvMedicineCompanyName;
 
-   @BindView(R.id.tvMedicineCompanyAddress)
-   TextView tvMedicineCompanyAddress;
+    @BindView(R.id.tvMedicineCompanyAddress)
+    TextView tvMedicineCompanyAddress;
 
-   @BindView(R.id.tvMedicineSupplierName)
-   TextView tvMedicineSupplierName;
+    @BindView(R.id.tvMedicineSupplierName)
+    TextView tvMedicineSupplierName;
 
-   @BindView(R.id.tvMedicinePh1)
-   TextView tvMedicinePh1;
+    @BindView(R.id.tvMedicinePh1)
+    TextView tvMedicinePh1;
 
     @BindView(R.id.tvMedicineSalePerPc1)
     TextView tvMedicineSalePerPc1;
@@ -68,26 +68,26 @@ public class MedicineDetailActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
-        medicineModel = (MedicineModel)getIntent().getParcelableExtra("MedicineModel");
+        medicineModel = (MedicineModel) getIntent().getParcelableExtra("MedicineModel");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Medicine Detail ");
         setSupportActionBar(toolbar);
 
-        if(medicineModel != null){
+        if (medicineModel != null) {
 
             tvMedicineName_detail.setText(medicineModel.getMedicineName());
             tvMedicineCostPerPc.setText(medicineModel.getMedicineCostPerPc());
             tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
 
-            if (medicineModel.getSupplierModel() != null){
+            if (medicineModel.getSupplierModel() != null) {
                 tvMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
                 tvMedicineCompanyAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
                 tvMedicineSupplierName.setText(medicineModel.getSupplierModel().getSupplierName());
                 tvMedicinePh1.setText(medicineModel.getSupplierModel().getSuplier_phno1());
 
             }
-          //  tvMedicinePayment.setText(medicineModel.getMedicinePayment());
+            //  tvMedicinePayment.setText(medicineModel.getMedicinePayment());
             tvMedicineSalePerPc1.setText(medicineModel.getMedicineSalePcPerPrice1());
 
             tvMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
@@ -97,23 +97,22 @@ public class MedicineDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.edit_detail,menu);
+        getMenuInflater().inflate(R.menu.edit_detail, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == R.id.edit_data)
-        {
-            Intent intent = new Intent(MedicineDetailActivity.this,MedicineAddActivity.class);
+        if (item.getItemId() == R.id.edit_data) {
+            Intent intent = new Intent(MedicineDetailActivity.this, MedicineAddActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("Medicine",medicineModel);
+            intent.putExtra("Medicine", medicineModel);
             startActivity(intent);
             finish();
         }
-        if (item.getItemId() == R.id.delete_data){
+        if (item.getItemId() == R.id.delete_data) {
             String mId = medicineModel.getMedcineId();
 
             final MedicineModel deleteResults = realm.where(MedicineModel.class).equalTo("medcineId", mId).findFirst();

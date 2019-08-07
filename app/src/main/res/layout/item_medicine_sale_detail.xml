@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,19 +19,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Medicine Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="Medicine Name"
                 android:textSize="@dimen/txt_size_large"
-                android:textStyle="normal"/>
+                android:textStyle="normal" />
+
             <TextView
                 android:id="@+id/tvSaleMedicineName_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/txt_size_large"/>
+                android:textSize="@dimen/txt_size_large" />
 
         </LinearLayout>
 
@@ -43,19 +43,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="Quantity"
                 android:textSize="@dimen/txt_size_large"
-                android:textStyle="normal"/>
+                android:textStyle="normal" />
+
             <TextView
                 android:id="@+id/tvSaleQuantityPerPc_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/txt_size_large"/>
+                android:textSize="@dimen/txt_size_large" />
 
         </LinearLayout>
 
@@ -67,19 +68,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Suppler's Name "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="Suppler's Name "
                 android:textSize="@dimen/txt_size_large"
                 android:textStyle="normal" />
+
             <TextView
                 android:id="@+id/tvSupplierName_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/txt_size_large"/>
+                android:textSize="@dimen/txt_size_large" />
 
         </LinearLayout>
 
@@ -90,19 +92,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:text="Total Amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="Total Amount"
                 android:textSize="@dimen/txt_size_large"
-                android:textStyle="normal"/>
+                android:textStyle="normal" />
+
             <TextView
                 android:id="@+id/tvSaleTotalAmt_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/txt_size_large"/>
+                android:textSize="@dimen/txt_size_large" />
 
         </LinearLayout>
 

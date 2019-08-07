@@ -32,7 +32,7 @@ public class SaleDetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
     private MedicineSaleDetailAdapter adapter;
-    private ArrayList<MedicineModel> mModel= new ArrayList<>();
+    private ArrayList<MedicineModel> mModel = new ArrayList<>();
 
 
     @BindView(R.id.tvSaleInvoiceDate_detail)
@@ -47,20 +47,11 @@ public class SaleDetailActivity extends AppCompatActivity {
     @BindView(R.id.tvSaleCustomerPhNo1_detail)
     TextView tvSaleCustomerPhNo1_detail;
 
-
-
-
-
-
-
    /* @BindView(R.id.tvMedicineQtyPerDz_detail)
     TextView tvMedicineQtyPerDz;
 
-
   @BindView(R.id.spinnerAdd)
    TextView customerLevel;*/
-
-
 
     @BindView(R.id.rvMedicine_saleDetail)
     RecyclerView rvMedicine;
@@ -84,45 +75,46 @@ public class SaleDetailActivity extends AppCompatActivity {
         rvMedicine.setLayoutManager(manager);
 
 
-        if(saleModel != null){
-           // tvSaleInvoiceNo.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
+        if (saleModel != null) {
+            // tvSaleInvoiceNo.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             tvSaleCustomerName_detail.setText(saleModel.getSaleCustomerName());
-         //   customerLevel.setText(saleModel.getSaleCustomerLevel());
+            //   customerLevel.setText(saleModel.getSaleCustomerLevel());
             tvSaleCustomerAddress_detail.setText(saleModel.getSaleCustomerAddress());
             tvSaleCustomerPhNo1_detail.setText(saleModel.getSaleCustomerPhNo1());
-           // Log.d(TAG, "onCreate: size : "+saleModel.getCustomerModel().getCustomerAddress());
-           // adapter.getMedicineModelList().addAll(saleModel.getCustomerModel().getMedicineLists());
-            //adapter.notifyDataSetChanged();
+           /*
+            Log.d(TAG, "onCreate: size : "+saleModel.getCustomerModel().getCustomerAddress());
+           adapter.getMedicineModelList().addAll(saleModel.getCustomerModel().getMedicineLists());
+            adapter.notifyDataSetChanged();
 
-           // tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
+           tvMedicineQtyPerDz.setText(saleModel.getSaleQtyPerDz());
+            */
         }
-        if (mModel != null){
-            Log.d(TAG, "onCreate: size : "+mModel.size());
-          adapter.clear();
-          adapter.getMedicineModelList().addAll(mModel);
-          adapter.notifyDataSetChanged();
+        if (mModel != null) {
+            //  Log.d(TAG, "onCreate: size : "+mModel.size());
+            adapter.clear();
+            adapter.getMedicineModelList().addAll(mModel);
+            adapter.notifyDataSetChanged();
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.edit_detail,menu);
+        getMenuInflater().inflate(R.menu.edit_detail, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == R.id.edit_data)
-        {
-            Intent intent = new Intent(SaleDetailActivity.this,SaleAddActivity.class);
+        if (item.getItemId() == R.id.edit_data) {
+            Intent intent = new Intent(SaleDetailActivity.this, SaleAddActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("Sale",saleModel);
+            intent.putExtra("Sale", saleModel);
             startActivity(intent);
         }
-        if (item.getItemId() == R.id.delete_data){
+        if (item.getItemId() == R.id.delete_data) {
             String sId = saleModel.getSaleInvoiceNo();
 
             final SaleModel deleteResults = realm.where(SaleModel.class).equalTo("saleInvoiceNo", sId).findFirst();

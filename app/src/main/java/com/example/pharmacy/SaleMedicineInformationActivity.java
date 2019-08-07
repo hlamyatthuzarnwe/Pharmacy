@@ -31,8 +31,11 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
 
     private Toolbar toolbar;
 
-    //    @BindView(R.id.edtSearchMedicineInfo)
-//    EditText edtSearchMedicinInfo;
+    /*
+     @BindView(R.id.edtSearchMedicineInfo)
+    EditText edtSearchMedicinInfo;
+     */
+
     @BindView(R.id.swipeSearchMedicine)
     SwipeRefreshLayout swipe;
 
@@ -64,7 +67,7 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
 
         btnSearch.setOnClickListener(view -> {
             String text = edtSearch.getText().toString();
-            if (!text.isEmpty()){
+            if (!text.isEmpty()) {
                 getSearchMedicine(text);
             }
         });
@@ -84,18 +87,19 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
     private void getAllMedicine() {
         adapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
-       // Log.d(TAG,"getData : "+medicineModelList.size());
+        // Log.d(TAG,"getData : "+medicineModelList.size());
 
         if (!medicineModelList.isEmpty()) {
             adapter.getMedicineModelList().addAll(medicineModelList);
         }
         adapter.notifyDataSetChanged();
     }
-    private void getSearchMedicine(String name){
+
+    private void getSearchMedicine(String name) {
         adapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class)
-                .contains("medicineName",name, Case.INSENSITIVE).findAll();
-       // Log.d(TAG,"getSearchData : "+medicineModelList.size());
+                .contains("medicineName", name, Case.INSENSITIVE).findAll();
+        // Log.d(TAG,"getSearchData : "+medicineModelList.size());
 
         if (!medicineModelList.isEmpty()) {
             adapter.getMedicineModelList().addAll(medicineModelList);

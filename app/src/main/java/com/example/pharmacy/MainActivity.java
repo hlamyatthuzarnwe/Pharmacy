@@ -17,10 +17,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 
 import com.example.pharmacy.fragment.CustomerFragment;
-import com.example.pharmacy.fragment.InventoryFragment;
 import com.example.pharmacy.fragment.MedicineFragment;
-import com.example.pharmacy.fragment.SaleReportFragment;
-import com.example.pharmacy.fragment.UserManageFragment;
 import com.example.pharmacy.helper.SharepreferenceHelper;
 import com.example.yy.R;
 import com.example.pharmacy.fragment.SaleFragment;
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle drawerToggle;
     Fragment fragment = null;
     Class fragmentClass;
-    private static int LOCATE_ACTIVITY  = 0;
+    private static int LOCATE_ACTIVITY = 0;
     @BindView(R.id.fabAddMedicine)
     FloatingActionButton fabAdd;
     SharepreferenceHelper share;
@@ -84,14 +81,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawer = (DrawerLayout) findViewById(R.id.drawerMain);
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
 
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,mDrawer,toolbar, navigation_drawer_open, navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, navigation_drawer_open, navigation_drawer_close);
         mDrawer.addDrawerListener(toggle);
         toggle.syncState();
         nvDrawer.setNavigationItemSelectedListener(this);
         LOCATE_ACTIVITY = 0;
         MenuItem menuItem = nvDrawer.getMenu().getItem(0);
         onNavigationItemSelected(menuItem);
-       // fragmentClass = MedicineFragment.class;
+        // fragmentClass = MedicineFragment.class;
       /*  try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -102,34 +99,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();*/
 
         fabAdd.setOnClickListener(v -> {
-            switch (LOCATE_ACTIVITY){
-
-                case 0:
-                    Intent intent1 = new Intent(MainActivity.this,MedicineAddActivity.class);
-                startActivity(intent1);
-                break;
+            switch (LOCATE_ACTIVITY) {
 
                 case 1:
-                    Intent intent2 = new Intent(MainActivity.this,CustomerAddActivity.class);
-                startActivity(intent2);
-                break;
+                    Intent intent1 = new Intent(MainActivity.this, MedicineAddActivity.class);
+                    startActivity(intent1);
+                    break;
 
+               /*
                 case 2:
-                    Intent intent3 = new Intent(MainActivity.this,SupplierAddActivity.class);
-                startActivity(intent3);
-                break;
+                    Intent intent2 = new Intent(MainActivity.this, CustomerAddActivity.class);
+                    startActivity(intent2);
+                    break;
 
-                case 6:
-                    Intent intent7 = new Intent(MainActivity.this,SaleAddActivity.class);
-                    startActivity(intent7);
+                case 3:
+                    Intent intent3 = new Intent(MainActivity.this, SupplierAddActivity.class);
+                    startActivity(intent3);
+                    break;
+                */
+
+                case 4:
+                    Intent intent4 = new Intent(MainActivity.this, SaleAddActivity.class);
+                    startActivity(intent4);
                     break;
 
 
+              /*
+                default:
+                    Intent intent = new Intent(MainActivity.this,MedicineAddActivity.class);
+                    startActivity(intent);
 
-//                default:
-//                    Intent intent = new Intent(MainActivity.this,MedicineAddActivity.class);
-//                    startActivity(intent);
-
+               */
             }
 
         });
@@ -147,51 +147,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void selectDrawerItem(MenuItem menuItem) {
-        switch (menuItem.getItemId()){
-            case R.id.drawer_view_product :
+        switch (menuItem.getItemId()) {
+            case R.id.drawer_view_product:
                 fragmentClass = MedicineFragment.class;
-                LOCATE_ACTIVITY = 0;
+                LOCATE_ACTIVITY = 1;
                 break;
             case R.id.drawer_view_customer:
                 fragmentClass = CustomerFragment.class;
-                LOCATE_ACTIVITY = 1;
+                LOCATE_ACTIVITY = 2;
                 break;
             case R.id.drawer_view_supplier:
                 fragmentClass = SupplierFragment.class;
-                LOCATE_ACTIVITY = 2;
-                break;
-            case R.id.drawer_view_sale_report:
-                fragmentClass = SaleReportFragment.class;
                 LOCATE_ACTIVITY = 3;
-                break;
-            case R.id.drawer_view_inventory:
-                fragmentClass = InventoryFragment.class;
-                LOCATE_ACTIVITY = 4;
-                break;
-            case R.id.drawer_view_user_manage:
-                fragmentClass = UserManageFragment.class;
-                LOCATE_ACTIVITY = 5;
                 break;
             case R.id.drawer_view_sale:
                 fragmentClass = SaleFragment.class;
-                LOCATE_ACTIVITY = 6;
+                LOCATE_ACTIVITY = 4;
                 break;
             case R.id.drawer_view_logOut:
-                    new AlertDialog.Builder(this)
-                            .setMessage("Are you sure want to logout?")
-                            .setCancelable(false)
-                            .setPositiveButton("Yes",
-                                    (dialog, whichButton) -> {
-                                        FirebaseAuth.getInstance().signOut();
-                                        share.setLogIn(false);
-                                        Realm.getDefaultInstance().executeTransaction(realm -> realm.deleteAll());
-                                        Intent intent = new Intent(MainActivity.this, SplashActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
-                                    })
-                            .setNegativeButton("No",
-                                    (dialog, whichButton) -> dialog.dismiss()).show();
-                    break;
+                new AlertDialog.Builder(this)
+                        .setMessage("Are you sure want to logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes",
+                                (dialog, whichButton) -> {
+                                    FirebaseAuth.getInstance().signOut();
+                                    share.setLogIn(false);
+                                    Realm.getDefaultInstance().executeTransaction(realm -> realm.deleteAll());
+                                    Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                })
+                        .setNegativeButton("No",
+                                (dialog, whichButton) -> dialog.dismiss()).show();
+                break;
             default:
                 LOCATE_ACTIVITY = 1;
                 fragmentClass = MedicineFragment.class;

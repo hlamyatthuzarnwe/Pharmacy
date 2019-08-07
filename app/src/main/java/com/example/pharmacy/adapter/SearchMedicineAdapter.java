@@ -21,23 +21,24 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SearchMedicineAdapter  extends RecyclerView.Adapter<SearchMedicineAdapter.SearchViewHolder>  {
+public class SearchMedicineAdapter extends RecyclerView.Adapter<SearchMedicineAdapter.SearchViewHolder> {
 
-    private static final String TAG="SearchMedicineAdapter";
+    private static final String TAG = "SearchMedicineAdapter";
     private List<MedicineModel> medicineModelList = new ArrayList<>();
 
-    public void clear(){
+    public void clear() {
         medicineModelList.clear();
     }
 
-    public List<MedicineModel>getMedicineModelList(){
+    public List<MedicineModel> getMedicineModelList() {
         return medicineModelList;
     }
+
     @NonNull
     @Override
     public SearchViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_medicine_search,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.item_medicine_search, viewGroup, false);
         return new SearchMedicineAdapter.SearchViewHolder(view);
     }
 
@@ -56,21 +57,23 @@ public class SearchMedicineAdapter  extends RecyclerView.Adapter<SearchMedicineA
         @BindView(R.id.medicineName_itemSearch)
         TextView tvName;
         private Context context;
+
         public SearchViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             cView = itemView;
         }
-        public void bind(MedicineModel model){
+
+        public void bind(MedicineModel model) {
             tvName.setText(model.getMedicineName());
 
             cView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SaleMedicineDetailInformationActivity.class);
-                intent.putExtra("MedicineModel",model);
+                intent.putExtra("MedicineModel", model);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 context.startActivity(intent);
-               //((Activity)context).finish();
+                //((Activity)context).finish();
             });
         }
     }

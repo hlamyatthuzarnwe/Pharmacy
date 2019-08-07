@@ -4,9 +4,7 @@
     <item android:state_pressed="true">
         <shape>
             <solid android:color="@color/colorPrimary" />
-            <padding
-                android:left="10dp"
-                android:right="10dp" />
+            <padding android:left="10dp" android:right="10dp" />
 
         </shape>
     </item>
@@ -14,9 +12,7 @@
     <item>
         <shape>
             <solid android:color="@color/colorPrimaryDark" />
-            <padding
-                android:left="10dp"
-                android:right="10dp" />
+            <padding android:left="10dp" android:right="10dp" />
         </shape>
     </item>
 </selector>

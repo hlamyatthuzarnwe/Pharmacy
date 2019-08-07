@@ -1,53 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-        <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
 
-            <item
-                android:id="@+id/drawer_view_product"
-                android:icon="@drawable/medicine"
-                android:title="Medicine List"/>
-            <item
-                android:id="@+id/drawer_view_customer"
-                android:icon="@drawable/customer"
-                android:title="Customers" />
-            <item
-                android:id="@+id/drawer_view_supplier"
-                android:icon="@drawable/supplier"
-                android:title="Suppliers" />
+        <item
+            android:id="@+id/drawer_view_product"
+            android:icon="@drawable/medicine"
+            android:title="Medicine List" />
+        <item
+            android:id="@+id/drawer_view_customer"
+            android:icon="@drawable/customer"
+            android:title="Customers" />
+        <item
+            android:id="@+id/drawer_view_supplier"
+            android:icon="@drawable/supplier"
+            android:title="Suppliers" />
 
-            <item
-                android:id="@+id/drawer_view_sale_report"
-                android:icon="@drawable/salereport"
-                android:title="Sales Report"/>
-            <item
-                android:id="@+id/drawer_view_inventory"
-                android:icon="@drawable/inventory"
-                android:title="Inventory" />
-            <item
-                android:id="@+id/drawer_view_user_manage"
-                android:icon="@drawable/usermanage"
-                android:title="User Manage" />
-        </group>
+        <item
+            android:id="@+id/drawer_view_sale"
+            android:icon="@drawable/sale"
+            android:title="Sale List" />
+
+        <item
+            android:id="@+id/drawer_view_logOut"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
+
+    </group>
 
 
-    <item
-        android:title="Sub menu"
-        >
+    <item android:title="Sub menu">
         <menu>
             <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/drawer_view_sale"
-                    android:icon="@drawable/sale"
-                    android:title="Sale List" />
-                <item
-                    android:id="@+id/drawer_view_logOut"
-                    android:icon="@drawable/sale"
-                    android:title="Logout" />
+
 
             </group>
         </menu>

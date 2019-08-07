@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,32 +16,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:cardCornerRadius="15dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginBottom="15dp"
+            app:cardCornerRadius="15dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvMedicineName_saleMedicine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginLeft="15dp" />
+
                 <TextView
                     android:id="@+id/tvMedicinePrice_saleMedicine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginLeft="15dp" />
+
                 <TextView
                     android:id="@+id/tvMedicineQty_saleMedicine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginLeft="15dp" />
+
                 <TextView
                     android:id="@+id/tvMedicineSubAmt_saleMedicine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginLeft="15dp" />
             </LinearLayout>
 
         </android.support.v7.widget.CardView>

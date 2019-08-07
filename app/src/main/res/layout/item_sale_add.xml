@@ -19,10 +19,10 @@
 
         <TextView
             android:id="@+id/tvSaleMedicineName"
-            android:padding="5dp"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/txt_size_large"
             tools:text="m Name" />
@@ -31,18 +31,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                android:padding="5dp"
-                android:text="@string/qty"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/qty" />
 
             <TextView
                 android:id="@+id/tvSaleQtyPerPc"
-                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:padding="5dp"
                 tools:text="7" />
 
         </LinearLayout>
@@ -53,17 +54,17 @@
             android:orientation="horizontal">
 
             <TextView
-                android:padding="5dp"
-                android:text="@string/price"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="@string/price" />
 
             <TextView
                 android:id="@+id/tvSaleSubAmtPerPc"
-                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:padding="5dp"
                 tools:text="2000" />
 
         </LinearLayout>

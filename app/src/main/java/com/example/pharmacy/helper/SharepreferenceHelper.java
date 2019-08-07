@@ -41,6 +41,7 @@ public class SharepreferenceHelper {
     public void setStaff(String passcode) {
         getSharedPreferencesEditor().remove(PREF_STAFF).putString(PREF_STAFF, passcode).apply();
     }
+
     public boolean isLogIn() {
         return getSharedPreferences().getBoolean(PREF_IS_LOG_IN, false);
     }
@@ -56,7 +57,6 @@ public class SharepreferenceHelper {
     private SharedPreferences getSharedPreferences() {
         return contextHelper.getContext().getSharedPreferences(contextHelper.getContext().getResources().getString(R.string.app_name), Context.MODE_PRIVATE);
     }
-
 
 
     private static class SingletonHelper {

@@ -6,11 +6,11 @@
         android:id="@+id/edit_data"
         android:title="EDIT"
 
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/delete_data"
         android:title="DELETE"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
 </menu>

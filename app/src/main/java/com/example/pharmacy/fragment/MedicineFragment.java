@@ -43,7 +43,7 @@ import io.realm.Sort;
  */
 public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG="MedicineFragment";
+    private static final String TAG = "MedicineFragment";
     private MedicineAdapter medicineAdapter;
 
     @BindView(R.id.swipeMedicine)
@@ -71,7 +71,7 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_medicine, container, false);
         setHasOptionsMenu(true);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         context = view.getContext();
 
         init();
@@ -83,25 +83,25 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_search_view,menu);
+        inflater.inflate(R.menu.menu_search_view, menu);
         MenuItem searchItem = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint( "Search by Name");
+        searchView.setQueryHint("Search by Name");
         searchView.setScrollBarSize(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-               if (TextUtils.isEmpty(query)){
-                   getAllMedicine();
-               }else {
-                   getSearchList(query);
-               }
+                if (TextUtils.isEmpty(query)) {
+                    getAllMedicine();
+                } else {
+                    getSearchList(query);
+                }
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-                if (TextUtils.isEmpty(s)){
+                if (TextUtils.isEmpty(s)) {
                     getAllMedicine();
                     return true;
                 }
@@ -120,7 +120,8 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
         rvMedicine.setLayoutManager(linearLayoutManager);
         rvMedicine.setAdapter(medicineAdapter);
     }
-    private void getSearchList(String query){
+
+    private void getSearchList(String query) {
         medicineAdapter.clear();
         RealmResults<MedicineModel> medicineList = realm.where(MedicineModel.class)
                 .contains("medicineName", query, Case.INSENSITIVE)
@@ -129,22 +130,23 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
                 .findAll();
 
         getMedicineCount(medicineList.size());
+/*
 
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+medicineList.size());
+ */
         medicineAdapter.getMedicineModelList().addAll(medicineList);
         medicineAdapter.notifyDataSetChanged();
     }
 
 
-
     private void getAllMedicine() {
         medicineAdapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
-        Log.d(TAG,"getData : "+medicineModelList.size());
+        Log.d(TAG, "getData : " + medicineModelList.size());
 
-        if(medicineModelList != null && !medicineModelList.isEmpty()){
+        if (medicineModelList != null && !medicineModelList.isEmpty()) {
             getMedicineCount(medicineModelList.size());
             medicineAdapter.getMedicineModelList().addAll(medicineModelList);
         }
@@ -153,9 +155,9 @@ public class MedicineFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     private void getMedicineCount(int count) {
         if (count == 1) {
-            tvCount.setText(String.valueOf(count)+" Medicine");
-        }else if (count > 1){
-            tvCount.setText(String.valueOf(count)+" Medicines");
+            tvCount.setText(String.valueOf(count) + " Medicine");
+        } else if (count > 1) {
+            tvCount.setText(String.valueOf(count) + " Medicines");
         }
     }
 

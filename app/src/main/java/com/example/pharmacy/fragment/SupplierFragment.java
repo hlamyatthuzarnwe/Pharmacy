@@ -37,7 +37,7 @@ import io.realm.RealmResults;
  */
 public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG="MainActivity";
+    private static final String TAG = "MainActivity";
     private SupplierAdapter supplierAdapter;
 
     @BindView(R.id.swipeSupplier)
@@ -54,7 +54,6 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
     private Context context;
 
 
-
     public SupplierFragment() {
         // Required empty public constructor
     }
@@ -66,7 +65,7 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_supplier, container, false);
         setHasOptionsMenu(true);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         context = view.getContext();
 
         init();
@@ -87,17 +86,17 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_search_view,menu);
+        inflater.inflate(R.menu.menu_search_view, menu);
         MenuItem searchItem = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint( "Search by Name");
+        searchView.setQueryHint("Search by Name");
         searchView.setScrollBarSize(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (TextUtils.isEmpty(query)){
+                if (TextUtils.isEmpty(query)) {
                     getAllSupplier();
-                }else {
+                } else {
                     getSearchList(query);
                 }
                 return true;
@@ -105,7 +104,7 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
 
             @Override
             public boolean onQueryTextChange(String s) {
-                if (TextUtils.isEmpty(s)){
+                if (TextUtils.isEmpty(s)) {
                     getAllSupplier();
                     return true;
                 }
@@ -121,9 +120,11 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
                 .contains("supplierName", query, Case.INSENSITIVE)
                 .findAll();
 
+     /*
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: "+supplierList.size());
 
+      */
         getSupplierCount(supplierList.size());
 
         supplierAdapter.getSupplierModelList().addAll(supplierList);
@@ -133,20 +134,21 @@ public class SupplierFragment extends Fragment implements SwipeRefreshLayout.OnR
     private void getAllSupplier() {
         supplierAdapter.clear();
         final RealmResults<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
-        Log.d(TAG,"getData : "+supplierModelList.size());
+        // Log.d(TAG,"getData : "+supplierModelList.size());
 
-        if(supplierModelList != null && !supplierModelList.isEmpty()){
-           getSupplierCount(supplierModelList.size());
+        if (supplierModelList != null && !supplierModelList.isEmpty()) {
+            getSupplierCount(supplierModelList.size());
             supplierAdapter.getSupplierModelList().addAll(supplierModelList);
         }
         supplierAdapter.notifyDataSetChanged();
 
     }
-    private void getSupplierCount(int count){
+
+    private void getSupplierCount(int count) {
         if (count == 1) {
-            tvCount.setText(String.valueOf(count)+" Supplier");
-        }else if (count > 1){
-            tvCount.setText(String.valueOf(count)+" Suppliers");
+            tvCount.setText(String.valueOf(count) + " Supplier");
+        } else if (count > 1) {
+            tvCount.setText(String.valueOf(count) + " Suppliers");
         }
     }
 

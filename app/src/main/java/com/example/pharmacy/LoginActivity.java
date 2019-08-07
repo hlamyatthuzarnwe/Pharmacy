@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
     private MyanProgressDialog dialog;
     String phoneNumber1 = "+95786091601";
     String phoneNumber2 = "+9509786091601";
-    String smsCode =  "987654";
+    String smsCode = "987654";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,17 +76,16 @@ public class LoginActivity extends AppCompatActivity {
         dialog.hideDialog();
 
 
-
-
-
-                mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
                 dialog.hideDialog();
+              /*
                 Log.d(TAG, "onVerificationCompleted: " + phoneAuthCredential);
 
-//                Log.d(TAG, "onVerificationCompleted: current user : "+auth.getCurrentUser().getPhoneNumber());
-//                Log.d(TAG, "onVerificationCompleted: current uid : "+auth.getCurrentUser().getUid());
+                Log.d(TAG, "onVerificationCompleted: current user : "+auth.getCurrentUser().getPhoneNumber());
+                Log.d(TAG, "onVerificationCompleted: current uid : "+auth.getCurrentUser().getUid());
+               */
                 signInWithPhoneAuthCredential(phoneAuthCredential);
 
 
@@ -94,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Log.w(TAG, "onVerificationFailed", e);
+                // Log.w(TAG, "onVerificationFailed", e);
                 dialog.hideDialog();
                 showAlert();
 
@@ -111,8 +110,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCodeSent(String verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(verificationId, forceResendingToken);
+                /*
                 Log.d(TAG, "onCodeSent: id : " + verificationId);
                 Log.d(TAG, "onCodeSent: token : " + forceResendingToken);
+                 */
 
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId;
@@ -124,16 +125,16 @@ public class LoginActivity extends AppCompatActivity {
                 super.onCodeAutoRetrievalTimeOut(s);
                 dialog.hideDialog();
                 showAlert();
-                Log.d(TAG, "onCodeAutoRetrievalTimeOut: " + s);
+                // Log.d(TAG, "onCodeAutoRetrievalTimeOut: " + s);
             }
         };
 
         btnConfirm.setOnClickListener(view -> {
-            Log.d(TAG, "onCreate: btnConfirm : "+edtLoginUserName.getText().toString());
-            String ph = "+95"+edtLoginUserName.getText().toString();
-            if (ph.trim().equals(phoneNumber1.trim())){
-               retrievalCode(phoneNumber1);
-            }else if ( ph.trim().equals(phoneNumber2.trim())){
+            // Log.d(TAG, "onCreate: btnConfirm : "+edtLoginUserName.getText().toString());
+            String ph = "+95" + edtLoginUserName.getText().toString();
+            if (ph.trim().equals(phoneNumber1.trim())) {
+                retrievalCode(phoneNumber1);
+            } else if (ph.trim().equals(phoneNumber2.trim())) {
                 retrievalCode(phoneNumber2);
             }
             signIn();
@@ -141,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void retrievalCode(String phNum) {
-        Log.d(TAG, "retrievalCode: phnum : "+phNum);
+        //  Log.d(TAG, "retrievalCode: phnum : "+phNum);
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         FirebaseAuthSettings firebaseAuthSettings = firebaseAuth.getFirebaseAuthSettings();
         firebaseAuthSettings.setAutoRetrievedSmsCodeForPhoneNumber(phNum, smsCode);
@@ -149,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signIn() {
         phone = "+95" + edtLoginUserName.getText().toString().trim();
-        Log.d(TAG, "onClick: var phone : " + phone);
+        //  Log.d(TAG, "onClick: var phone : " + phone);
         if (!TextUtils.isEmpty(phone)) {
             dialog.showDialog();
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -194,14 +195,16 @@ public class LoginActivity extends AppCompatActivity {
                         dialog.hideDialog();
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
+                            //  Log.d(TAG, "signInWithCredential:success");
                             share.setLogIn(true);
 
                             FirebaseUser user = task.getResult().getUser();
 
+                           /*
                             Log.d(TAG, "onComplete: phone number : " + user.getPhoneNumber());
                             Log.d(TAG, "onComplete: display name : " + user.getDisplayName());
                             Log.d(TAG, "onComplete: user id : " + user.getUid());
+                            */
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                             // ...
@@ -209,7 +212,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in failed, display a message and update the UI
                             share.setLogIn(false);
                             showAlert();
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            //  Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid
                             }

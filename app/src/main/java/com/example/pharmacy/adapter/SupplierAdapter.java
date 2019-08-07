@@ -19,14 +19,14 @@ import butterknife.ButterKnife;
 
 public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.SupplierViewHolder> {
 
-    private static final  String TAG="SupplierAdapter";
+    private static final String TAG = "SupplierAdapter";
     private List<SupplierModel> supplierModelList = new ArrayList<>();
 
-    public void clear(){
+    public void clear() {
         supplierModelList.clear();
     }
 
-    public List<SupplierModel> getSupplierModelList(){
+    public List<SupplierModel> getSupplierModelList() {
         return supplierModelList;
     }
 
@@ -34,7 +34,7 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
     @Override
     public SupplierViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_supplier,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.item_supplier, viewGroup, false);
         return new SupplierViewHolder(view);
     }
 
@@ -69,7 +69,7 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
 
         public SupplierViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             sView = itemView;
         }
@@ -77,16 +77,16 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.Suppli
 
         public void bind(SupplierModel supplierModel) {
 
-            if(supplierModel.getSupplierName() != null){
+            if (supplierModel.getSupplierName() != null) {
                 tvSupplier_supplierName.setText(supplierModel.getSupplierName());
             }
-            if(supplierModel.getCompanyName() != null){
+            if (supplierModel.getCompanyName() != null) {
                 tvCompanyName.setText(supplierModel.getCompanyName());
             }
-            if(supplierModel.getCompanyAddress() != null){
+            if (supplierModel.getCompanyAddress() != null) {
                 tvCompanyAddress.setText(supplierModel.getCompanyAddress());
             }
-            if (supplierModel.getSuplier_phno1() != null){
+            if (supplierModel.getSuplier_phno1() != null) {
                 tvSupplierPhoneNo.setText(supplierModel.getSuplier_phno1());
             }
 

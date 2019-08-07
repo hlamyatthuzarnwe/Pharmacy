@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/swipeMedicineInfo"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeMedicineInfo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.pharmacy.SaleMedicineInformationActivity">
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <include layout="@layout/toolbar"/>
+        <include layout="@layout/toolbar" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -24,9 +23,10 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,7 +34,8 @@
                 android:orientation="horizontal"
                 android:padding="5dp">
 
-                <EditText android:id="@+id/edtSearch_searchMedicine"
+                <EditText
+                    android:id="@+id/edtSearch_searchMedicine"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
@@ -44,14 +45,15 @@
                     android:hint="@string/search_medicine"
                     android:imeOptions="actionSearch"
                     android:singleLine="true"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
-                <Button android:id="@+id/btnSearch_searchMedicine"
+                <Button
+                    android:id="@+id/btnSearch_searchMedicine"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:background="@drawable/button_main_search"
                     android:text="Search"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white" />
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView

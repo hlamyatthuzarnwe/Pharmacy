@@ -38,7 +38,7 @@ import io.realm.Sort;
  */
 public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG="MainActivity";
+    private static final String TAG = "MainActivity";
     private CustomerAdapter customerAdapter;
 
     @BindView(R.id.swipeCustomer)
@@ -65,7 +65,7 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_customer, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         init();
         getAllCustomer();
@@ -75,17 +75,17 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_search_view,menu);
+        inflater.inflate(R.menu.menu_search_view, menu);
         MenuItem searchItem = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint( "Search by Name");
+        searchView.setQueryHint("Search by Name");
         searchView.setScrollBarSize(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (TextUtils.isEmpty(query)){
+                if (TextUtils.isEmpty(query)) {
                     getAllCustomer();
-                }else {
+                } else {
                     getSearchList(query);
                 }
 
@@ -94,7 +94,7 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
 
             @Override
             public boolean onQueryTextChange(String s) {
-                if (TextUtils.isEmpty(s)){
+                if (TextUtils.isEmpty(s)) {
                     getAllCustomer();
                     return true;
                 }
@@ -112,9 +112,11 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
         RealmResults<CustomerModel> test = realm.where(CustomerModel.class)
                 .findAll();
 
+       /*
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+customerList.size());
+        */
 
         getCustomerCount(customerList.size());
 
@@ -136,10 +138,10 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
     private void getAllCustomer() {
         customerAdapter.clear();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).sort("customerName", Sort.ASCENDING).findAll();
-        Log.d(TAG,"getData : "+customerModelList.size());
+        //Log.d(TAG,"getData : "+customerModelList.size());
 
 
-        if(customerModelList != null && !customerModelList.isEmpty()){
+        if (customerModelList != null && !customerModelList.isEmpty()) {
             getCustomerCount(customerModelList.size());
             customerAdapter.getCustomerModelList().addAll(customerModelList);
         }
@@ -148,9 +150,9 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     private void getCustomerCount(int count) {
         if (count == 1) {
-            tvCount.setText(String.valueOf(count)+" Customer");
-        }else if (count > 1){
-            tvCount.setText(String.valueOf(count)+" Customers");
+            tvCount.setText(String.valueOf(count) + " Customer");
+        } else if (count > 1) {
+            tvCount.setText(String.valueOf(count) + " Customers");
         }
     }
 

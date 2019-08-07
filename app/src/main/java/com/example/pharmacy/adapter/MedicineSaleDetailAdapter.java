@@ -21,7 +21,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MedicineSaleDetailAdapter  extends RecyclerView.Adapter<MedicineSaleDetailAdapter.MedicineSaleDetailViewHolder> {
+public class MedicineSaleDetailAdapter extends RecyclerView.Adapter<MedicineSaleDetailAdapter.MedicineSaleDetailViewHolder> {
 
     private static final String TAG = MedicineSaleDetailAdapter.class.getSimpleName();
     private List<MedicineModel> medicineModelList = new ArrayList<>();
@@ -43,6 +43,7 @@ public class MedicineSaleDetailAdapter  extends RecyclerView.Adapter<MedicineSal
     public int getItemCount() {
         return medicineModelList.size();
     }
+
     public void clear() {
         medicineModelList.clear();
     }
