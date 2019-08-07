@@ -49,6 +49,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilMedicineName_medicineAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
@@ -62,34 +63,7 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:id="@+id/edtMedicineCode"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Medicine Code"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:id="@+id/edtMedicineCategory"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Category"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilMedicineCost_medicineAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
@@ -103,22 +77,9 @@
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:id="@+id/edtMedicneDzCostPrice"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Cost Per Dz"
-                            android:inputType="number"
-                            android:padding="5dp" />
-                    </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilMedicineQty_medicineAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
@@ -142,6 +103,7 @@
 
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilMedicineSalePrice_medicineAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
@@ -155,7 +117,6 @@
                             android:inputType="number"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
-
 
 
                     <EditText
@@ -213,6 +174,7 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilCompanyName_medicineAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
@@ -239,6 +201,7 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilCompanyPh_medicineAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">

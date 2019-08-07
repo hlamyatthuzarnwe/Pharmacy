@@ -48,21 +48,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp">
-
-                        <EditText
-                            android:id="@+id/edtSaleInvoiceId_add"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Sale Invoice Number"
-                            android:padding="5dp"
-                            android:inputType="number"/>
-                    </android.support.design.widget.TextInputLayout>
-
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -105,6 +90,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilCustomerName_saleAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">
@@ -150,6 +136,7 @@
                         android:visibility="gone" />
 
                     <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilCustomerPh_saleAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp">

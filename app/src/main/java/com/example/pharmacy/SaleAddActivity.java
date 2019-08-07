@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,6 +48,13 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
     private static final char UNIX_SEPRATOR = '/';
     String selectedCustomerLevel;
     String level;
+
+    @BindView(R.id.tilCustomerName_saleAdd)
+    TextInputLayout tilCustomerName;
+
+    @BindView(R.id.tilCustomerPh_saleAdd)
+    TextInputLayout tilCustomerPh;
+
     @BindView(R.id.edtSaleInvoiceDate)
     EditText edtSaleInvoiceDate;
 
@@ -58,7 +66,6 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     @BindView(R.id.edtCustomerPhNo1)
     EditText edtCustomerPhNo1;
-
 
     @BindView(R.id.rvMedicine_SaleAddMedicine)
     RecyclerView rvMedicine;
@@ -165,9 +172,10 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
 
         });
-        relativeSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        relativeSave.setOnClickListener(view -> {
+
+            if (validateField()){
+
                 insertData();
                 Intent intent = new Intent(SaleAddActivity.this,MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -205,6 +213,22 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 //            saleModel.setSaleSubTotalAmt(mSubAmt);
 //        });
 
+    }
+
+    private boolean validateField() {
+
+        if (TextUtils.isEmpty(edtCustomerName_add.getText().toString().trim())){
+            tilCustomerName.setErrorEnabled(true);
+            tilCustomerName.setError("Customer Name required");
+            return false;
+        }
+        if (TextUtils.isEmpty(edtCustomerPhNo1.getText().toString().trim())){
+            tilCustomerPh.setErrorEnabled(true);
+            tilCustomerPh.setError("Customer Phone Number required");
+            return false;
+        }
+
+        return true;
     }
 
     private void insertSaleItems() {

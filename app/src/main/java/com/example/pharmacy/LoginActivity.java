@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,6 +22,7 @@ import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -58,6 +58,9 @@ public class LoginActivity extends AppCompatActivity {
     private Realm realm;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private MyanProgressDialog dialog;
+    String phoneNumber1 = "+95786091601";
+    String phoneNumber2 = "+9509786091601";
+    String smsCode =  "987654";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +74,9 @@ public class LoginActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         share = SharepreferenceHelper.getHelper(this);
         dialog.hideDialog();
+
+
+
 
 
                 mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -122,12 +128,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
+        btnConfirm.setOnClickListener(view -> {
+            Log.d(TAG, "onCreate: btnConfirm : "+edtLoginUserName.getText().toString());
+            String ph = "+95"+edtLoginUserName.getText().toString();
+            if (ph.trim().equals(phoneNumber1.trim())){
+               retrievalCode(phoneNumber1);
+            }else if ( ph.trim().equals(phoneNumber2.trim())){
+                retrievalCode(phoneNumber2);
             }
+            signIn();
         });
+    }
+
+    private void retrievalCode(String phNum) {
+        Log.d(TAG, "retrievalCode: phnum : "+phNum);
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseAuthSettings firebaseAuthSettings = firebaseAuth.getFirebaseAuthSettings();
+        firebaseAuthSettings.setAutoRetrievedSmsCodeForPhoneNumber(phNum, smsCode);
     }
 
     private void signIn() {
