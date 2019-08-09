@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/medicine_add"
@@ -139,13 +140,49 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Supplier Information"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/txt_size_ex_large" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="10dp"-->
+                <!--android:text="Supplier Information"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="@dimen/txt_size_ex_large" />-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Supplier Information"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/txt_size_large" />
+
+                <LinearLayout
+                    android:id="@+id/linearExistingSupplier_medicineAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/bg_button"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+
+                        android:id="@+id/tvExistingCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:shadowColor="@color/color_white"
+                        android:text="Choose Existing Supplier"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"

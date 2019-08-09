@@ -25,7 +25,8 @@ import io.realm.Realm;
 public class SearchCustomerActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "SaleMedicineInformationActivity";
-    @BindView(R.id.swipeSearchMedicine)
+
+    @BindView(R.id.swipeSearchCustomer)
     SwipeRefreshLayout swipe;
 
     /*
@@ -34,10 +35,13 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
      */
     @BindView(R.id.rvCustomerList_searchCustomer)
     RecyclerView rvCustomer;
+
     @BindView(R.id.edtSearch_searchCustomer)
     EditText edtSearch;
+
     @BindView(R.id.btnSearch_searchCustomer)
     Button btnSearch;
+
     private Toolbar toolbar;
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;

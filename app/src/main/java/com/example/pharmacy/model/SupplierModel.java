@@ -3,6 +3,7 @@ package com.example.pharmacy.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -15,6 +16,8 @@ public class SupplierModel extends RealmObject implements Parcelable {
     private String companyAddress;
     private String suplier_phno1;
     private String supplierNote;
+
+    private RealmList<SupplierModel> supplierModels;
 
     public SupplierModel() {
 
@@ -36,6 +39,26 @@ public class SupplierModel extends RealmObject implements Parcelable {
         companyAddress = in.readString();
         suplier_phno1 = in.readString();
         supplierNote = in.readString();
+    }
+
+    public void setSupplierModel(RealmList<SupplierModel> supplierModels) {
+        this.supplierModels = supplierModels;
+    }
+
+    public RealmList<SupplierModel> getSupplierModels() {
+        return supplierModels;
+    }
+
+    public String getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(String supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public static Creator<SupplierModel> getCREATOR() {
+        return CREATOR;
     }
 
     public static final Creator<SupplierModel> CREATOR = new Creator<SupplierModel>() {

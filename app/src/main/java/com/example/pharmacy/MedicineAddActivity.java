@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -70,6 +71,11 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.tilCompanyPh_medicineAdd)
     TextInputLayout tilCompanyPh;
 
+
+    @BindView(R.id.linearExistingSupplier_medicineAdd)
+    LinearLayout linearExistingSupplier;
+
+
     @BindView(R.id.edtMedicineName)
     EditText edtMedicineName;
 
@@ -109,7 +115,8 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.spinnerAdd)
     Spinner spinnerAdd;
 
-    private SupplierModel supplierModel;
+   private SupplierModel supplierModel;
+
     private String idEdit;
     private boolean is_edit = false;
 
@@ -120,6 +127,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_medicine_add);
 
         ButterKnife.bind(this);
+
         realm = Realm.getDefaultInstance();
         setUpReceivedDateTime();
         setUpExpireDateTime();
@@ -154,6 +162,22 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             edtMedicineExpDate.setText(medicineModel.getMedicineExpDate());
         }
 
+/*
+        btnSupplierAdd.setOnClickListener(v -> {
+            insertSaleItems();
+            Intent intent = new Intent(MedicineAddActivity.this, SaleMedicineInformationActivity.class);
+            startActivity(intent);
+
+
+        });
+
+ */
+
+        linearExistingSupplier.setOnClickListener(view -> {
+            insertSaleItems();
+            Intent intent = new Intent(MedicineAddActivity.this, SupplierSearchActivity.class);
+            startActivity(intent);
+        });
         relativeSave.setOnClickListener(view -> {
 
 
@@ -215,6 +239,22 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAdd.setAdapter(adapter);
+
+    }
+
+    private void insertSaleItems() {
+        String supplierName = edtSupplierName.getText().toString();
+        String companyName = edtMedicineCompanyName.getText().toString();
+        String companyAddress = edtAddress.getText().toString();
+        String supplierPh = edtContactMedicinePh1.getText().toString();
+
+        //  Log.d(TAG, "insertSaleItems: invoice : "+saleInvoiceDate);
+       /*
+        singleSupplier.setSupplierName(supplierName);
+        singleSupplier.setCompanyName(companyName);
+        singleSupplier.setCompanyAddress(companyAddress);
+        singleSupplier.setSuplier_phno1(supplierPh);
+        */
 
     }
 
