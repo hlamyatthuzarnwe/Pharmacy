@@ -2,6 +2,7 @@ package com.example.pharmacy;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SharepreferenceHelper share;
 
     private static final String TAG = "MainActivity";
+    private Handler handler;
 
 
     @Override
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         share = SharepreferenceHelper.getHelper(this);
+        handler = new Handler();
 
       /*  PackageInfo info;
         try {
@@ -151,18 +154,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.drawer_view_product:
                 fragmentClass = MedicineFragment.class;
                 LOCATE_ACTIVITY = 1;
+                fabAdd.show();
                 break;
             case R.id.drawer_view_customer:
                 fragmentClass = CustomerFragment.class;
                 LOCATE_ACTIVITY = 2;
+                fabAdd.hide();
                 break;
             case R.id.drawer_view_supplier:
                 fragmentClass = SupplierFragment.class;
                 LOCATE_ACTIVITY = 3;
+                fabAdd.hide();
                 break;
             case R.id.drawer_view_sale:
                 fragmentClass = SaleFragment.class;
                 LOCATE_ACTIVITY = 4;
+                fabAdd.show();
                 break;
             case R.id.drawer_view_logOut:
                 new AlertDialog.Builder(this)

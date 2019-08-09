@@ -18,7 +18,8 @@ public class CustomerModel extends RealmObject implements Parcelable {
     private String customerInvoiceDate;
     private String customerNote;
 
-    private RealmList<MedicineModel> medicineLists;
+
+    private RealmList<SaleModel> saleModels;
 
 
     public CustomerModel() {
@@ -56,7 +57,6 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerPhNo1 = customerPhNo1;
     }
 
-
     public String getCustomerInvoiceDate() {
         return customerInvoiceDate;
     }
@@ -73,44 +73,34 @@ public class CustomerModel extends RealmObject implements Parcelable {
         this.customerNote = customerNote;
     }
 
-    public RealmList<MedicineModel> getMedicineLists() {
-        return medicineLists;
+    protected CustomerModel(Parcel in) {
+        customerId = in.readString();
+        customerName = in.readString();
+        customerAddress = in.readString();
+        customerPhNo1 = in.readString();
+        customerInvoiceDate = in.readString();
+        customerNote = in.readString();
     }
 
-    public void setMedicineLists(RealmList<MedicineModel> medicineLists) {
-        this.medicineLists = medicineLists;
-    }
-
-    public CustomerModel(String customerId, String customerName, String customerAddress, String customerPhNo1, String customerInvoiceDate, String customerNote, RealmList<MedicineModel> medicineLists) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerPhNo1 = customerPhNo1;
-        this.customerInvoiceDate = customerInvoiceDate;
-        this.customerNote = customerNote;
-        this.medicineLists = medicineLists;
+    public RealmList<SaleModel> getSaleModels() {
+        return saleModels;
     }
 
     public static Creator<CustomerModel> getCREATOR() {
         return CREATOR;
     }
 
-    protected CustomerModel(Parcel in) {
-        customerId = in.readString();
-        customerName = in.readString();
-        customerInvoiceDate = in.readString();
-        customerAddress = in.readString();
-        customerPhNo1 = in.readString();
-        customerNote = in.readString();
+    public void setSaleModels(RealmList<SaleModel> saleModels) {
+        this.saleModels = saleModels;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(customerId);
         dest.writeString(customerName);
-        dest.writeString(customerInvoiceDate);
         dest.writeString(customerAddress);
         dest.writeString(customerPhNo1);
+        dest.writeString(customerInvoiceDate);
         dest.writeString(customerNote);
     }
 

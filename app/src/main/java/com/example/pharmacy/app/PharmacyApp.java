@@ -3,10 +3,11 @@ package com.example.pharmacy.app;
 import android.app.Application;
 
 
+import com.example.pharmacy.helper.RealmMigration;
+
 import io.realm.DynamicRealm;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmMigration;
 
 public class PharmacyApp extends Application {
 
@@ -22,9 +23,7 @@ public class PharmacyApp extends Application {
         RealmConfiguration realmConfig = new RealmConfiguration.Builder()
                 .name("medicine_db")
                 .schemaVersion(1)
-                .migration((realm, oldVersion, newVersion) -> {
-
-                })
+                .migration(new RealmMigration())
                 .build();
         Realm.setDefaultConfiguration(realmConfig);
     }

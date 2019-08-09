@@ -10,7 +10,6 @@ public class SupplierModel extends RealmObject implements Parcelable {
 
     @PrimaryKey
     private String supplierId;
-
     private String supplierName;
     private String companyName;
     private String companyAddress;

@@ -7,31 +7,49 @@ import java.util.ArrayList;
 import io.realm.RealmList;
 
 public class MedicineModelList {
-    //create an object of CaseRecordModel
-    private static RealmList<MedicineModel> instance;
-    public static int invoiceNumber = 0;
 
-    //make the constructor private so that this class cannot be
-    //instantiated
+    private static  final MedicineModelList instance = new MedicineModelList();
+   // create an object of CaseRecordModel
+    private  RealmList<MedicineModel> medicineModelRealmList;
+
     private MedicineModelList() {
     }
 
-    //Get the only object available
-    public static synchronized RealmList<MedicineModel> getInstance() {
-        if (instance == null) {
-            instance = new RealmList<>();
-        }
+    public static MedicineModelList getInstance() {
         return instance;
     }
 
-    public static int getNumber() {
-        invoiceNumber += 1;
-        return invoiceNumber;
+    public  RealmList<MedicineModel> getMedicineModelRealmList() {
+
+        if (this.medicineModelRealmList == null){
+            medicineModelRealmList = new RealmList<>();
+        }
+
+        return medicineModelRealmList;
     }
 
-    public static void clear() {
-        instance = null;
+    public  void clear() {
+        this.medicineModelRealmList = null;
     }
+
+    //    //make the constructor private so that this class cannot be
+//    //instantiated
+//    private MedicineModelList() {
+//    }
+//
+//    //Get the only object available
+//    public static synchronized RealmList<MedicineModel> getInstance() {
+//        if (instance == null) {
+//            instance = new RealmList<>();
+//        }
+//        return instance;
+//    }
+//
+//
+//
+//    public static void clear() {
+//        instance = null;
+//    }
 
 
 }

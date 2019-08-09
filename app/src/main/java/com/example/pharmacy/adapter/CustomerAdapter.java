@@ -4,14 +4,12 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pharmacy.model.CustomerModel;
-import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
 
 import java.util.ArrayList;
@@ -57,20 +55,15 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
 
         public View cView;
-        private Context context;
-
         @BindView(R.id.tvMedicineName)
         TextView tvMedicineName;
-
         @BindView(R.id.tvCustomerName)
         TextView tvCustomerName;
-
         @BindView(R.id.tvCustomerPhNo1_detail)
         TextView tvCustomerPhNo1_detail;
-
         @BindView(R.id.tvCustomerAddress)
         TextView tvCustomerAddress;
-
+        private Context context;
         private Realm realm;
 
 
@@ -84,28 +77,17 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
         public void bind(CustomerModel customerModel) {
 
-         /*   SaleModel ss =realm.where(SaleModel.class).equalTo("customerModel.customerId",customerModel.getCustomerId())
-                    .findFirst();
-
-
-            try {
-                Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
-                Log.d(TAG, "bind: sale : "+ss.getSaleInvoiceNo());
-            }catch (NullPointerException nn){
-                Log.d(TAG, "bind: "+nn.getLocalizedMessage());
-            }*/
-
-
-            if (customerModel.getMedicineLists() != null) {
-                ArrayList<String> medicineList = new ArrayList<>();
-                for (int i = 0; i < customerModel.getMedicineLists().size(); i++) {
-                    medicineList.add(customerModel.getMedicineLists().get(i).getMedicineName());
+            ArrayList<String> medicineList = new ArrayList<>();
+            for (int i = 0; i < customerModel.getSaleModels().size(); i++) {
+                for (int j = 0; j < customerModel.getSaleModels().get(i).getMedicineLists().size(); j++) {
+                    medicineList.add(customerModel.getSaleModels().get(i).getMedicineLists().get(j).getMedicineName());
                 }
+            }
+
+
                 String lists = TextUtils.join(", ", medicineList);
                 tvMedicineName.setText(lists);
                 // Log.d(TAG, "bind: medicineList : " + lists);
-            }
-
             if (customerModel.getCustomerName() != null) {
                 tvCustomerName.setText(customerModel.getCustomerName());
                 //   Log.d(TAG, "bind: name : " + customerModel.getCustomerName());
@@ -119,8 +101,11 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
                 tvCustomerPhNo1_detail.setText(customerModel.getCustomerPhNo1());
                 //   Log.d(TAG, "bind: ph no : " + customerModel.getCustomerPhNo1());
             }
+            }
 
 
-        }
+
+
+
     }
 }

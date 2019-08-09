@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.pharmacy.SaleDetailActivity;
+import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
 import com.example.pharmacy.model.SaleModel;
 import com.example.yy.R;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 
 public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder> {
 
@@ -74,15 +76,20 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
         @BindView(R.id.tvSaleTotalAmt)
         TextView tvSaleTotalAmt;
         private ArrayList<MedicineModel> medicineModels = new ArrayList<>();
+        private Realm realm;
 
         public SaleViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             saleView = itemView;
+            realm = Realm.getDefaultInstance();
         }
 
         public void bind(SaleModel saleModel) {
+
+
+           // Log.d(TAG, "bind: "+customerModel.getCustomerName());
 
             if (saleModel.getSaleInvoiceDate() != null) {
                 tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceNo());
@@ -94,13 +101,13 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             if (saleModel.getSaleTotalAmt() != null) {
                 tvSaleTotalAmt.setText(saleModel.getSaleTotalAmt());
             }
-            if (saleModel.getCustomerModel() != null) {
+
                 ArrayList<String> arrayList = new ArrayList<>();
 
-                for (int i = 0; i < saleModel.getCustomerModel().getMedicineLists().size(); i++) {
-                    medicineModels.add(saleModel.getCustomerModel().getMedicineLists().get(i));
-                    arrayList.add(saleModel.getCustomerModel().getMedicineLists().get(i).getMedicineName());
-                    Log.d(TAG, "bind: name : " + saleModel.getCustomerModel().getMedicineLists().get(i));
+                for (int i = 0; i < saleModel.getMedicineLists().size(); i++) {
+                    medicineModels.add(saleModel.getMedicineLists().get(i));
+                    arrayList.add(saleModel.getMedicineLists().get(i).getMedicineName());
+                    Log.d(TAG, "bind: name : " + saleModel.getMedicineLists().get(i));
 
                 }
                 // Log.d(TAG, "bind: medicine name : "+medicines);
@@ -111,7 +118,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
                 Log.d(TAG, "bind: origin size : "+saleModel.getCustomerModel().getMedicineLists().size());
                 Log.d(TAG, "bind: size : "+medicineModels.size());
                 */
-            }
+
 
 
             saleView.setOnClickListener(v -> {

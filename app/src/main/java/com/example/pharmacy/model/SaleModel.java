@@ -3,6 +3,7 @@ package com.example.pharmacy.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -22,6 +23,7 @@ public class SaleModel extends RealmObject implements Parcelable {
     private String saleSubTotalAmt;
     private String saleTotalAmt;
     private String saleNote;
+    private RealmList<MedicineModel> medicineLists;
 
     public static final Creator<SaleModel> CREATOR = new Creator<SaleModel>() {
         @Override
@@ -34,7 +36,7 @@ public class SaleModel extends RealmObject implements Parcelable {
             return new SaleModel[size];
         }
     };
-    private CustomerModel customerModel;
+
 
     public SaleModel() {
     }
@@ -52,7 +54,6 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleSubTotalAmt = saleSubTotalAmt;
         this.saleTotalAmt = saleTotalAmt;
         this.saleNote = saleNote;
-        this.customerModel = customerModel;
     }
 
     protected SaleModel(Parcel in) {
@@ -68,7 +69,6 @@ public class SaleModel extends RealmObject implements Parcelable {
         saleSubTotalAmt = in.readString();
         saleTotalAmt = in.readString();
         saleNote = in.readString();
-        customerModel = in.readParcelable(CustomerModel.class.getClassLoader());
     }
 
     public static Creator<SaleModel> getCREATOR() {
@@ -169,6 +169,14 @@ public class SaleModel extends RealmObject implements Parcelable {
         this.saleTotalAmt = saleTotalAmt;
     }
 
+    public RealmList<MedicineModel> getMedicineLists() {
+        return medicineLists;
+    }
+
+    public void setMedicineLists(RealmList<MedicineModel> medicineLists) {
+        this.medicineLists = medicineLists;
+    }
+
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(saleInvoiceNo);
@@ -183,7 +191,6 @@ public class SaleModel extends RealmObject implements Parcelable {
         parcel.writeString(saleSubTotalAmt);
         parcel.writeString(saleTotalAmt);
         parcel.writeString(saleNote);
-        parcel.writeParcelable(customerModel, i);
     }
 
     public void setSaleNote(String saleNote) {
@@ -194,11 +201,5 @@ public class SaleModel extends RealmObject implements Parcelable {
         return saleNote;
     }
 
-    public CustomerModel getCustomerModel() {
-        return customerModel;
-    }
 
-    public void setCustomerModel(CustomerModel customerModel) {
-        this.customerModel = customerModel;
-    }
 }

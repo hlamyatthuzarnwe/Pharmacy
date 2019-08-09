@@ -137,7 +137,8 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     private void getAllCustomer() {
         customerAdapter.clear();
-        final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).sort("customerName", Sort.ASCENDING).findAll();
+        final List<CustomerModel> customerModelList = realm.where(CustomerModel.class)
+                .sort("customerName", Sort.ASCENDING).findAll();
         //Log.d(TAG,"getData : "+customerModelList.size());
 
 

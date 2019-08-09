@@ -57,7 +57,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
-        medicineList = MedicineModelList.getInstance();
+        medicineList = MedicineModelList.getInstance().getMedicineModelRealmList();
         medicineModel = (MedicineModel) getIntent().getParcelableExtra("MedicineModel");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
