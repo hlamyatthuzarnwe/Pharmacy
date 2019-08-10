@@ -1,7 +1,6 @@
 package com.example.pharmacy;
 
 import android.app.DatePickerDialog;
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -9,7 +8,6 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -27,6 +25,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.pharmacy.helper.DateTimeHelper;
 import com.example.pharmacy.model.MedicineModel;
+import com.example.pharmacy.model.SupplierListModel;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
@@ -39,8 +38,6 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.RealmResults;
-import io.realm.Sort;
 
 public class MedicineAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -117,6 +114,8 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
    private SupplierModel supplierModel;
 
+   private SupplierListModel supplierListModel;
+
     private String idEdit;
     private boolean is_edit = false;
 
@@ -164,20 +163,39 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
 /*
         btnSupplierAdd.setOnClickListener(v -> {
-            insertSaleItems();
+            insertSupplierItems();
             Intent intent = new Intent(MedicineAddActivity.this, SaleMedicineInformationActivity.class);
             startActivity(intent);
 
 
         });
 
+         if (saleList != null) {
+            Log.d(TAG, "onCreate: InvoiceDate : "+saleList.getInvoiceDate());
+            edtSaleInvoiceDate.setText(saleList.getInvoiceDate());
+            if (TextUtils.isEmpty(singleCustomer.getCustomerName())){
+                    edtCustomerName_add.setText(saleList.getCustomerName());
+            edtCustomerAddress_add.setText(saleList.getCustomerAddress());
+            edtCustomerPhNo1.setText(saleList.getPhone());
+            }
+
  */
 
+        if(supplierListModel != null){
+
+            edtSupplierName.setText(supplierListModel.getSupName());
+            edtMedicineCompanyName.setText(supplierListModel.getCompName());
+            edtAddress.setText(supplierListModel.getCompAddress());
+            edtContactMedicinePh1.setText(supplierListModel.getSupPh());
+        }
+
         linearExistingSupplier.setOnClickListener(view -> {
-            insertSaleItems();
+            insertSupplierItems();
             Intent intent = new Intent(MedicineAddActivity.this, SupplierSearchActivity.class);
             startActivity(intent);
         });
+
+
         relativeSave.setOnClickListener(view -> {
 
 
@@ -242,13 +260,19 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
     }
 
-    private void insertSaleItems() {
+    private void insertSupplierItems() {
         String supplierName = edtSupplierName.getText().toString();
         String companyName = edtMedicineCompanyName.getText().toString();
         String companyAddress = edtAddress.getText().toString();
         String supplierPh = edtContactMedicinePh1.getText().toString();
 
-        //  Log.d(TAG, "insertSaleItems: invoice : "+saleInvoiceDate);
+        supplierListModel.setSupName(supplierName);
+        Log.d(TAG, "insertSupplierItems: supplier name "+supplierName);
+        supplierListModel.setCompName(companyName);
+        supplierListModel.setCompAddress(companyAddress);
+        supplierListModel.setSupPh(supplierPh);
+
+        //  Log.d(TAG, "insertSupplierItems: invoice : "+saleInvoiceDate);
        /*
         singleSupplier.setSupplierName(supplierName);
         singleSupplier.setCompanyName(companyName);
