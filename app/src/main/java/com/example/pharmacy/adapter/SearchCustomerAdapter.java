@@ -84,7 +84,9 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
                 cModel.setCustomerInvoiceDate(model.getCustomerInvoiceDate());
                 cModel.setCustomerPhNo1(model.getCustomerPhNo1());
                 cModel.setCustomerNote(model.getCustomerNote());
+
                 cModel.setSaleModels(model.getSaleModels());
+
                 Log.d(TAG, "bind: cModel : "+cModel.getCustomerName());
                 Log.d(TAG, "bind: model : "+model.getCustomerName());
                 Intent intent = new Intent(context, SaleAddActivity.class);

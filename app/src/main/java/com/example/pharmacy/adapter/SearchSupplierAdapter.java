@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,7 +84,8 @@ public class SearchSupplierAdapter extends RecyclerView.Adapter<SearchSupplierAd
                 sModel.setSupplierName(supplierModel.getSupplierName());
                 sModel.setCompanyName(supplierModel.getCompanyName());
 
-                sModel.setSupplierModel(supplierModel.getSupplierModels());
+               sModel.setMedicineModels(supplierModel.getMedicineModels());
+                Log.d(TAG, "bind: get supplirt name "+sModel.getSupplierName());
 
                 Intent intent = new Intent(context, MedicineAddActivity.class);
                 intent.putExtra("SupplierModel",supplierModel);

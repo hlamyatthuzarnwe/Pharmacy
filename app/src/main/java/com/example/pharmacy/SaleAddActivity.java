@@ -98,6 +98,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     //    @BindView(R.id.tvMedicieDetail)
 //    TextView tvMedicieDetail;
+    
     private Context context;
     private RealmList<MedicineModel> medicineList;
     private SaleListModel saleList;

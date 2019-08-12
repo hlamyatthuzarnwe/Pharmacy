@@ -96,7 +96,6 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.edtSaleMedicinePcPrice1)
     EditText edtSaleMedicinePcPrice1;
 
-
     @BindView(R.id.edtMedicineReceivedDate)
     EditText edtMedicineReceivedDate;
 
@@ -112,12 +111,13 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     @BindView(R.id.spinnerAdd)
     Spinner spinnerAdd;
 
-   private SupplierModel supplierModel;
+   //private SupplierModel supplierModel;
 
    private SupplierListModel supplierListModel;
 
     private String idEdit;
     private boolean is_edit = false;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -182,11 +182,25 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
  */
 
         if(supplierListModel != null){
-
             edtSupplierName.setText(supplierListModel.getSupName());
             edtMedicineCompanyName.setText(supplierListModel.getCompName());
             edtAddress.setText(supplierListModel.getCompAddress());
             edtContactMedicinePh1.setText(supplierListModel.getSupPh());
+            /*
+            if(edtSupplierName != null){
+                edtSupplierName.setText(supplierListModel.getSupName());
+            }
+            if (edtMedicineCompanyName != null){
+                edtMedicineCompanyName.setText(supplierListModel.getCompName());
+            }
+            if (edtAddress != null){
+                edtAddress.setText(supplierListModel.getCompAddress());
+            }
+            if (edtContactMedicinePh1 != null){
+                edtContactMedicinePh1.setText(supplierListModel.getSupPh());
+            }
+             */
+
         }
 
         linearExistingSupplier.setOnClickListener(view -> {

@@ -17,19 +17,11 @@ public class SupplierModel extends RealmObject implements Parcelable {
     private String suplier_phno1;
     private String supplierNote;
 
-    private RealmList<SupplierModel> supplierModels;
+   // private RealmList<SupplierModel> supplierModels;
+    private RealmList<MedicineModel> medicineModels;
 
     public SupplierModel() {
 
-    }
-
-    public SupplierModel(String supplierId, String supplierName, String companyName, String companyAddress, String suplier_phno1, String supplierNote) {
-        this.supplierId = supplierId;
-        this.supplierName = supplierName;
-        this.companyName = companyName;
-        this.companyAddress = companyAddress;
-        this.suplier_phno1 = suplier_phno1;
-        this.supplierNote = supplierNote;
     }
 
     protected SupplierModel(Parcel in) {
@@ -41,6 +33,24 @@ public class SupplierModel extends RealmObject implements Parcelable {
         supplierNote = in.readString();
     }
 
+    public SupplierModel(String supplierId, String supplierName, String companyName, String companyAddress, String suplier_phno1, String supplierNote, RealmList<MedicineModel> medicineModels) {
+        this.supplierId = supplierId;
+        this.supplierName = supplierName;
+        this.companyName = companyName;
+        this.companyAddress = companyAddress;
+        this.suplier_phno1 = suplier_phno1;
+        this.supplierNote = supplierNote;
+        this.medicineModels = medicineModels;
+    }
+
+    public RealmList<MedicineModel> getMedicineModels() {
+        return medicineModels;
+    }
+
+    public void setMedicineModels(RealmList<MedicineModel> medicineModels) {
+        this.medicineModels = medicineModels;
+    }
+/*
     public void setSupplierModel(RealmList<SupplierModel> supplierModels) {
         this.supplierModels = supplierModels;
     }
@@ -48,6 +58,7 @@ public class SupplierModel extends RealmObject implements Parcelable {
     public RealmList<SupplierModel> getSupplierModels() {
         return supplierModels;
     }
+    */
 
     public String getSupplierId() {
         return supplierId;
