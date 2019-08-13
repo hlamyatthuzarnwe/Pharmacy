@@ -75,7 +75,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
 
         @BindView(R.id.tvSaleTotalAmt)
         TextView tvSaleTotalAmt;
-        private ArrayList<MedicineModel> medicineModels = new ArrayList<>();
+        private ArrayList<MedicineModel> medicineModels;
         private Realm realm;
 
         public SaleViewHolder(@NonNull View itemView) {
@@ -84,12 +84,11 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
             context = itemView.getContext();
             saleView = itemView;
             realm = Realm.getDefaultInstance();
+            medicineModels = new ArrayList<>();
         }
 
         public void bind(SaleModel saleModel) {
-
-
-           // Log.d(TAG, "bind: "+customerModel.getCustomerName());
+                       // Log.d(TAG, "bind: "+customerModel.getCustomerName());
 
             if (saleModel.getSaleInvoiceDate() != null) {
                 tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceNo());

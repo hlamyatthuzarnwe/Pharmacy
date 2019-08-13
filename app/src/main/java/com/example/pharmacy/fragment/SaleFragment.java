@@ -143,6 +143,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void getAllSale() {
         saleAdapter.clear();
         final List<SaleModel> saleModelList = realm.where(SaleModel.class).findAll();
+        RealmResults<CustomerModel> customer = realm.where(CustomerModel.class).findAll();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).findAll();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class).findAll();
         // Log.d(TAG,"getData : "+saleModelList.size());

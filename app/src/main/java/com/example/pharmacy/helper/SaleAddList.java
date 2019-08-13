@@ -1,17 +1,17 @@
 package com.example.pharmacy.helper;
 
-import com.example.pharmacy.model.SaleListModel;
+import com.example.pharmacy.model.SaleModel;
 
 public class SaleAddList {
 
-    private static SaleListModel instance;
+    private static SaleModel instance;
 
     private SaleAddList() {
     }
 
-    public static synchronized SaleListModel getSaleItems() {
+    public static synchronized SaleModel getSaleItems() {
         if (instance == null) {
-            instance = new SaleListModel();
+            instance = new SaleModel();
         }
         return instance;
     }

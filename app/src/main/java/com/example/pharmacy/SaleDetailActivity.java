@@ -112,6 +112,7 @@ public class SaleDetailActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("Sale", saleModel);
+            intent.putExtra("Medicine", mModel);
             startActivity(intent);
         }
         if (item.getItemId() == R.id.delete_data) {

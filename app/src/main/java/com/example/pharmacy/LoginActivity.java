@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.pharmacy.helper.MyanProgressDialog;
 import com.example.pharmacy.helper.SharepreferenceHelper;
@@ -26,6 +27,8 @@ import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+import org.w3c.dom.Text;
 
 import java.util.concurrent.TimeUnit;
 
@@ -131,13 +134,18 @@ public class LoginActivity extends AppCompatActivity {
 
         btnConfirm.setOnClickListener(view -> {
             // Log.d(TAG, "onCreate: btnConfirm : "+edtLoginUserName.getText().toString());
-            String ph = "+95" + edtLoginUserName.getText().toString();
-            if (ph.trim().equals(phoneNumber1.trim())) {
-                retrievalCode(phoneNumber1);
-            } else if (ph.trim().equals(phoneNumber2.trim())) {
-                retrievalCode(phoneNumber2);
+            if (TextUtils.isEmpty(edtLoginUserName.getText())){
+                Toast.makeText(LoginActivity.this, "Phone Number is required", Toast.LENGTH_SHORT).show();
+            }else {
+                String ph = "+95" + edtLoginUserName.getText().toString();
+                if (ph.trim().equals(phoneNumber1.trim())) {
+                    retrievalCode(phoneNumber1);
+                } else if (ph.trim().equals(phoneNumber2.trim())) {
+                    retrievalCode(phoneNumber2);
+                }
+                signIn();
             }
-            signIn();
+
         });
     }
 
@@ -224,7 +232,8 @@ public class LoginActivity extends AppCompatActivity {
     private void showAlert() {
         dialog.hideDialog();
         new AlertDialog.Builder(LoginActivity.this)
-                .setMessage("Internet Connection Error")
+                .setTitle("Internet Connection Error")
+                .setMessage("Please Try Again")
                 .setCancelable(false)
                 .setPositiveButton("Yes",
                         (dialog, whichButton) -> signIn())

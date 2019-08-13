@@ -20,17 +20,19 @@
         <activity android:name="com.example.pharmacy.LoginActivity" />
         <activity android:name="com.example.pharmacy.SaleMedicineDetailInformationActivity" />
         <activity android:name="com.example.pharmacy.SaleMedicineInformationActivity" />
-        <activity android:name="com.example.pharmacy.SplashActivity" />
-        <activity android:name="com.example.pharmacy.SaleDetailActivity" />
-        <activity android:name="com.example.pharmacy.SaleAddActivity" />
-        <activity android:name="com.example.pharmacy.MedicineDetailActivity" />
-        <activity android:name="com.example.pharmacy.MedicineAddActivity" />
-        <activity android:name="com.example.pharmacy.MainActivity">
+        <activity android:name="com.example.pharmacy.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.example.pharmacy.SaleDetailActivity" />
+        <activity android:name="com.example.pharmacy.SaleAddActivity" />
+        <activity android:name="com.example.pharmacy.MedicineDetailActivity" />
+        <activity android:name="com.example.pharmacy.MedicineAddActivity" />
+        <activity android:name="com.example.pharmacy.MainActivity">
+
         </activity>
         <activity android:name="com.example.pharmacy.SearchCustomerActivity" />
 
