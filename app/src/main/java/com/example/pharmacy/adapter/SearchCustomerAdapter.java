@@ -59,25 +59,30 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
         public View cView;
         @BindView(R.id.customerName_itemSearch)
         TextView customerName;
-        @BindView(R.id.customerPhone_itemSearch)
-        TextView customerPhone;
+
         private Context context;
-        private CustomerModel cModel;
+       // private CustomerModel cModel;
 
         public SearchCustomerViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             cView = itemView;
-            cModel = SingleCustomerModel.getCustomer();
+          //  cModel = SingleCustomerModel.getCustomer();
         }
 
         public void bind(CustomerModel model) {
            // tvName.setText(model.getMedicineName());
             customerName.setText(model.getCustomerName());
-            customerPhone.setText(model.getCustomerPhNo1());
+           // customerPhone.setText(model.getCustomerPhNo1());
 
             cView.setOnClickListener(v -> {
+
+                Intent intent = new Intent(context, SaleAddActivity.class);
+                intent.putExtra("CustomerModel", model);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                context.startActivity(intent);
+                /*
                 cModel.setCustomerId(model.getCustomerId());
                 cModel.setCustomerName(model.getCustomerName());
                 cModel.setCustomerAddress(model.getCustomerAddress());
@@ -93,6 +98,7 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
                 intent.putExtra("CustomerModel",model);
                 context.startActivity(intent);
                 ((Activity)context).finish();
+                 */
             });
         }
     }

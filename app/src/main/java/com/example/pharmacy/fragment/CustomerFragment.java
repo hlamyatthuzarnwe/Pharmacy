@@ -67,9 +67,23 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
         View view = inflater.inflate(R.layout.fragment_customer, container, false);
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
+        ButterKnife.bind(this, view);
+        context = view.getContext();
+
         init();
         getAllCustomer();
         return view;
+    }
+
+
+    private void init() {
+        swipeRefreshLayout.setRefreshing(false);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        realm = Realm.getDefaultInstance();
+        customerAdapter = new CustomerAdapter();
+        linearLayoutManager = new LinearLayoutManager(context);
+        rvCustomer.setLayoutManager(linearLayoutManager);
+        rvCustomer.setAdapter(customerAdapter);
     }
 
     @Override
@@ -107,12 +121,13 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
     private void getSearchList(String query) {
         customerAdapter.clear();
         RealmResults<CustomerModel> customerList = realm.where(CustomerModel.class)
-                .contains("medicineName", query, Case.INSENSITIVE)
-                .findAll();
-        RealmResults<CustomerModel> test = realm.where(CustomerModel.class)
+                .contains("customerName", query, Case.INSENSITIVE)
                 .findAll();
 
        /*
+        RealmResults<CustomerModel> test = realm.where(CustomerModel.class)
+                .findAll();
+
         Log.d(TAG, "onQueryTextSubmit: query : "+query);
         Log.d(TAG, "onQueryTextSubmit: test : "+test.size());
         Log.d(TAG, "onQueryTextSubmit: "+customerList.size());
@@ -125,20 +140,15 @@ public class CustomerFragment extends Fragment implements SwipeRefreshLayout.OnR
     }
 
 
-    private void init() {
-        swipeRefreshLayout.setRefreshing(false);
-        swipeRefreshLayout.setOnRefreshListener(this);
-        realm = Realm.getDefaultInstance();
-        customerAdapter = new CustomerAdapter();
-        linearLayoutManager = new LinearLayoutManager(context);
-        rvCustomer.setLayoutManager(linearLayoutManager);
-        rvCustomer.setAdapter(customerAdapter);
-    }
 
     private void getAllCustomer() {
         customerAdapter.clear();
+        //final RealmResults<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
+        final RealmResults<CustomerModel> customerModelList = realm.where(CustomerModel.class).findAll();
+       /*
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class)
                 .sort("customerName", Sort.ASCENDING).findAll();
+        */
         //Log.d(TAG,"getData : "+customerModelList.size());
 
 

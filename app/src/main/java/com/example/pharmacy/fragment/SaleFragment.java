@@ -110,7 +110,7 @@ public class SaleFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void getSearchList(String query) {
         saleAdapter.clear();
         RealmResults<SaleModel> saleList = realm.where(SaleModel.class)
-                .contains("medicineName", query, Case.INSENSITIVE)
+                .contains("saleCustomerName", query, Case.INSENSITIVE)
                 .findAll();
         RealmResults<SaleModel> test = realm.where(SaleModel.class)
                 .findAll();
