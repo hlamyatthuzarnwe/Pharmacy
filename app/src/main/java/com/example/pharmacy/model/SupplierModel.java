@@ -84,13 +84,7 @@ public class SupplierModel extends RealmObject implements Parcelable {
         }
     };
 
-    public String getSuplierId() {
-        return supplierId;
-    }
 
-    public void setSuplierId(String suplierId) {
-        this.supplierId = suplierId;
-    }
 
     public String getSupplierName() {
         return supplierName;

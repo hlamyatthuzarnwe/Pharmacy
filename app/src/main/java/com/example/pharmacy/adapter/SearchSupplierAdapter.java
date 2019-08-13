@@ -40,7 +40,7 @@ public class SearchSupplierAdapter extends RecyclerView.Adapter<SearchSupplierAd
     @Override
     public SearchSupplierViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.item_customer_search, viewGroup, false);
+        View view = layoutInflater.inflate(R.layout.item_supplier_search, viewGroup, false);
         return new SearchSupplierAdapter.SearchSupplierViewHolder(view);
     }
 
@@ -81,17 +81,21 @@ public class SearchSupplierAdapter extends RecyclerView.Adapter<SearchSupplierAd
             companyName.setText(supplierModel.getCompanyName());
 
             sView.setOnClickListener(view -> {
+                sModel.setSupplierId(supplierModel.getSupplierId());
                 sModel.setSupplierName(supplierModel.getSupplierName());
                 sModel.setCompanyName(supplierModel.getCompanyName());
+                sModel.setSuplier_phno1(supplierModel.getSuplier_phno1());
+                sModel.setCompanyAddress(supplierModel.getCompanyAddress());
+                sModel.setSupplierNote(supplierModel.getSupplierNote());
 
-               sModel.setMedicineModels(supplierModel.getMedicineModels());
-                Log.d(TAG, "bind: get supplirt name "+sModel.getSupplierName());
+               Log.d(TAG, "bind: get supplirt name "+sModel.getSupplierName());
 
                 Intent intent = new Intent(context, MedicineAddActivity.class);
-                intent.putExtra("SupplierModel",supplierModel);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+               // intent.putExtra("SupplierModel",supplierModel);
+               // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 context.startActivity(intent);
-                ((Activity)context).finish();
+                //((Activity)context).finish();
             });
 
         }

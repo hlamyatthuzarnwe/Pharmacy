@@ -91,7 +91,6 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
                 Log.d(TAG, "bind: model : "+model.getCustomerName());
                 Intent intent = new Intent(context, SaleAddActivity.class);
                 intent.putExtra("CustomerModel",model);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 context.startActivity(intent);
                 ((Activity)context).finish();
             });

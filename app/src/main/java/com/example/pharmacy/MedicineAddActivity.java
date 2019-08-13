@@ -4,10 +4,11 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,11 +22,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
 import com.example.pharmacy.helper.DateTimeHelper;
+import com.example.pharmacy.helper.SupplierAddList;
 import com.example.pharmacy.model.MedicineModel;
-import com.example.pharmacy.model.SupplierListModel;
+import com.example.pharmacy.model.SingleSupplierModel;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
@@ -43,79 +44,57 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
     private static final String TAG = "MedicineAddActivity";
     private static final char UNIX_SEPRATOR = '/';
-
+    String mName;
+    @BindView(R.id.tilMedicineName_medicineAdd)
+    TextInputLayout tilMedicineName;
+    @BindView(R.id.tilMedicineCost_medicineAdd)
+    TextInputLayout tilMedicineCost;
+    @BindView(R.id.tilMedicineQty_medicineAdd)
+    TextInputLayout tilMedicineQty;
+    @BindView(R.id.tilMedicineSalePrice_medicineAdd)
+    TextInputLayout tilMedicineSalePrice;
+    @BindView(R.id.tilCompanyName_medicineAdd)
+    TextInputLayout tilCompanyName;
+    @BindView(R.id.tilCompanyPh_medicineAdd)
+    TextInputLayout tilCompanyPh;
+    @BindView(R.id.linearExistingSupplier_medicineAdd)
+    LinearLayout linearExistingSupplier;
+    @BindView(R.id.edtMedicineName)
+    EditText edtMedicineName;
+    @BindView(R.id.edtMedicinePcCostPrice)
+    EditText edtMedicinePcCostPrice;
+    @BindView(R.id.edtMedicinePcQty)
+    EditText edtMedicinePcQty;
+    @BindView(R.id.edtMedicineCompanyName)
+    EditText edtMedicineCompanyName;
+    @BindView(R.id.edtSupplierName)
+    EditText edtSupplierName;
+    @BindView(R.id.edtContactMedicinePh1)
+    EditText edtContactMedicinePh1;
+    @BindView(R.id.edtSaleMedicinePcPrice1)
+    EditText edtSaleMedicinePcPrice1;
+    @BindView(R.id.edtMedicineReceivedDate)
+    EditText edtMedicineReceivedDate;
+    @BindView(R.id.edtMedicineExpDate)
+    EditText edtMedicineExpDate;
+    @BindView(R.id.edtAddress_medicineAdd)
+    EditText edtAddress;
+    @BindView(R.id.relativeSave_medicineAdd)
+    RelativeLayout relativeSave;
+    @BindView(R.id.spinnerAdd)
+    Spinner spinnerAdd;
     private Realm realm;
     private MedicineModel medicineModel;
     private Toolbar toolbar;
     private Context context;
-    String mName;
 
-    @BindView(R.id.tilMedicineName_medicineAdd)
-    TextInputLayout tilMedicineName;
-
-    @BindView(R.id.tilMedicineCost_medicineAdd)
-    TextInputLayout tilMedicineCost;
-
-    @BindView(R.id.tilMedicineQty_medicineAdd)
-    TextInputLayout tilMedicineQty;
-
-    @BindView(R.id.tilMedicineSalePrice_medicineAdd)
-    TextInputLayout tilMedicineSalePrice;
-
-    @BindView(R.id.tilCompanyName_medicineAdd)
-    TextInputLayout tilCompanyName;
-
-    @BindView(R.id.tilCompanyPh_medicineAdd)
-    TextInputLayout tilCompanyPh;
-
-
-    @BindView(R.id.linearExistingSupplier_medicineAdd)
-    LinearLayout linearExistingSupplier;
-
-
-    @BindView(R.id.edtMedicineName)
-    EditText edtMedicineName;
-
-
-    @BindView(R.id.edtMedicinePcCostPrice)
-    EditText edtMedicinePcCostPrice;
-
-    @BindView(R.id.edtMedicinePcQty)
-    EditText edtMedicinePcQty;
-
-
-    @BindView(R.id.edtMedicineCompanyName)
-    EditText edtMedicineCompanyName;
-
-    @BindView(R.id.edtSupplierName)
-    EditText edtSupplierName;
-
-    @BindView(R.id.edtContactMedicinePh1)
-    EditText edtContactMedicinePh1;
-
-    @BindView(R.id.edtSaleMedicinePcPrice1)
-    EditText edtSaleMedicinePcPrice1;
-
-    @BindView(R.id.edtMedicineReceivedDate)
-    EditText edtMedicineReceivedDate;
-
-    @BindView(R.id.edtMedicineExpDate)
-    EditText edtMedicineExpDate;
-
-    @BindView(R.id.edtAddress_medicineAdd)
-    EditText edtAddress;
-
-    @BindView(R.id.relativeSave_medicineAdd)
-    RelativeLayout relativeSave;
-
-    @BindView(R.id.spinnerAdd)
-    Spinner spinnerAdd;
-
-   //private SupplierModel supplierModel;
-
-   private SupplierListModel supplierListModel;
+    //private SupplierModel supplierModel;
+    //private SupplierListModel supplierListModel;
+    private SupplierModel singleSupplierModel;
+    private MedicineModel singleMedicineModel;
 
     private String idEdit;
+    private String idSingleMedicine;
     private boolean is_edit = false;
 
 
@@ -133,6 +112,8 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         //Log.d(TAG, "onCreate: uuid : "+UUID.randomUUID());
 
         medicineModel = (MedicineModel) getIntent().getParcelableExtra("Medicine");
+        singleSupplierModel = SingleSupplierModel.getSupplier();
+        singleMedicineModel = SupplierAddList.getSaleItem();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Medicine Data");
@@ -159,49 +140,24 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
             edtMedicineReceivedDate.setText(medicineModel.getMedicineReceivedDate());
             edtMedicineExpDate.setText(medicineModel.getMedicineExpDate());
+        } else if (singleMedicineModel.getMedicineName() != null) {
+            idSingleMedicine = singleMedicineModel.getMedcineId();
+            edtMedicineName.setText(singleMedicineModel.getMedicineName());
+            edtMedicinePcCostPrice.setText(singleMedicineModel.getMedicineCostPerPc());
+            edtMedicinePcQty.setText(singleMedicineModel.getMedicineQtyPerPc());
+            edtSaleMedicinePcPrice1.setText(singleMedicineModel.getMedicineSalePcPerPrice1());
+            edtMedicineReceivedDate.setText(singleMedicineModel.getMedicineReceivedDate());
+            edtMedicineExpDate.setText(singleMedicineModel.getMedicineExpDate());
+
+            if (singleSupplierModel.getSupplierId() != null) {
+                Log.d(TAG, "onCreate: getId : " + singleSupplierModel.getSupplierName());
+                edtSupplierName.setText(singleSupplierModel.getSupplierName());
+                edtMedicineCompanyName.setText(singleSupplierModel.getCompanyName());
+                edtAddress.setText(singleSupplierModel.getCompanyName());
+                edtContactMedicinePh1.setText(singleSupplierModel.getSuplier_phno1());
+            }
         }
 
-/*
-        btnSupplierAdd.setOnClickListener(v -> {
-            insertSupplierItems();
-            Intent intent = new Intent(MedicineAddActivity.this, SaleMedicineInformationActivity.class);
-            startActivity(intent);
-
-
-        });
-
-         if (saleList != null) {
-            Log.d(TAG, "onCreate: InvoiceDate : "+saleList.getInvoiceDate());
-            edtSaleInvoiceDate.setText(saleList.getInvoiceDate());
-            if (TextUtils.isEmpty(singleCustomer.getCustomerName())){
-                    edtCustomerName_add.setText(saleList.getCustomerName());
-            edtCustomerAddress_add.setText(saleList.getCustomerAddress());
-            edtCustomerPhNo1.setText(saleList.getPhone());
-            }
-
- */
-
-        if(supplierListModel != null){
-            edtSupplierName.setText(supplierListModel.getSupName());
-            edtMedicineCompanyName.setText(supplierListModel.getCompName());
-            edtAddress.setText(supplierListModel.getCompAddress());
-            edtContactMedicinePh1.setText(supplierListModel.getSupPh());
-            /*
-            if(edtSupplierName != null){
-                edtSupplierName.setText(supplierListModel.getSupName());
-            }
-            if (edtMedicineCompanyName != null){
-                edtMedicineCompanyName.setText(supplierListModel.getCompName());
-            }
-            if (edtAddress != null){
-                edtAddress.setText(supplierListModel.getCompAddress());
-            }
-            if (edtContactMedicinePh1 != null){
-                edtContactMedicinePh1.setText(supplierListModel.getSupPh());
-            }
-             */
-
-        }
 
         linearExistingSupplier.setOnClickListener(view -> {
             insertSupplierItems();
@@ -214,6 +170,8 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
 
             if (validateField()) {
+                SupplierModel supplierModel = new SupplierModel();
+                MedicineModel mModel = new MedicineModel();
 
                 mName = edtMedicineName.getText().toString();
                 String mCostPerPc = edtMedicinePcCostPrice.getText().toString();
@@ -226,37 +184,56 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 String mReceiveDate = edtMedicineReceivedDate.getText().toString();
                 String mExpDate = edtMedicineExpDate.getText().toString();
 
-                MedicineModel medicineModel = new MedicineModel();
 
-                if (is_edit) {
-                    medicineModel.setMedcineId(idEdit);
+                if (!TextUtils.isEmpty(idEdit)){
+                    mModel.setMedcineId(idEdit);
+                }else if (!TextUtils.isEmpty(idSingleMedicine)){
+                    mModel.setMedcineId(idSingleMedicine);
+                }else {
+                    mModel.setMedcineId(UUID.randomUUID().toString());
+                }
+
+                mModel.setMedicineName(mName);
+                mModel.setMedicineCostPerPc(mCostPerPc);
+                mModel.setMedicineQtyPerPc(mQtyPerPc);
+                mModel.setMedicineSalePcPerPrice1(mSalePricePc1);
+                mModel.setMedicineReceivedDate(mReceiveDate);
+                mModel.setMedicineExpDate(mExpDate);
+
+                if (singleSupplierModel.getSupplierId() != null) {
+                    Log.d(TAG, "onCreate: Single Model Condition : " + singleSupplierModel.getSupplierName());
+                    mModel.setSupplierModel(singleSupplierModel);
                 } else {
-                    medicineModel.setMedcineId(UUID.randomUUID().toString());
+                    Log.d(TAG, "onCreate: Normal Model Condition");
+                    supplierModel.setSupplierId(UUID.randomUUID().toString());
+                    supplierModel.setCompanyName(mCompanyName);
+                    supplierModel.setCompanyAddress(address);
+                    supplierModel.setSupplierName(mSupplierName);
+                    supplierModel.setSuplier_phno1(mContactPh1);
+
+                    mModel.setSupplierModel(supplierModel);
                 }
 
 
-                medicineModel.setMedicineName(mName);
-                medicineModel.setMedicineCostPerPc(mCostPerPc);
-                medicineModel.setMedicineQtyPerPc(mQtyPerPc);
-                medicineModel.setMedicineSalePcPerPrice1(mSalePricePc1);
-                medicineModel.setMedicineReceivedDate(mReceiveDate);
-                medicineModel.setMedicineExpDate(mExpDate);
+                realm.executeTransactionAsync(realm -> {
+                    if (singleSupplierModel.getSupplierId() != null) {
+                        Log.d(TAG, "onCreate: single Model : " + singleSupplierModel.getSupplierName());
+                        realm.copyToRealmOrUpdate(singleSupplierModel);
+                    } else {
+                        Log.d(TAG, "onCreate: Normal Model");
+                        Log.d(TAG, "onCreate: ");
+                        realm.copyToRealmOrUpdate(supplierModel);
+                    }
 
-                SupplierModel supplierModel = new SupplierModel();
-                supplierModel.setSuplierId(UUID.randomUUID().toString());
-                supplierModel.setCompanyName(mCompanyName);
-                supplierModel.setCompanyAddress(address);
-                supplierModel.setSupplierName(mSupplierName);
-                supplierModel.setSuplier_phno1(mContactPh1);
-
-                medicineModel.setSupplierModel(supplierModel);
-
-                realm.executeTransaction(realm -> {
-                    realm.copyToRealmOrUpdate(supplierModel);
-                    realm.copyToRealmOrUpdate(medicineModel);
-                    Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+                    realm.copyToRealmOrUpdate(mModel);
                 });
+                SingleSupplierModel.clear();
+                SupplierAddList.clear();
+                Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
+                 Intent intent = new Intent(MedicineAddActivity.this,MainActivity.class);
+                startActivity(intent);
                 finish();
+
             }
         });
 
@@ -275,27 +252,39 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
     }
 
     private void insertSupplierItems() {
-        String supplierName = edtSupplierName.getText().toString();
-        String companyName = edtMedicineCompanyName.getText().toString();
-        String companyAddress = edtAddress.getText().toString();
-        String supplierPh = edtContactMedicinePh1.getText().toString();
+        if (is_edit) {
+            singleMedicineModel.setMedcineId(medicineModel.getMedcineId());
+        }
+        singleMedicineModel.setMedicineCostPerPc(edtMedicinePcCostPrice.getText().toString());
+        singleMedicineModel.setMedicineName(edtMedicineName.getText().toString());
+        singleMedicineModel.setMedicineQtyPerPc(edtMedicinePcQty.getText().toString());
+        singleMedicineModel.setMedicineSalePcPerPrice1(edtSaleMedicinePcPrice1.getText().toString());
+        singleMedicineModel.setMedicineReceivedDate(edtMedicineReceivedDate.getText().toString());
+        singleMedicineModel.setMedicineExpDate(edtMedicineExpDate.getText().toString());
+    }
 
-        supplierListModel.setSupName(supplierName);
-        Log.d(TAG, "insertSupplierItems: supplier name "+supplierName);
-        supplierListModel.setCompName(companyName);
-        supplierListModel.setCompAddress(companyAddress);
-        supplierListModel.setSupPh(supplierPh);
+    /* private void insertSupplierItems() {
+         String supplierName = edtSupplierName.getText().toString();
+         String companyName = edtMedicineCompanyName.getText().toString();
+         String companyAddress = edtAddress.getText().toString();
+         String supplierPh = edtContactMedicinePh1.getText().toString();
 
-        //  Log.d(TAG, "insertSupplierItems: invoice : "+saleInvoiceDate);
-       /*
+         supplierListModel.setSupName(supplierName);
+         Log.d(TAG, "insertSupplierItems: supplier name " + supplierName);
+         supplierListModel.setCompName(companyName);
+         supplierListModel.setCompAddress(companyAddress);
+         supplierListModel.setSupPh(supplierPh);
+
+         //  Log.d(TAG, "insertSupplierItems: invoice : "+saleInvoiceDate);
+        *//*
         singleSupplier.setSupplierName(supplierName);
         singleSupplier.setCompanyName(companyName);
         singleSupplier.setCompanyAddress(companyAddress);
         singleSupplier.setSuplier_phno1(supplierPh);
-        */
+        *//*
 
     }
-
+*/
     private boolean validateField() {
         if (TextUtils.isEmpty(edtMedicineName.getText().toString().trim())) {
             tilMedicineName.setErrorEnabled(true);

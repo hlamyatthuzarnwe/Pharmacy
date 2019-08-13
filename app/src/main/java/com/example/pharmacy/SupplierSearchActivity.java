@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.pharmacy.adapter.SearchCustomerAdapter;
+import com.example.pharmacy.adapter.SearchSupplierAdapter;
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
@@ -21,6 +23,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class SupplierSearchActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -47,7 +50,7 @@ public class SupplierSearchActivity extends AppCompatActivity implements SwipeRe
     private Realm realm;
     private LinearLayoutManager linearLayoutManager;
 
-    private SearchCustomerAdapter adapter;
+    private SearchSupplierAdapter adapter;
 
 
     @Override
@@ -74,14 +77,14 @@ public class SupplierSearchActivity extends AppCompatActivity implements SwipeRe
 
     private void getAllSupplier() {
         adapter.clear();
-        final List<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
+         RealmResults<SupplierModel> supplierModelList = realm.where(SupplierModel.class).findAll();
         // Log.d(TAG,"getData : "+medicineModelList.size());
 
-        /*
+        Log.d(TAG, "getAllSupplier: "+supplierModelList.size());
         if (!supplierModelList.isEmpty()) {
-            adapter.getCustomerModelList().addAll(supplierModelList);
+            adapter.getSupplierModelList().addAll(supplierModelList);
         }
-         */
+
         adapter.notifyDataSetChanged();
     }
 
@@ -89,7 +92,7 @@ public class SupplierSearchActivity extends AppCompatActivity implements SwipeRe
         swipe.setRefreshing(false);
         swipe.setOnRefreshListener(this);
         realm = Realm.getDefaultInstance();
-        adapter = new SearchCustomerAdapter();
+        adapter = new SearchSupplierAdapter();
         linearLayoutManager = new LinearLayoutManager(this);
         rvSupplier.setLayoutManager(linearLayoutManager);
         rvSupplier.setAdapter(adapter);

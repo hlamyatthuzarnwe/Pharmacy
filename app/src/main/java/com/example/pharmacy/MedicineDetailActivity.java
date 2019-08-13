@@ -106,8 +106,6 @@ public class MedicineDetailActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.edit_data) {
             Intent intent = new Intent(MedicineDetailActivity.this, MedicineAddActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("Medicine", medicineModel);
             startActivity(intent);
             finish();
