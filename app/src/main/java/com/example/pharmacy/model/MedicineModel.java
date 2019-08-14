@@ -14,6 +14,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
     private String medicineName;
     private String medicineCostPerPc;
     private String medicineQtyPerPc;
+    private String medicineTotalQty;
     private String medicineSalePcPerPrice1;
     private String medicineReceivedDate;
     private String medicineExpDate;
@@ -30,6 +31,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
         medicineName = in.readString();
         medicineCostPerPc = in.readString();
         medicineQtyPerPc = in.readString();
+        medicineTotalQty = in.readString();
         medicineSalePcPerPrice1 = in.readString();
         medicineReceivedDate = in.readString();
         medicineExpDate = in.readString();
@@ -66,6 +68,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
         parcel.writeString(medicineName);
         parcel.writeString(medicineCostPerPc);
         parcel.writeString(medicineQtyPerPc);
+        parcel.writeString(medicineTotalQty);
         parcel.writeString(medicineSalePcPerPrice1);
         parcel.writeString(medicineReceivedDate);
         parcel.writeString(medicineExpDate);
@@ -73,6 +76,14 @@ public class MedicineModel extends RealmObject implements Parcelable {
         parcel.writeParcelable(supplierModel, i);
 
         parcel.writeString(medicineSubAmt);
+    }
+
+    public String getMedicineTotalQty() {
+        return medicineTotalQty;
+    }
+
+    public void setMedicineTotalQty(String medicineTotalQty) {
+        this.medicineTotalQty = medicineTotalQty;
     }
 
     public String getMedicineSubAmt() {

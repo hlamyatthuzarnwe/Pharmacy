@@ -67,6 +67,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         if (medicineModel != null) {
             edtSaleMedicineName.setText(medicineModel.getMedicineName());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
+            edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
              /*
               edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
              edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
@@ -101,23 +102,37 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         });
 
         relativeSave_medicineSaleAdd.setOnClickListener(v -> {
-            String mName = edtSaleMedicineName.getText().toString();
-            String mCostPerPc = edtSaleMedicinePcPrice1.getText().toString();
-            String mQtyPerPc = edtMedicinePcQty.getText().toString();
-            String mSubAmt = edtMedicneSubAmt.getText().toString();
+            if (Integer.valueOf(edtMedicinePcQty.getText().toString()) > Integer.valueOf(medicineModel.getMedicineTotalQty())){
+                Toast.makeText(SaleMedicineDetailInformationActivity.this, "Quantity can't be exceed than : "+medicineModel.getMedicineTotalQty(), Toast.LENGTH_SHORT).show();
+            }
+            else{
 
-            medicineModel.setMedicineName(mName);
-            medicineModel.setMedicineCostPerPc(mCostPerPc);
-            medicineModel.setMedicineQtyPerPc(mQtyPerPc);
-            medicineModel.setMedicineSubAmt(mSubAmt);
-            // Log.d("SaleAdd", "onCreate: SubAmt : " + medicineModel.getMedicineSubAmt());
-            medicineList.add(medicineModel);
-            Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
+                int qty = Integer.parseInt(medicineModel.getMedicineTotalQty());
+                int saleQty = Integer.parseInt(edtMedicinePcQty.getText().toString());
+                int finalQty = qty - saleQty;
+                medicineModel.setMedicineTotalQty(String.valueOf(finalQty));
+
+                realm.executeTransaction(realm -> realm.copyToRealmOrUpdate(medicineModel));
+
+                String mName = edtSaleMedicineName.getText().toString();
+                String mCostPerPc = edtSaleMedicinePcPrice1.getText().toString();
+                String mQtyPerPc = edtMedicinePcQty.getText().toString();
+                String mSubAmt = edtMedicneSubAmt.getText().toString();
+
+                medicineModel.setMedicineName(mName);
+                medicineModel.setMedicineCostPerPc(mCostPerPc);
+                medicineModel.setMedicineQtyPerPc(mQtyPerPc);
+                medicineModel.setMedicineSubAmt(mSubAmt);
+                // Log.d("SaleAdd", "onCreate: SubAmt : " + medicineModel.getMedicineSubAmt());
+                medicineList.add(medicineModel);
+                Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
 
 
-            Intent intent = new Intent(SaleMedicineDetailInformationActivity.this, SaleAddActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+                Intent intent = new Intent(SaleMedicineDetailInformationActivity.this, SaleAddActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+
 
         });
 

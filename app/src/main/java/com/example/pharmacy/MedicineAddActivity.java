@@ -195,7 +195,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
                 mModel.setMedicineName(mName);
                 mModel.setMedicineCostPerPc(mCostPerPc);
-                mModel.setMedicineQtyPerPc(mQtyPerPc);
+                mModel.setMedicineTotalQty(mQtyPerPc);
                 mModel.setMedicineSalePcPerPrice1(mSalePricePc1);
                 mModel.setMedicineReceivedDate(mReceiveDate);
                 mModel.setMedicineExpDate(mExpDate);
