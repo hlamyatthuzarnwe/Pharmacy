@@ -10,9 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.pharmacy.adapter.SearchCustomerAdapter;
-import com.example.pharmacy.adapter.SearchMedicineAdapter;
 import com.example.pharmacy.model.CustomerModel;
-import com.example.pharmacy.model.MedicineModel;
 import com.example.yy.R;
 
 import java.util.List;
@@ -62,7 +60,7 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
         btnSearch.setOnClickListener(view -> {
             String text = edtSearch.getText().toString();
             if (!text.isEmpty()) {
-                getSearchMedicine(text);
+                getSearchCustomer(text);
             }
         });
 
@@ -89,7 +87,7 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
         adapter.notifyDataSetChanged();
     }
 
-    private void getSearchMedicine(String name) {
+    private void getSearchCustomer(String name) {
         adapter.clear();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class)
                 .contains("customerName", name, Case.INSENSITIVE).findAll();

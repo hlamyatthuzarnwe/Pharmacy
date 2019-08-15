@@ -1,8 +1,6 @@
 package com.example.pharmacy;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +10,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.pharmacy.adapter.SearchCustomerAdapter;
 import com.example.pharmacy.adapter.SearchSupplierAdapter;
-import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.SupplierModel;
 import com.example.yy.R;
 
@@ -22,6 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -66,13 +63,24 @@ public class SupplierSearchActivity extends AppCompatActivity implements SwipeRe
 
         btnSearch.setOnClickListener(view -> {
             String text = edtSearch.getText().toString();
-           /*
+
             if (!text.isEmpty()) {
-                getSearchMedicine(text);
+                getSearchSupplier(text);
             }
-            */
+
         });
 
+    }
+
+    private void getSearchSupplier(String name) {
+        adapter.clear();
+        final List<SupplierModel> supplierModelList = realm.where(SupplierModel.class)
+                .contains("supplierName",name, Case.INSENSITIVE).findAll();
+
+        if (!supplierModelList.isEmpty()){
+            adapter.getSupplierModelList().addAll(supplierModelList);
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void getAllSupplier() {

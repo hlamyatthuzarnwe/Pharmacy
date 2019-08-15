@@ -27,7 +27,7 @@ import io.realm.Realm;
 
 public class SaleMedicineInformationActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG = "SaleMedicineInformationActivity";
+    private static final String TAG = "SaleMedicineInformation";
 
     private Toolbar toolbar;
 
@@ -99,7 +99,8 @@ public class SaleMedicineInformationActivity extends AppCompatActivity implement
         adapter.clear();
         final List<MedicineModel> medicineModelList = realm.where(MedicineModel.class)
                 .contains("medicineName", name, Case.INSENSITIVE).findAll();
-        // Log.d(TAG,"getSearchData : "+medicineModelList.size());
+        Log.d(TAG, "getSearchMedicine: ");
+         Log.d(TAG,"getSearchData : "+medicineModelList.size());
 
         if (!medicineModelList.isEmpty()) {
             adapter.getMedicineModelList().addAll(medicineModelList);
