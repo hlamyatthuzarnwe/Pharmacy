@@ -78,7 +78,7 @@ public class MedicineDetailActivity extends AppCompatActivity {
 
             tvMedicineName_detail.setText(medicineModel.getMedicineName());
             tvMedicineCostPerPc.setText(medicineModel.getMedicineCostPerPc());
-            tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
+            tvMedicineQtyPerPc.setText(medicineModel.getMedicineTotalQty());
 
             if (medicineModel.getSupplierModel() != null) {
                 tvMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());

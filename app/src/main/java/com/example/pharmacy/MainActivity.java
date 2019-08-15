@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.drawer_view_logOut:
                 new AlertDialog.Builder(this)
                         .setTitle("Logout")
-                        .setMessage("Are you sure want to logout? All of the record data must delete.")
+                        .setMessage("Are you sure want to logout? ")
                         .setCancelable(false)
                         .setPositiveButton("Yes",
                                 (dialog, whichButton) -> {

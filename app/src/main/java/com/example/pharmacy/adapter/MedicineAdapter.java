@@ -85,8 +85,8 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
                 tvMedicineSupplierName.setText(" " + medicineModel.getSupplierModel().getSupplierName());
             }
 
-            if (medicineModel.getMedicineQtyPerPc() != null) {
-                tvMedicineQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
+            if (medicineModel.getMedicineTotalQty() != null) {
+                tvMedicineQtyPerPc.setText(medicineModel.getMedicineTotalQty());
             }
 
             mView.setOnClickListener(v -> {
