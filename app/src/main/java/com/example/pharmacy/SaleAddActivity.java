@@ -239,6 +239,16 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     }
 
+  /*
+    private void insertCustomerItems() {
+        if(isEdit){
+            saleList.setSaleInvoiceNo(saleList.getSaleInvoiceNo());
+        }
+        saleList.setSaleInvoiceDate(edtSaleInvoiceDate.getText().toString());
+
+    }
+   */
+
     private boolean validateField() {
         if (TextUtils.isEmpty(edtCustomerName_add.getText().toString().trim())) {
             tilCustomerName.setErrorEnabled(true);

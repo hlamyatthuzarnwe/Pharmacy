@@ -153,7 +153,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 Log.d(TAG, "onCreate: getId : " + singleSupplierModel.getSupplierName());
                 edtSupplierName.setText(singleSupplierModel.getSupplierName());
                 edtMedicineCompanyName.setText(singleSupplierModel.getCompanyName());
-                edtAddress.setText(singleSupplierModel.getCompanyName());
+                edtAddress.setText(singleSupplierModel.getCompanyAddress());
                 edtContactMedicinePh1.setText(singleSupplierModel.getSuplier_phno1());
             }
         }

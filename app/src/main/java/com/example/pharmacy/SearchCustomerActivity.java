@@ -94,9 +94,9 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
 
         if (!customerModelList.isEmpty()) {
             adapter.getCustomerModelList().addAll(customerModelList);
-
+            adapter.notifyDataSetChanged();
         }
-        adapter.notifyDataSetChanged();
+
     }
 
 
