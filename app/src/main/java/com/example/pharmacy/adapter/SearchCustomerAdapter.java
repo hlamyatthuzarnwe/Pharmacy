@@ -61,14 +61,14 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
         TextView customerName;
 
         private Context context;
-       // private CustomerModel cModel;
+        private CustomerModel cModel;
 
         public SearchCustomerViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             context = itemView.getContext();
             cView = itemView;
-          //  cModel = SingleCustomerModel.getCustomer();
+            cModel = SingleCustomerModel.getCustomer();
         }
 
         public void bind(CustomerModel model) {
@@ -78,13 +78,8 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
 
             cView.setOnClickListener(v -> {
 
-                Intent intent = new Intent(context, SaleAddActivity.class);
-                intent.putExtra("CustomerModel", model);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                context.startActivity(intent);
                // Log.d(TAG, "bind: cModel : "+cModel.getCustomerName());
-                Log.d(TAG, "bind: model : "+model.getCustomerName());
-                /*
+
                 cModel.setCustomerId(model.getCustomerId());
                 cModel.setCustomerName(model.getCustomerName());
                 cModel.setCustomerAddress(model.getCustomerAddress());
@@ -94,12 +89,12 @@ public class SearchCustomerAdapter extends RecyclerView.Adapter<SearchCustomerAd
 
                 cModel.setSaleModels(model.getSaleModels());
 
+                 Log.d(TAG, "bind: cModel : "+cModel.getCustomerName());
 
                 Intent intent = new Intent(context, SaleAddActivity.class);
-                intent.putExtra("CustomerModel",model);
                 context.startActivity(intent);
                 ((Activity)context).finish();
-                 */
+
             });
         }
     }
