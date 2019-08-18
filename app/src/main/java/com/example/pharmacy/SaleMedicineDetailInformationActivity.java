@@ -67,7 +67,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         if (medicineModel != null) {
             edtSaleMedicineName.setText(medicineModel.getMedicineName());
             edtSaleMedicinePcPrice1.setText(medicineModel.getMedicineSalePcPerPrice1());
-            edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
+           // edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
              /*
               edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
              edtMedicneSubAmt.setText(medicineModel.getMedicineSubAmt());
@@ -118,13 +118,13 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
                 String mCostPerPc = edtSaleMedicinePcPrice1.getText().toString();
                 String mQtyPerPc = edtMedicinePcQty.getText().toString();
                 String mSubAmt = edtMedicneSubAmt.getText().toString();
-
-                medicineModel.setMedicineName(mName);
-                medicineModel.setMedicineCostPerPc(mCostPerPc);
-                medicineModel.setMedicineQtyPerPc(mQtyPerPc);
-                medicineModel.setMedicineSubAmt(mSubAmt);
+                MedicineModel mModel = new MedicineModel();
+                mModel.setMedicineName(mName);
+                mModel.setMedicineCostPerPc(mCostPerPc);
+                mModel.setMedicineQtyPerPc(mQtyPerPc);
+                mModel.setMedicineSubAmt(mSubAmt);
                 // Log.d("SaleAdd", "onCreate: SubAmt : " + medicineModel.getMedicineSubAmt());
-                medicineList.add(medicineModel);
+                medicineList.add(mModel);
                 Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
 
 

@@ -75,19 +75,26 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         }
 
         public void bind(MedicineModel medicineModel) {
-            if (medicineModel.getMedicineName() != null) {
-                tvMedicineName.setText(" " + medicineModel.getMedicineName());
-            }
-            if (medicineModel.getSupplierModel().getCompanyName() != null) {
-                tvMedicineCompanyName.setText(" " + medicineModel.getSupplierModel().getCompanyName());
-            }
-            if (medicineModel.getSupplierModel() != null) {
-                tvMedicineSupplierName.setText(" " + medicineModel.getSupplierModel().getSupplierName());
+            if (medicineModel != null){
+                if (medicineModel.getMedicineName() != null) {
+                    tvMedicineName.setText(" " + medicineModel.getMedicineName());
+                }
+
+                if (medicineModel.getSupplierModel() != null) {
+                    if (medicineModel.getSupplierModel().getSupplierName() != null){
+                        tvMedicineSupplierName.setText(" " + medicineModel.getSupplierModel().getSupplierName());
+                    }
+
+                    if (medicineModel.getSupplierModel().getCompanyName() != null) {
+                        tvMedicineCompanyName.setText(" " + medicineModel.getSupplierModel().getCompanyName());
+                    }
+                }
+
+                if (medicineModel.getMedicineTotalQty() != null) {
+                    tvMedicineQtyPerPc.setText(medicineModel.getMedicineTotalQty());
+                }
             }
 
-            if (medicineModel.getMedicineTotalQty() != null) {
-                tvMedicineQtyPerPc.setText(medicineModel.getMedicineTotalQty());
-            }
 
             mView.setOnClickListener(v -> {
                 Intent intent = new Intent(context, MedicineDetailActivity.class);
