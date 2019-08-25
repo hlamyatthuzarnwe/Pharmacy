@@ -29,20 +29,20 @@ import com.example.pharmacy.helper.SaleAddList;
 import com.example.pharmacy.helper.SingleCustomerModel;
 import com.example.pharmacy.model.CustomerModel;
 import com.example.pharmacy.model.MedicineModel;
-import com.example.pharmacy.model.SaleListModel;
 import com.example.pharmacy.model.SaleModel;
+import com.example.pharmacy.model.SingleQty;
 import com.example.yy.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
-import io.realm.RealmChangeListener;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 
@@ -92,16 +92,19 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
     @BindView(R.id.linearExistingCustomer_saleAdd)
     LinearLayout linearExistingCustomer;
-
-    private Realm realm;
-    private MedicineModel medicineModel;
-
-    private SaleAddMedicineAdapter adapter;
-    private Toolbar toolbar;
+    HashMap<String, String> hashMap = new HashMap<>();
+    String[] parts;
+    String qty = "";
+    ArrayList<String> medicineKeys = new ArrayList<>();
+    List<String> arList = new ArrayList<>();
 
     //    @BindView(R.id.tvMedicieDetail)
 //    TextView tvMedicieDetail;
-
+    private Realm realm;
+    private MedicineModel medicineModel;
+    private ArrayList<String> arrQty;
+    private SaleAddMedicineAdapter adapter;
+    private Toolbar toolbar;
     private Context context;
     private RealmList<MedicineModel> medicineList;
     private ArrayList<MedicineModel> mModel = new ArrayList<>();
@@ -121,33 +124,43 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Sale Data");
         setSupportActionBar(toolbar);
-         medicineList = MedicineModelList.getInstance().getMedicineModelRealmList();
+        medicineList = MedicineModelList.getInstance().getMedicineModelRealmList();
         singleCustomer = SingleCustomerModel.getCustomer();
+
+        saleModel = (SaleModel) getIntent().getParcelableExtra("Sale");
+        mModel = getIntent().getParcelableArrayListExtra("Medicine");
+
+        arrQty = SingleQty.getQty();
         saleList = SaleAddList.getSaleItems();
         realm = Realm.getDefaultInstance();
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        adapter = new SaleAddMedicineAdapter();
+        if (saleModel != null) {
+            arrQty.add(saleModel.getSaleQtyPerPc());
+
+        }
+        adapter = new SaleAddMedicineAdapter(TextUtils.join(",", arrQty));
+
         adapter.registerCallback(SaleAddActivity.this);
         rvMedicine.setLayoutManager(layoutManager);
         rvMedicine.setAdapter(adapter);
 
+
         setUpSaleInvoiceDate();
 
-        saleModel = (SaleModel) getIntent().getParcelableExtra("Sale");
-        mModel = getIntent().getParcelableArrayListExtra("Medicine");
+
         // singleCustomer = (CustomerModel) getIntent().getParcelableExtra("CustomerModel");
 
 
         if (singleCustomer != null) {
-            Log.d(TAG, "onCreate: singel cu name ; " + singleCustomer.getCustomerName());
+          //  Log.d(TAG, "onCreate: singel cu name ; " + singleCustomer.getCustomerName());
             edtCustomerName_add.setText(singleCustomer.getCustomerName());
             edtCustomerAddress_add.setText(singleCustomer.getCustomerAddress());
             edtCustomerPhNo1.setText(singleCustomer.getCustomerPhNo1());
         }
 
         if (saleList.getSaleCustomerName() != null) {
-            Log.d(TAG, "onCreate: InvoiceDate : " + saleList.getSaleInvoiceDate());
+          //  Log.d(TAG, "onCreate: InvoiceDate : " + saleList.getSaleInvoiceDate());
             idInvoiceSingle = saleList.getSaleInvoiceNo();
             edtSaleInvoiceDate.setText(saleList.getSaleInvoiceDate());
             if (TextUtils.isEmpty(singleCustomer.getCustomerName())) {
@@ -157,21 +170,37 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
             }
 
 
-        }else if (saleModel != null){
+        } else if (saleModel != null) {
+            try {
+                for (String comma : TextUtils.split(saleModel.getSaleQtyPerPc(), ",")) {
+                    parts = comma.split(":", 2);
+                    hashMap.put(parts[0], parts[1]);
 
-            if (mModel != null){
+                }
+                for (String ss : hashMap.keySet()) {
+                    medicineKeys.add(ss);
+
+                }
+                //  List<String> mm = medicineKeys.subList();
+                arList = medicineKeys;
+                String[] finalAs = arList.toArray(new String[0]);
+                RealmResults<MedicineModel> mmLists = realm.where(MedicineModel.class)
+                        .in("medicineName", finalAs).findAll();
+
                 adapter.clear();
-                Log.d(TAG, "onCreate: "+mModel.size());
-                medicineList.addAll(mModel);
+                medicineList.addAll(mmLists);
                 adapter.notifyDataSetChanged();
+
+            }catch (ArrayIndexOutOfBoundsException e){
+                Log.d(TAG, "onCreate: e : "+e.getLocalizedMessage());
             }
 
 
 
-            Log.d(TAG, "onCreate: saleModel : "+saleModel.getSaleInvoiceNo());
-            Log.d(TAG, "onCreate: "+saleModel.getSaleCustomerName());
-            Log.d(TAG, "onCreate: "+saleModel.getSaleCustomerAddress());
-            Log.d(TAG, "onCreate: "+saleModel.getSaleCustomerPhNo1());
+          /*  Log.d(TAG, "onCreate: saleModel : " + saleModel.getSaleInvoiceNo());
+            Log.d(TAG, "onCreate: " + saleModel.getSaleCustomerName());
+            Log.d(TAG, "onCreate: " + saleModel.getSaleCustomerAddress());
+            Log.d(TAG, "onCreate: " + saleModel.getSaleCustomerPhNo1());*/
             idInvoice = saleModel.getSaleInvoiceNo();
             isEdit = !TextUtils.isEmpty(idInvoice);
             edtSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
@@ -182,7 +211,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
 
         if (medicineList != null) {
             adapter.clear();
-            Log.d(TAG, "onCreate: medicineList : " + medicineList.size());
+          //  Log.d(TAG, "onCreate: medicineList : " + medicineList.size());
             adapter.getSaleModelList().addAll(medicineList);
             adapter.notifyDataSetChanged();
             int amount = 0;
@@ -198,9 +227,6 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
                 adapter.getSaleModelList().add(m);
             }*/
         }
-
-
-      
 
 
         linearExistingCustomer.setOnClickListener(view -> {
@@ -275,7 +301,7 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         String saleCustomerPhNo1 = edtCustomerPhNo1.getText().toString();
 
         //  Log.d(TAG, "insertSaleItems: invoice : "+saleInvoiceDate);
-        if (saleModel != null){
+        if (saleModel != null) {
             saleList.setSaleInvoiceNo(saleModel.getSaleInvoiceNo());
         }
         saleList.setSaleInvoiceDate(saleInvoiceDate);
@@ -298,14 +324,14 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         // Log.d(TAG, "insertData: invoide : "+MedicineModelList.getNumber());
         RealmResults<SaleModel> ss = realm.where(SaleModel.class).findAll();
         int invoiceNumber = ss.size() + 1;
-        if (!TextUtils.isEmpty(saleList.getSaleInvoiceNo())){
+        if (!TextUtils.isEmpty(saleList.getSaleInvoiceNo())) {
             sModel.setSaleInvoiceNo(saleList.getSaleInvoiceNo());
-        }else if (saleModel != null){
-            if (saleModel.getSaleInvoiceNo() != null){
+        } else if (saleModel != null) {
+            if (saleModel.getSaleInvoiceNo() != null) {
                 sModel.setSaleInvoiceNo(saleModel.getSaleInvoiceNo());
             }
 
-        }else {
+        } else {
             sModel.setSaleInvoiceNo(String.valueOf(invoiceNumber));
         }
         sModel.setSaleInvoiceDate(saleInvoiceDate);
@@ -313,11 +339,12 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         sModel.setSaleCustomerAddress(edtCustomerAddress_add.getText().toString());
         sModel.setSaleCustomerPhNo1(edtCustomerPhNo1.getText().toString());
         sModel.setSaleTotalAmt(tvTotalAmount.getText().toString());
+        sModel.setSaleQtyPerPc(TextUtils.join(",", arrQty));
         sModel.setMedicineLists(medicineList);
         sale.add(sModel);
 
         if (!TextUtils.isEmpty(singleCustomer.getCustomerName())) {
-            Log.d(TAG, "insertData: sin cu name : " + singleCustomer);
+          //  Log.d(TAG, "insertData: sin cu name : " + singleCustomer);
             RealmList<SaleModel> ssm = new RealmList<>();
             ssm.addAll(singleCustomer.getSaleModels());
             ssm.addAll(sale);
@@ -325,13 +352,33 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
             singleCustomer.setSaleModels(ssm);
 
 
-            Log.d(TAG, "insertData: medicine size : " + medicineList.size());
-            Log.d(TAG, "insertData: ssm : " + ssm);
-
+        //    Log.d(TAG, "insertData: medicine size : " + medicineList.size());
+          //  Log.d(TAG, "insertData: ssm : " + ssm);
 
         } else {
-            Log.d(TAG, "insertData: null serach");
-            cModel.setCustomerId(UUID.randomUUID().toString());
+            if (isEdit){
+                CustomerModel customer = realm.where(CustomerModel.class)
+                        .equalTo("customerName",saleModel.getSaleCustomerName())
+                        .and()
+                        .equalTo("customerPhNo1",saleModel.getSaleCustomerPhNo1())
+                        .findFirst();
+                if (customer != null) {
+                    cModel.setCustomerId(customer.getCustomerId());
+                }
+            }else if (saleList.getSaleCustomerName() != null){
+                CustomerModel customer = realm.where(CustomerModel.class)
+                        .equalTo("customerName",saleList.getSaleCustomerName())
+                        .and()
+                        .equalTo("customerPhNo1",saleList.getSaleCustomerPhNo1())
+                        .findFirst();
+                if (customer != null) {
+                    cModel.setCustomerId(customer.getCustomerId());
+                }
+            }else{
+                cModel.setCustomerId(UUID.randomUUID().toString());
+            }
+          //  Log.d(TAG, "insertData: null serach");
+
             cModel.setCustomerName(edtCustomerName_add.getText().toString());
             cModel.setCustomerAddress(saleCustomerAddress);
             cModel.setCustomerPhNo1(saleCustomerPhNo1);
@@ -342,17 +389,18 @@ public class SaleAddActivity extends AppCompatActivity implements AdapterView.On
         realm.executeTransaction(realm -> {
             realm.copyToRealmOrUpdate(sModel);
             if (!TextUtils.isEmpty(singleCustomer.getCustomerName())) {
-                Log.d(TAG, "insertData: searched Customer");
+             //   Log.d(TAG, "insertData: searched Customer");
 
 
                 realm.copyToRealmOrUpdate(singleCustomer);
             } else {
-                Log.d(TAG, "insertData: normal customer");
+            //    Log.d(TAG, "insertData: normal customer");
                 realm.copyToRealmOrUpdate(cModel);
             }
             MedicineModelList.getInstance().clear();
             SaleAddList.clear();
             SingleCustomerModel.clear();
+            SingleQty.clear();
 
             Toast.makeText(SaleAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
         });

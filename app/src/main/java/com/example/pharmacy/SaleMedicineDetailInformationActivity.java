@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.pharmacy.helper.MedicineModelList;
 import com.example.pharmacy.model.MedicineModel;
+import com.example.pharmacy.model.SingleQty;
 import com.example.yy.R;
 
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Context context;
     private RealmList<MedicineModel> medicineList;
+    private String lucky;
+    private ArrayList<String> arrQty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,7 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         realm = Realm.getDefaultInstance();
         medicineList = MedicineModelList.getInstance().getMedicineModelRealmList();
+        arrQty = SingleQty.getQty();
         medicineModel = (MedicineModel) getIntent().getParcelableExtra("MedicineModel");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -111,20 +115,24 @@ public class SaleMedicineDetailInformationActivity extends AppCompatActivity {
                 int saleQty = Integer.parseInt(edtMedicinePcQty.getText().toString());
                 int finalQty = qty - saleQty;
                 medicineModel.setMedicineTotalQty(String.valueOf(finalQty));
+                String qq = edtMedicinePcQty.getText().toString();
+                String nn = medicineModel.getMedicineName();
+                lucky = nn+":"+qq;
+                arrQty.add(lucky);
 
                 realm.executeTransaction(realm -> realm.copyToRealmOrUpdate(medicineModel));
 
                 String mName = edtSaleMedicineName.getText().toString();
-                String mCostPerPc = edtSaleMedicinePcPrice1.getText().toString();
                 String mQtyPerPc = edtMedicinePcQty.getText().toString();
                 String mSubAmt = edtMedicneSubAmt.getText().toString();
                 MedicineModel mModel = new MedicineModel();
-                mModel.setMedicineName(mName);
+              /*  mModel.setMedicineName(mName);
                 mModel.setMedicineCostPerPc(mCostPerPc);
                 mModel.setMedicineQtyPerPc(mQtyPerPc);
-                mModel.setMedicineSubAmt(mSubAmt);
+                mModel.setMedicineSubAmt(mSubAmt);*/
+              medicineModel.setMedicineSubAmt(mSubAmt);
                 // Log.d("SaleAdd", "onCreate: SubAmt : " + medicineModel.getMedicineSubAmt());
-                medicineList.add(mModel);
+                medicineList.add(medicineModel);
                 Toast.makeText(SaleMedicineDetailInformationActivity.this, "Successfully Complete Sale Data", Toast.LENGTH_SHORT).show();
 
 

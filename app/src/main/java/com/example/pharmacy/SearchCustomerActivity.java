@@ -65,6 +65,7 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
         });
 
     }
+
     private void init() {
         swipe.setRefreshing(false);
         swipe.setOnRefreshListener(this);
@@ -74,6 +75,7 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
         rvCustomer.setLayoutManager(linearLayoutManager);
         rvCustomer.setAdapter(adapter);
     }
+
     private void getAllCustomer() {
         adapter.clear();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class).findAll();
@@ -87,7 +89,7 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
 
 
     private void getSearchCustomer(String name) {
-      //  adapter.clear();
+        //  adapter.clear();
         final List<CustomerModel> customerModelList = realm.where(CustomerModel.class)
                 .contains("customerName", name, Case.INSENSITIVE).findAll();
         // Log.d(TAG,"getSearchData : "+medicineModelList.size());
@@ -98,10 +100,6 @@ public class SearchCustomerActivity extends AppCompatActivity implements SwipeRe
         }
 
     }
-
-
-
-
 
 
     @Override

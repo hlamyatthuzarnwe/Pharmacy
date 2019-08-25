@@ -1,9 +1,9 @@
 package com.example.pharmacy.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pharmacy.SaleAddActivity;
-import com.example.pharmacy.SaleDetailActivity;
 import com.example.pharmacy.helper.AmountCallback;
 import com.example.pharmacy.helper.MedicineModelList;
 import com.example.pharmacy.model.MedicineModel;
-import com.example.pharmacy.model.SaleModel;
+import com.example.pharmacy.model.SingleQty;
 import com.example.yy.R;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,6 +31,11 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
     private static final String TAG = "SaleAddMedicineAdapter";
     private List<MedicineModel> saleModelList = new ArrayList<>();
     private AmountCallback amountCallback;
+    private String sale_medicine;
+
+    public SaleAddMedicineAdapter(String sale_medicine) {
+        this.sale_medicine = sale_medicine;
+    }
 
     public void registerCallback(AmountCallback callbackClass) {
         amountCallback = callbackClass;
@@ -70,23 +72,19 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
     public class SaleAddViewHolder extends RecyclerView.ViewHolder {
 
         public View saleAddView;
-        private Context context;
-
         @BindView(R.id.ivDelete_itemMedicineAdd)
         ImageView ivDelete;
-
         @BindView(R.id.tvSaleMedicineName)
         TextView tvSaleMedicineName;
-
-
         @BindView(R.id.tvSaleQtyPerPc)
         TextView tvSaleQtyPerPc;
-
         @BindView(R.id.tvSaleSubAmtPerPc)
         TextView tvSaleSubAmtPerPc;
-
+        String qty = "";
         private Realm realm;
         private RealmList<MedicineModel> medicineList;
+        private Context context;
+        private ArrayList<String> luck;
 
 
         public SaleAddViewHolder(@NonNull View itemView) {
@@ -96,28 +94,51 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
             saleAddView = itemView;
             realm = Realm.getDefaultInstance();
             medicineList = MedicineModelList.getInstance().getMedicineModelRealmList();
+            luck = SingleQty.getQty();
 
         }
 
         public void bind(MedicineModel medicineModel) {
-            Log.d(TAG, "bind: name : " + medicineModel.getMedicineName());
+
+            HashMap<String, String> hashMap = new HashMap<>();
+            String[] parts;
+
+
+
+            if (sale_medicine != null) {
+                for (String comma : TextUtils.split(sale_medicine, ",")) {
+                    parts = comma.split(":", 2);
+                    hashMap.put(parts[0], parts[1]);
+
+                }
+                if (medicineModel.getMedicineName() != null) {
+                    for (String ss : hashMap.keySet()) {
+                        if (ss.toLowerCase().trim().equals(medicineModel.getMedicineName().toLowerCase().trim())) {
+                            qty = hashMap.get(ss);
+                            tvSaleQtyPerPc.setText(hashMap.get(ss));
+                        }
+                    }
+
+                }
+            }
+
             if (medicineModel.getMedicineName() != null) {
                 tvSaleMedicineName.setText(medicineModel.getMedicineName());
             }
-            if (medicineModel.getMedicineQtyPerPc() != null) {
-                tvSaleQtyPerPc.setText(medicineModel.getMedicineQtyPerPc());
-            }
+
             if (medicineModel.getMedicineSubAmt() != null) {
                 tvSaleSubAmtPerPc.setText(medicineModel.getMedicineSubAmt());
             }
-            Log.d(TAG, "bind: before delete : "+medicineList.size());
-
 
 
             ivDelete.setOnClickListener(view -> {
+                medicineList.remove(medicineModel);
+                hashMap.remove(medicineModel.getMedicineName());
+                String k = medicineModel.getMedicineName() + ":" + qty;
+
+                luck.remove(k);
 
 
-                    medicineList.remove(medicineModel);
                 int amount = 0;
                 for (int i = 0; i < medicineList.size(); i++) {
                     if (medicineList.get(i) != null) {
@@ -131,7 +152,7 @@ public class SaleAddMedicineAdapter extends RecyclerView.Adapter<SaleAddMedicine
                 getSaleModelList().addAll(medicineList);
                 notifyDataSetChanged();
 
-                Log.d(TAG, "bind: after delete : "+medicineList.size());
+                Log.d(TAG, "bind: after delete : " + medicineList.size());
             });
 
         }

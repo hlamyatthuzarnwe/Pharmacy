@@ -85,9 +85,7 @@ public class SaleMedicineDetailAdapter extends RecyclerView.Adapter<SaleMedicine
             if (medicineModel.getMedicineCostPerPc() != null) {
                 tvMedicinePrice_saleMedicine.setText(medicineModel.getMedicineCostPerPc());
             }
-            if (medicineModel.getMedicineQtyPerPc() != null) {
-                tvMedicineQty_saleMedicine.setText(medicineModel.getMedicineQtyPerPc());
-            }
+
             if (medicineModel.getMedicineSubAmt() != null) {
                 tvMedicineSubAmt_saleMedicine.setText(medicineModel.getMedicineSubAmt());
             }

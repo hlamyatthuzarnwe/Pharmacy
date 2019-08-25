@@ -17,6 +17,7 @@
         android:orientation="vertical"
         android:padding="5dp">
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivDelete_itemMedicineAdd"
             android:layout_width="20dp"
             android:layout_height="20dp"

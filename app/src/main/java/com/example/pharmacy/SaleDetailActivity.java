@@ -69,13 +69,14 @@ public class SaleDetailActivity extends AppCompatActivity {
         toolbar.setTitle("Sale Detail ");
         setSupportActionBar(toolbar);
 
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        adapter = new MedicineSaleDetailAdapter();
-        rvMedicine.setAdapter(adapter);
-        rvMedicine.setLayoutManager(manager);
+
 
 
         if (saleModel != null) {
+            LinearLayoutManager manager = new LinearLayoutManager(this);
+            adapter = new MedicineSaleDetailAdapter(saleModel.getSaleQtyPerPc());
+            rvMedicine.setAdapter(adapter);
+            rvMedicine.setLayoutManager(manager);
             // tvSaleInvoiceNo.setText(String.valueOf(saleModel.getSaleInvoiceNo()));
             tvSaleInvoiceDate.setText(saleModel.getSaleInvoiceDate());
             tvSaleCustomerName_detail.setText(saleModel.getSaleCustomerName());

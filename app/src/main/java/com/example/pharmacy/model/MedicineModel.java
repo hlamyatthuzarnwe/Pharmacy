@@ -8,39 +8,6 @@ import io.realm.annotations.PrimaryKey;
 
 public class MedicineModel extends RealmObject implements Parcelable {
 
-    @PrimaryKey
-    private String medcineId;
-
-    private String medicineName;
-    private String medicineCostPerPc;
-    private String medicineQtyPerPc;
-    private String medicineTotalQty;
-    private String medicineSalePcPerPrice1;
-    private String medicineReceivedDate;
-    private String medicineExpDate;
-    private String medicineNote;
-    private SupplierModel supplierModel;
-
-    private String medicineSubAmt;
-
-    public MedicineModel() {
-    }
-
-    protected MedicineModel(Parcel in) {
-        medcineId = in.readString();
-        medicineName = in.readString();
-        medicineCostPerPc = in.readString();
-        medicineQtyPerPc = in.readString();
-        medicineTotalQty = in.readString();
-        medicineSalePcPerPrice1 = in.readString();
-        medicineReceivedDate = in.readString();
-        medicineExpDate = in.readString();
-        medicineNote = in.readString();
-        supplierModel = in.readParcelable(SupplierModel.class.getClassLoader());
-
-        medicineSubAmt = in.readString();
-    }
-
     public static final Creator<MedicineModel> CREATOR = new Creator<MedicineModel>() {
         @Override
         public MedicineModel createFromParcel(Parcel in) {
@@ -52,10 +19,33 @@ public class MedicineModel extends RealmObject implements Parcelable {
             return new MedicineModel[size];
         }
     };
+    @PrimaryKey
+    private String medcineId;
+    private String medicineName;
+    private String medicineCostPerPc;
+    private String medicineTotalQty;
+    private String medicineSalePcPerPrice1;
+    private String medicineReceivedDate;
+    private String medicineExpDate;
+    private String medicineNote;
+    private SupplierModel supplierModel;
+    private String medicineSubAmt;
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public MedicineModel() {
+    }
+
+    protected MedicineModel(Parcel in) {
+        medcineId = in.readString();
+        medicineName = in.readString();
+        medicineCostPerPc = in.readString();
+        medicineTotalQty = in.readString();
+        medicineSalePcPerPrice1 = in.readString();
+        medicineReceivedDate = in.readString();
+        medicineExpDate = in.readString();
+        medicineNote = in.readString();
+        supplierModel = in.readParcelable(SupplierModel.class.getClassLoader());
+
+        medicineSubAmt = in.readString();
     }
 
     public static Creator<MedicineModel> getCREATOR() {
@@ -63,11 +53,15 @@ public class MedicineModel extends RealmObject implements Parcelable {
     }
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(medcineId);
         parcel.writeString(medicineName);
         parcel.writeString(medicineCostPerPc);
-        parcel.writeString(medicineQtyPerPc);
         parcel.writeString(medicineTotalQty);
         parcel.writeString(medicineSalePcPerPrice1);
         parcel.writeString(medicineReceivedDate);
@@ -116,14 +110,6 @@ public class MedicineModel extends RealmObject implements Parcelable {
 
     public void setMedicineCostPerPc(String medicineCostPerPc) {
         this.medicineCostPerPc = medicineCostPerPc;
-    }
-
-    public String getMedicineQtyPerPc() {
-        return medicineQtyPerPc;
-    }
-
-    public void setMedicineQtyPerPc(String medicineQtyPerPc) {
-        this.medicineQtyPerPc = medicineQtyPerPc;
     }
 
     public String getMedicineSalePcPerPrice1() {

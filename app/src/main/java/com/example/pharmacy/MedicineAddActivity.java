@@ -128,7 +128,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             }
             edtMedicineName.setText(medicineModel.getMedicineName());
             edtMedicinePcCostPrice.setText(medicineModel.getMedicineCostPerPc());
-            edtMedicinePcQty.setText(medicineModel.getMedicineQtyPerPc());
+            edtMedicinePcQty.setText(medicineModel.getMedicineTotalQty());
             if (medicineModel.getSupplierModel() != null) {
                 edtMedicineCompanyName.setText(medicineModel.getSupplierModel().getCompanyName());
                 edtAddress.setText(medicineModel.getSupplierModel().getCompanyAddress());
@@ -144,13 +144,13 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
             idSingleMedicine = singleMedicineModel.getMedcineId();
             edtMedicineName.setText(singleMedicineModel.getMedicineName());
             edtMedicinePcCostPrice.setText(singleMedicineModel.getMedicineCostPerPc());
-            edtMedicinePcQty.setText(singleMedicineModel.getMedicineQtyPerPc());
+            edtMedicinePcQty.setText(singleMedicineModel.getMedicineTotalQty());
             edtSaleMedicinePcPrice1.setText(singleMedicineModel.getMedicineSalePcPerPrice1());
             edtMedicineReceivedDate.setText(singleMedicineModel.getMedicineReceivedDate());
             edtMedicineExpDate.setText(singleMedicineModel.getMedicineExpDate());
 
             if (singleSupplierModel.getSupplierId() != null) {
-                Log.d(TAG, "onCreate: getId : " + singleSupplierModel.getSupplierName());
+              //  Log.d(TAG, "onCreate: getId : " + singleSupplierModel.getSupplierName());
                 edtSupplierName.setText(singleSupplierModel.getSupplierName());
                 edtMedicineCompanyName.setText(singleSupplierModel.getCompanyName());
                 edtAddress.setText(singleSupplierModel.getCompanyAddress());
@@ -185,13 +185,14 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 String mExpDate = edtMedicineExpDate.getText().toString();
 
 
-                if (!TextUtils.isEmpty(idEdit)){
+                if (!TextUtils.isEmpty(idEdit)) {
                     mModel.setMedcineId(idEdit);
-                }else if (!TextUtils.isEmpty(idSingleMedicine)){
+                } else if (!TextUtils.isEmpty(idSingleMedicine)) {
                     mModel.setMedcineId(idSingleMedicine);
-                }else {
+                } else {
                     mModel.setMedcineId(UUID.randomUUID().toString());
                 }
+
 
                 mModel.setMedicineName(mName);
                 mModel.setMedicineCostPerPc(mCostPerPc);
@@ -201,11 +202,16 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 mModel.setMedicineExpDate(mExpDate);
 
                 if (singleSupplierModel.getSupplierId() != null) {
-                    Log.d(TAG, "onCreate: Single Model Condition : " + singleSupplierModel.getSupplierName());
+                 //   Log.d(TAG, "onCreate: Single Model Condition : " + singleSupplierModel.getSupplierName());
                     mModel.setSupplierModel(singleSupplierModel);
                 } else {
-                    Log.d(TAG, "onCreate: Normal Model Condition");
-                    supplierModel.setSupplierId(UUID.randomUUID().toString());
+                    if (is_edit) {
+                        supplierModel.setSupplierId(medicineModel.getSupplierModel().getSupplierId());
+                    } else {
+                        supplierModel.setSupplierId(UUID.randomUUID().toString());
+                    }
+                 //   Log.d(TAG, "onCreate: Normal Model Condition");
+
                     supplierModel.setCompanyName(mCompanyName);
                     supplierModel.setCompanyAddress(address);
                     supplierModel.setSupplierName(mSupplierName);
@@ -217,11 +223,11 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
 
                 realm.executeTransactionAsync(realm -> {
                     if (singleSupplierModel.getSupplierId() != null) {
-                        Log.d(TAG, "onCreate: single Model : " + singleSupplierModel.getSupplierName());
+                      //  Log.d(TAG, "onCreate: single Model : " + singleSupplierModel.getSupplierName());
                         realm.copyToRealmOrUpdate(singleSupplierModel);
                     } else {
-                        Log.d(TAG, "onCreate: Normal Model");
-                        Log.d(TAG, "onCreate: ");
+                    //    Log.d(TAG, "onCreate: Normal Model");
+                    //    Log.d(TAG, "onCreate: ");
                         realm.copyToRealmOrUpdate(supplierModel);
                     }
 
@@ -230,7 +236,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
                 SingleSupplierModel.clear();
                 SupplierAddList.clear();
                 Toast.makeText(MedicineAddActivity.this, "Successfully Add Data", Toast.LENGTH_SHORT).show();
-                 Intent intent = new Intent(MedicineAddActivity.this,MainActivity.class);
+                Intent intent = new Intent(MedicineAddActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -257,7 +263,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         }
         singleMedicineModel.setMedicineCostPerPc(edtMedicinePcCostPrice.getText().toString());
         singleMedicineModel.setMedicineName(edtMedicineName.getText().toString());
-        singleMedicineModel.setMedicineQtyPerPc(edtMedicinePcQty.getText().toString());
+        singleMedicineModel.setMedicineTotalQty(edtMedicinePcQty.getText().toString());
         singleMedicineModel.setMedicineSalePcPerPrice1(edtSaleMedicinePcPrice1.getText().toString());
         singleMedicineModel.setMedicineReceivedDate(edtMedicineReceivedDate.getText().toString());
         singleMedicineModel.setMedicineExpDate(edtMedicineExpDate.getText().toString());
@@ -388,22 +394,7 @@ public class MedicineAddActivity extends AppCompatActivity implements AdapterVie
         finish();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (is_edit) {
-            medicineModel.setMedcineId(idEdit);
-        } else {
-            medicineModel.setMedcineId(UUID.randomUUID().toString());
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
