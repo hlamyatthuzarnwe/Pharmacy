@@ -101,22 +101,22 @@ public class SaleDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.edit_detail, menu);
+        getMenuInflater().inflate(R.menu.delete_sale_detail, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if (item.getItemId() == R.id.edit_data) {
+    /*    if (item.getItemId() == R.id.edit_data) {
             Intent intent = new Intent(SaleDetailActivity.this, SaleAddActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("Sale", saleModel);
             intent.putExtra("Medicine", mModel);
             startActivity(intent);
-        }
-        if (item.getItemId() == R.id.delete_data) {
+        }*/
+        if (item.getItemId() == R.id.delete_sale_data) {
             String sId = saleModel.getSaleInvoiceNo();
 
             final SaleModel deleteResults = realm.where(SaleModel.class).equalTo("saleInvoiceNo", sId).findFirst();
