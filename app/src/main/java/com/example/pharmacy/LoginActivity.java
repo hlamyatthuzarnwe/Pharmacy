@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String mVerificationId;
 
-    //    @BindView(R.id.imgLogo)
+//    @BindView(R.id.imgLogo)
 //    ImageView imgLogo;
 //
 //    @BindView(R.id.tvLogoName)
