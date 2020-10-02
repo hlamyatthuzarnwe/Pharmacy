@@ -104,8 +104,5 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
             }
 
 
-
-
-
     }
 }

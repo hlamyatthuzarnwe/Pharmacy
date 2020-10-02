@@ -60,6 +60,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Medicine Name"
+                            android:inputType="text"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 
@@ -208,6 +209,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Supplier Name"
+                            android:inputType="text"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 
@@ -222,6 +224,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Company Name"
+                            android:inputType="text"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 
@@ -235,6 +238,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address"
+                            android:inputType="text"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 

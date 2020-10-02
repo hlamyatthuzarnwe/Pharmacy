@@ -136,6 +136,7 @@ public class MedicineModel extends RealmObject implements Parcelable {
         this.medicineExpDate = medicineExpDate;
     }
 
+
     public String getMedicineNote() {
         return medicineNote;
     }

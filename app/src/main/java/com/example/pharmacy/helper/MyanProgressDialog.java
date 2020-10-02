@@ -7,9 +7,6 @@ import android.graphics.drawable.ColorDrawable;
 
 import com.example.yy.R;
 
-
-
-
 /* Created by Aye Mon on 23-Mar-18.*/
 
 public class MyanProgressDialog {

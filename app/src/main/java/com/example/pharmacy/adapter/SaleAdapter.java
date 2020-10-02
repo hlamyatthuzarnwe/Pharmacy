@@ -57,7 +57,7 @@ public class SaleAdapter extends RecyclerView.Adapter<SaleAdapter.SaleViewHolder
     @Override
     public int getItemCount() {
         return saleModelList.size();
-    }
+    }//can minimize or maximize size of array as you like; sample return saleModelList.size(3);
 
     public class SaleViewHolder extends RecyclerView.ViewHolder {
 

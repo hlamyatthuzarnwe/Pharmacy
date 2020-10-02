@@ -12,6 +12,7 @@ import java.util.Locale;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class DateTimeHelper {
 
+
     public static final String LOCAL_DATE_TIME_FORMAT = "dd/MM/yyyy hh:mm a";
     public static final String LOCAL_DATE_TIME_DISPLAY_FORMAT = "dd MMM, yyyy hh:mm a";
 

@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name="com.example.pharmacy.SupplierSearchActivity"></activity>
-        <activity android:name="com.example.pharmacy.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.example.pharmacy.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name="com.example.pharmacy.SaleMedicineDetailInformationActivity" />
         <activity android:name="com.example.pharmacy.SaleMedicineInformationActivity" />
         <activity android:name="com.example.pharmacy.SplashActivity" >

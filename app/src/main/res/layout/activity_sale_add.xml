@@ -130,6 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Customer Name"
+                            android:inputType="text"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 
@@ -143,6 +144,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Customer Address"
+                            android:inputType="text"
                             android:padding="5dp" />
                     </android.support.design.widget.TextInputLayout>
 

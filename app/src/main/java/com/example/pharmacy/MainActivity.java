@@ -40,13 +40,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Fragment fragment = null;
     Class fragmentClass;
     private static int LOCATE_ACTIVITY = 0;
+
     @BindView(R.id.fabAddMedicine)
     FloatingActionButton fabAdd;
+
     SharepreferenceHelper share;
 
     private static final String TAG = "MainActivity";
     private Handler handler;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

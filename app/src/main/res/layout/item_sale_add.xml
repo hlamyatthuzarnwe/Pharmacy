@@ -10,20 +10,20 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="5dp">
+
         <ImageView
-            android:visibility="gone"
             android:id="@+id/ivDelete_itemMedicineAdd"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:src="@android:drawable/ic_delete" />
+            android:src="@android:drawable/ic_delete"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tvSaleMedicineName"
@@ -37,9 +37,9 @@
 
         <LinearLayout
             android:id="@+id/linearQtySaleAdd"
-            android:layout_below="@id/tvSaleMedicineName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tvSaleMedicineName"
             android:orientation="horizontal">
 
             <TextView
@@ -59,9 +59,9 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@id/linearQtySaleAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/linearQtySaleAdd"
             android:orientation="horizontal">
 
             <TextView
